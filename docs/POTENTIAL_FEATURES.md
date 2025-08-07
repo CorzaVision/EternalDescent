@@ -8,39 +8,138 @@
 
 ---
 
-## Near-Term Expansions (6-12 months)
+## Core Systems & Expansions
 
-### New Zones & Environments
+### Advanced Bag System Features
+**Inspiration:** WoW-inspired inventory system with entity integration (as documented in GDD)
 
-#### **Volcanic Depths**
+#### **Grid-Based Layout System**
+- **Visual Grid:** Items displayed in a customizable grid layout (WoW-inspired)
+- **Drag-and-Drop:** Intuitive item movement and organization (WoW-style)
+- **Slot Management:** Each slot can hold one item or stack
+- **Visual Feedback:** Clear indicators for item placement and movement
+- **Custom Arrangement:** Players can organize items as they prefer
+- **Preset Layouts:** Pre-configured arrangements for different playstyles
+- **Auto-Organization:** Automatic sorting and arrangement options
+
+#### **Item Categories & Management**
+- **Weapons:** Melee, ranged, and magic weapons with unique properties
+- **Armor:** Head, chest, legs, hands, feet, and accessory slots (WoW-style equipment)
+- **Consumables:** Health potions, mana potions, special elixirs
+- **Materials:** Crafting materials, rare resources, entity-influenced materials
+- **Quest Items:** Story-related items and special artifacts
+- **Stacking:** Similar items stack automatically with quantity limits
+- **Sorting Options:** Sort by type, rarity, value, weight, recent acquisition
+- **Filtering:** Show/hide specific item categories
+- **Quick Access:** Hotkey system for frequently used items
+- **Item Comparison:** Side-by-side stats when hovering items (WoW-style tooltips)
+
+#### **Weight Management System**
+- **Weight System:** Items have individual weight values
+- **Carry Capacity:** Player has maximum weight limit
+- **Overburdened Penalties:** Movement and combat penalties when over limit
+- **Weight Indicators:** Visual feedback for current weight vs. capacity
+- **Bag Expansion:** Purchase additional bag slots through hub progression (WoW-style)
+- **Bag Removal:** If a bag is removed, the inventory space it provided is also removed
+
+#### **Entity Integration in Bag System**
+- **Entity-Influenced Items:** Materials from deep floors have entity personality
+- **Adaptive Properties:** Item stats change based on entity mood
+- **Psychological Items:** Items that reflect entity's current strategy
+- **Counter-Items:** Entity creates items that challenge player preferences
+- **Item Preference Tracking:** Entity learns which items player prefers
+- **Usage Patterns:** Entity tracks how player uses different item types
+- **Counter-Strategies:** Entity provides items that challenge player's approach
+- **Psychological Warfare:** Entity creates "trap" items with false benefits
+
+#### **Advanced Bag Features**
+- **Living Materials:** Materials with entity personality and adaptive properties
+- **Hybrid Items:** Cross-category items with unique properties
+- **Entity Warfare:** Advanced psychological item manipulation
+- **Advanced Bag Expansion:** Multiple bag types and specialized storage
+- **Specialized Bags:** Different bag types for different item categories (weapon bags, material bags, etc.)
+
+### Zone-Based Mechanics & Systems
+**Inspiration:** Minecraft/RimWorld-inspired generation with zone-specific effects (as documented in GDD)
+
+#### **Zone-Specific Skill Effects**
+- **Skill Tree Adaptations:** Certain skills become stronger/weaker in specific zones
+- **Build Flexibility:** Players must adapt their skill usage to zone conditions
+- **Elemental Relationships:** Fire/ice/water/earth system with zone dominance
+- **Zone Dominance:** The dominant element in each zone affects all equipment
+- **Material Personality:** Materials from each zone have distinct "personalities"
+
+#### **Zone-Based Equipment Effects**
+- **Elemental Relationships:** Classic fire/ice/water/earth system
+- **Zone Dominance:** The dominant element in each zone affects all equipment
+- **Material Personality:** Materials from each zone have distinct "personalities"
+- **Equipment Adaptation:** Equipment properties change based on current zone
+- **Zone-Specific Enchantments:** Enchantments that work better in specific zones
+
+#### **Advanced Zone Types**
+
+##### **Volcanic Depths**
+**Inspiration:** Minecraft Nether biome concepts with entity integration
 - **Theme:** Fire-based zone with lava mechanics and heat management
 - **Entity Personality:** Aggressive, destructive, heat-based adaptation
 - **Unique Mechanics:** Heat damage, lava flows, fire-resistant enemies
 - **Visual Style:** Red/orange lighting, molten rock, fire effects
 - **Entity Integration:** Heat-based counter-strategies and adaptations
+- **Zone Effects:** Equipment overheating, heat-based status effects
+- **Environmental Hazards:** Lava flows, heat vents, fire traps
 
-#### **Crystal Caverns**
+##### **Crystal Caverns**
+**Inspiration:** Minecraft Crystal Caves with enhanced visual effects
 - **Theme:** Light-based puzzles and crystal-powered enemies
 - **Entity Personality:** Mysterious, reflective, light-manipulation
 - **Unique Mechanics:** Light puzzles, crystal formations, prism effects
 - **Visual Style:** Bright crystals, rainbow lighting, geometric patterns
 - **Entity Integration:** Light-based psychological warfare
+- **Zone Effects:** Light-based equipment bonuses, crystal resonance
+- **Environmental Hazards:** Light traps, crystal shards, prism puzzles
 
-#### **Storm Peaks**
+##### **Storm Peaks**
+**Inspiration:** Minecraft Weather mechanics with enhanced atmospheric effects
 - **Theme:** Wind mechanics, lightning storms, and aerial combat challenges
 - **Entity Personality:** Chaotic, unpredictable, weather-based adaptation
 - **Unique Mechanics:** Wind currents, lightning strikes, flying enemies
 - **Visual Style:** Storm clouds, lightning effects, wind particles
 - **Entity Integration:** Weather-based counter-strategies
+- **Zone Effects:** Wind-based movement, lightning damage, storm effects
+- **Environmental Hazards:** Lightning strikes, wind gusts, storm barriers
 
-#### **Void Rifts**
+##### **Void Rifts**
+**Inspiration:** Minecraft End dimension concepts with reality-bending mechanics
 - **Theme:** Reality-bending zones with physics manipulation
 - **Entity Personality:** Unstable, reality-warping, dimension-shifting
 - **Unique Mechanics:** Gravity changes, spatial distortion, void creatures
 - **Visual Style:** Reality distortion, impossible physics, void effects
 - **Entity Integration:** Reality-bending psychological warfare
+- **Zone Effects:** Gravity manipulation, spatial distortion, void damage
+- **Environmental Hazards:** Reality shifts, void portals, spatial traps
 
-### New Enemy Types
+##### **Living Material Zones**
+**Inspiration:** Minecraft organic biome concepts with living mechanics
+- **Theme:** Organic, breathing environments that respond to player presence
+- **Entity Personality:** Organic, growing, life-based adaptation
+- **Unique Mechanics:** Living walls, organic traps, bioluminescent creatures
+- **Visual Style:** Pulsing organic matter, living textures, biological effects
+- **Entity Integration:** Living materials reflect entity's organic nature
+- **Zone Effects:** Organic equipment bonuses, living material crafting
+- **Environmental Hazards:** Living traps, organic growth, biological hazards
+
+##### **Memory Corridors**
+**Inspiration:** Entity-driven memory mechanics with psychological depth
+- **Theme:** Zones that recreate past encounters and player memories
+- **Entity Personality:** Nostalgic, memory-manipulating, psychological
+- **Unique Mechanics:** Memory-based challenges, past encounter recreations
+- **Visual Style:** Dreamlike environments, memory fragments, temporal effects
+- **Entity Integration:** Memory corridors show entity's psychological depth
+- **Zone Effects:** Memory-based equipment, past encounter bonuses
+- **Environmental Hazards:** Memory traps, temporal distortions, past echoes
+
+### Advanced Enemy Types
+**Inspiration:** Minecraft mob mechanics with entity-driven adaptation
 
 #### **Elemental Constructs**
 - **Fire Constructs:** Living embodiments of fire with heat-based attacks
@@ -67,31 +166,51 @@
 - **Redemption Possibilities:** Some NPCs can be saved or purified
 - **Entity Integration:** Corrupted NPCs show entity's growing power
 
-### Advanced Mechanics
+#### **Living Material Enemies**
+- **Organic Constructs:** Enemies made of living, breathing materials
+- **Biological Adaptations:** Enemies that evolve and grow during combat
+- **Symbiotic Relationships:** Enemies that work together organically
+- **Entity Integration:** Living material enemies show entity's organic nature
 
-#### **Environmental Hazards**
-- **Dynamic Weather:** Weather systems that affect gameplay
-- **Terrain Destruction:** Destructible environments and cover
-- **Environmental Puzzles:** Interactive environment elements
-- **Entity Integration:** Hazards adapt based on entity personality
+#### **Psychological Phantoms**
+- **Fear Manifestations:** Enemies that represent player's deepest fears
+- **Doubt Creatures:** Enemies that feed on player uncertainty
+- **Memory Wraiths:** Enemies that use player's memories against them
+- **Entity Integration:** Psychological phantoms show entity's psychological warfare
 
-#### **Time-Based Challenges**
-- **Speed Runs:** Time-limited challenges and objectives
-- **Temporal Distortions:** Areas where time flows differently
-- **Time Pressure:** Scenarios that create urgency and stress
-- **Entity Integration:** Time pressure reflects entity's psychological warfare
+### Advanced Combat Mechanics
+**Inspiration:** Minecraft combat variety with entity-driven adaptation
 
-#### **Multi-Floor Events**
-- **Cross-Floor Scenarios:** Events that span multiple floors
-- **Progressive Challenges:** Challenges that build across floors
-- **Entity Manifestations:** The entity occasionally takes physical form
-- **Entity Integration:** Multi-floor events show entity's growing influence
+#### **Psychological Combat**
+- **Fear Mechanics:** Combat affected by player's psychological state
+- **Doubt Systems:** Player uncertainty affects combat effectiveness
+- **Memory-Based Attacks:** Enemies use player's past against them
+- **Entity Integration:** Psychological combat reflects entity's psychological warfare
+
+#### **Environmental Combat**
+- **Living Environment:** The environment itself becomes a combatant
+- **Terrain Evolution:** Terrain changes during combat
+- **Environmental Hazards:** Dynamic hazards that adapt to player
+- **Entity Integration:** Environmental combat shows entity's environmental control
+
+#### **Temporal Combat**
+- **Time Manipulation:** Combat affected by time distortion
+- **Temporal Abilities:** Abilities that manipulate time flow
+- **Chronological Challenges:** Combat scenarios with time pressure
+- **Entity Integration:** Temporal combat reflects entity's time manipulation
+
+#### **Symbiotic Combat**
+- **Enemy Cooperation:** Enemies work together in sophisticated ways
+- **Adaptive Formations:** Enemy formations that evolve during combat
+- **Collective Intelligence:** Enemies share knowledge and strategies
+- **Entity Integration:** Symbiotic combat shows entity's organizational abilities
 
 ---
 
-## Medium-Term Expansions (1-2 years)
+## Advanced Systems & Expansions
 
-### New Classes & Hybrids
+### New Character Classes & Hybrids
+**Inspiration:** Minecraft class mods with entity-driven evolution
 
 #### **Chronomancer**
 - **Time Manipulation:** Control time flow and temporal effects
@@ -117,7 +236,20 @@
 - **Wild Shape:** Abilities that change form and capabilities
 - **Entity Integration:** Druid powers reflect entity's environmental control
 
+#### **Psychomancer**
+- **Mind Control:** Control enemy minds and manipulate their behavior
+- **Psychological Warfare:** Abilities that affect enemy psychology
+- **Mental Projections:** Create mental constructs and illusions
+- **Entity Integration:** Psychomancer abilities reflect entity's psychological warfare
+
+#### **Living Materialist**
+- **Organic Control:** Control and manipulate living materials
+- **Biological Constructs:** Create and control organic constructs
+- **Symbiotic Abilities:** Form symbiotic relationships with living materials
+- **Entity Integration:** Living Materialist abilities reflect entity's organic nature
+
 ### Advanced Entity Personalities
+**Inspiration:** Entity-driven AI personalities with psychological depth
 
 #### **The Architect**
 - **Complex Puzzles:** Creates intricate puzzle scenarios and spatial challenges
@@ -143,7 +275,20 @@
 - **Creative Warfare:** Combines beauty with danger and deception
 - **Entity Integration:** Artist personality focuses on psychological manipulation
 
+#### **The Psychologist**
+- **Psychological Profiling:** Creates challenges based on player psychology
+- **Emotional Manipulation:** Uses player emotions as weapons
+- **Behavioral Analysis:** Analyzes and exploits player behavior patterns
+- **Entity Integration:** Psychologist personality shows advanced psychological warfare
+
+#### **The Biologist**
+- **Organic Evolution:** Creates living, evolving challenges
+- **Biological Warfare:** Uses living materials and organisms as weapons
+- **Symbiotic Relationships:** Creates complex biological interactions
+- **Entity Integration:** Biologist personality reflects entity's organic nature
+
 ### Living World Systems
+**Inspiration:** Minecraft village mechanics with entity-driven evolution
 
 #### **Hub Evolution**
 - **Living Hub:** The hub itself becomes a living entity that grows and changes
@@ -169,11 +314,18 @@
 - **Economic Warfare:** Economic systems used as psychological weapons
 - **Entity Integration:** Economy reflects entity's resource manipulation
 
+#### **Living Material Economy**
+- **Organic Resources:** Trading in living materials and organic components
+- **Biological Markets:** Markets for biological enhancements and modifications
+- **Symbiotic Trading:** Trading in symbiotic relationships and partnerships
+- **Entity Integration:** Living material economy reflects entity's organic nature
+
 ---
 
-## Long-Term Expansions (2+ years)
+## Future Systems & Expansions
 
 ### Multiplayer Elements
+**Inspiration:** Minecraft multiplayer with entity-driven adaptation
 
 #### **Cooperative Dungeons**
 - **Shared Entity:** Multiple players against a shared adaptive entity
@@ -200,6 +352,7 @@
 - **Entity Integration:** Entity becomes a true community-wide opponent
 
 ### Advanced AI Systems
+**Inspiration:** Entity-driven AI evolution with psychological depth
 
 #### **Emotional Intelligence**
 - **Emotional Responses:** Entity develops genuine emotional responses
@@ -225,7 +378,14 @@
 - **Personalized Challenges:** Challenges tailored to individual player preferences
 - **Entity Integration:** Predictive adaptation shows ultimate entity intelligence
 
+#### **Biological Intelligence**
+- **Organic Learning:** Entity learns and evolves like a living organism
+- **Biological Adaptation:** Entity adapts through biological processes
+- **Symbiotic Intelligence:** Entity forms symbiotic relationships with players
+- **Entity Integration:** Biological intelligence reflects entity's organic nature
+
 ### Narrative Expansions
+**Inspiration:** Entity-driven storytelling with psychological depth
 
 #### **Entity Origins**
 - **True Nature:** Reveal the true nature and history of the living dungeon
@@ -251,7 +411,14 @@
 - **Cosmic Context:** Place entity in larger cosmic or mythological framework
 - **Entity Integration:** Mythology provides depth to entity's nature and purpose
 
+#### **Living Material Lore**
+- **Organic History:** Explore the history and evolution of living materials
+- **Biological Mythology:** Develop mythology around living materials and organisms
+- **Symbiotic Lore:** Explore the lore of symbiotic relationships and partnerships
+- **Entity Integration:** Living material lore reflects entity's organic nature
+
 ### Technical Innovations
+**Inspiration:** Minecraft modding with entity-driven technical evolution
 
 #### **Procedural Storytelling**
 - **Dynamic Narratives:** Generate stories based on player actions and choices
@@ -276,6 +443,39 @@
 - **Entity Presence:** Entity feels more real and present in VR/AR
 - **Physical Interaction:** Physical interaction with entity manifestations
 - **Entity Integration:** VR/AR enhances entity's psychological impact
+
+#### **Living Material Graphics**
+- **Organic Rendering:** Graphics that render living, breathing materials
+- **Biological Effects:** Visual effects that simulate biological processes
+- **Symbiotic Visuals:** Graphics that show symbiotic relationships
+- **Entity Integration:** Living material graphics reflect entity's organic nature
+
+### Advanced Gameplay Systems
+**Inspiration:** Minecraft redstone complexity with entity-driven mechanics
+
+#### **Living Material Crafting**
+- **Organic Crafting:** Crafting system using living materials
+- **Biological Enhancement:** Enhance equipment with living components
+- **Symbiotic Equipment:** Equipment that forms symbiotic relationships
+- **Entity Integration:** Living material crafting reflects entity's organic nature
+
+#### **Psychological Progression**
+- **Mental Evolution:** Player's psychological state affects progression
+- **Fear Management:** Managing fear and psychological challenges
+- **Mental Resilience:** Building mental resilience against entity
+- **Entity Integration:** Psychological progression reflects entity's psychological warfare
+
+#### **Temporal Progression**
+- **Time-Based Progression:** Progression affected by time manipulation
+- **Temporal Abilities:** Abilities that manipulate time flow
+- **Chronological Challenges:** Progression challenges with time pressure
+- **Entity Integration:** Temporal progression reflects entity's time manipulation
+
+#### **Symbiotic Progression**
+- **Relationship Building:** Building relationships with living materials
+- **Symbiotic Abilities:** Abilities that form symbiotic relationships
+- **Collective Progression:** Progression through collective intelligence
+- **Entity Integration:** Symbiotic progression reflects entity's organic nature
 
 ---
 
