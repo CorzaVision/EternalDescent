@@ -11,6 +11,7 @@
     <None Include="..\..\Source\EternalDescentEditor.Target.cs">
       <Filter>Source</Filter>
     </None>
+    <None Include="..\..\.vsconfig" />
     <Filter Include="Config">
       <UniqueIdentifier>{FA535FFB-25E1-3D20-B416-52F9BE21E06E}</UniqueIdentifier>
     </Filter>
@@ -52,6 +53,24 @@
     </ClCompile>
     <ClCompile Include="..\..\Source\EternalDescent\EternalDescentGameMode.h">
       <Filter>Source\EternalDescent</Filter>
+    </ClCompile>
+    <Filter Include="Source\EternalDescent\Private">
+      <UniqueIdentifier>{D8410A39-2E5A-31E3-882F-8C6247B0388F}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\EternalDescent\Private\Generation">
+      <UniqueIdentifier>{E8ECFE9E-F9F4-336B-B316-44A446D79747}</UniqueIdentifier>
+    </Filter>
+    <ClCompile Include="..\..\Source\EternalDescent\Private\Generation\FloorGeneratorComponent.cpp">
+      <Filter>Source\EternalDescent\Private\Generation</Filter>
+    </ClCompile>
+    <Filter Include="Source\EternalDescent\Public">
+      <UniqueIdentifier>{533115A0-66FE-30F3-B748-83B5E0B7701A}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\EternalDescent\Public\Generation">
+      <UniqueIdentifier>{7DE4B484-D192-37CD-8624-610B85D5C932}</UniqueIdentifier>
+    </Filter>
+    <ClCompile Include="..\..\Source\EternalDescent\Public\Generation\FloorGeneratorComponent.h">
+      <Filter>Source\EternalDescent\Public\Generation</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

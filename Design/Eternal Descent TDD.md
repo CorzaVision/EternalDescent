@@ -1400,6 +1400,59 @@ Large Treasure (4x4+ grid):
 └── Material Warehouse: Large quantities of various materials
 ```
 
+### **Wall Generation System:**
+
+#### **Complete Environment Generation:**
+```
+Wall Generation Philosophy:
+├── Solid Environment: Walls fill all spaces between rooms
+├── Room Boundaries: Each room has solid wall boundaries
+├── Continuous Dungeon: No empty spaces in the environment
+├── Performance Optimized: Walls only exist when rooms are generated
+
+Wall Generation Process:
+├── Generate Complete Grid: Fill entire dungeon area with wall points
+├── Room Position Filtering: Identify which positions are rooms vs walls
+├── Wall Placement: Place walls at all non-room positions
+├── Room Floor Placement: Place walkable floors at room positions
+└── Environment Continuity: Ensure solid wall environment with room cutouts
+
+PCG Implementation:
+├── Create Points Grid: Generate points for entire dungeon area
+├── Point Filter: Separate room positions from wall positions
+├── Spawn Actor (Walls): Place wall cubes at all non-room positions
+├── Spawn Actor (Floors): Place floor planes at room positions
+└── Result: Complete dungeon environment with solid walls and walkable rooms
+
+Room vs Wall Logic:
+├── Room Positions: (0,0) start, (9,9) end, and other designated room positions
+├── Wall Positions: All other grid positions become solid walls
+├── Filter Conditions: Use position-based filtering to separate rooms from walls
+├── Multiple Outputs: Point Filter outputs room points and wall points separately
+└── Environment Effect: Creates realistic dungeon environment with no empty spaces
+```
+
+#### **Wall Generation Benefits:**
+```
+Performance Optimization:
+├── Culling System: Walls can be culled/destroyed when far from player
+├── Memory Efficiency: Only nearby walls exist in memory
+├── Dynamic Generation: Walls regenerate when player returns to area
+└── Scalable System: Works with infinite dungeon generation
+
+Visual Quality:
+├── Complete Environment: No floating rooms or empty spaces
+├── Realistic Dungeon: Solid wall environment with room cutouts
+├── Atmospheric Effect: Creates immersive dungeon atmosphere
+└── Consistent Aesthetics: Maintains visual coherence across entire dungeon
+
+Gameplay Integration:
+├── Navigation Aid: Walls provide clear room boundaries
+├── Exploration Guidance: Wall layout guides player exploration
+├── Combat Boundaries: Walls create natural combat arenas
+└── Environmental Storytelling: Wall patterns reflect dungeon personality
+```
+
 #### **Puzzle Room Templates (2-3 per floor):**
 ```
 Logic Puzzles:

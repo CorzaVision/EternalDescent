@@ -185,11 +185,11 @@
     - [ ] Personality evolution system
     - [ ] Predictive adaptation capabilities
     - [ ] **Entity Learning Integration:**
-      - [ ] Real-time entity modification
-      - [ ] Enemy behavior adaptation
-      - [ ] Loot quality manipulation
-      - [ ] Room modification system
-      - [ ] Entity mood and personality system
+  - [ ] Real-time entity modification
+  - [ ] Enemy behavior adaptation
+  - [ ] Loot quality manipulation
+  - [ ] Room modification system
+  - [ ] Entity mood and personality system
 
 - [ ] **Advanced Enemy Types**
   - [ ] **Elemental Constructs:**

@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("EternalDescentModuleRules")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Development")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+07a4e42f8c7479002fe93fb2c621223f45408c48")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+132854ccf57bdbe3ea2278a677e99aa39d151e01")]
 [assembly: System.Reflection.AssemblyProductAttribute("EternalDescentModuleRules")]
 [assembly: System.Reflection.AssemblyTitleAttribute("EternalDescentModuleRules")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

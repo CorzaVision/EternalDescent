@@ -1,0 +1,74 @@
+[
+	{
+		"file": "D:\\Github\\Self Projects\\EternalDescent\\EternalDescent\\Source\\EternalDescent\\EternalDescent.Build.cs",
+		"arguments": [
+			"D:\\VisualStudio\\IDE\\VC\\Tools\\MSVC\\14.44.35207\\bin\\Hostx64\\x64\\cl.exe",
+			"@D:\\Github\\Self Projects\\EternalDescent\\EternalDescent\\.vscode\\compileCommands_EternalDescent\\EternalDescent.1.rsp"
+		],
+		"directory": "D:\\Epic Games\\UE_5.5\\Engine\\Source"
+	},
+	{
+		"file": "D:\\Github\\Self Projects\\EternalDescent\\EternalDescent\\Source\\EternalDescent\\EternalDescent.cpp",
+		"arguments": [
+			"D:\\VisualStudio\\IDE\\VC\\Tools\\MSVC\\14.44.35207\\bin\\Hostx64\\x64\\cl.exe",
+			"@D:\\Github\\Self Projects\\EternalDescent\\EternalDescent\\.vscode\\compileCommands_EternalDescent\\EternalDescent.1.rsp"
+		],
+		"directory": "D:\\Epic Games\\UE_5.5\\Engine\\Source"
+	},
+	{
+		"file": "D:\\Github\\Self Projects\\EternalDescent\\EternalDescent\\Source\\EternalDescent\\EternalDescent.h",
+		"arguments": [
+			"D:\\VisualStudio\\IDE\\VC\\Tools\\MSVC\\14.44.35207\\bin\\Hostx64\\x64\\cl.exe",
+			"@D:\\Github\\Self Projects\\EternalDescent\\EternalDescent\\.vscode\\compileCommands_EternalDescent\\EternalDescent.1.rsp"
+		],
+		"directory": "D:\\Epic Games\\UE_5.5\\Engine\\Source"
+	},
+	{
+		"file": "D:\\Github\\Self Projects\\EternalDescent\\EternalDescent\\Source\\EternalDescent\\EternalDescentCharacter.cpp",
+		"arguments": [
+			"D:\\VisualStudio\\IDE\\VC\\Tools\\MSVC\\14.44.35207\\bin\\Hostx64\\x64\\cl.exe",
+			"@D:\\Github\\Self Projects\\EternalDescent\\EternalDescent\\.vscode\\compileCommands_EternalDescent\\EternalDescent.1.rsp"
+		],
+		"directory": "D:\\Epic Games\\UE_5.5\\Engine\\Source"
+	},
+	{
+		"file": "D:\\Github\\Self Projects\\EternalDescent\\EternalDescent\\Source\\EternalDescent\\EternalDescentCharacter.h",
+		"arguments": [
+			"D:\\VisualStudio\\IDE\\VC\\Tools\\MSVC\\14.44.35207\\bin\\Hostx64\\x64\\cl.exe",
+			"@D:\\Github\\Self Projects\\EternalDescent\\EternalDescent\\.vscode\\compileCommands_EternalDescent\\EternalDescent.1.rsp"
+		],
+		"directory": "D:\\Epic Games\\UE_5.5\\Engine\\Source"
+	},
+	{
+		"file": "D:\\Github\\Self Projects\\EternalDescent\\EternalDescent\\Source\\EternalDescent\\EternalDescentGameMode.cpp",
+		"arguments": [
+			"D:\\VisualStudio\\IDE\\VC\\Tools\\MSVC\\14.44.35207\\bin\\Hostx64\\x64\\cl.exe",
+			"@D:\\Github\\Self Projects\\EternalDescent\\EternalDescent\\.vscode\\compileCommands_EternalDescent\\EternalDescent.1.rsp"
+		],
+		"directory": "D:\\Epic Games\\UE_5.5\\Engine\\Source"
+	},
+	{
+		"file": "D:\\Github\\Self Projects\\EternalDescent\\EternalDescent\\Source\\EternalDescent\\EternalDescentGameMode.h",
+		"arguments": [
+			"D:\\VisualStudio\\IDE\\VC\\Tools\\MSVC\\14.44.35207\\bin\\Hostx64\\x64\\cl.exe",
+			"@D:\\Github\\Self Projects\\EternalDescent\\EternalDescent\\.vscode\\compileCommands_EternalDescent\\EternalDescent.1.rsp"
+		],
+		"directory": "D:\\Epic Games\\UE_5.5\\Engine\\Source"
+	},
+	{
+		"file": "D:\\Github\\Self Projects\\EternalDescent\\EternalDescent\\Source\\EternalDescent\\Private\\FloorGeneratorComponent.cpp",
+		"arguments": [
+			"D:\\VisualStudio\\IDE\\VC\\Tools\\MSVC\\14.44.35207\\bin\\Hostx64\\x64\\cl.exe",
+			"@D:\\Github\\Self Projects\\EternalDescent\\EternalDescent\\.vscode\\compileCommands_EternalDescent\\EternalDescent.1.rsp"
+		],
+		"directory": "D:\\Epic Games\\UE_5.5\\Engine\\Source"
+	},
+	{
+		"file": "D:\\Github\\Self Projects\\EternalDescent\\EternalDescent\\Source\\EternalDescent\\Public\\FloorGeneratorComponent.h",
+		"arguments": [
+			"D:\\VisualStudio\\IDE\\VC\\Tools\\MSVC\\14.44.35207\\bin\\Hostx64\\x64\\cl.exe",
+			"@D:\\Github\\Self Projects\\EternalDescent\\EternalDescent\\.vscode\\compileCommands_EternalDescent\\EternalDescent.1.rsp"
+		],
+		"directory": "D:\\Epic Games\\UE_5.5\\Engine\\Source"
+	}
+]
