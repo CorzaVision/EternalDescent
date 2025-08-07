@@ -3,7 +3,7 @@
 
 #include "CoreMinimal.h"
 #include "GameFramework/Actor.h"
-#include "SnakeDungeonGenerator.h"
+#include "Tests/DungeonTestTypes.h"
 #include "ADASystem.h"
 #include "Engine/StaticMesh.h"
 #include "Components/InstancedStaticMeshComponent.h"
@@ -87,9 +87,6 @@ public:
     void OnRoomSpawned(const FRoomVisualData& RoomData);
     
     // Hallway Functions
-    UFUNCTION(BlueprintCallable, Category = "Dungeon|Hallways")
-    void SpawnHallway(const FHallwayConnection& Hallway);
-    
     UFUNCTION(BlueprintCallable, Category = "Dungeon|Hallways")
     void CreateHallwayPath(FVector StartPos, FVector EndPos);
     
@@ -194,9 +191,6 @@ public:
     TMap<FString, TSubclassOf<AActor>> EnemyClasses;
     
     // References
-    UPROPERTY(BlueprintReadOnly, Category = "Dungeon|References")
-    ASnakeDungeonGenerator* DungeonGenerator;
-    
     UPROPERTY(BlueprintReadOnly, Category = "Dungeon|References")
     AADASystem* ADASystem;
     

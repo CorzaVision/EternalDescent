@@ -16,7 +16,25 @@
       "Bash(call CompileProject.bat)",
       "Bash(ren:*)",
       "Bash(Build.bat EternalDescentEditor Win64 Development \"D:/Github/Self Projects/EternalDescent/EternalDescent/EternalDescent.uproject\" -waitmutex)",
-      "Bash(rmdir:*)"
+      "Bash(rmdir:*)",
+      "Bash(del \"D:\\Github\\Self Projects\\EternalDescent\\EternalDescent\\Source\\EternalDescent\\Public\\DungeonGenerator.h\")",
+      "Bash(rm:*)",
+      "Bash(RunCompile.bat)",
+      "Bash(echo:*)",
+      "Bash(\"D:\\Epic Games\\UE_5.5\\Engine\\Binaries\\Win64\\UnrealEditor-Cmd.exe\" \"D:\\Github\\Self Projects\\EternalDescent\\EternalDescent\\EternalDescent.uproject\" -ExecCmds=\"Automation RunTests EternalDescent.Dungeon.GridVisualizerSpawnTest\" -unattended -NullRHI -log -stdout)",
+      "Bash(TestSpawning.exe)",
+      "Bash(cl:*)",
+      "Bash(python test:*)",
+      "Bash(\"D:\\Epic Games\\UE_5.5\\Engine\\Binaries\\DotNET\\UnrealBuildTool\\UnrealBuildTool.exe\" -projectfiles -project=\"EternalDescent.uproject\" -game -rocket -progress)",
+      "Bash(\"D:\\Epic Games\\UE_5.5\\Engine\\Binaries\\DotNET\\UnrealBuildTool\\UnrealBuildTool.exe\" -projectfiles -project=\"D:\\Github\\Self Projects\\EternalDescent\\EternalDescent\\EternalDescent.uproject\" -game -rocket -progress)",
+      "Bash(\"D:\\Epic Games\\UE_5.5\\Engine\\Build\\BatchFiles\\Build.bat\" EternalDescentEditor Win64 Development \"EternalDescent.uproject\" -waitmutex)",
+      "Bash(del \"D:\\Github\\Self Projects\\EternalDescent\\EternalDescent\\Binaries\\Win64\\UnrealEditor-EternalDescent.*\")",
+      "Bash(\"D:\\Epic Games\\UE_5.5\\Engine\\Binaries\\DotNET\\UnrealBuildTool\\UnrealBuildTool.exe\" EternalDescentEditor Win64 Development -Project=\"D:\\Github\\Self Projects\\EternalDescent\\EternalDescent\\EternalDescent.uproject\" -WaitMutex -FromMsBuild)",
+      "Bash(Build.bat:*)",
+      "Bash(del:*)",
+      "Bash(RunOrganicTest.bat)",
+      "Bash(\"D:\\Epic Games\\UE_5.5\\Engine\\Binaries\\Win64\\UnrealEditor-Cmd.exe\" \"D:\\Github\\Self Projects\\EternalDescent\\EternalDescent\\EternalDescent.uproject\" -ExecCmds=\"Automation RunTests EternalDescent.Dungeon.OrganicGeneration\" -unattended -NullRHI -log -stdout)",
+      "Bash(\"D:\\Epic Games\\UE_5.5\\Engine\\Binaries\\Win64\\UnrealEditor-Cmd.exe\" \"D:\\Github\\Self Projects\\EternalDescent\\EternalDescent\\EternalDescent.uproject\" -ExecCmds=\"Automation RunTests EternalDescent.Dungeon.OrganicGeneration\" -unattended -NullRHI -log=EternalDescentTest.log -stdout)"
     ],
     "deny": []
   }

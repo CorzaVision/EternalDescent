@@ -16,7 +16,6 @@ ENGINE_API UClass* Z_Construct_UClass_AActor();
 ETERNALDESCENT_API UClass* Z_Construct_UClass_AGridDungeonVisualizer_NoRegister();
 ETERNALDESCENT_API UClass* Z_Construct_UClass_ANavigationLoadTest();
 ETERNALDESCENT_API UClass* Z_Construct_UClass_ANavigationLoadTest_NoRegister();
-ETERNALDESCENT_API UClass* Z_Construct_UClass_ASnakeDungeonGenerator_NoRegister();
 ETERNALDESCENT_API UScriptStruct* Z_Construct_UScriptStruct_FDungeonLayout();
 ETERNALDESCENT_API UScriptStruct* Z_Construct_UScriptStruct_FNavigationTestResult();
 ETERNALDESCENT_API UScriptStruct* Z_Construct_UScriptStruct_FNavigationTestStats();
@@ -1199,7 +1198,7 @@ struct Z_Construct_UClass_ANavigationLoadTest_Statics
 		{ "Category", "Performance" },
 		{ "ModuleRelativePath", "Public/NavigationLoadTest.h" },
 	};
-	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_DungeonGenerator_MetaData[] = {
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_DungeonVisualizer_MetaData[] = {
 		{ "Category", "References" },
 #if !UE_BUILD_SHIPPING
 		{ "Comment", "// References\n" },
@@ -1208,10 +1207,6 @@ struct Z_Construct_UClass_ANavigationLoadTest_Statics
 #if !UE_BUILD_SHIPPING
 		{ "ToolTip", "References" },
 #endif
-	};
-	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_DungeonVisualizer_MetaData[] = {
-		{ "Category", "References" },
-		{ "ModuleRelativePath", "Public/NavigationLoadTest.h" },
 	};
 	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_CurrentCycle_MetaData[] = {
 		{ "Category", "Runtime" },
@@ -1270,7 +1265,6 @@ struct Z_Construct_UClass_ANavigationLoadTest_Statics
 	static const UECodeGen_Private::FBoolPropertyParams NewProp_bStopOnMemoryLeak;
 	static void NewProp_bStopOnPathFailure_SetBit(void* Obj);
 	static const UECodeGen_Private::FBoolPropertyParams NewProp_bStopOnPathFailure;
-	static const UECodeGen_Private::FObjectPropertyParams NewProp_DungeonGenerator;
 	static const UECodeGen_Private::FObjectPropertyParams NewProp_DungeonVisualizer;
 	static const UECodeGen_Private::FIntPropertyParams NewProp_CurrentCycle;
 	static void NewProp_bIsTestRunning_SetBit(void* Obj);
@@ -1348,7 +1342,6 @@ void Z_Construct_UClass_ANavigationLoadTest_Statics::NewProp_bStopOnPathFailure_
 	((ANavigationLoadTest*)Obj)->bStopOnPathFailure = 1;
 }
 const UECodeGen_Private::FBoolPropertyParams Z_Construct_UClass_ANavigationLoadTest_Statics::NewProp_bStopOnPathFailure = { "bStopOnPathFailure", nullptr, (EPropertyFlags)0x0010000000000005, UECodeGen_Private::EPropertyGenFlags::Bool | UECodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, sizeof(bool), sizeof(ANavigationLoadTest), &Z_Construct_UClass_ANavigationLoadTest_Statics::NewProp_bStopOnPathFailure_SetBit, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_bStopOnPathFailure_MetaData), NewProp_bStopOnPathFailure_MetaData) };
-const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_ANavigationLoadTest_Statics::NewProp_DungeonGenerator = { "DungeonGenerator", nullptr, (EPropertyFlags)0x0010000000000014, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ANavigationLoadTest, DungeonGenerator), Z_Construct_UClass_ASnakeDungeonGenerator_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_DungeonGenerator_MetaData), NewProp_DungeonGenerator_MetaData) };
 const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_ANavigationLoadTest_Statics::NewProp_DungeonVisualizer = { "DungeonVisualizer", nullptr, (EPropertyFlags)0x0010000000000014, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ANavigationLoadTest, DungeonVisualizer), Z_Construct_UClass_AGridDungeonVisualizer_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_DungeonVisualizer_MetaData), NewProp_DungeonVisualizer_MetaData) };
 const UECodeGen_Private::FIntPropertyParams Z_Construct_UClass_ANavigationLoadTest_Statics::NewProp_CurrentCycle = { "CurrentCycle", nullptr, (EPropertyFlags)0x0010000000000014, UECodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ANavigationLoadTest, CurrentCycle), METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_CurrentCycle_MetaData), NewProp_CurrentCycle_MetaData) };
 void Z_Construct_UClass_ANavigationLoadTest_Statics::NewProp_bIsTestRunning_SetBit(void* Obj)
@@ -1377,7 +1370,6 @@ const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_ANavigati
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ANavigationLoadTest_Statics::NewProp_MemoryLeakThresholdMB,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ANavigationLoadTest_Statics::NewProp_bStopOnMemoryLeak,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ANavigationLoadTest_Statics::NewProp_bStopOnPathFailure,
-	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ANavigationLoadTest_Statics::NewProp_DungeonGenerator,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ANavigationLoadTest_Statics::NewProp_DungeonVisualizer,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ANavigationLoadTest_Statics::NewProp_CurrentCycle,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ANavigationLoadTest_Statics::NewProp_bIsTestRunning,
@@ -1435,10 +1427,10 @@ struct Z_CompiledInDeferFile_FID_Github_Self_Projects_EternalDescent_EternalDesc
 		{ FNavigationTestStats::StaticStruct, Z_Construct_UScriptStruct_FNavigationTestStats_Statics::NewStructOps, TEXT("NavigationTestStats"), &Z_Registration_Info_UScriptStruct_NavigationTestStats, CONSTRUCT_RELOAD_VERSION_INFO(FStructReloadVersionInfo, sizeof(FNavigationTestStats), 3843661947U) },
 	};
 	static constexpr FClassRegisterCompiledInInfo ClassInfo[] = {
-		{ Z_Construct_UClass_ANavigationLoadTest, ANavigationLoadTest::StaticClass, TEXT("ANavigationLoadTest"), &Z_Registration_Info_UClass_ANavigationLoadTest, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(ANavigationLoadTest), 813496344U) },
+		{ Z_Construct_UClass_ANavigationLoadTest, ANavigationLoadTest::StaticClass, TEXT("ANavigationLoadTest"), &Z_Registration_Info_UClass_ANavigationLoadTest, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(ANavigationLoadTest), 1869673255U) },
 	};
 };
-static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Github_Self_Projects_EternalDescent_EternalDescent_Source_EternalDescent_Public_NavigationLoadTest_h_1452066471(TEXT("/Script/EternalDescent"),
+static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Github_Self_Projects_EternalDescent_EternalDescent_Source_EternalDescent_Public_NavigationLoadTest_h_2003252362(TEXT("/Script/EternalDescent"),
 	Z_CompiledInDeferFile_FID_Github_Self_Projects_EternalDescent_EternalDescent_Source_EternalDescent_Public_NavigationLoadTest_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Github_Self_Projects_EternalDescent_EternalDescent_Source_EternalDescent_Public_NavigationLoadTest_h_Statics::ClassInfo),
 	Z_CompiledInDeferFile_FID_Github_Self_Projects_EternalDescent_EternalDescent_Source_EternalDescent_Public_NavigationLoadTest_h_Statics::ScriptStructInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Github_Self_Projects_EternalDescent_EternalDescent_Source_EternalDescent_Public_NavigationLoadTest_h_Statics::ScriptStructInfo),
 	nullptr, 0);

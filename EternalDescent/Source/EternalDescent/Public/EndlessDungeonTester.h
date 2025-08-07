@@ -4,7 +4,6 @@
 #include "CoreMinimal.h"
 #include "GameFramework/Actor.h"
 #include "GridDungeonVisualizer.h"
-#include "SnakeDungeonGenerator.h"
 #include "ADASystem.h"
 #include "Engine/DataTable.h"
 #include "EndlessDungeonTester.generated.h"
@@ -195,9 +194,6 @@ public:
     bool bStopOnPerformanceIssue = true;
     
     // References
-    UPROPERTY(BlueprintReadOnly, Category = "References")
-    ASnakeDungeonGenerator* DungeonGenerator;
-    
     UPROPERTY(BlueprintReadOnly, Category = "References")
     AGridDungeonVisualizer* DungeonVisualizer;
     

@@ -6,7 +6,6 @@
 
 #include "UObject/GeneratedCppIncludes.h"
 #include "EternalDescent/Public/DungeonVisualizer.h"
-#include "EternalDescent/Public/SnakeDungeonGenerator.h"
 #include "EternalDescent/Public/Tests/DungeonTestTypes.h"
 PRAGMA_DISABLE_DEPRECATION_WARNINGS
 void EmptyLinkFunctionForGeneratedCodeDungeonVisualizer() {}
@@ -23,10 +22,8 @@ ENGINE_API UClass* Z_Construct_UClass_UStaticMesh_NoRegister();
 ETERNALDESCENT_API UClass* Z_Construct_UClass_AADASystem_NoRegister();
 ETERNALDESCENT_API UClass* Z_Construct_UClass_ADungeonVisualizer();
 ETERNALDESCENT_API UClass* Z_Construct_UClass_ADungeonVisualizer_NoRegister();
-ETERNALDESCENT_API UClass* Z_Construct_UClass_ASnakeDungeonGenerator_NoRegister();
 ETERNALDESCENT_API UEnum* Z_Construct_UEnum_EternalDescent_ERoomType();
 ETERNALDESCENT_API UScriptStruct* Z_Construct_UScriptStruct_FDungeonLayout();
-ETERNALDESCENT_API UScriptStruct* Z_Construct_UScriptStruct_FHallwayConnection();
 ETERNALDESCENT_API UScriptStruct* Z_Construct_UScriptStruct_FRoomData();
 ETERNALDESCENT_API UScriptStruct* Z_Construct_UScriptStruct_FRoomMeshSet();
 ETERNALDESCENT_API UScriptStruct* Z_Construct_UScriptStruct_FRoomVisualData();
@@ -316,7 +313,13 @@ struct Z_Construct_UFunction_ADungeonVisualizer_CreateHallwayPath_Statics
 #if WITH_METADATA
 	static constexpr UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[] = {
 		{ "Category", "Dungeon|Hallways" },
+#if !UE_BUILD_SHIPPING
+		{ "Comment", "// Hallway Functions\n" },
+#endif
 		{ "ModuleRelativePath", "Public/DungeonVisualizer.h" },
+#if !UE_BUILD_SHIPPING
+		{ "ToolTip", "Hallway Functions" },
+#endif
 	};
 #endif // WITH_METADATA
 	static const UECodeGen_Private::FStructPropertyParams NewProp_StartPos;
@@ -955,58 +958,6 @@ DEFINE_FUNCTION(ADungeonVisualizer::execSpawnEnemiesInRoom)
 }
 // End Class ADungeonVisualizer Function SpawnEnemiesInRoom
 
-// Begin Class ADungeonVisualizer Function SpawnHallway
-struct Z_Construct_UFunction_ADungeonVisualizer_SpawnHallway_Statics
-{
-	struct DungeonVisualizer_eventSpawnHallway_Parms
-	{
-		FHallwayConnection Hallway;
-	};
-#if WITH_METADATA
-	static constexpr UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[] = {
-		{ "Category", "Dungeon|Hallways" },
-#if !UE_BUILD_SHIPPING
-		{ "Comment", "// Hallway Functions\n" },
-#endif
-		{ "ModuleRelativePath", "Public/DungeonVisualizer.h" },
-#if !UE_BUILD_SHIPPING
-		{ "ToolTip", "Hallway Functions" },
-#endif
-	};
-	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_Hallway_MetaData[] = {
-		{ "NativeConst", "" },
-	};
-#endif // WITH_METADATA
-	static const UECodeGen_Private::FStructPropertyParams NewProp_Hallway;
-	static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
-	static const UECodeGen_Private::FFunctionParams FuncParams;
-};
-const UECodeGen_Private::FStructPropertyParams Z_Construct_UFunction_ADungeonVisualizer_SpawnHallway_Statics::NewProp_Hallway = { "Hallway", nullptr, (EPropertyFlags)0x0010000008000182, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(DungeonVisualizer_eventSpawnHallway_Parms, Hallway), Z_Construct_UScriptStruct_FHallwayConnection, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_Hallway_MetaData), NewProp_Hallway_MetaData) }; // 3960234035
-const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_ADungeonVisualizer_SpawnHallway_Statics::PropPointers[] = {
-	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_ADungeonVisualizer_SpawnHallway_Statics::NewProp_Hallway,
-};
-static_assert(UE_ARRAY_COUNT(Z_Construct_UFunction_ADungeonVisualizer_SpawnHallway_Statics::PropPointers) < 2048);
-const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_ADungeonVisualizer_SpawnHallway_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_ADungeonVisualizer, nullptr, "SpawnHallway", nullptr, nullptr, Z_Construct_UFunction_ADungeonVisualizer_SpawnHallway_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_ADungeonVisualizer_SpawnHallway_Statics::PropPointers), sizeof(Z_Construct_UFunction_ADungeonVisualizer_SpawnHallway_Statics::DungeonVisualizer_eventSpawnHallway_Parms), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x04420401, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_ADungeonVisualizer_SpawnHallway_Statics::Function_MetaDataParams), Z_Construct_UFunction_ADungeonVisualizer_SpawnHallway_Statics::Function_MetaDataParams) };
-static_assert(sizeof(Z_Construct_UFunction_ADungeonVisualizer_SpawnHallway_Statics::DungeonVisualizer_eventSpawnHallway_Parms) < MAX_uint16);
-UFunction* Z_Construct_UFunction_ADungeonVisualizer_SpawnHallway()
-{
-	static UFunction* ReturnFunction = nullptr;
-	if (!ReturnFunction)
-	{
-		UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_ADungeonVisualizer_SpawnHallway_Statics::FuncParams);
-	}
-	return ReturnFunction;
-}
-DEFINE_FUNCTION(ADungeonVisualizer::execSpawnHallway)
-{
-	P_GET_STRUCT_REF(FHallwayConnection,Z_Param_Out_Hallway);
-	P_FINISH;
-	P_NATIVE_BEGIN;
-	P_THIS->SpawnHallway(Z_Param_Out_Hallway);
-	P_NATIVE_END;
-}
-// End Class ADungeonVisualizer Function SpawnHallway
-
 // Begin Class ADungeonVisualizer Function SpawnLootInRoom
 struct Z_Construct_UFunction_ADungeonVisualizer_SpawnLootInRoom_Statics
 {
@@ -1301,7 +1252,6 @@ void ADungeonVisualizer::StaticRegisterNativesADungeonVisualizer()
 		{ "SetRoomTheme", &ADungeonVisualizer::execSetRoomTheme },
 		{ "SpawnDoor", &ADungeonVisualizer::execSpawnDoor },
 		{ "SpawnEnemiesInRoom", &ADungeonVisualizer::execSpawnEnemiesInRoom },
-		{ "SpawnHallway", &ADungeonVisualizer::execSpawnHallway },
 		{ "SpawnLootInRoom", &ADungeonVisualizer::execSpawnLootInRoom },
 		{ "SpawnPlayerAtStart", &ADungeonVisualizer::execSpawnPlayerAtStart },
 		{ "SpawnRoom", &ADungeonVisualizer::execSpawnRoom },
@@ -1419,7 +1369,7 @@ struct Z_Construct_UClass_ADungeonVisualizer_Statics
 		{ "ToolTip", "Enemy Types per Floor" },
 #endif
 	};
-	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_DungeonGenerator_MetaData[] = {
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_ADASystem_MetaData[] = {
 		{ "Category", "Dungeon|References" },
 #if !UE_BUILD_SHIPPING
 		{ "Comment", "// References\n" },
@@ -1428,10 +1378,6 @@ struct Z_Construct_UClass_ADungeonVisualizer_Statics
 #if !UE_BUILD_SHIPPING
 		{ "ToolTip", "References" },
 #endif
-	};
-	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_ADASystem_MetaData[] = {
-		{ "Category", "Dungeon|References" },
-		{ "ModuleRelativePath", "Public/DungeonVisualizer.h" },
 	};
 	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_VisualizedRooms_MetaData[] = {
 		{ "Category", "Dungeon|Runtime" },
@@ -1489,7 +1435,6 @@ struct Z_Construct_UClass_ADungeonVisualizer_Statics
 	static const UECodeGen_Private::FClassPropertyParams NewProp_EnemyClasses_ValueProp;
 	static const UECodeGen_Private::FStrPropertyParams NewProp_EnemyClasses_Key_KeyProp;
 	static const UECodeGen_Private::FMapPropertyParams NewProp_EnemyClasses;
-	static const UECodeGen_Private::FObjectPropertyParams NewProp_DungeonGenerator;
 	static const UECodeGen_Private::FObjectPropertyParams NewProp_ADASystem;
 	static const UECodeGen_Private::FStructPropertyParams NewProp_VisualizedRooms_Inner;
 	static const UECodeGen_Private::FArrayPropertyParams NewProp_VisualizedRooms;
@@ -1504,7 +1449,7 @@ struct Z_Construct_UClass_ADungeonVisualizer_Statics
 	static constexpr FClassFunctionLinkInfo FuncInfo[] = {
 		{ &Z_Construct_UFunction_ADungeonVisualizer_ApplyLighting, "ApplyLighting" }, // 3774925289
 		{ &Z_Construct_UFunction_ADungeonVisualizer_ClearDungeon, "ClearDungeon" }, // 2070201691
-		{ &Z_Construct_UFunction_ADungeonVisualizer_CreateHallwayPath, "CreateHallwayPath" }, // 3236138151
+		{ &Z_Construct_UFunction_ADungeonVisualizer_CreateHallwayPath, "CreateHallwayPath" }, // 2055306638
 		{ &Z_Construct_UFunction_ADungeonVisualizer_GenerateAndVisualizeDungeon, "GenerateAndVisualizeDungeon" }, // 3152475245
 		{ &Z_Construct_UFunction_ADungeonVisualizer_GetRoomVisualData, "GetRoomVisualData" }, // 2072705174
 		{ &Z_Construct_UFunction_ADungeonVisualizer_GetStartRoomPosition, "GetStartRoomPosition" }, // 2146309652
@@ -1517,7 +1462,6 @@ struct Z_Construct_UClass_ADungeonVisualizer_Statics
 		{ &Z_Construct_UFunction_ADungeonVisualizer_SetRoomTheme, "SetRoomTheme" }, // 4282964135
 		{ &Z_Construct_UFunction_ADungeonVisualizer_SpawnDoor, "SpawnDoor" }, // 1096063293
 		{ &Z_Construct_UFunction_ADungeonVisualizer_SpawnEnemiesInRoom, "SpawnEnemiesInRoom" }, // 1506123137
-		{ &Z_Construct_UFunction_ADungeonVisualizer_SpawnHallway, "SpawnHallway" }, // 2716998253
 		{ &Z_Construct_UFunction_ADungeonVisualizer_SpawnLootInRoom, "SpawnLootInRoom" }, // 4113897296
 		{ &Z_Construct_UFunction_ADungeonVisualizer_SpawnPlayerAtStart, "SpawnPlayerAtStart" }, // 703170664
 		{ &Z_Construct_UFunction_ADungeonVisualizer_SpawnRoom, "SpawnRoom" }, // 3078387467
@@ -1553,7 +1497,6 @@ const UECodeGen_Private::FClassPropertyParams Z_Construct_UClass_ADungeonVisuali
 const UECodeGen_Private::FClassPropertyParams Z_Construct_UClass_ADungeonVisualizer_Statics::NewProp_EnemyClasses_ValueProp = { "EnemyClasses", nullptr, (EPropertyFlags)0x0004000000000001, UECodeGen_Private::EPropertyGenFlags::Class, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, 1, Z_Construct_UClass_UClass, Z_Construct_UClass_AActor_NoRegister, METADATA_PARAMS(0, nullptr) };
 const UECodeGen_Private::FStrPropertyParams Z_Construct_UClass_ADungeonVisualizer_Statics::NewProp_EnemyClasses_Key_KeyProp = { "EnemyClasses_Key", nullptr, (EPropertyFlags)0x0000000000000001, UECodeGen_Private::EPropertyGenFlags::Str, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, 0, METADATA_PARAMS(0, nullptr) };
 const UECodeGen_Private::FMapPropertyParams Z_Construct_UClass_ADungeonVisualizer_Statics::NewProp_EnemyClasses = { "EnemyClasses", nullptr, (EPropertyFlags)0x0014000000000005, UECodeGen_Private::EPropertyGenFlags::Map, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ADungeonVisualizer, EnemyClasses), EMapPropertyFlags::None, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_EnemyClasses_MetaData), NewProp_EnemyClasses_MetaData) };
-const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_ADungeonVisualizer_Statics::NewProp_DungeonGenerator = { "DungeonGenerator", nullptr, (EPropertyFlags)0x0010000000000014, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ADungeonVisualizer, DungeonGenerator), Z_Construct_UClass_ASnakeDungeonGenerator_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_DungeonGenerator_MetaData), NewProp_DungeonGenerator_MetaData) };
 const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_ADungeonVisualizer_Statics::NewProp_ADASystem = { "ADASystem", nullptr, (EPropertyFlags)0x0010000000000014, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ADungeonVisualizer, ADASystem), Z_Construct_UClass_AADASystem_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_ADASystem_MetaData), NewProp_ADASystem_MetaData) };
 const UECodeGen_Private::FStructPropertyParams Z_Construct_UClass_ADungeonVisualizer_Statics::NewProp_VisualizedRooms_Inner = { "VisualizedRooms", nullptr, (EPropertyFlags)0x0000000000000000, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, 0, Z_Construct_UScriptStruct_FRoomVisualData, METADATA_PARAMS(0, nullptr) }; // 601754977
 const UECodeGen_Private::FArrayPropertyParams Z_Construct_UClass_ADungeonVisualizer_Statics::NewProp_VisualizedRooms = { "VisualizedRooms", nullptr, (EPropertyFlags)0x0010000000000014, UECodeGen_Private::EPropertyGenFlags::Array, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ADungeonVisualizer, VisualizedRooms), EArrayPropertyFlags::None, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_VisualizedRooms_MetaData), NewProp_VisualizedRooms_MetaData) }; // 601754977
@@ -1582,7 +1525,6 @@ const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_ADungeonV
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ADungeonVisualizer_Statics::NewProp_EnemyClasses_ValueProp,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ADungeonVisualizer_Statics::NewProp_EnemyClasses_Key_KeyProp,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ADungeonVisualizer_Statics::NewProp_EnemyClasses,
-	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ADungeonVisualizer_Statics::NewProp_DungeonGenerator,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ADungeonVisualizer_Statics::NewProp_ADASystem,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ADungeonVisualizer_Statics::NewProp_VisualizedRooms_Inner,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ADungeonVisualizer_Statics::NewProp_VisualizedRooms,
@@ -1638,10 +1580,10 @@ struct Z_CompiledInDeferFile_FID_Github_Self_Projects_EternalDescent_EternalDesc
 		{ FRoomVisualData::StaticStruct, Z_Construct_UScriptStruct_FRoomVisualData_Statics::NewStructOps, TEXT("RoomVisualData"), &Z_Registration_Info_UScriptStruct_RoomVisualData, CONSTRUCT_RELOAD_VERSION_INFO(FStructReloadVersionInfo, sizeof(FRoomVisualData), 601754977U) },
 	};
 	static constexpr FClassRegisterCompiledInInfo ClassInfo[] = {
-		{ Z_Construct_UClass_ADungeonVisualizer, ADungeonVisualizer::StaticClass, TEXT("ADungeonVisualizer"), &Z_Registration_Info_UClass_ADungeonVisualizer, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(ADungeonVisualizer), 2350608045U) },
+		{ Z_Construct_UClass_ADungeonVisualizer, ADungeonVisualizer::StaticClass, TEXT("ADungeonVisualizer"), &Z_Registration_Info_UClass_ADungeonVisualizer, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(ADungeonVisualizer), 2784128444U) },
 	};
 };
-static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Github_Self_Projects_EternalDescent_EternalDescent_Source_EternalDescent_Public_DungeonVisualizer_h_428829829(TEXT("/Script/EternalDescent"),
+static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Github_Self_Projects_EternalDescent_EternalDescent_Source_EternalDescent_Public_DungeonVisualizer_h_4095331785(TEXT("/Script/EternalDescent"),
 	Z_CompiledInDeferFile_FID_Github_Self_Projects_EternalDescent_EternalDescent_Source_EternalDescent_Public_DungeonVisualizer_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Github_Self_Projects_EternalDescent_EternalDescent_Source_EternalDescent_Public_DungeonVisualizer_h_Statics::ClassInfo),
 	Z_CompiledInDeferFile_FID_Github_Self_Projects_EternalDescent_EternalDescent_Source_EternalDescent_Public_DungeonVisualizer_h_Statics::ScriptStructInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Github_Self_Projects_EternalDescent_EternalDescent_Source_EternalDescent_Public_DungeonVisualizer_h_Statics::ScriptStructInfo),
 	nullptr, 0);

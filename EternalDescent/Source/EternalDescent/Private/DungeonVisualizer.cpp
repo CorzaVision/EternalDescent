@@ -62,10 +62,6 @@ void ADungeonVisualizer::SpawnRoomMeshes(const FRoomVisualData& RoomVisual)
     UE_LOG(LogTemp, Warning, TEXT("SpawnRoomMeshes called"));
 }
 
-void ADungeonVisualizer::SpawnHallway(const FHallwayConnection& Hallway)
-{
-    UE_LOG(LogTemp, Warning, TEXT("SpawnHallway called"));
-}
 
 void ADungeonVisualizer::CreateHallwayPath(FVector StartPos, FVector EndPos)
 {

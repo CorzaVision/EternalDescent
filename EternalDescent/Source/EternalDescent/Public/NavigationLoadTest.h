@@ -3,7 +3,6 @@
 
 #include "CoreMinimal.h"
 #include "GameFramework/Actor.h"
-#include "SnakeDungeonGenerator.h"
 #include "GridDungeonVisualizer.h"
 // Navigation includes disabled for UE 5.5 compatibility
 // #include "NavigationPath.h"
@@ -215,9 +214,6 @@ public:
     bool bStopOnPathFailure = false;
     
     // References
-    UPROPERTY(BlueprintReadOnly, Category = "References")
-    ASnakeDungeonGenerator* DungeonGenerator;
-    
     UPROPERTY(BlueprintReadOnly, Category = "References")
     AGridDungeonVisualizer* DungeonVisualizer;
     

@@ -6,14 +6,16 @@
 
 #include "UObject/GeneratedCppIncludes.h"
 #include "EternalDescent/Public/GridDungeonVisualizer.h"
-#include "EternalDescent/Public/SnakeDungeonGenerator.h"
 #include "EternalDescent/Public/Tests/DungeonTestTypes.h"
 PRAGMA_DISABLE_DEPRECATION_WARNINGS
 void EmptyLinkFunctionForGeneratedCodeGridDungeonVisualizer() {}
 
 // Begin Cross Module References
 COREUOBJECT_API UScriptStruct* Z_Construct_UScriptStruct_FIntPoint();
+COREUOBJECT_API UScriptStruct* Z_Construct_UScriptStruct_FLinearColor();
+COREUOBJECT_API UScriptStruct* Z_Construct_UScriptStruct_FRandomStream();
 COREUOBJECT_API UScriptStruct* Z_Construct_UScriptStruct_FVector();
+COREUOBJECT_API UScriptStruct* Z_Construct_UScriptStruct_FVector2D();
 ENGINE_API UClass* Z_Construct_UClass_AActor();
 ENGINE_API UClass* Z_Construct_UClass_UInstancedStaticMeshComponent_NoRegister();
 ENGINE_API UClass* Z_Construct_UClass_UMaterialInterface_NoRegister();
@@ -21,15 +23,71 @@ ENGINE_API UClass* Z_Construct_UClass_UStaticMesh_NoRegister();
 ETERNALDESCENT_API UClass* Z_Construct_UClass_AADASystem_NoRegister();
 ETERNALDESCENT_API UClass* Z_Construct_UClass_AGridDungeonVisualizer();
 ETERNALDESCENT_API UClass* Z_Construct_UClass_AGridDungeonVisualizer_NoRegister();
-ETERNALDESCENT_API UClass* Z_Construct_UClass_ASnakeDungeonGenerator_NoRegister();
+ETERNALDESCENT_API UEnum* Z_Construct_UEnum_EternalDescent_EDungeonGenerationType();
 ETERNALDESCENT_API UEnum* Z_Construct_UEnum_EternalDescent_EGridCellType();
 ETERNALDESCENT_API UEnum* Z_Construct_UEnum_EternalDescent_ERoomType();
 ETERNALDESCENT_API UScriptStruct* Z_Construct_UScriptStruct_FDungeonLayout();
 ETERNALDESCENT_API UScriptStruct* Z_Construct_UScriptStruct_FGridCell();
-ETERNALDESCENT_API UScriptStruct* Z_Construct_UScriptStruct_FHallwayConnection();
+ETERNALDESCENT_API UScriptStruct* Z_Construct_UScriptStruct_FHallway();
+ETERNALDESCENT_API UScriptStruct* Z_Construct_UScriptStruct_FOrganicDungeonLayout();
+ETERNALDESCENT_API UScriptStruct* Z_Construct_UScriptStruct_FOrganicRoom();
 ETERNALDESCENT_API UScriptStruct* Z_Construct_UScriptStruct_FRoomData();
 UPackage* Z_Construct_UPackage__Script_EternalDescent();
 // End Cross Module References
+
+// Begin Enum EDungeonGenerationType
+static FEnumRegistrationInfo Z_Registration_Info_UEnum_EDungeonGenerationType;
+static UEnum* EDungeonGenerationType_StaticEnum()
+{
+	if (!Z_Registration_Info_UEnum_EDungeonGenerationType.OuterSingleton)
+	{
+		Z_Registration_Info_UEnum_EDungeonGenerationType.OuterSingleton = GetStaticEnum(Z_Construct_UEnum_EternalDescent_EDungeonGenerationType, (UObject*)Z_Construct_UPackage__Script_EternalDescent(), TEXT("EDungeonGenerationType"));
+	}
+	return Z_Registration_Info_UEnum_EDungeonGenerationType.OuterSingleton;
+}
+template<> ETERNALDESCENT_API UEnum* StaticEnum<EDungeonGenerationType>()
+{
+	return EDungeonGenerationType_StaticEnum();
+}
+struct Z_Construct_UEnum_EternalDescent_EDungeonGenerationType_Statics
+{
+#if WITH_METADATA
+	static constexpr UECodeGen_Private::FMetaDataPairParam Enum_MetaDataParams[] = {
+		{ "BlueprintType", "true" },
+		{ "Grid.DisplayName", "Grid-Based" },
+		{ "Grid.Name", "EDungeonGenerationType::Grid" },
+		{ "ModuleRelativePath", "Public/GridDungeonVisualizer.h" },
+		{ "Organic.DisplayName", "Organic/Natural" },
+		{ "Organic.Name", "EDungeonGenerationType::Organic" },
+	};
+#endif // WITH_METADATA
+	static constexpr UECodeGen_Private::FEnumeratorParam Enumerators[] = {
+		{ "EDungeonGenerationType::Grid", (int64)EDungeonGenerationType::Grid },
+		{ "EDungeonGenerationType::Organic", (int64)EDungeonGenerationType::Organic },
+	};
+	static const UECodeGen_Private::FEnumParams EnumParams;
+};
+const UECodeGen_Private::FEnumParams Z_Construct_UEnum_EternalDescent_EDungeonGenerationType_Statics::EnumParams = {
+	(UObject*(*)())Z_Construct_UPackage__Script_EternalDescent,
+	nullptr,
+	"EDungeonGenerationType",
+	"EDungeonGenerationType",
+	Z_Construct_UEnum_EternalDescent_EDungeonGenerationType_Statics::Enumerators,
+	RF_Public|RF_Transient|RF_MarkAsNative,
+	UE_ARRAY_COUNT(Z_Construct_UEnum_EternalDescent_EDungeonGenerationType_Statics::Enumerators),
+	EEnumFlags::None,
+	(uint8)UEnum::ECppForm::EnumClass,
+	METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UEnum_EternalDescent_EDungeonGenerationType_Statics::Enum_MetaDataParams), Z_Construct_UEnum_EternalDescent_EDungeonGenerationType_Statics::Enum_MetaDataParams)
+};
+UEnum* Z_Construct_UEnum_EternalDescent_EDungeonGenerationType()
+{
+	if (!Z_Registration_Info_UEnum_EDungeonGenerationType.InnerSingleton)
+	{
+		UECodeGen_Private::ConstructUEnum(Z_Registration_Info_UEnum_EDungeonGenerationType.InnerSingleton, Z_Construct_UEnum_EternalDescent_EDungeonGenerationType_Statics::EnumParams);
+	}
+	return Z_Registration_Info_UEnum_EDungeonGenerationType.InnerSingleton;
+}
+// End Enum EDungeonGenerationType
 
 // Begin Enum EGridCellType
 static FEnumRegistrationInfo Z_Registration_Info_UEnum_EGridCellType;
@@ -190,6 +248,333 @@ UScriptStruct* Z_Construct_UScriptStruct_FGridCell()
 }
 // End ScriptStruct FGridCell
 
+// Begin ScriptStruct FOrganicRoom
+static FStructRegistrationInfo Z_Registration_Info_UScriptStruct_OrganicRoom;
+class UScriptStruct* FOrganicRoom::StaticStruct()
+{
+	if (!Z_Registration_Info_UScriptStruct_OrganicRoom.OuterSingleton)
+	{
+		Z_Registration_Info_UScriptStruct_OrganicRoom.OuterSingleton = GetStaticStruct(Z_Construct_UScriptStruct_FOrganicRoom, (UObject*)Z_Construct_UPackage__Script_EternalDescent(), TEXT("OrganicRoom"));
+	}
+	return Z_Registration_Info_UScriptStruct_OrganicRoom.OuterSingleton;
+}
+template<> ETERNALDESCENT_API UScriptStruct* StaticStruct<FOrganicRoom>()
+{
+	return FOrganicRoom::StaticStruct();
+}
+struct Z_Construct_UScriptStruct_FOrganicRoom_Statics
+{
+#if WITH_METADATA
+	static constexpr UECodeGen_Private::FMetaDataPairParam Struct_MetaDataParams[] = {
+		{ "BlueprintType", "true" },
+		{ "ModuleRelativePath", "Public/GridDungeonVisualizer.h" },
+	};
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_Position_MetaData[] = {
+		{ "Category", "OrganicRoom" },
+		{ "ModuleRelativePath", "Public/GridDungeonVisualizer.h" },
+	};
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_Size_MetaData[] = {
+		{ "Category", "OrganicRoom" },
+#if !UE_BUILD_SHIPPING
+		{ "Comment", "// World position of room center\n" },
+#endif
+		{ "ModuleRelativePath", "Public/GridDungeonVisualizer.h" },
+#if !UE_BUILD_SHIPPING
+		{ "ToolTip", "World position of room center" },
+#endif
+	};
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_RoomType_MetaData[] = {
+		{ "Category", "OrganicRoom" },
+#if !UE_BUILD_SHIPPING
+		{ "Comment", "// Width and Height in world units\n" },
+#endif
+		{ "ModuleRelativePath", "Public/GridDungeonVisualizer.h" },
+#if !UE_BUILD_SHIPPING
+		{ "ToolTip", "Width and Height in world units" },
+#endif
+	};
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_RoomID_MetaData[] = {
+		{ "Category", "OrganicRoom" },
+		{ "ModuleRelativePath", "Public/GridDungeonVisualizer.h" },
+	};
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_ConnectedRooms_MetaData[] = {
+		{ "Category", "OrganicRoom" },
+		{ "ModuleRelativePath", "Public/GridDungeonVisualizer.h" },
+	};
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_bIsMainPath_MetaData[] = {
+		{ "Category", "OrganicRoom" },
+#if !UE_BUILD_SHIPPING
+		{ "Comment", "// IDs of connected rooms\n" },
+#endif
+		{ "ModuleRelativePath", "Public/GridDungeonVisualizer.h" },
+#if !UE_BUILD_SHIPPING
+		{ "ToolTip", "IDs of connected rooms" },
+#endif
+	};
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_Depth_MetaData[] = {
+		{ "Category", "OrganicRoom" },
+#if !UE_BUILD_SHIPPING
+		{ "Comment", "// Part of the critical path\n" },
+#endif
+		{ "ModuleRelativePath", "Public/GridDungeonVisualizer.h" },
+#if !UE_BUILD_SHIPPING
+		{ "ToolTip", "Part of the critical path" },
+#endif
+	};
+#endif // WITH_METADATA
+	static const UECodeGen_Private::FStructPropertyParams NewProp_Position;
+	static const UECodeGen_Private::FStructPropertyParams NewProp_Size;
+	static const UECodeGen_Private::FBytePropertyParams NewProp_RoomType_Underlying;
+	static const UECodeGen_Private::FEnumPropertyParams NewProp_RoomType;
+	static const UECodeGen_Private::FIntPropertyParams NewProp_RoomID;
+	static const UECodeGen_Private::FIntPropertyParams NewProp_ConnectedRooms_Inner;
+	static const UECodeGen_Private::FArrayPropertyParams NewProp_ConnectedRooms;
+	static void NewProp_bIsMainPath_SetBit(void* Obj);
+	static const UECodeGen_Private::FBoolPropertyParams NewProp_bIsMainPath;
+	static const UECodeGen_Private::FIntPropertyParams NewProp_Depth;
+	static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
+	static void* NewStructOps()
+	{
+		return (UScriptStruct::ICppStructOps*)new UScriptStruct::TCppStructOps<FOrganicRoom>();
+	}
+	static const UECodeGen_Private::FStructParams StructParams;
+};
+const UECodeGen_Private::FStructPropertyParams Z_Construct_UScriptStruct_FOrganicRoom_Statics::NewProp_Position = { "Position", nullptr, (EPropertyFlags)0x0010000000000004, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(FOrganicRoom, Position), Z_Construct_UScriptStruct_FVector, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_Position_MetaData), NewProp_Position_MetaData) };
+const UECodeGen_Private::FStructPropertyParams Z_Construct_UScriptStruct_FOrganicRoom_Statics::NewProp_Size = { "Size", nullptr, (EPropertyFlags)0x0010000000000004, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(FOrganicRoom, Size), Z_Construct_UScriptStruct_FVector2D, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_Size_MetaData), NewProp_Size_MetaData) };
+const UECodeGen_Private::FBytePropertyParams Z_Construct_UScriptStruct_FOrganicRoom_Statics::NewProp_RoomType_Underlying = { "UnderlyingType", nullptr, (EPropertyFlags)0x0000000000000000, UECodeGen_Private::EPropertyGenFlags::Byte, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, 0, nullptr, METADATA_PARAMS(0, nullptr) };
+const UECodeGen_Private::FEnumPropertyParams Z_Construct_UScriptStruct_FOrganicRoom_Statics::NewProp_RoomType = { "RoomType", nullptr, (EPropertyFlags)0x0010000000000004, UECodeGen_Private::EPropertyGenFlags::Enum, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(FOrganicRoom, RoomType), Z_Construct_UEnum_EternalDescent_ERoomType, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_RoomType_MetaData), NewProp_RoomType_MetaData) }; // 1291513837
+const UECodeGen_Private::FIntPropertyParams Z_Construct_UScriptStruct_FOrganicRoom_Statics::NewProp_RoomID = { "RoomID", nullptr, (EPropertyFlags)0x0010000000000004, UECodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(FOrganicRoom, RoomID), METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_RoomID_MetaData), NewProp_RoomID_MetaData) };
+const UECodeGen_Private::FIntPropertyParams Z_Construct_UScriptStruct_FOrganicRoom_Statics::NewProp_ConnectedRooms_Inner = { "ConnectedRooms", nullptr, (EPropertyFlags)0x0000000000000000, UECodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, 0, METADATA_PARAMS(0, nullptr) };
+const UECodeGen_Private::FArrayPropertyParams Z_Construct_UScriptStruct_FOrganicRoom_Statics::NewProp_ConnectedRooms = { "ConnectedRooms", nullptr, (EPropertyFlags)0x0010000000000004, UECodeGen_Private::EPropertyGenFlags::Array, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(FOrganicRoom, ConnectedRooms), EArrayPropertyFlags::None, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_ConnectedRooms_MetaData), NewProp_ConnectedRooms_MetaData) };
+void Z_Construct_UScriptStruct_FOrganicRoom_Statics::NewProp_bIsMainPath_SetBit(void* Obj)
+{
+	((FOrganicRoom*)Obj)->bIsMainPath = 1;
+}
+const UECodeGen_Private::FBoolPropertyParams Z_Construct_UScriptStruct_FOrganicRoom_Statics::NewProp_bIsMainPath = { "bIsMainPath", nullptr, (EPropertyFlags)0x0010000000000004, UECodeGen_Private::EPropertyGenFlags::Bool | UECodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, sizeof(bool), sizeof(FOrganicRoom), &Z_Construct_UScriptStruct_FOrganicRoom_Statics::NewProp_bIsMainPath_SetBit, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_bIsMainPath_MetaData), NewProp_bIsMainPath_MetaData) };
+const UECodeGen_Private::FIntPropertyParams Z_Construct_UScriptStruct_FOrganicRoom_Statics::NewProp_Depth = { "Depth", nullptr, (EPropertyFlags)0x0010000000000004, UECodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(FOrganicRoom, Depth), METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_Depth_MetaData), NewProp_Depth_MetaData) };
+const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UScriptStruct_FOrganicRoom_Statics::PropPointers[] = {
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UScriptStruct_FOrganicRoom_Statics::NewProp_Position,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UScriptStruct_FOrganicRoom_Statics::NewProp_Size,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UScriptStruct_FOrganicRoom_Statics::NewProp_RoomType_Underlying,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UScriptStruct_FOrganicRoom_Statics::NewProp_RoomType,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UScriptStruct_FOrganicRoom_Statics::NewProp_RoomID,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UScriptStruct_FOrganicRoom_Statics::NewProp_ConnectedRooms_Inner,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UScriptStruct_FOrganicRoom_Statics::NewProp_ConnectedRooms,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UScriptStruct_FOrganicRoom_Statics::NewProp_bIsMainPath,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UScriptStruct_FOrganicRoom_Statics::NewProp_Depth,
+};
+static_assert(UE_ARRAY_COUNT(Z_Construct_UScriptStruct_FOrganicRoom_Statics::PropPointers) < 2048);
+const UECodeGen_Private::FStructParams Z_Construct_UScriptStruct_FOrganicRoom_Statics::StructParams = {
+	(UObject* (*)())Z_Construct_UPackage__Script_EternalDescent,
+	nullptr,
+	&NewStructOps,
+	"OrganicRoom",
+	Z_Construct_UScriptStruct_FOrganicRoom_Statics::PropPointers,
+	UE_ARRAY_COUNT(Z_Construct_UScriptStruct_FOrganicRoom_Statics::PropPointers),
+	sizeof(FOrganicRoom),
+	alignof(FOrganicRoom),
+	RF_Public|RF_Transient|RF_MarkAsNative,
+	EStructFlags(0x00000001),
+	METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UScriptStruct_FOrganicRoom_Statics::Struct_MetaDataParams), Z_Construct_UScriptStruct_FOrganicRoom_Statics::Struct_MetaDataParams)
+};
+UScriptStruct* Z_Construct_UScriptStruct_FOrganicRoom()
+{
+	if (!Z_Registration_Info_UScriptStruct_OrganicRoom.InnerSingleton)
+	{
+		UECodeGen_Private::ConstructUScriptStruct(Z_Registration_Info_UScriptStruct_OrganicRoom.InnerSingleton, Z_Construct_UScriptStruct_FOrganicRoom_Statics::StructParams);
+	}
+	return Z_Registration_Info_UScriptStruct_OrganicRoom.InnerSingleton;
+}
+// End ScriptStruct FOrganicRoom
+
+// Begin ScriptStruct FHallway
+static FStructRegistrationInfo Z_Registration_Info_UScriptStruct_Hallway;
+class UScriptStruct* FHallway::StaticStruct()
+{
+	if (!Z_Registration_Info_UScriptStruct_Hallway.OuterSingleton)
+	{
+		Z_Registration_Info_UScriptStruct_Hallway.OuterSingleton = GetStaticStruct(Z_Construct_UScriptStruct_FHallway, (UObject*)Z_Construct_UPackage__Script_EternalDescent(), TEXT("Hallway"));
+	}
+	return Z_Registration_Info_UScriptStruct_Hallway.OuterSingleton;
+}
+template<> ETERNALDESCENT_API UScriptStruct* StaticStruct<FHallway>()
+{
+	return FHallway::StaticStruct();
+}
+struct Z_Construct_UScriptStruct_FHallway_Statics
+{
+#if WITH_METADATA
+	static constexpr UECodeGen_Private::FMetaDataPairParam Struct_MetaDataParams[] = {
+		{ "BlueprintType", "true" },
+		{ "ModuleRelativePath", "Public/GridDungeonVisualizer.h" },
+	};
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_RoomA_MetaData[] = {
+		{ "Category", "Hallway" },
+		{ "ModuleRelativePath", "Public/GridDungeonVisualizer.h" },
+	};
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_RoomB_MetaData[] = {
+		{ "Category", "Hallway" },
+		{ "ModuleRelativePath", "Public/GridDungeonVisualizer.h" },
+	};
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_PathPoints_MetaData[] = {
+		{ "Category", "Hallway" },
+		{ "ModuleRelativePath", "Public/GridDungeonVisualizer.h" },
+	};
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_Width_MetaData[] = {
+		{ "Category", "Hallway" },
+#if !UE_BUILD_SHIPPING
+		{ "Comment", "// Points along the hallway\n" },
+#endif
+		{ "ModuleRelativePath", "Public/GridDungeonVisualizer.h" },
+#if !UE_BUILD_SHIPPING
+		{ "ToolTip", "Points along the hallway" },
+#endif
+	};
+#endif // WITH_METADATA
+	static const UECodeGen_Private::FIntPropertyParams NewProp_RoomA;
+	static const UECodeGen_Private::FIntPropertyParams NewProp_RoomB;
+	static const UECodeGen_Private::FStructPropertyParams NewProp_PathPoints_Inner;
+	static const UECodeGen_Private::FArrayPropertyParams NewProp_PathPoints;
+	static const UECodeGen_Private::FFloatPropertyParams NewProp_Width;
+	static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
+	static void* NewStructOps()
+	{
+		return (UScriptStruct::ICppStructOps*)new UScriptStruct::TCppStructOps<FHallway>();
+	}
+	static const UECodeGen_Private::FStructParams StructParams;
+};
+const UECodeGen_Private::FIntPropertyParams Z_Construct_UScriptStruct_FHallway_Statics::NewProp_RoomA = { "RoomA", nullptr, (EPropertyFlags)0x0010000000000004, UECodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(FHallway, RoomA), METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_RoomA_MetaData), NewProp_RoomA_MetaData) };
+const UECodeGen_Private::FIntPropertyParams Z_Construct_UScriptStruct_FHallway_Statics::NewProp_RoomB = { "RoomB", nullptr, (EPropertyFlags)0x0010000000000004, UECodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(FHallway, RoomB), METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_RoomB_MetaData), NewProp_RoomB_MetaData) };
+const UECodeGen_Private::FStructPropertyParams Z_Construct_UScriptStruct_FHallway_Statics::NewProp_PathPoints_Inner = { "PathPoints", nullptr, (EPropertyFlags)0x0000000000000000, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, 0, Z_Construct_UScriptStruct_FVector, METADATA_PARAMS(0, nullptr) };
+const UECodeGen_Private::FArrayPropertyParams Z_Construct_UScriptStruct_FHallway_Statics::NewProp_PathPoints = { "PathPoints", nullptr, (EPropertyFlags)0x0010000000000004, UECodeGen_Private::EPropertyGenFlags::Array, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(FHallway, PathPoints), EArrayPropertyFlags::None, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_PathPoints_MetaData), NewProp_PathPoints_MetaData) };
+const UECodeGen_Private::FFloatPropertyParams Z_Construct_UScriptStruct_FHallway_Statics::NewProp_Width = { "Width", nullptr, (EPropertyFlags)0x0010000000000004, UECodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(FHallway, Width), METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_Width_MetaData), NewProp_Width_MetaData) };
+const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UScriptStruct_FHallway_Statics::PropPointers[] = {
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UScriptStruct_FHallway_Statics::NewProp_RoomA,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UScriptStruct_FHallway_Statics::NewProp_RoomB,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UScriptStruct_FHallway_Statics::NewProp_PathPoints_Inner,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UScriptStruct_FHallway_Statics::NewProp_PathPoints,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UScriptStruct_FHallway_Statics::NewProp_Width,
+};
+static_assert(UE_ARRAY_COUNT(Z_Construct_UScriptStruct_FHallway_Statics::PropPointers) < 2048);
+const UECodeGen_Private::FStructParams Z_Construct_UScriptStruct_FHallway_Statics::StructParams = {
+	(UObject* (*)())Z_Construct_UPackage__Script_EternalDescent,
+	nullptr,
+	&NewStructOps,
+	"Hallway",
+	Z_Construct_UScriptStruct_FHallway_Statics::PropPointers,
+	UE_ARRAY_COUNT(Z_Construct_UScriptStruct_FHallway_Statics::PropPointers),
+	sizeof(FHallway),
+	alignof(FHallway),
+	RF_Public|RF_Transient|RF_MarkAsNative,
+	EStructFlags(0x00000001),
+	METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UScriptStruct_FHallway_Statics::Struct_MetaDataParams), Z_Construct_UScriptStruct_FHallway_Statics::Struct_MetaDataParams)
+};
+UScriptStruct* Z_Construct_UScriptStruct_FHallway()
+{
+	if (!Z_Registration_Info_UScriptStruct_Hallway.InnerSingleton)
+	{
+		UECodeGen_Private::ConstructUScriptStruct(Z_Registration_Info_UScriptStruct_Hallway.InnerSingleton, Z_Construct_UScriptStruct_FHallway_Statics::StructParams);
+	}
+	return Z_Registration_Info_UScriptStruct_Hallway.InnerSingleton;
+}
+// End ScriptStruct FHallway
+
+// Begin ScriptStruct FOrganicDungeonLayout
+static FStructRegistrationInfo Z_Registration_Info_UScriptStruct_OrganicDungeonLayout;
+class UScriptStruct* FOrganicDungeonLayout::StaticStruct()
+{
+	if (!Z_Registration_Info_UScriptStruct_OrganicDungeonLayout.OuterSingleton)
+	{
+		Z_Registration_Info_UScriptStruct_OrganicDungeonLayout.OuterSingleton = GetStaticStruct(Z_Construct_UScriptStruct_FOrganicDungeonLayout, (UObject*)Z_Construct_UPackage__Script_EternalDescent(), TEXT("OrganicDungeonLayout"));
+	}
+	return Z_Registration_Info_UScriptStruct_OrganicDungeonLayout.OuterSingleton;
+}
+template<> ETERNALDESCENT_API UScriptStruct* StaticStruct<FOrganicDungeonLayout>()
+{
+	return FOrganicDungeonLayout::StaticStruct();
+}
+struct Z_Construct_UScriptStruct_FOrganicDungeonLayout_Statics
+{
+#if WITH_METADATA
+	static constexpr UECodeGen_Private::FMetaDataPairParam Struct_MetaDataParams[] = {
+		{ "BlueprintType", "true" },
+		{ "ModuleRelativePath", "Public/GridDungeonVisualizer.h" },
+	};
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_Rooms_MetaData[] = {
+		{ "Category", "OrganicDungeonLayout" },
+		{ "ModuleRelativePath", "Public/GridDungeonVisualizer.h" },
+	};
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_Hallways_MetaData[] = {
+		{ "Category", "OrganicDungeonLayout" },
+		{ "ModuleRelativePath", "Public/GridDungeonVisualizer.h" },
+	};
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_StartRoomID_MetaData[] = {
+		{ "Category", "OrganicDungeonLayout" },
+		{ "ModuleRelativePath", "Public/GridDungeonVisualizer.h" },
+	};
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_EndRoomID_MetaData[] = {
+		{ "Category", "OrganicDungeonLayout" },
+		{ "ModuleRelativePath", "Public/GridDungeonVisualizer.h" },
+	};
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_FloorNumber_MetaData[] = {
+		{ "Category", "OrganicDungeonLayout" },
+		{ "ModuleRelativePath", "Public/GridDungeonVisualizer.h" },
+	};
+#endif // WITH_METADATA
+	static const UECodeGen_Private::FStructPropertyParams NewProp_Rooms_Inner;
+	static const UECodeGen_Private::FArrayPropertyParams NewProp_Rooms;
+	static const UECodeGen_Private::FStructPropertyParams NewProp_Hallways_Inner;
+	static const UECodeGen_Private::FArrayPropertyParams NewProp_Hallways;
+	static const UECodeGen_Private::FIntPropertyParams NewProp_StartRoomID;
+	static const UECodeGen_Private::FIntPropertyParams NewProp_EndRoomID;
+	static const UECodeGen_Private::FIntPropertyParams NewProp_FloorNumber;
+	static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
+	static void* NewStructOps()
+	{
+		return (UScriptStruct::ICppStructOps*)new UScriptStruct::TCppStructOps<FOrganicDungeonLayout>();
+	}
+	static const UECodeGen_Private::FStructParams StructParams;
+};
+const UECodeGen_Private::FStructPropertyParams Z_Construct_UScriptStruct_FOrganicDungeonLayout_Statics::NewProp_Rooms_Inner = { "Rooms", nullptr, (EPropertyFlags)0x0000000000000000, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, 0, Z_Construct_UScriptStruct_FOrganicRoom, METADATA_PARAMS(0, nullptr) }; // 444642103
+const UECodeGen_Private::FArrayPropertyParams Z_Construct_UScriptStruct_FOrganicDungeonLayout_Statics::NewProp_Rooms = { "Rooms", nullptr, (EPropertyFlags)0x0010000000000004, UECodeGen_Private::EPropertyGenFlags::Array, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(FOrganicDungeonLayout, Rooms), EArrayPropertyFlags::None, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_Rooms_MetaData), NewProp_Rooms_MetaData) }; // 444642103
+const UECodeGen_Private::FStructPropertyParams Z_Construct_UScriptStruct_FOrganicDungeonLayout_Statics::NewProp_Hallways_Inner = { "Hallways", nullptr, (EPropertyFlags)0x0000000000000000, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, 0, Z_Construct_UScriptStruct_FHallway, METADATA_PARAMS(0, nullptr) }; // 3248599507
+const UECodeGen_Private::FArrayPropertyParams Z_Construct_UScriptStruct_FOrganicDungeonLayout_Statics::NewProp_Hallways = { "Hallways", nullptr, (EPropertyFlags)0x0010000000000004, UECodeGen_Private::EPropertyGenFlags::Array, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(FOrganicDungeonLayout, Hallways), EArrayPropertyFlags::None, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_Hallways_MetaData), NewProp_Hallways_MetaData) }; // 3248599507
+const UECodeGen_Private::FIntPropertyParams Z_Construct_UScriptStruct_FOrganicDungeonLayout_Statics::NewProp_StartRoomID = { "StartRoomID", nullptr, (EPropertyFlags)0x0010000000000004, UECodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(FOrganicDungeonLayout, StartRoomID), METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_StartRoomID_MetaData), NewProp_StartRoomID_MetaData) };
+const UECodeGen_Private::FIntPropertyParams Z_Construct_UScriptStruct_FOrganicDungeonLayout_Statics::NewProp_EndRoomID = { "EndRoomID", nullptr, (EPropertyFlags)0x0010000000000004, UECodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(FOrganicDungeonLayout, EndRoomID), METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_EndRoomID_MetaData), NewProp_EndRoomID_MetaData) };
+const UECodeGen_Private::FIntPropertyParams Z_Construct_UScriptStruct_FOrganicDungeonLayout_Statics::NewProp_FloorNumber = { "FloorNumber", nullptr, (EPropertyFlags)0x0010000000000004, UECodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(FOrganicDungeonLayout, FloorNumber), METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_FloorNumber_MetaData), NewProp_FloorNumber_MetaData) };
+const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UScriptStruct_FOrganicDungeonLayout_Statics::PropPointers[] = {
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UScriptStruct_FOrganicDungeonLayout_Statics::NewProp_Rooms_Inner,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UScriptStruct_FOrganicDungeonLayout_Statics::NewProp_Rooms,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UScriptStruct_FOrganicDungeonLayout_Statics::NewProp_Hallways_Inner,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UScriptStruct_FOrganicDungeonLayout_Statics::NewProp_Hallways,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UScriptStruct_FOrganicDungeonLayout_Statics::NewProp_StartRoomID,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UScriptStruct_FOrganicDungeonLayout_Statics::NewProp_EndRoomID,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UScriptStruct_FOrganicDungeonLayout_Statics::NewProp_FloorNumber,
+};
+static_assert(UE_ARRAY_COUNT(Z_Construct_UScriptStruct_FOrganicDungeonLayout_Statics::PropPointers) < 2048);
+const UECodeGen_Private::FStructParams Z_Construct_UScriptStruct_FOrganicDungeonLayout_Statics::StructParams = {
+	(UObject* (*)())Z_Construct_UPackage__Script_EternalDescent,
+	nullptr,
+	&NewStructOps,
+	"OrganicDungeonLayout",
+	Z_Construct_UScriptStruct_FOrganicDungeonLayout_Statics::PropPointers,
+	UE_ARRAY_COUNT(Z_Construct_UScriptStruct_FOrganicDungeonLayout_Statics::PropPointers),
+	sizeof(FOrganicDungeonLayout),
+	alignof(FOrganicDungeonLayout),
+	RF_Public|RF_Transient|RF_MarkAsNative,
+	EStructFlags(0x00000001),
+	METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UScriptStruct_FOrganicDungeonLayout_Statics::Struct_MetaDataParams), Z_Construct_UScriptStruct_FOrganicDungeonLayout_Statics::Struct_MetaDataParams)
+};
+UScriptStruct* Z_Construct_UScriptStruct_FOrganicDungeonLayout()
+{
+	if (!Z_Registration_Info_UScriptStruct_OrganicDungeonLayout.InnerSingleton)
+	{
+		UECodeGen_Private::ConstructUScriptStruct(Z_Registration_Info_UScriptStruct_OrganicDungeonLayout.InnerSingleton, Z_Construct_UScriptStruct_FOrganicDungeonLayout_Statics::StructParams);
+	}
+	return Z_Registration_Info_UScriptStruct_OrganicDungeonLayout.InnerSingleton;
+}
+// End ScriptStruct FOrganicDungeonLayout
+
 // Begin Class AGridDungeonVisualizer Function BuildGridFromLayout
 struct Z_Construct_UFunction_AGridDungeonVisualizer_BuildGridFromLayout_Statics
 {
@@ -236,6 +621,36 @@ DEFINE_FUNCTION(AGridDungeonVisualizer::execBuildGridFromLayout)
 }
 // End Class AGridDungeonVisualizer Function BuildGridFromLayout
 
+// Begin Class AGridDungeonVisualizer Function ClearDebugGrid
+struct Z_Construct_UFunction_AGridDungeonVisualizer_ClearDebugGrid_Statics
+{
+#if WITH_METADATA
+	static constexpr UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[] = {
+		{ "Category", "Debug" },
+		{ "ModuleRelativePath", "Public/GridDungeonVisualizer.h" },
+	};
+#endif // WITH_METADATA
+	static const UECodeGen_Private::FFunctionParams FuncParams;
+};
+const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_AGridDungeonVisualizer_ClearDebugGrid_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_AGridDungeonVisualizer, nullptr, "ClearDebugGrid", nullptr, nullptr, nullptr, 0, 0, RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x04020401, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_AGridDungeonVisualizer_ClearDebugGrid_Statics::Function_MetaDataParams), Z_Construct_UFunction_AGridDungeonVisualizer_ClearDebugGrid_Statics::Function_MetaDataParams) };
+UFunction* Z_Construct_UFunction_AGridDungeonVisualizer_ClearDebugGrid()
+{
+	static UFunction* ReturnFunction = nullptr;
+	if (!ReturnFunction)
+	{
+		UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_AGridDungeonVisualizer_ClearDebugGrid_Statics::FuncParams);
+	}
+	return ReturnFunction;
+}
+DEFINE_FUNCTION(AGridDungeonVisualizer::execClearDebugGrid)
+{
+	P_FINISH;
+	P_NATIVE_BEGIN;
+	P_THIS->ClearDebugGrid();
+	P_NATIVE_END;
+}
+// End Class AGridDungeonVisualizer Function ClearDebugGrid
+
 // Begin Class AGridDungeonVisualizer Function ClearDungeon
 struct Z_Construct_UFunction_AGridDungeonVisualizer_ClearDungeon_Statics
 {
@@ -266,18 +681,139 @@ DEFINE_FUNCTION(AGridDungeonVisualizer::execClearDungeon)
 }
 // End Class AGridDungeonVisualizer Function ClearDungeon
 
+// Begin Class AGridDungeonVisualizer Function CreateHallway
+struct Z_Construct_UFunction_AGridDungeonVisualizer_CreateHallway_Statics
+{
+	struct GridDungeonVisualizer_eventCreateHallway_Parms
+	{
+		int32 RoomA;
+		int32 RoomB;
+		FHallway ReturnValue;
+	};
+#if WITH_METADATA
+	static constexpr UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[] = {
+		{ "Category", "Organic Dungeon" },
+		{ "ModuleRelativePath", "Public/GridDungeonVisualizer.h" },
+	};
+#endif // WITH_METADATA
+	static const UECodeGen_Private::FIntPropertyParams NewProp_RoomA;
+	static const UECodeGen_Private::FIntPropertyParams NewProp_RoomB;
+	static const UECodeGen_Private::FStructPropertyParams NewProp_ReturnValue;
+	static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
+	static const UECodeGen_Private::FFunctionParams FuncParams;
+};
+const UECodeGen_Private::FIntPropertyParams Z_Construct_UFunction_AGridDungeonVisualizer_CreateHallway_Statics::NewProp_RoomA = { "RoomA", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(GridDungeonVisualizer_eventCreateHallway_Parms, RoomA), METADATA_PARAMS(0, nullptr) };
+const UECodeGen_Private::FIntPropertyParams Z_Construct_UFunction_AGridDungeonVisualizer_CreateHallway_Statics::NewProp_RoomB = { "RoomB", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(GridDungeonVisualizer_eventCreateHallway_Parms, RoomB), METADATA_PARAMS(0, nullptr) };
+const UECodeGen_Private::FStructPropertyParams Z_Construct_UFunction_AGridDungeonVisualizer_CreateHallway_Statics::NewProp_ReturnValue = { "ReturnValue", nullptr, (EPropertyFlags)0x0010000000000580, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(GridDungeonVisualizer_eventCreateHallway_Parms, ReturnValue), Z_Construct_UScriptStruct_FHallway, METADATA_PARAMS(0, nullptr) }; // 3248599507
+const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_AGridDungeonVisualizer_CreateHallway_Statics::PropPointers[] = {
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_AGridDungeonVisualizer_CreateHallway_Statics::NewProp_RoomA,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_AGridDungeonVisualizer_CreateHallway_Statics::NewProp_RoomB,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_AGridDungeonVisualizer_CreateHallway_Statics::NewProp_ReturnValue,
+};
+static_assert(UE_ARRAY_COUNT(Z_Construct_UFunction_AGridDungeonVisualizer_CreateHallway_Statics::PropPointers) < 2048);
+const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_AGridDungeonVisualizer_CreateHallway_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_AGridDungeonVisualizer, nullptr, "CreateHallway", nullptr, nullptr, Z_Construct_UFunction_AGridDungeonVisualizer_CreateHallway_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_AGridDungeonVisualizer_CreateHallway_Statics::PropPointers), sizeof(Z_Construct_UFunction_AGridDungeonVisualizer_CreateHallway_Statics::GridDungeonVisualizer_eventCreateHallway_Parms), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x04020401, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_AGridDungeonVisualizer_CreateHallway_Statics::Function_MetaDataParams), Z_Construct_UFunction_AGridDungeonVisualizer_CreateHallway_Statics::Function_MetaDataParams) };
+static_assert(sizeof(Z_Construct_UFunction_AGridDungeonVisualizer_CreateHallway_Statics::GridDungeonVisualizer_eventCreateHallway_Parms) < MAX_uint16);
+UFunction* Z_Construct_UFunction_AGridDungeonVisualizer_CreateHallway()
+{
+	static UFunction* ReturnFunction = nullptr;
+	if (!ReturnFunction)
+	{
+		UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_AGridDungeonVisualizer_CreateHallway_Statics::FuncParams);
+	}
+	return ReturnFunction;
+}
+DEFINE_FUNCTION(AGridDungeonVisualizer::execCreateHallway)
+{
+	P_GET_PROPERTY(FIntProperty,Z_Param_RoomA);
+	P_GET_PROPERTY(FIntProperty,Z_Param_RoomB);
+	P_FINISH;
+	P_NATIVE_BEGIN;
+	*(FHallway*)Z_Param__Result=P_THIS->CreateHallway(Z_Param_RoomA,Z_Param_RoomB);
+	P_NATIVE_END;
+}
+// End Class AGridDungeonVisualizer Function CreateHallway
+
+// Begin Class AGridDungeonVisualizer Function DoRoomsOverlap
+struct Z_Construct_UFunction_AGridDungeonVisualizer_DoRoomsOverlap_Statics
+{
+	struct GridDungeonVisualizer_eventDoRoomsOverlap_Parms
+	{
+		FOrganicRoom A;
+		FOrganicRoom B;
+		float Padding;
+		bool ReturnValue;
+	};
+#if WITH_METADATA
+	static constexpr UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[] = {
+		{ "Category", "Organic Dungeon" },
+		{ "CPP_Default_Padding", "100.000000" },
+		{ "ModuleRelativePath", "Public/GridDungeonVisualizer.h" },
+	};
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_A_MetaData[] = {
+		{ "NativeConst", "" },
+	};
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_B_MetaData[] = {
+		{ "NativeConst", "" },
+	};
+#endif // WITH_METADATA
+	static const UECodeGen_Private::FStructPropertyParams NewProp_A;
+	static const UECodeGen_Private::FStructPropertyParams NewProp_B;
+	static const UECodeGen_Private::FFloatPropertyParams NewProp_Padding;
+	static void NewProp_ReturnValue_SetBit(void* Obj);
+	static const UECodeGen_Private::FBoolPropertyParams NewProp_ReturnValue;
+	static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
+	static const UECodeGen_Private::FFunctionParams FuncParams;
+};
+const UECodeGen_Private::FStructPropertyParams Z_Construct_UFunction_AGridDungeonVisualizer_DoRoomsOverlap_Statics::NewProp_A = { "A", nullptr, (EPropertyFlags)0x0010000008000182, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(GridDungeonVisualizer_eventDoRoomsOverlap_Parms, A), Z_Construct_UScriptStruct_FOrganicRoom, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_A_MetaData), NewProp_A_MetaData) }; // 444642103
+const UECodeGen_Private::FStructPropertyParams Z_Construct_UFunction_AGridDungeonVisualizer_DoRoomsOverlap_Statics::NewProp_B = { "B", nullptr, (EPropertyFlags)0x0010000008000182, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(GridDungeonVisualizer_eventDoRoomsOverlap_Parms, B), Z_Construct_UScriptStruct_FOrganicRoom, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_B_MetaData), NewProp_B_MetaData) }; // 444642103
+const UECodeGen_Private::FFloatPropertyParams Z_Construct_UFunction_AGridDungeonVisualizer_DoRoomsOverlap_Statics::NewProp_Padding = { "Padding", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(GridDungeonVisualizer_eventDoRoomsOverlap_Parms, Padding), METADATA_PARAMS(0, nullptr) };
+void Z_Construct_UFunction_AGridDungeonVisualizer_DoRoomsOverlap_Statics::NewProp_ReturnValue_SetBit(void* Obj)
+{
+	((GridDungeonVisualizer_eventDoRoomsOverlap_Parms*)Obj)->ReturnValue = 1;
+}
+const UECodeGen_Private::FBoolPropertyParams Z_Construct_UFunction_AGridDungeonVisualizer_DoRoomsOverlap_Statics::NewProp_ReturnValue = { "ReturnValue", nullptr, (EPropertyFlags)0x0010000000000580, UECodeGen_Private::EPropertyGenFlags::Bool | UECodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, sizeof(bool), sizeof(GridDungeonVisualizer_eventDoRoomsOverlap_Parms), &Z_Construct_UFunction_AGridDungeonVisualizer_DoRoomsOverlap_Statics::NewProp_ReturnValue_SetBit, METADATA_PARAMS(0, nullptr) };
+const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_AGridDungeonVisualizer_DoRoomsOverlap_Statics::PropPointers[] = {
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_AGridDungeonVisualizer_DoRoomsOverlap_Statics::NewProp_A,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_AGridDungeonVisualizer_DoRoomsOverlap_Statics::NewProp_B,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_AGridDungeonVisualizer_DoRoomsOverlap_Statics::NewProp_Padding,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_AGridDungeonVisualizer_DoRoomsOverlap_Statics::NewProp_ReturnValue,
+};
+static_assert(UE_ARRAY_COUNT(Z_Construct_UFunction_AGridDungeonVisualizer_DoRoomsOverlap_Statics::PropPointers) < 2048);
+const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_AGridDungeonVisualizer_DoRoomsOverlap_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_AGridDungeonVisualizer, nullptr, "DoRoomsOverlap", nullptr, nullptr, Z_Construct_UFunction_AGridDungeonVisualizer_DoRoomsOverlap_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_AGridDungeonVisualizer_DoRoomsOverlap_Statics::PropPointers), sizeof(Z_Construct_UFunction_AGridDungeonVisualizer_DoRoomsOverlap_Statics::GridDungeonVisualizer_eventDoRoomsOverlap_Parms), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x04420401, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_AGridDungeonVisualizer_DoRoomsOverlap_Statics::Function_MetaDataParams), Z_Construct_UFunction_AGridDungeonVisualizer_DoRoomsOverlap_Statics::Function_MetaDataParams) };
+static_assert(sizeof(Z_Construct_UFunction_AGridDungeonVisualizer_DoRoomsOverlap_Statics::GridDungeonVisualizer_eventDoRoomsOverlap_Parms) < MAX_uint16);
+UFunction* Z_Construct_UFunction_AGridDungeonVisualizer_DoRoomsOverlap()
+{
+	static UFunction* ReturnFunction = nullptr;
+	if (!ReturnFunction)
+	{
+		UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_AGridDungeonVisualizer_DoRoomsOverlap_Statics::FuncParams);
+	}
+	return ReturnFunction;
+}
+DEFINE_FUNCTION(AGridDungeonVisualizer::execDoRoomsOverlap)
+{
+	P_GET_STRUCT_REF(FOrganicRoom,Z_Param_Out_A);
+	P_GET_STRUCT_REF(FOrganicRoom,Z_Param_Out_B);
+	P_GET_PROPERTY(FFloatProperty,Z_Param_Padding);
+	P_FINISH;
+	P_NATIVE_BEGIN;
+	*(bool*)Z_Param__Result=P_THIS->DoRoomsOverlap(Z_Param_Out_A,Z_Param_Out_B,Z_Param_Padding);
+	P_NATIVE_END;
+}
+// End Class AGridDungeonVisualizer Function DoRoomsOverlap
+
 // Begin Class AGridDungeonVisualizer Function DrawDebugGrid
 struct Z_Construct_UFunction_AGridDungeonVisualizer_DrawDebugGrid_Statics
 {
 #if WITH_METADATA
 	static constexpr UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[] = {
-		{ "Category", "Grid Dungeon" },
+		{ "Category", "Debug" },
 #if !UE_BUILD_SHIPPING
-		{ "Comment", "// Debug\n" },
+		{ "Comment", "// Debug Visualization\n" },
 #endif
 		{ "ModuleRelativePath", "Public/GridDungeonVisualizer.h" },
 #if !UE_BUILD_SHIPPING
-		{ "ToolTip", "Debug" },
+		{ "ToolTip", "Debug Visualization" },
 #endif
 	};
 #endif // WITH_METADATA
@@ -301,6 +837,71 @@ DEFINE_FUNCTION(AGridDungeonVisualizer::execDrawDebugGrid)
 	P_NATIVE_END;
 }
 // End Class AGridDungeonVisualizer Function DrawDebugGrid
+
+// Begin Class AGridDungeonVisualizer Function FindValidRoomPosition
+struct Z_Construct_UFunction_AGridDungeonVisualizer_FindValidRoomPosition_Statics
+{
+	struct GridDungeonVisualizer_eventFindValidRoomPosition_Parms
+	{
+		FOrganicRoom FromRoom;
+		FVector2D NewRoomSize;
+		float MinDistance;
+		float MaxDistance;
+		FVector ReturnValue;
+	};
+#if WITH_METADATA
+	static constexpr UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[] = {
+		{ "Category", "Organic Dungeon" },
+		{ "ModuleRelativePath", "Public/GridDungeonVisualizer.h" },
+	};
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_FromRoom_MetaData[] = {
+		{ "NativeConst", "" },
+	};
+#endif // WITH_METADATA
+	static const UECodeGen_Private::FStructPropertyParams NewProp_FromRoom;
+	static const UECodeGen_Private::FStructPropertyParams NewProp_NewRoomSize;
+	static const UECodeGen_Private::FFloatPropertyParams NewProp_MinDistance;
+	static const UECodeGen_Private::FFloatPropertyParams NewProp_MaxDistance;
+	static const UECodeGen_Private::FStructPropertyParams NewProp_ReturnValue;
+	static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
+	static const UECodeGen_Private::FFunctionParams FuncParams;
+};
+const UECodeGen_Private::FStructPropertyParams Z_Construct_UFunction_AGridDungeonVisualizer_FindValidRoomPosition_Statics::NewProp_FromRoom = { "FromRoom", nullptr, (EPropertyFlags)0x0010000008000182, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(GridDungeonVisualizer_eventFindValidRoomPosition_Parms, FromRoom), Z_Construct_UScriptStruct_FOrganicRoom, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_FromRoom_MetaData), NewProp_FromRoom_MetaData) }; // 444642103
+const UECodeGen_Private::FStructPropertyParams Z_Construct_UFunction_AGridDungeonVisualizer_FindValidRoomPosition_Statics::NewProp_NewRoomSize = { "NewRoomSize", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(GridDungeonVisualizer_eventFindValidRoomPosition_Parms, NewRoomSize), Z_Construct_UScriptStruct_FVector2D, METADATA_PARAMS(0, nullptr) };
+const UECodeGen_Private::FFloatPropertyParams Z_Construct_UFunction_AGridDungeonVisualizer_FindValidRoomPosition_Statics::NewProp_MinDistance = { "MinDistance", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(GridDungeonVisualizer_eventFindValidRoomPosition_Parms, MinDistance), METADATA_PARAMS(0, nullptr) };
+const UECodeGen_Private::FFloatPropertyParams Z_Construct_UFunction_AGridDungeonVisualizer_FindValidRoomPosition_Statics::NewProp_MaxDistance = { "MaxDistance", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(GridDungeonVisualizer_eventFindValidRoomPosition_Parms, MaxDistance), METADATA_PARAMS(0, nullptr) };
+const UECodeGen_Private::FStructPropertyParams Z_Construct_UFunction_AGridDungeonVisualizer_FindValidRoomPosition_Statics::NewProp_ReturnValue = { "ReturnValue", nullptr, (EPropertyFlags)0x0010000000000580, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(GridDungeonVisualizer_eventFindValidRoomPosition_Parms, ReturnValue), Z_Construct_UScriptStruct_FVector, METADATA_PARAMS(0, nullptr) };
+const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_AGridDungeonVisualizer_FindValidRoomPosition_Statics::PropPointers[] = {
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_AGridDungeonVisualizer_FindValidRoomPosition_Statics::NewProp_FromRoom,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_AGridDungeonVisualizer_FindValidRoomPosition_Statics::NewProp_NewRoomSize,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_AGridDungeonVisualizer_FindValidRoomPosition_Statics::NewProp_MinDistance,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_AGridDungeonVisualizer_FindValidRoomPosition_Statics::NewProp_MaxDistance,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_AGridDungeonVisualizer_FindValidRoomPosition_Statics::NewProp_ReturnValue,
+};
+static_assert(UE_ARRAY_COUNT(Z_Construct_UFunction_AGridDungeonVisualizer_FindValidRoomPosition_Statics::PropPointers) < 2048);
+const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_AGridDungeonVisualizer_FindValidRoomPosition_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_AGridDungeonVisualizer, nullptr, "FindValidRoomPosition", nullptr, nullptr, Z_Construct_UFunction_AGridDungeonVisualizer_FindValidRoomPosition_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_AGridDungeonVisualizer_FindValidRoomPosition_Statics::PropPointers), sizeof(Z_Construct_UFunction_AGridDungeonVisualizer_FindValidRoomPosition_Statics::GridDungeonVisualizer_eventFindValidRoomPosition_Parms), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x04C20401, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_AGridDungeonVisualizer_FindValidRoomPosition_Statics::Function_MetaDataParams), Z_Construct_UFunction_AGridDungeonVisualizer_FindValidRoomPosition_Statics::Function_MetaDataParams) };
+static_assert(sizeof(Z_Construct_UFunction_AGridDungeonVisualizer_FindValidRoomPosition_Statics::GridDungeonVisualizer_eventFindValidRoomPosition_Parms) < MAX_uint16);
+UFunction* Z_Construct_UFunction_AGridDungeonVisualizer_FindValidRoomPosition()
+{
+	static UFunction* ReturnFunction = nullptr;
+	if (!ReturnFunction)
+	{
+		UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_AGridDungeonVisualizer_FindValidRoomPosition_Statics::FuncParams);
+	}
+	return ReturnFunction;
+}
+DEFINE_FUNCTION(AGridDungeonVisualizer::execFindValidRoomPosition)
+{
+	P_GET_STRUCT_REF(FOrganicRoom,Z_Param_Out_FromRoom);
+	P_GET_STRUCT(FVector2D,Z_Param_NewRoomSize);
+	P_GET_PROPERTY(FFloatProperty,Z_Param_MinDistance);
+	P_GET_PROPERTY(FFloatProperty,Z_Param_MaxDistance);
+	P_FINISH;
+	P_NATIVE_BEGIN;
+	*(FVector*)Z_Param__Result=P_THIS->FindValidRoomPosition(Z_Param_Out_FromRoom,Z_Param_NewRoomSize,Z_Param_MinDistance,Z_Param_MaxDistance);
+	P_NATIVE_END;
+}
+// End Class AGridDungeonVisualizer Function FindValidRoomPosition
 
 // Begin Class AGridDungeonVisualizer Function GenerateAndVisualizeDungeon
 struct Z_Construct_UFunction_AGridDungeonVisualizer_GenerateAndVisualizeDungeon_Statics
@@ -351,6 +952,202 @@ DEFINE_FUNCTION(AGridDungeonVisualizer::execGenerateAndVisualizeDungeon)
 	P_NATIVE_END;
 }
 // End Class AGridDungeonVisualizer Function GenerateAndVisualizeDungeon
+
+// Begin Class AGridDungeonVisualizer Function GenerateBranches
+struct Z_Construct_UFunction_AGridDungeonVisualizer_GenerateBranches_Statics
+{
+#if WITH_METADATA
+	static constexpr UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[] = {
+		{ "Category", "Organic Dungeon" },
+		{ "ModuleRelativePath", "Public/GridDungeonVisualizer.h" },
+	};
+#endif // WITH_METADATA
+	static const UECodeGen_Private::FFunctionParams FuncParams;
+};
+const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_AGridDungeonVisualizer_GenerateBranches_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_AGridDungeonVisualizer, nullptr, "GenerateBranches", nullptr, nullptr, nullptr, 0, 0, RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x04020401, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_AGridDungeonVisualizer_GenerateBranches_Statics::Function_MetaDataParams), Z_Construct_UFunction_AGridDungeonVisualizer_GenerateBranches_Statics::Function_MetaDataParams) };
+UFunction* Z_Construct_UFunction_AGridDungeonVisualizer_GenerateBranches()
+{
+	static UFunction* ReturnFunction = nullptr;
+	if (!ReturnFunction)
+	{
+		UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_AGridDungeonVisualizer_GenerateBranches_Statics::FuncParams);
+	}
+	return ReturnFunction;
+}
+DEFINE_FUNCTION(AGridDungeonVisualizer::execGenerateBranches)
+{
+	P_FINISH;
+	P_NATIVE_BEGIN;
+	P_THIS->GenerateBranches();
+	P_NATIVE_END;
+}
+// End Class AGridDungeonVisualizer Function GenerateBranches
+
+// Begin Class AGridDungeonVisualizer Function GenerateHallwayPath
+struct Z_Construct_UFunction_AGridDungeonVisualizer_GenerateHallwayPath_Statics
+{
+	struct GridDungeonVisualizer_eventGenerateHallwayPath_Parms
+	{
+		FVector StartPos;
+		FVector EndPos;
+		TArray<FVector> ReturnValue;
+	};
+#if WITH_METADATA
+	static constexpr UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[] = {
+		{ "Category", "Organic Dungeon" },
+		{ "ModuleRelativePath", "Public/GridDungeonVisualizer.h" },
+	};
+#endif // WITH_METADATA
+	static const UECodeGen_Private::FStructPropertyParams NewProp_StartPos;
+	static const UECodeGen_Private::FStructPropertyParams NewProp_EndPos;
+	static const UECodeGen_Private::FStructPropertyParams NewProp_ReturnValue_Inner;
+	static const UECodeGen_Private::FArrayPropertyParams NewProp_ReturnValue;
+	static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
+	static const UECodeGen_Private::FFunctionParams FuncParams;
+};
+const UECodeGen_Private::FStructPropertyParams Z_Construct_UFunction_AGridDungeonVisualizer_GenerateHallwayPath_Statics::NewProp_StartPos = { "StartPos", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(GridDungeonVisualizer_eventGenerateHallwayPath_Parms, StartPos), Z_Construct_UScriptStruct_FVector, METADATA_PARAMS(0, nullptr) };
+const UECodeGen_Private::FStructPropertyParams Z_Construct_UFunction_AGridDungeonVisualizer_GenerateHallwayPath_Statics::NewProp_EndPos = { "EndPos", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(GridDungeonVisualizer_eventGenerateHallwayPath_Parms, EndPos), Z_Construct_UScriptStruct_FVector, METADATA_PARAMS(0, nullptr) };
+const UECodeGen_Private::FStructPropertyParams Z_Construct_UFunction_AGridDungeonVisualizer_GenerateHallwayPath_Statics::NewProp_ReturnValue_Inner = { "ReturnValue", nullptr, (EPropertyFlags)0x0000000000000000, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, 0, Z_Construct_UScriptStruct_FVector, METADATA_PARAMS(0, nullptr) };
+const UECodeGen_Private::FArrayPropertyParams Z_Construct_UFunction_AGridDungeonVisualizer_GenerateHallwayPath_Statics::NewProp_ReturnValue = { "ReturnValue", nullptr, (EPropertyFlags)0x0010000000000580, UECodeGen_Private::EPropertyGenFlags::Array, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(GridDungeonVisualizer_eventGenerateHallwayPath_Parms, ReturnValue), EArrayPropertyFlags::None, METADATA_PARAMS(0, nullptr) };
+const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_AGridDungeonVisualizer_GenerateHallwayPath_Statics::PropPointers[] = {
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_AGridDungeonVisualizer_GenerateHallwayPath_Statics::NewProp_StartPos,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_AGridDungeonVisualizer_GenerateHallwayPath_Statics::NewProp_EndPos,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_AGridDungeonVisualizer_GenerateHallwayPath_Statics::NewProp_ReturnValue_Inner,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_AGridDungeonVisualizer_GenerateHallwayPath_Statics::NewProp_ReturnValue,
+};
+static_assert(UE_ARRAY_COUNT(Z_Construct_UFunction_AGridDungeonVisualizer_GenerateHallwayPath_Statics::PropPointers) < 2048);
+const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_AGridDungeonVisualizer_GenerateHallwayPath_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_AGridDungeonVisualizer, nullptr, "GenerateHallwayPath", nullptr, nullptr, Z_Construct_UFunction_AGridDungeonVisualizer_GenerateHallwayPath_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_AGridDungeonVisualizer_GenerateHallwayPath_Statics::PropPointers), sizeof(Z_Construct_UFunction_AGridDungeonVisualizer_GenerateHallwayPath_Statics::GridDungeonVisualizer_eventGenerateHallwayPath_Parms), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x04820401, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_AGridDungeonVisualizer_GenerateHallwayPath_Statics::Function_MetaDataParams), Z_Construct_UFunction_AGridDungeonVisualizer_GenerateHallwayPath_Statics::Function_MetaDataParams) };
+static_assert(sizeof(Z_Construct_UFunction_AGridDungeonVisualizer_GenerateHallwayPath_Statics::GridDungeonVisualizer_eventGenerateHallwayPath_Parms) < MAX_uint16);
+UFunction* Z_Construct_UFunction_AGridDungeonVisualizer_GenerateHallwayPath()
+{
+	static UFunction* ReturnFunction = nullptr;
+	if (!ReturnFunction)
+	{
+		UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_AGridDungeonVisualizer_GenerateHallwayPath_Statics::FuncParams);
+	}
+	return ReturnFunction;
+}
+DEFINE_FUNCTION(AGridDungeonVisualizer::execGenerateHallwayPath)
+{
+	P_GET_STRUCT(FVector,Z_Param_StartPos);
+	P_GET_STRUCT(FVector,Z_Param_EndPos);
+	P_FINISH;
+	P_NATIVE_BEGIN;
+	*(TArray<FVector>*)Z_Param__Result=P_THIS->GenerateHallwayPath(Z_Param_StartPos,Z_Param_EndPos);
+	P_NATIVE_END;
+}
+// End Class AGridDungeonVisualizer Function GenerateHallwayPath
+
+// Begin Class AGridDungeonVisualizer Function GenerateInEditor
+struct Z_Construct_UFunction_AGridDungeonVisualizer_GenerateInEditor_Statics
+{
+#if WITH_METADATA
+	static constexpr UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[] = {
+		{ "CallInEditor", "true" },
+		{ "Category", "Grid Dungeon" },
+		{ "ModuleRelativePath", "Public/GridDungeonVisualizer.h" },
+	};
+#endif // WITH_METADATA
+	static const UECodeGen_Private::FFunctionParams FuncParams;
+};
+const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_AGridDungeonVisualizer_GenerateInEditor_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_AGridDungeonVisualizer, nullptr, "GenerateInEditor", nullptr, nullptr, nullptr, 0, 0, RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x04020401, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_AGridDungeonVisualizer_GenerateInEditor_Statics::Function_MetaDataParams), Z_Construct_UFunction_AGridDungeonVisualizer_GenerateInEditor_Statics::Function_MetaDataParams) };
+UFunction* Z_Construct_UFunction_AGridDungeonVisualizer_GenerateInEditor()
+{
+	static UFunction* ReturnFunction = nullptr;
+	if (!ReturnFunction)
+	{
+		UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_AGridDungeonVisualizer_GenerateInEditor_Statics::FuncParams);
+	}
+	return ReturnFunction;
+}
+DEFINE_FUNCTION(AGridDungeonVisualizer::execGenerateInEditor)
+{
+	P_FINISH;
+	P_NATIVE_BEGIN;
+	P_THIS->GenerateInEditor();
+	P_NATIVE_END;
+}
+// End Class AGridDungeonVisualizer Function GenerateInEditor
+
+// Begin Class AGridDungeonVisualizer Function GenerateMainPath
+struct Z_Construct_UFunction_AGridDungeonVisualizer_GenerateMainPath_Statics
+{
+#if WITH_METADATA
+	static constexpr UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[] = {
+		{ "Category", "Organic Dungeon" },
+		{ "ModuleRelativePath", "Public/GridDungeonVisualizer.h" },
+	};
+#endif // WITH_METADATA
+	static const UECodeGen_Private::FFunctionParams FuncParams;
+};
+const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_AGridDungeonVisualizer_GenerateMainPath_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_AGridDungeonVisualizer, nullptr, "GenerateMainPath", nullptr, nullptr, nullptr, 0, 0, RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x04020401, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_AGridDungeonVisualizer_GenerateMainPath_Statics::Function_MetaDataParams), Z_Construct_UFunction_AGridDungeonVisualizer_GenerateMainPath_Statics::Function_MetaDataParams) };
+UFunction* Z_Construct_UFunction_AGridDungeonVisualizer_GenerateMainPath()
+{
+	static UFunction* ReturnFunction = nullptr;
+	if (!ReturnFunction)
+	{
+		UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_AGridDungeonVisualizer_GenerateMainPath_Statics::FuncParams);
+	}
+	return ReturnFunction;
+}
+DEFINE_FUNCTION(AGridDungeonVisualizer::execGenerateMainPath)
+{
+	P_FINISH;
+	P_NATIVE_BEGIN;
+	P_THIS->GenerateMainPath();
+	P_NATIVE_END;
+}
+// End Class AGridDungeonVisualizer Function GenerateMainPath
+
+// Begin Class AGridDungeonVisualizer Function GenerateOrganicDungeon
+struct Z_Construct_UFunction_AGridDungeonVisualizer_GenerateOrganicDungeon_Statics
+{
+	struct GridDungeonVisualizer_eventGenerateOrganicDungeon_Parms
+	{
+		int32 Seed;
+	};
+#if WITH_METADATA
+	static constexpr UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[] = {
+		{ "Category", "Organic Dungeon" },
+#if !UE_BUILD_SHIPPING
+		{ "Comment", "// Organic generation functions\n" },
+#endif
+		{ "CPP_Default_Seed", "-1" },
+		{ "ModuleRelativePath", "Public/GridDungeonVisualizer.h" },
+#if !UE_BUILD_SHIPPING
+		{ "ToolTip", "Organic generation functions" },
+#endif
+	};
+#endif // WITH_METADATA
+	static const UECodeGen_Private::FIntPropertyParams NewProp_Seed;
+	static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
+	static const UECodeGen_Private::FFunctionParams FuncParams;
+};
+const UECodeGen_Private::FIntPropertyParams Z_Construct_UFunction_AGridDungeonVisualizer_GenerateOrganicDungeon_Statics::NewProp_Seed = { "Seed", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(GridDungeonVisualizer_eventGenerateOrganicDungeon_Parms, Seed), METADATA_PARAMS(0, nullptr) };
+const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_AGridDungeonVisualizer_GenerateOrganicDungeon_Statics::PropPointers[] = {
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_AGridDungeonVisualizer_GenerateOrganicDungeon_Statics::NewProp_Seed,
+};
+static_assert(UE_ARRAY_COUNT(Z_Construct_UFunction_AGridDungeonVisualizer_GenerateOrganicDungeon_Statics::PropPointers) < 2048);
+const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_AGridDungeonVisualizer_GenerateOrganicDungeon_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_AGridDungeonVisualizer, nullptr, "GenerateOrganicDungeon", nullptr, nullptr, Z_Construct_UFunction_AGridDungeonVisualizer_GenerateOrganicDungeon_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_AGridDungeonVisualizer_GenerateOrganicDungeon_Statics::PropPointers), sizeof(Z_Construct_UFunction_AGridDungeonVisualizer_GenerateOrganicDungeon_Statics::GridDungeonVisualizer_eventGenerateOrganicDungeon_Parms), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x04020401, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_AGridDungeonVisualizer_GenerateOrganicDungeon_Statics::Function_MetaDataParams), Z_Construct_UFunction_AGridDungeonVisualizer_GenerateOrganicDungeon_Statics::Function_MetaDataParams) };
+static_assert(sizeof(Z_Construct_UFunction_AGridDungeonVisualizer_GenerateOrganicDungeon_Statics::GridDungeonVisualizer_eventGenerateOrganicDungeon_Parms) < MAX_uint16);
+UFunction* Z_Construct_UFunction_AGridDungeonVisualizer_GenerateOrganicDungeon()
+{
+	static UFunction* ReturnFunction = nullptr;
+	if (!ReturnFunction)
+	{
+		UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_AGridDungeonVisualizer_GenerateOrganicDungeon_Statics::FuncParams);
+	}
+	return ReturnFunction;
+}
+DEFINE_FUNCTION(AGridDungeonVisualizer::execGenerateOrganicDungeon)
+{
+	P_GET_PROPERTY(FIntProperty,Z_Param_Seed);
+	P_FINISH;
+	P_NATIVE_BEGIN;
+	P_THIS->GenerateOrganicDungeon(Z_Param_Seed);
+	P_NATIVE_END;
+}
+// End Class AGridDungeonVisualizer Function GenerateOrganicDungeon
 
 // Begin Class AGridDungeonVisualizer Function GetGridCell
 struct Z_Construct_UFunction_AGridDungeonVisualizer_GetGridCell_Statics
@@ -674,52 +1471,6 @@ UFunction* Z_Construct_UFunction_AGridDungeonVisualizer_OnTestEnemySpawned()
 }
 // End Class AGridDungeonVisualizer Function OnTestEnemySpawned
 
-// Begin Class AGridDungeonVisualizer Function PlaceHallwayInGrid
-struct Z_Construct_UFunction_AGridDungeonVisualizer_PlaceHallwayInGrid_Statics
-{
-	struct GridDungeonVisualizer_eventPlaceHallwayInGrid_Parms
-	{
-		FHallwayConnection Hallway;
-	};
-#if WITH_METADATA
-	static constexpr UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[] = {
-		{ "Category", "Grid Dungeon" },
-		{ "ModuleRelativePath", "Public/GridDungeonVisualizer.h" },
-	};
-	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_Hallway_MetaData[] = {
-		{ "NativeConst", "" },
-	};
-#endif // WITH_METADATA
-	static const UECodeGen_Private::FStructPropertyParams NewProp_Hallway;
-	static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
-	static const UECodeGen_Private::FFunctionParams FuncParams;
-};
-const UECodeGen_Private::FStructPropertyParams Z_Construct_UFunction_AGridDungeonVisualizer_PlaceHallwayInGrid_Statics::NewProp_Hallway = { "Hallway", nullptr, (EPropertyFlags)0x0010000008000182, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(GridDungeonVisualizer_eventPlaceHallwayInGrid_Parms, Hallway), Z_Construct_UScriptStruct_FHallwayConnection, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_Hallway_MetaData), NewProp_Hallway_MetaData) }; // 3960234035
-const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_AGridDungeonVisualizer_PlaceHallwayInGrid_Statics::PropPointers[] = {
-	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_AGridDungeonVisualizer_PlaceHallwayInGrid_Statics::NewProp_Hallway,
-};
-static_assert(UE_ARRAY_COUNT(Z_Construct_UFunction_AGridDungeonVisualizer_PlaceHallwayInGrid_Statics::PropPointers) < 2048);
-const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_AGridDungeonVisualizer_PlaceHallwayInGrid_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_AGridDungeonVisualizer, nullptr, "PlaceHallwayInGrid", nullptr, nullptr, Z_Construct_UFunction_AGridDungeonVisualizer_PlaceHallwayInGrid_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_AGridDungeonVisualizer_PlaceHallwayInGrid_Statics::PropPointers), sizeof(Z_Construct_UFunction_AGridDungeonVisualizer_PlaceHallwayInGrid_Statics::GridDungeonVisualizer_eventPlaceHallwayInGrid_Parms), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x04420401, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_AGridDungeonVisualizer_PlaceHallwayInGrid_Statics::Function_MetaDataParams), Z_Construct_UFunction_AGridDungeonVisualizer_PlaceHallwayInGrid_Statics::Function_MetaDataParams) };
-static_assert(sizeof(Z_Construct_UFunction_AGridDungeonVisualizer_PlaceHallwayInGrid_Statics::GridDungeonVisualizer_eventPlaceHallwayInGrid_Parms) < MAX_uint16);
-UFunction* Z_Construct_UFunction_AGridDungeonVisualizer_PlaceHallwayInGrid()
-{
-	static UFunction* ReturnFunction = nullptr;
-	if (!ReturnFunction)
-	{
-		UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_AGridDungeonVisualizer_PlaceHallwayInGrid_Statics::FuncParams);
-	}
-	return ReturnFunction;
-}
-DEFINE_FUNCTION(AGridDungeonVisualizer::execPlaceHallwayInGrid)
-{
-	P_GET_STRUCT_REF(FHallwayConnection,Z_Param_Out_Hallway);
-	P_FINISH;
-	P_NATIVE_BEGIN;
-	P_THIS->PlaceHallwayInGrid(Z_Param_Out_Hallway);
-	P_NATIVE_END;
-}
-// End Class AGridDungeonVisualizer Function PlaceHallwayInGrid
-
 // Begin Class AGridDungeonVisualizer Function PlaceRoomInGrid
 struct Z_Construct_UFunction_AGridDungeonVisualizer_PlaceRoomInGrid_Statics
 {
@@ -1034,6 +1785,37 @@ DEFINE_FUNCTION(AGridDungeonVisualizer::execSpawnTestEnemiesInRoom)
 }
 // End Class AGridDungeonVisualizer Function SpawnTestEnemiesInRoom
 
+// Begin Class AGridDungeonVisualizer Function ToggleDebugGridInEditor
+struct Z_Construct_UFunction_AGridDungeonVisualizer_ToggleDebugGridInEditor_Statics
+{
+#if WITH_METADATA
+	static constexpr UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[] = {
+		{ "CallInEditor", "true" },
+		{ "Category", "Debug" },
+		{ "ModuleRelativePath", "Public/GridDungeonVisualizer.h" },
+	};
+#endif // WITH_METADATA
+	static const UECodeGen_Private::FFunctionParams FuncParams;
+};
+const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_AGridDungeonVisualizer_ToggleDebugGridInEditor_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_AGridDungeonVisualizer, nullptr, "ToggleDebugGridInEditor", nullptr, nullptr, nullptr, 0, 0, RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x04020401, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_AGridDungeonVisualizer_ToggleDebugGridInEditor_Statics::Function_MetaDataParams), Z_Construct_UFunction_AGridDungeonVisualizer_ToggleDebugGridInEditor_Statics::Function_MetaDataParams) };
+UFunction* Z_Construct_UFunction_AGridDungeonVisualizer_ToggleDebugGridInEditor()
+{
+	static UFunction* ReturnFunction = nullptr;
+	if (!ReturnFunction)
+	{
+		UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_AGridDungeonVisualizer_ToggleDebugGridInEditor_Statics::FuncParams);
+	}
+	return ReturnFunction;
+}
+DEFINE_FUNCTION(AGridDungeonVisualizer::execToggleDebugGridInEditor)
+{
+	P_FINISH;
+	P_NATIVE_BEGIN;
+	P_THIS->ToggleDebugGridInEditor();
+	P_NATIVE_END;
+}
+// End Class AGridDungeonVisualizer Function ToggleDebugGridInEditor
+
 // Begin Class AGridDungeonVisualizer Function WorldToGridPosition
 struct Z_Construct_UFunction_AGridDungeonVisualizer_WorldToGridPosition_Statics
 {
@@ -1087,14 +1869,22 @@ void AGridDungeonVisualizer::StaticRegisterNativesAGridDungeonVisualizer()
 	UClass* Class = AGridDungeonVisualizer::StaticClass();
 	static const FNameNativePtrPair Funcs[] = {
 		{ "BuildGridFromLayout", &AGridDungeonVisualizer::execBuildGridFromLayout },
+		{ "ClearDebugGrid", &AGridDungeonVisualizer::execClearDebugGrid },
 		{ "ClearDungeon", &AGridDungeonVisualizer::execClearDungeon },
+		{ "CreateHallway", &AGridDungeonVisualizer::execCreateHallway },
+		{ "DoRoomsOverlap", &AGridDungeonVisualizer::execDoRoomsOverlap },
 		{ "DrawDebugGrid", &AGridDungeonVisualizer::execDrawDebugGrid },
+		{ "FindValidRoomPosition", &AGridDungeonVisualizer::execFindValidRoomPosition },
 		{ "GenerateAndVisualizeDungeon", &AGridDungeonVisualizer::execGenerateAndVisualizeDungeon },
+		{ "GenerateBranches", &AGridDungeonVisualizer::execGenerateBranches },
+		{ "GenerateHallwayPath", &AGridDungeonVisualizer::execGenerateHallwayPath },
+		{ "GenerateInEditor", &AGridDungeonVisualizer::execGenerateInEditor },
+		{ "GenerateMainPath", &AGridDungeonVisualizer::execGenerateMainPath },
+		{ "GenerateOrganicDungeon", &AGridDungeonVisualizer::execGenerateOrganicDungeon },
 		{ "GetGridCell", &AGridDungeonVisualizer::execGetGridCell },
 		{ "GetStartPosition", &AGridDungeonVisualizer::execGetStartPosition },
 		{ "GridToWorldPosition", &AGridDungeonVisualizer::execGridToWorldPosition },
 		{ "IsValidGridPosition", &AGridDungeonVisualizer::execIsValidGridPosition },
-		{ "PlaceHallwayInGrid", &AGridDungeonVisualizer::execPlaceHallwayInGrid },
 		{ "PlaceRoomInGrid", &AGridDungeonVisualizer::execPlaceRoomInGrid },
 		{ "SetGridCell", &AGridDungeonVisualizer::execSetGridCell },
 		{ "SpawnGridVisualization", &AGridDungeonVisualizer::execSpawnGridVisualization },
@@ -1102,6 +1892,7 @@ void AGridDungeonVisualizer::StaticRegisterNativesAGridDungeonVisualizer()
 		{ "SpawnRoomContents", &AGridDungeonVisualizer::execSpawnRoomContents },
 		{ "SpawnTestChestsInRoom", &AGridDungeonVisualizer::execSpawnTestChestsInRoom },
 		{ "SpawnTestEnemiesInRoom", &AGridDungeonVisualizer::execSpawnTestEnemiesInRoom },
+		{ "ToggleDebugGridInEditor", &AGridDungeonVisualizer::execToggleDebugGridInEditor },
 		{ "WorldToGridPosition", &AGridDungeonVisualizer::execWorldToGridPosition },
 	};
 	FNativeFunctionRegistrar::RegisterFunctions(Class, Funcs, UE_ARRAY_COUNT(Funcs));
@@ -1120,59 +1911,211 @@ struct Z_Construct_UClass_AGridDungeonVisualizer_Statics
 		{ "IsBlueprintBase", "true" },
 		{ "ModuleRelativePath", "Public/GridDungeonVisualizer.h" },
 	};
-	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_GridSizeX_MetaData[] = {
-		{ "Category", "Grid Settings" },
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_GenerationType_MetaData[] = {
+		{ "Category", "Generation Mode" },
 #if !UE_BUILD_SHIPPING
-		{ "Comment", "// Properties\n" },
+		{ "Comment", "// Properties - Generation Mode\n" },
 #endif
 		{ "ModuleRelativePath", "Public/GridDungeonVisualizer.h" },
 #if !UE_BUILD_SHIPPING
-		{ "ToolTip", "Properties" },
+		{ "ToolTip", "Properties - Generation Mode" },
+#endif
+	};
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_RoomsPerRow_MetaData[] = {
+		{ "Category", "Grid Layout" },
+		{ "ClampMax", "10" },
+		{ "ClampMin", "1" },
+#if !UE_BUILD_SHIPPING
+		{ "Comment", "// Grid-based properties\n" },
+#endif
+		{ "EditCondition", "GenerationType==EDungeonGenerationType::Grid" },
+		{ "EditConditionHides", "" },
+		{ "ModuleRelativePath", "Public/GridDungeonVisualizer.h" },
+#if !UE_BUILD_SHIPPING
+		{ "ToolTip", "Grid-based properties" },
+#endif
+	};
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_RoomsPerColumn_MetaData[] = {
+		{ "Category", "Grid Layout" },
+		{ "ClampMax", "10" },
+		{ "ClampMin", "1" },
+#if !UE_BUILD_SHIPPING
+		{ "Comment", "// Number of rooms horizontally\n" },
+#endif
+		{ "EditCondition", "GenerationType==EDungeonGenerationType::Grid" },
+		{ "EditConditionHides", "" },
+		{ "ModuleRelativePath", "Public/GridDungeonVisualizer.h" },
+#if !UE_BUILD_SHIPPING
+		{ "ToolTip", "Number of rooms horizontally" },
+#endif
+	};
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_TilesPerRoom_MetaData[] = {
+		{ "Category", "Grid Layout" },
+		{ "ClampMax", "50" },
+		{ "ClampMin", "10" },
+#if !UE_BUILD_SHIPPING
+		{ "Comment", "// Number of rooms vertically (5x5 = 25 rooms total)\n" },
+#endif
+		{ "EditCondition", "GenerationType==EDungeonGenerationType::Grid" },
+		{ "EditConditionHides", "" },
+		{ "ModuleRelativePath", "Public/GridDungeonVisualizer.h" },
+#if !UE_BUILD_SHIPPING
+		{ "ToolTip", "Number of rooms vertically (5x5 = 25 rooms total)" },
+#endif
+	};
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_TileSizeMultiplier_MetaData[] = {
+		{ "Category", "Grid Layout" },
+		{ "ClampMax", "10" },
+		{ "ClampMin", "1" },
+#if !UE_BUILD_SHIPPING
+		{ "Comment", "// Number of tiles per room (20x20 tiles per room)\n" },
+#endif
+		{ "EditCondition", "GenerationType==EDungeonGenerationType::Grid" },
+		{ "EditConditionHides", "" },
+		{ "ModuleRelativePath", "Public/GridDungeonVisualizer.h" },
+#if !UE_BUILD_SHIPPING
+		{ "ToolTip", "Number of tiles per room (20x20 tiles per room)" },
+#endif
+	};
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_MinRoomCount_MetaData[] = {
+		{ "Category", "Organic Layout" },
+		{ "ClampMax", "50" },
+		{ "ClampMin", "10" },
+#if !UE_BUILD_SHIPPING
+		{ "Comment", "// Organic generation properties\n" },
+#endif
+		{ "EditCondition", "GenerationType==EDungeonGenerationType::Organic" },
+		{ "EditConditionHides", "" },
+		{ "ModuleRelativePath", "Public/GridDungeonVisualizer.h" },
+#if !UE_BUILD_SHIPPING
+		{ "ToolTip", "Organic generation properties" },
+#endif
+	};
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_MaxRoomCount_MetaData[] = {
+		{ "Category", "Organic Layout" },
+		{ "ClampMax", "50" },
+		{ "ClampMin", "10" },
+		{ "EditCondition", "GenerationType==EDungeonGenerationType::Organic" },
+		{ "EditConditionHides", "" },
+		{ "ModuleRelativePath", "Public/GridDungeonVisualizer.h" },
+	};
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_MinRoomSize_MetaData[] = {
+		{ "Category", "Organic Layout" },
+		{ "EditCondition", "GenerationType==EDungeonGenerationType::Organic" },
+		{ "EditConditionHides", "" },
+		{ "ModuleRelativePath", "Public/GridDungeonVisualizer.h" },
+	};
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_MaxRoomSize_MetaData[] = {
+		{ "Category", "Organic Layout" },
+		{ "EditCondition", "GenerationType==EDungeonGenerationType::Organic" },
+		{ "EditConditionHides", "" },
+		{ "ModuleRelativePath", "Public/GridDungeonVisualizer.h" },
+	};
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_HallwayWidth_MetaData[] = {
+		{ "Category", "Organic Layout" },
+		{ "EditCondition", "GenerationType==EDungeonGenerationType::Organic" },
+		{ "EditConditionHides", "" },
+		{ "ModuleRelativePath", "Public/GridDungeonVisualizer.h" },
+	};
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_MinRoomDistance_MetaData[] = {
+		{ "Category", "Organic Layout" },
+		{ "EditCondition", "GenerationType==EDungeonGenerationType::Organic" },
+		{ "EditConditionHides", "" },
+		{ "ModuleRelativePath", "Public/GridDungeonVisualizer.h" },
+	};
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_MaxRoomDistance_MetaData[] = {
+		{ "Category", "Organic Layout" },
+		{ "EditCondition", "GenerationType==EDungeonGenerationType::Organic" },
+		{ "EditConditionHides", "" },
+		{ "ModuleRelativePath", "Public/GridDungeonVisualizer.h" },
+	};
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_BranchingFactor_MetaData[] = {
+		{ "Category", "Organic Layout" },
+		{ "EditCondition", "GenerationType==EDungeonGenerationType::Organic" },
+		{ "EditConditionHides", "" },
+		{ "ModuleRelativePath", "Public/GridDungeonVisualizer.h" },
+	};
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_DeadEndChance_MetaData[] = {
+		{ "Category", "Organic Layout" },
+		{ "EditCondition", "GenerationType==EDungeonGenerationType::Organic" },
+		{ "EditConditionHides", "" },
+		{ "ModuleRelativePath", "Public/GridDungeonVisualizer.h" },
+	};
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_WallHeight_MetaData[] = {
+		{ "Category", "General Settings" },
+#if !UE_BUILD_SHIPPING
+		{ "Comment", "// Shared properties\n" },
+#endif
+		{ "ModuleRelativePath", "Public/GridDungeonVisualizer.h" },
+#if !UE_BUILD_SHIPPING
+		{ "ToolTip", "Shared properties" },
+#endif
+	};
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_GridSizeX_MetaData[] = {
+		{ "Category", "Grid Info" },
+#if !UE_BUILD_SHIPPING
+		{ "Comment", "// Calculated grid size (read-only in editor)\n" },
+#endif
+		{ "ModuleRelativePath", "Public/GridDungeonVisualizer.h" },
+#if !UE_BUILD_SHIPPING
+		{ "ToolTip", "Calculated grid size (read-only in editor)" },
 #endif
 	};
 	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_GridSizeY_MetaData[] = {
-		{ "Category", "Grid Settings" },
+		{ "Category", "Grid Info" },
 #if !UE_BUILD_SHIPPING
-		{ "Comment", "// Total grid width\n" },
+		{ "Comment", "// Will be RoomsPerRow * TilesPerRoom\n" },
 #endif
 		{ "ModuleRelativePath", "Public/GridDungeonVisualizer.h" },
 #if !UE_BUILD_SHIPPING
-		{ "ToolTip", "Total grid width" },
+		{ "ToolTip", "Will be RoomsPerRow * TilesPerRoom" },
 #endif
 	};
 	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_CellSize_MetaData[] = {
-		{ "Category", "Grid Settings" },
+		{ "Category", "Grid Info" },
 #if !UE_BUILD_SHIPPING
-		{ "Comment", "// Total grid height\n" },
+		{ "Comment", "// Will be RoomsPerColumn * TilesPerRoom\n" },
 #endif
 		{ "ModuleRelativePath", "Public/GridDungeonVisualizer.h" },
 #if !UE_BUILD_SHIPPING
-		{ "ToolTip", "Total grid height" },
-#endif
-	};
-	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_WallHeight_MetaData[] = {
-		{ "Category", "Grid Settings" },
-#if !UE_BUILD_SHIPPING
-		{ "Comment", "// Size of each grid cell in world units\n" },
-#endif
-		{ "ModuleRelativePath", "Public/GridDungeonVisualizer.h" },
-#if !UE_BUILD_SHIPPING
-		{ "ToolTip", "Size of each grid cell in world units" },
+		{ "ToolTip", "Will be RoomsPerColumn * TilesPerRoom" },
 #endif
 	};
 	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_bAutoGenerateOnBeginPlay_MetaData[] = {
 		{ "Category", "Grid Settings" },
 #if !UE_BUILD_SHIPPING
-		{ "Comment", "// Height of wall cubes\n" },
+		{ "Comment", "// Will be equal to TileSize\n" },
 #endif
 		{ "ModuleRelativePath", "Public/GridDungeonVisualizer.h" },
 #if !UE_BUILD_SHIPPING
-		{ "ToolTip", "Height of wall cubes" },
+		{ "ToolTip", "Will be equal to TileSize" },
 #endif
+	};
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_bShowDebugGrid_MetaData[] = {
+		{ "Category", "Debug" },
+		{ "ModuleRelativePath", "Public/GridDungeonVisualizer.h" },
+	};
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_DebugLineThickness_MetaData[] = {
+		{ "Category", "Debug" },
+		{ "ModuleRelativePath", "Public/GridDungeonVisualizer.h" },
+	};
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_DebugGridColor_MetaData[] = {
+		{ "Category", "Debug" },
+		{ "ModuleRelativePath", "Public/GridDungeonVisualizer.h" },
+	};
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_DebugDrawDuration_MetaData[] = {
+		{ "Category", "Debug" },
+		{ "ModuleRelativePath", "Public/GridDungeonVisualizer.h" },
 	};
 	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_CurrentFloor_MetaData[] = {
 		{ "Category", "Grid Settings" },
+#if !UE_BUILD_SHIPPING
+		{ "Comment", "// 0 = persistent\n" },
+#endif
 		{ "ModuleRelativePath", "Public/GridDungeonVisualizer.h" },
+#if !UE_BUILD_SHIPPING
+		{ "ToolTip", "0 = persistent" },
+#endif
 	};
 	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_PlaneMesh_MetaData[] = {
 		{ "Category", "Prefabs" },
@@ -1256,9 +2199,15 @@ struct Z_Construct_UClass_AGridDungeonVisualizer_Statics
 	};
 	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_TestChestScale_MetaData[] = {
 		{ "Category", "Test Content" },
+#if !UE_BUILD_SHIPPING
+		{ "Comment", "// Scaled up for spacious mannequin-sized rooms\n" },
+#endif
 		{ "ModuleRelativePath", "Public/GridDungeonVisualizer.h" },
+#if !UE_BUILD_SHIPPING
+		{ "ToolTip", "Scaled up for spacious mannequin-sized rooms" },
+#endif
 	};
-	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_DungeonGenerator_MetaData[] = {
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_ADASystem_MetaData[] = {
 		{ "Category", "References" },
 #if !UE_BUILD_SHIPPING
 		{ "Comment", "// References\n" },
@@ -1267,10 +2216,6 @@ struct Z_Construct_UClass_AGridDungeonVisualizer_Statics
 #if !UE_BUILD_SHIPPING
 		{ "ToolTip", "References" },
 #endif
-	};
-	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_ADASystem_MetaData[] = {
-		{ "Category", "References" },
-		{ "ModuleRelativePath", "Public/GridDungeonVisualizer.h" },
 	};
 	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_Grid_MetaData[] = {
 		{ "Category", "Runtime" },
@@ -1285,18 +2230,38 @@ struct Z_Construct_UClass_AGridDungeonVisualizer_Statics
 	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_CurrentLayout_MetaData[] = {
 		{ "Category", "Runtime" },
 #if !UE_BUILD_SHIPPING
-		{ "Comment", "// 1D array representing 2D grid\n" },
+		{ "Comment", "// 1D array representing 2D grid (for grid mode)\n" },
 #endif
 		{ "ModuleRelativePath", "Public/GridDungeonVisualizer.h" },
 #if !UE_BUILD_SHIPPING
-		{ "ToolTip", "1D array representing 2D grid" },
+		{ "ToolTip", "1D array representing 2D grid (for grid mode)" },
+#endif
+	};
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_OrganicLayout_MetaData[] = {
+		{ "Category", "Runtime" },
+#if !UE_BUILD_SHIPPING
+		{ "Comment", "// For grid mode\n" },
+#endif
+		{ "ModuleRelativePath", "Public/GridDungeonVisualizer.h" },
+#if !UE_BUILD_SHIPPING
+		{ "ToolTip", "For grid mode" },
 #endif
 	};
 	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_StartRoomGridPos_MetaData[] = {
 		{ "Category", "Runtime" },
+#if !UE_BUILD_SHIPPING
+		{ "Comment", "// For organic mode\n" },
+#endif
 		{ "ModuleRelativePath", "Public/GridDungeonVisualizer.h" },
+#if !UE_BUILD_SHIPPING
+		{ "ToolTip", "For organic mode" },
+#endif
 	};
 	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_ExitRoomGridPos_MetaData[] = {
+		{ "Category", "Runtime" },
+		{ "ModuleRelativePath", "Public/GridDungeonVisualizer.h" },
+	};
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_RandomStream_MetaData[] = {
 		{ "Category", "Runtime" },
 		{ "ModuleRelativePath", "Public/GridDungeonVisualizer.h" },
 	};
@@ -1341,12 +2306,32 @@ struct Z_Construct_UClass_AGridDungeonVisualizer_Statics
 #endif
 	};
 #endif // WITH_METADATA
+	static const UECodeGen_Private::FBytePropertyParams NewProp_GenerationType_Underlying;
+	static const UECodeGen_Private::FEnumPropertyParams NewProp_GenerationType;
+	static const UECodeGen_Private::FIntPropertyParams NewProp_RoomsPerRow;
+	static const UECodeGen_Private::FIntPropertyParams NewProp_RoomsPerColumn;
+	static const UECodeGen_Private::FIntPropertyParams NewProp_TilesPerRoom;
+	static const UECodeGen_Private::FFloatPropertyParams NewProp_TileSizeMultiplier;
+	static const UECodeGen_Private::FIntPropertyParams NewProp_MinRoomCount;
+	static const UECodeGen_Private::FIntPropertyParams NewProp_MaxRoomCount;
+	static const UECodeGen_Private::FFloatPropertyParams NewProp_MinRoomSize;
+	static const UECodeGen_Private::FFloatPropertyParams NewProp_MaxRoomSize;
+	static const UECodeGen_Private::FFloatPropertyParams NewProp_HallwayWidth;
+	static const UECodeGen_Private::FFloatPropertyParams NewProp_MinRoomDistance;
+	static const UECodeGen_Private::FFloatPropertyParams NewProp_MaxRoomDistance;
+	static const UECodeGen_Private::FIntPropertyParams NewProp_BranchingFactor;
+	static const UECodeGen_Private::FFloatPropertyParams NewProp_DeadEndChance;
+	static const UECodeGen_Private::FFloatPropertyParams NewProp_WallHeight;
 	static const UECodeGen_Private::FIntPropertyParams NewProp_GridSizeX;
 	static const UECodeGen_Private::FIntPropertyParams NewProp_GridSizeY;
 	static const UECodeGen_Private::FFloatPropertyParams NewProp_CellSize;
-	static const UECodeGen_Private::FFloatPropertyParams NewProp_WallHeight;
 	static void NewProp_bAutoGenerateOnBeginPlay_SetBit(void* Obj);
 	static const UECodeGen_Private::FBoolPropertyParams NewProp_bAutoGenerateOnBeginPlay;
+	static void NewProp_bShowDebugGrid_SetBit(void* Obj);
+	static const UECodeGen_Private::FBoolPropertyParams NewProp_bShowDebugGrid;
+	static const UECodeGen_Private::FFloatPropertyParams NewProp_DebugLineThickness;
+	static const UECodeGen_Private::FStructPropertyParams NewProp_DebugGridColor;
+	static const UECodeGen_Private::FFloatPropertyParams NewProp_DebugDrawDuration;
 	static const UECodeGen_Private::FIntPropertyParams NewProp_CurrentFloor;
 	static const UECodeGen_Private::FObjectPropertyParams NewProp_PlaneMesh;
 	static const UECodeGen_Private::FObjectPropertyParams NewProp_CubeMesh;
@@ -1360,13 +2345,14 @@ struct Z_Construct_UClass_AGridDungeonVisualizer_Statics
 	static const UECodeGen_Private::FObjectPropertyParams NewProp_TestChestMaterial;
 	static const UECodeGen_Private::FFloatPropertyParams NewProp_TestEnemyScale;
 	static const UECodeGen_Private::FFloatPropertyParams NewProp_TestChestScale;
-	static const UECodeGen_Private::FObjectPropertyParams NewProp_DungeonGenerator;
 	static const UECodeGen_Private::FObjectPropertyParams NewProp_ADASystem;
 	static const UECodeGen_Private::FStructPropertyParams NewProp_Grid_Inner;
 	static const UECodeGen_Private::FArrayPropertyParams NewProp_Grid;
 	static const UECodeGen_Private::FStructPropertyParams NewProp_CurrentLayout;
+	static const UECodeGen_Private::FStructPropertyParams NewProp_OrganicLayout;
 	static const UECodeGen_Private::FStructPropertyParams NewProp_StartRoomGridPos;
 	static const UECodeGen_Private::FStructPropertyParams NewProp_ExitRoomGridPos;
+	static const UECodeGen_Private::FStructPropertyParams NewProp_RandomStream;
 	static const UECodeGen_Private::FObjectPropertyParams NewProp_PlaneInstances;
 	static const UECodeGen_Private::FObjectPropertyParams NewProp_CubeInstances;
 	static const UECodeGen_Private::FObjectPropertyParams NewProp_TestEnemyInstances;
@@ -1375,16 +2361,24 @@ struct Z_Construct_UClass_AGridDungeonVisualizer_Statics
 	static UObject* (*const DependentSingletons[])();
 	static constexpr FClassFunctionLinkInfo FuncInfo[] = {
 		{ &Z_Construct_UFunction_AGridDungeonVisualizer_BuildGridFromLayout, "BuildGridFromLayout" }, // 1493721323
+		{ &Z_Construct_UFunction_AGridDungeonVisualizer_ClearDebugGrid, "ClearDebugGrid" }, // 3473848458
 		{ &Z_Construct_UFunction_AGridDungeonVisualizer_ClearDungeon, "ClearDungeon" }, // 3547271859
-		{ &Z_Construct_UFunction_AGridDungeonVisualizer_DrawDebugGrid, "DrawDebugGrid" }, // 778072285
+		{ &Z_Construct_UFunction_AGridDungeonVisualizer_CreateHallway, "CreateHallway" }, // 1832708661
+		{ &Z_Construct_UFunction_AGridDungeonVisualizer_DoRoomsOverlap, "DoRoomsOverlap" }, // 2343941400
+		{ &Z_Construct_UFunction_AGridDungeonVisualizer_DrawDebugGrid, "DrawDebugGrid" }, // 2869966766
+		{ &Z_Construct_UFunction_AGridDungeonVisualizer_FindValidRoomPosition, "FindValidRoomPosition" }, // 3501609226
 		{ &Z_Construct_UFunction_AGridDungeonVisualizer_GenerateAndVisualizeDungeon, "GenerateAndVisualizeDungeon" }, // 2237856306
+		{ &Z_Construct_UFunction_AGridDungeonVisualizer_GenerateBranches, "GenerateBranches" }, // 1704557269
+		{ &Z_Construct_UFunction_AGridDungeonVisualizer_GenerateHallwayPath, "GenerateHallwayPath" }, // 1255095547
+		{ &Z_Construct_UFunction_AGridDungeonVisualizer_GenerateInEditor, "GenerateInEditor" }, // 3405822899
+		{ &Z_Construct_UFunction_AGridDungeonVisualizer_GenerateMainPath, "GenerateMainPath" }, // 2829238691
+		{ &Z_Construct_UFunction_AGridDungeonVisualizer_GenerateOrganicDungeon, "GenerateOrganicDungeon" }, // 3490737950
 		{ &Z_Construct_UFunction_AGridDungeonVisualizer_GetGridCell, "GetGridCell" }, // 1374691265
 		{ &Z_Construct_UFunction_AGridDungeonVisualizer_GetStartPosition, "GetStartPosition" }, // 1733970434
 		{ &Z_Construct_UFunction_AGridDungeonVisualizer_GridToWorldPosition, "GridToWorldPosition" }, // 1370963437
 		{ &Z_Construct_UFunction_AGridDungeonVisualizer_IsValidGridPosition, "IsValidGridPosition" }, // 3376793452
 		{ &Z_Construct_UFunction_AGridDungeonVisualizer_OnTestChestSpawned, "OnTestChestSpawned" }, // 2857963953
 		{ &Z_Construct_UFunction_AGridDungeonVisualizer_OnTestEnemySpawned, "OnTestEnemySpawned" }, // 81384815
-		{ &Z_Construct_UFunction_AGridDungeonVisualizer_PlaceHallwayInGrid, "PlaceHallwayInGrid" }, // 3025046406
 		{ &Z_Construct_UFunction_AGridDungeonVisualizer_PlaceRoomInGrid, "PlaceRoomInGrid" }, // 3695893506
 		{ &Z_Construct_UFunction_AGridDungeonVisualizer_SetGridCell, "SetGridCell" }, // 1300402336
 		{ &Z_Construct_UFunction_AGridDungeonVisualizer_SpawnGridVisualization, "SpawnGridVisualization" }, // 3357062006
@@ -1392,6 +2386,7 @@ struct Z_Construct_UClass_AGridDungeonVisualizer_Statics
 		{ &Z_Construct_UFunction_AGridDungeonVisualizer_SpawnRoomContents, "SpawnRoomContents" }, // 1362863565
 		{ &Z_Construct_UFunction_AGridDungeonVisualizer_SpawnTestChestsInRoom, "SpawnTestChestsInRoom" }, // 3559755509
 		{ &Z_Construct_UFunction_AGridDungeonVisualizer_SpawnTestEnemiesInRoom, "SpawnTestEnemiesInRoom" }, // 876117065
+		{ &Z_Construct_UFunction_AGridDungeonVisualizer_ToggleDebugGridInEditor, "ToggleDebugGridInEditor" }, // 805795200
 		{ &Z_Construct_UFunction_AGridDungeonVisualizer_WorldToGridPosition, "WorldToGridPosition" }, // 3633239547
 	};
 	static_assert(UE_ARRAY_COUNT(FuncInfo) < 2048);
@@ -1400,15 +2395,38 @@ struct Z_Construct_UClass_AGridDungeonVisualizer_Statics
 	};
 	static const UECodeGen_Private::FClassParams ClassParams;
 };
-const UECodeGen_Private::FIntPropertyParams Z_Construct_UClass_AGridDungeonVisualizer_Statics::NewProp_GridSizeX = { "GridSizeX", nullptr, (EPropertyFlags)0x0010000000000005, UECodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AGridDungeonVisualizer, GridSizeX), METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_GridSizeX_MetaData), NewProp_GridSizeX_MetaData) };
-const UECodeGen_Private::FIntPropertyParams Z_Construct_UClass_AGridDungeonVisualizer_Statics::NewProp_GridSizeY = { "GridSizeY", nullptr, (EPropertyFlags)0x0010000000000005, UECodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AGridDungeonVisualizer, GridSizeY), METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_GridSizeY_MetaData), NewProp_GridSizeY_MetaData) };
-const UECodeGen_Private::FFloatPropertyParams Z_Construct_UClass_AGridDungeonVisualizer_Statics::NewProp_CellSize = { "CellSize", nullptr, (EPropertyFlags)0x0010000000000005, UECodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AGridDungeonVisualizer, CellSize), METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_CellSize_MetaData), NewProp_CellSize_MetaData) };
+const UECodeGen_Private::FBytePropertyParams Z_Construct_UClass_AGridDungeonVisualizer_Statics::NewProp_GenerationType_Underlying = { "UnderlyingType", nullptr, (EPropertyFlags)0x0000000000000000, UECodeGen_Private::EPropertyGenFlags::Byte, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, 0, nullptr, METADATA_PARAMS(0, nullptr) };
+const UECodeGen_Private::FEnumPropertyParams Z_Construct_UClass_AGridDungeonVisualizer_Statics::NewProp_GenerationType = { "GenerationType", nullptr, (EPropertyFlags)0x0010000000000005, UECodeGen_Private::EPropertyGenFlags::Enum, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AGridDungeonVisualizer, GenerationType), Z_Construct_UEnum_EternalDescent_EDungeonGenerationType, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_GenerationType_MetaData), NewProp_GenerationType_MetaData) }; // 341224637
+const UECodeGen_Private::FIntPropertyParams Z_Construct_UClass_AGridDungeonVisualizer_Statics::NewProp_RoomsPerRow = { "RoomsPerRow", nullptr, (EPropertyFlags)0x0010000000000005, UECodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AGridDungeonVisualizer, RoomsPerRow), METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_RoomsPerRow_MetaData), NewProp_RoomsPerRow_MetaData) };
+const UECodeGen_Private::FIntPropertyParams Z_Construct_UClass_AGridDungeonVisualizer_Statics::NewProp_RoomsPerColumn = { "RoomsPerColumn", nullptr, (EPropertyFlags)0x0010000000000005, UECodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AGridDungeonVisualizer, RoomsPerColumn), METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_RoomsPerColumn_MetaData), NewProp_RoomsPerColumn_MetaData) };
+const UECodeGen_Private::FIntPropertyParams Z_Construct_UClass_AGridDungeonVisualizer_Statics::NewProp_TilesPerRoom = { "TilesPerRoom", nullptr, (EPropertyFlags)0x0010000000000005, UECodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AGridDungeonVisualizer, TilesPerRoom), METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_TilesPerRoom_MetaData), NewProp_TilesPerRoom_MetaData) };
+const UECodeGen_Private::FFloatPropertyParams Z_Construct_UClass_AGridDungeonVisualizer_Statics::NewProp_TileSizeMultiplier = { "TileSizeMultiplier", nullptr, (EPropertyFlags)0x0010000000000005, UECodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AGridDungeonVisualizer, TileSizeMultiplier), METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_TileSizeMultiplier_MetaData), NewProp_TileSizeMultiplier_MetaData) };
+const UECodeGen_Private::FIntPropertyParams Z_Construct_UClass_AGridDungeonVisualizer_Statics::NewProp_MinRoomCount = { "MinRoomCount", nullptr, (EPropertyFlags)0x0010000000000005, UECodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AGridDungeonVisualizer, MinRoomCount), METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_MinRoomCount_MetaData), NewProp_MinRoomCount_MetaData) };
+const UECodeGen_Private::FIntPropertyParams Z_Construct_UClass_AGridDungeonVisualizer_Statics::NewProp_MaxRoomCount = { "MaxRoomCount", nullptr, (EPropertyFlags)0x0010000000000005, UECodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AGridDungeonVisualizer, MaxRoomCount), METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_MaxRoomCount_MetaData), NewProp_MaxRoomCount_MetaData) };
+const UECodeGen_Private::FFloatPropertyParams Z_Construct_UClass_AGridDungeonVisualizer_Statics::NewProp_MinRoomSize = { "MinRoomSize", nullptr, (EPropertyFlags)0x0010000000000005, UECodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AGridDungeonVisualizer, MinRoomSize), METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_MinRoomSize_MetaData), NewProp_MinRoomSize_MetaData) };
+const UECodeGen_Private::FFloatPropertyParams Z_Construct_UClass_AGridDungeonVisualizer_Statics::NewProp_MaxRoomSize = { "MaxRoomSize", nullptr, (EPropertyFlags)0x0010000000000005, UECodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AGridDungeonVisualizer, MaxRoomSize), METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_MaxRoomSize_MetaData), NewProp_MaxRoomSize_MetaData) };
+const UECodeGen_Private::FFloatPropertyParams Z_Construct_UClass_AGridDungeonVisualizer_Statics::NewProp_HallwayWidth = { "HallwayWidth", nullptr, (EPropertyFlags)0x0010000000000005, UECodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AGridDungeonVisualizer, HallwayWidth), METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_HallwayWidth_MetaData), NewProp_HallwayWidth_MetaData) };
+const UECodeGen_Private::FFloatPropertyParams Z_Construct_UClass_AGridDungeonVisualizer_Statics::NewProp_MinRoomDistance = { "MinRoomDistance", nullptr, (EPropertyFlags)0x0010000000000005, UECodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AGridDungeonVisualizer, MinRoomDistance), METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_MinRoomDistance_MetaData), NewProp_MinRoomDistance_MetaData) };
+const UECodeGen_Private::FFloatPropertyParams Z_Construct_UClass_AGridDungeonVisualizer_Statics::NewProp_MaxRoomDistance = { "MaxRoomDistance", nullptr, (EPropertyFlags)0x0010000000000005, UECodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AGridDungeonVisualizer, MaxRoomDistance), METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_MaxRoomDistance_MetaData), NewProp_MaxRoomDistance_MetaData) };
+const UECodeGen_Private::FIntPropertyParams Z_Construct_UClass_AGridDungeonVisualizer_Statics::NewProp_BranchingFactor = { "BranchingFactor", nullptr, (EPropertyFlags)0x0010000000000005, UECodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AGridDungeonVisualizer, BranchingFactor), METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_BranchingFactor_MetaData), NewProp_BranchingFactor_MetaData) };
+const UECodeGen_Private::FFloatPropertyParams Z_Construct_UClass_AGridDungeonVisualizer_Statics::NewProp_DeadEndChance = { "DeadEndChance", nullptr, (EPropertyFlags)0x0010000000000005, UECodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AGridDungeonVisualizer, DeadEndChance), METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_DeadEndChance_MetaData), NewProp_DeadEndChance_MetaData) };
 const UECodeGen_Private::FFloatPropertyParams Z_Construct_UClass_AGridDungeonVisualizer_Statics::NewProp_WallHeight = { "WallHeight", nullptr, (EPropertyFlags)0x0010000000000005, UECodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AGridDungeonVisualizer, WallHeight), METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_WallHeight_MetaData), NewProp_WallHeight_MetaData) };
+const UECodeGen_Private::FIntPropertyParams Z_Construct_UClass_AGridDungeonVisualizer_Statics::NewProp_GridSizeX = { "GridSizeX", nullptr, (EPropertyFlags)0x0010000000020015, UECodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AGridDungeonVisualizer, GridSizeX), METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_GridSizeX_MetaData), NewProp_GridSizeX_MetaData) };
+const UECodeGen_Private::FIntPropertyParams Z_Construct_UClass_AGridDungeonVisualizer_Statics::NewProp_GridSizeY = { "GridSizeY", nullptr, (EPropertyFlags)0x0010000000020015, UECodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AGridDungeonVisualizer, GridSizeY), METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_GridSizeY_MetaData), NewProp_GridSizeY_MetaData) };
+const UECodeGen_Private::FFloatPropertyParams Z_Construct_UClass_AGridDungeonVisualizer_Statics::NewProp_CellSize = { "CellSize", nullptr, (EPropertyFlags)0x0010000000020015, UECodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AGridDungeonVisualizer, CellSize), METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_CellSize_MetaData), NewProp_CellSize_MetaData) };
 void Z_Construct_UClass_AGridDungeonVisualizer_Statics::NewProp_bAutoGenerateOnBeginPlay_SetBit(void* Obj)
 {
 	((AGridDungeonVisualizer*)Obj)->bAutoGenerateOnBeginPlay = 1;
 }
 const UECodeGen_Private::FBoolPropertyParams Z_Construct_UClass_AGridDungeonVisualizer_Statics::NewProp_bAutoGenerateOnBeginPlay = { "bAutoGenerateOnBeginPlay", nullptr, (EPropertyFlags)0x0010000000000005, UECodeGen_Private::EPropertyGenFlags::Bool | UECodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, sizeof(bool), sizeof(AGridDungeonVisualizer), &Z_Construct_UClass_AGridDungeonVisualizer_Statics::NewProp_bAutoGenerateOnBeginPlay_SetBit, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_bAutoGenerateOnBeginPlay_MetaData), NewProp_bAutoGenerateOnBeginPlay_MetaData) };
+void Z_Construct_UClass_AGridDungeonVisualizer_Statics::NewProp_bShowDebugGrid_SetBit(void* Obj)
+{
+	((AGridDungeonVisualizer*)Obj)->bShowDebugGrid = 1;
+}
+const UECodeGen_Private::FBoolPropertyParams Z_Construct_UClass_AGridDungeonVisualizer_Statics::NewProp_bShowDebugGrid = { "bShowDebugGrid", nullptr, (EPropertyFlags)0x0010000000000005, UECodeGen_Private::EPropertyGenFlags::Bool | UECodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, sizeof(bool), sizeof(AGridDungeonVisualizer), &Z_Construct_UClass_AGridDungeonVisualizer_Statics::NewProp_bShowDebugGrid_SetBit, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_bShowDebugGrid_MetaData), NewProp_bShowDebugGrid_MetaData) };
+const UECodeGen_Private::FFloatPropertyParams Z_Construct_UClass_AGridDungeonVisualizer_Statics::NewProp_DebugLineThickness = { "DebugLineThickness", nullptr, (EPropertyFlags)0x0010000000000005, UECodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AGridDungeonVisualizer, DebugLineThickness), METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_DebugLineThickness_MetaData), NewProp_DebugLineThickness_MetaData) };
+const UECodeGen_Private::FStructPropertyParams Z_Construct_UClass_AGridDungeonVisualizer_Statics::NewProp_DebugGridColor = { "DebugGridColor", nullptr, (EPropertyFlags)0x0010000000000005, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AGridDungeonVisualizer, DebugGridColor), Z_Construct_UScriptStruct_FLinearColor, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_DebugGridColor_MetaData), NewProp_DebugGridColor_MetaData) };
+const UECodeGen_Private::FFloatPropertyParams Z_Construct_UClass_AGridDungeonVisualizer_Statics::NewProp_DebugDrawDuration = { "DebugDrawDuration", nullptr, (EPropertyFlags)0x0010000000000005, UECodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AGridDungeonVisualizer, DebugDrawDuration), METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_DebugDrawDuration_MetaData), NewProp_DebugDrawDuration_MetaData) };
 const UECodeGen_Private::FIntPropertyParams Z_Construct_UClass_AGridDungeonVisualizer_Statics::NewProp_CurrentFloor = { "CurrentFloor", nullptr, (EPropertyFlags)0x0010000000000005, UECodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AGridDungeonVisualizer, CurrentFloor), METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_CurrentFloor_MetaData), NewProp_CurrentFloor_MetaData) };
 const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AGridDungeonVisualizer_Statics::NewProp_PlaneMesh = { "PlaneMesh", nullptr, (EPropertyFlags)0x0010000000000005, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AGridDungeonVisualizer, PlaneMesh), Z_Construct_UClass_UStaticMesh_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_PlaneMesh_MetaData), NewProp_PlaneMesh_MetaData) };
 const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AGridDungeonVisualizer_Statics::NewProp_CubeMesh = { "CubeMesh", nullptr, (EPropertyFlags)0x0010000000000005, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AGridDungeonVisualizer, CubeMesh), Z_Construct_UClass_UStaticMesh_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_CubeMesh_MetaData), NewProp_CubeMesh_MetaData) };
@@ -1422,23 +2440,43 @@ const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AGridDungeonVi
 const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AGridDungeonVisualizer_Statics::NewProp_TestChestMaterial = { "TestChestMaterial", nullptr, (EPropertyFlags)0x0010000000000005, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AGridDungeonVisualizer, TestChestMaterial), Z_Construct_UClass_UMaterialInterface_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_TestChestMaterial_MetaData), NewProp_TestChestMaterial_MetaData) };
 const UECodeGen_Private::FFloatPropertyParams Z_Construct_UClass_AGridDungeonVisualizer_Statics::NewProp_TestEnemyScale = { "TestEnemyScale", nullptr, (EPropertyFlags)0x0010000000000005, UECodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AGridDungeonVisualizer, TestEnemyScale), METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_TestEnemyScale_MetaData), NewProp_TestEnemyScale_MetaData) };
 const UECodeGen_Private::FFloatPropertyParams Z_Construct_UClass_AGridDungeonVisualizer_Statics::NewProp_TestChestScale = { "TestChestScale", nullptr, (EPropertyFlags)0x0010000000000005, UECodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AGridDungeonVisualizer, TestChestScale), METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_TestChestScale_MetaData), NewProp_TestChestScale_MetaData) };
-const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AGridDungeonVisualizer_Statics::NewProp_DungeonGenerator = { "DungeonGenerator", nullptr, (EPropertyFlags)0x0010000000000014, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AGridDungeonVisualizer, DungeonGenerator), Z_Construct_UClass_ASnakeDungeonGenerator_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_DungeonGenerator_MetaData), NewProp_DungeonGenerator_MetaData) };
 const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AGridDungeonVisualizer_Statics::NewProp_ADASystem = { "ADASystem", nullptr, (EPropertyFlags)0x0010000000000014, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AGridDungeonVisualizer, ADASystem), Z_Construct_UClass_AADASystem_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_ADASystem_MetaData), NewProp_ADASystem_MetaData) };
 const UECodeGen_Private::FStructPropertyParams Z_Construct_UClass_AGridDungeonVisualizer_Statics::NewProp_Grid_Inner = { "Grid", nullptr, (EPropertyFlags)0x0000000000000000, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, 0, Z_Construct_UScriptStruct_FGridCell, METADATA_PARAMS(0, nullptr) }; // 357869723
 const UECodeGen_Private::FArrayPropertyParams Z_Construct_UClass_AGridDungeonVisualizer_Statics::NewProp_Grid = { "Grid", nullptr, (EPropertyFlags)0x0010000000000014, UECodeGen_Private::EPropertyGenFlags::Array, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AGridDungeonVisualizer, Grid), EArrayPropertyFlags::None, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_Grid_MetaData), NewProp_Grid_MetaData) }; // 357869723
 const UECodeGen_Private::FStructPropertyParams Z_Construct_UClass_AGridDungeonVisualizer_Statics::NewProp_CurrentLayout = { "CurrentLayout", nullptr, (EPropertyFlags)0x0010000000000014, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AGridDungeonVisualizer, CurrentLayout), Z_Construct_UScriptStruct_FDungeonLayout, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_CurrentLayout_MetaData), NewProp_CurrentLayout_MetaData) }; // 3903890264
+const UECodeGen_Private::FStructPropertyParams Z_Construct_UClass_AGridDungeonVisualizer_Statics::NewProp_OrganicLayout = { "OrganicLayout", nullptr, (EPropertyFlags)0x0010000000000014, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AGridDungeonVisualizer, OrganicLayout), Z_Construct_UScriptStruct_FOrganicDungeonLayout, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_OrganicLayout_MetaData), NewProp_OrganicLayout_MetaData) }; // 3367489019
 const UECodeGen_Private::FStructPropertyParams Z_Construct_UClass_AGridDungeonVisualizer_Statics::NewProp_StartRoomGridPos = { "StartRoomGridPos", nullptr, (EPropertyFlags)0x0010000000000014, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AGridDungeonVisualizer, StartRoomGridPos), Z_Construct_UScriptStruct_FIntPoint, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_StartRoomGridPos_MetaData), NewProp_StartRoomGridPos_MetaData) };
 const UECodeGen_Private::FStructPropertyParams Z_Construct_UClass_AGridDungeonVisualizer_Statics::NewProp_ExitRoomGridPos = { "ExitRoomGridPos", nullptr, (EPropertyFlags)0x0010000000000014, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AGridDungeonVisualizer, ExitRoomGridPos), Z_Construct_UScriptStruct_FIntPoint, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_ExitRoomGridPos_MetaData), NewProp_ExitRoomGridPos_MetaData) };
+const UECodeGen_Private::FStructPropertyParams Z_Construct_UClass_AGridDungeonVisualizer_Statics::NewProp_RandomStream = { "RandomStream", nullptr, (EPropertyFlags)0x0010000000000014, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AGridDungeonVisualizer, RandomStream), Z_Construct_UScriptStruct_FRandomStream, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_RandomStream_MetaData), NewProp_RandomStream_MetaData) };
 const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AGridDungeonVisualizer_Statics::NewProp_PlaneInstances = { "PlaneInstances", nullptr, (EPropertyFlags)0x0040000000080008, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AGridDungeonVisualizer, PlaneInstances), Z_Construct_UClass_UInstancedStaticMeshComponent_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_PlaneInstances_MetaData), NewProp_PlaneInstances_MetaData) };
 const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AGridDungeonVisualizer_Statics::NewProp_CubeInstances = { "CubeInstances", nullptr, (EPropertyFlags)0x0040000000080008, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AGridDungeonVisualizer, CubeInstances), Z_Construct_UClass_UInstancedStaticMeshComponent_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_CubeInstances_MetaData), NewProp_CubeInstances_MetaData) };
 const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AGridDungeonVisualizer_Statics::NewProp_TestEnemyInstances = { "TestEnemyInstances", nullptr, (EPropertyFlags)0x0040000000080008, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AGridDungeonVisualizer, TestEnemyInstances), Z_Construct_UClass_UInstancedStaticMeshComponent_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_TestEnemyInstances_MetaData), NewProp_TestEnemyInstances_MetaData) };
 const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AGridDungeonVisualizer_Statics::NewProp_TestChestInstances = { "TestChestInstances", nullptr, (EPropertyFlags)0x0040000000080008, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AGridDungeonVisualizer, TestChestInstances), Z_Construct_UClass_UInstancedStaticMeshComponent_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_TestChestInstances_MetaData), NewProp_TestChestInstances_MetaData) };
 const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_AGridDungeonVisualizer_Statics::PropPointers[] = {
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AGridDungeonVisualizer_Statics::NewProp_GenerationType_Underlying,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AGridDungeonVisualizer_Statics::NewProp_GenerationType,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AGridDungeonVisualizer_Statics::NewProp_RoomsPerRow,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AGridDungeonVisualizer_Statics::NewProp_RoomsPerColumn,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AGridDungeonVisualizer_Statics::NewProp_TilesPerRoom,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AGridDungeonVisualizer_Statics::NewProp_TileSizeMultiplier,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AGridDungeonVisualizer_Statics::NewProp_MinRoomCount,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AGridDungeonVisualizer_Statics::NewProp_MaxRoomCount,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AGridDungeonVisualizer_Statics::NewProp_MinRoomSize,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AGridDungeonVisualizer_Statics::NewProp_MaxRoomSize,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AGridDungeonVisualizer_Statics::NewProp_HallwayWidth,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AGridDungeonVisualizer_Statics::NewProp_MinRoomDistance,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AGridDungeonVisualizer_Statics::NewProp_MaxRoomDistance,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AGridDungeonVisualizer_Statics::NewProp_BranchingFactor,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AGridDungeonVisualizer_Statics::NewProp_DeadEndChance,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AGridDungeonVisualizer_Statics::NewProp_WallHeight,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AGridDungeonVisualizer_Statics::NewProp_GridSizeX,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AGridDungeonVisualizer_Statics::NewProp_GridSizeY,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AGridDungeonVisualizer_Statics::NewProp_CellSize,
-	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AGridDungeonVisualizer_Statics::NewProp_WallHeight,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AGridDungeonVisualizer_Statics::NewProp_bAutoGenerateOnBeginPlay,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AGridDungeonVisualizer_Statics::NewProp_bShowDebugGrid,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AGridDungeonVisualizer_Statics::NewProp_DebugLineThickness,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AGridDungeonVisualizer_Statics::NewProp_DebugGridColor,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AGridDungeonVisualizer_Statics::NewProp_DebugDrawDuration,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AGridDungeonVisualizer_Statics::NewProp_CurrentFloor,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AGridDungeonVisualizer_Statics::NewProp_PlaneMesh,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AGridDungeonVisualizer_Statics::NewProp_CubeMesh,
@@ -1452,13 +2490,14 @@ const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_AGridDung
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AGridDungeonVisualizer_Statics::NewProp_TestChestMaterial,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AGridDungeonVisualizer_Statics::NewProp_TestEnemyScale,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AGridDungeonVisualizer_Statics::NewProp_TestChestScale,
-	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AGridDungeonVisualizer_Statics::NewProp_DungeonGenerator,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AGridDungeonVisualizer_Statics::NewProp_ADASystem,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AGridDungeonVisualizer_Statics::NewProp_Grid_Inner,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AGridDungeonVisualizer_Statics::NewProp_Grid,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AGridDungeonVisualizer_Statics::NewProp_CurrentLayout,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AGridDungeonVisualizer_Statics::NewProp_OrganicLayout,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AGridDungeonVisualizer_Statics::NewProp_StartRoomGridPos,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AGridDungeonVisualizer_Statics::NewProp_ExitRoomGridPos,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AGridDungeonVisualizer_Statics::NewProp_RandomStream,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AGridDungeonVisualizer_Statics::NewProp_PlaneInstances,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AGridDungeonVisualizer_Statics::NewProp_CubeInstances,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AGridDungeonVisualizer_Statics::NewProp_TestEnemyInstances,
@@ -1505,16 +2544,20 @@ AGridDungeonVisualizer::~AGridDungeonVisualizer() {}
 struct Z_CompiledInDeferFile_FID_Github_Self_Projects_EternalDescent_EternalDescent_Source_EternalDescent_Public_GridDungeonVisualizer_h_Statics
 {
 	static constexpr FEnumRegisterCompiledInInfo EnumInfo[] = {
+		{ EDungeonGenerationType_StaticEnum, TEXT("EDungeonGenerationType"), &Z_Registration_Info_UEnum_EDungeonGenerationType, CONSTRUCT_RELOAD_VERSION_INFO(FEnumReloadVersionInfo, 341224637U) },
 		{ EGridCellType_StaticEnum, TEXT("EGridCellType"), &Z_Registration_Info_UEnum_EGridCellType, CONSTRUCT_RELOAD_VERSION_INFO(FEnumReloadVersionInfo, 3357014927U) },
 	};
 	static constexpr FStructRegisterCompiledInInfo ScriptStructInfo[] = {
 		{ FGridCell::StaticStruct, Z_Construct_UScriptStruct_FGridCell_Statics::NewStructOps, TEXT("GridCell"), &Z_Registration_Info_UScriptStruct_GridCell, CONSTRUCT_RELOAD_VERSION_INFO(FStructReloadVersionInfo, sizeof(FGridCell), 357869723U) },
+		{ FOrganicRoom::StaticStruct, Z_Construct_UScriptStruct_FOrganicRoom_Statics::NewStructOps, TEXT("OrganicRoom"), &Z_Registration_Info_UScriptStruct_OrganicRoom, CONSTRUCT_RELOAD_VERSION_INFO(FStructReloadVersionInfo, sizeof(FOrganicRoom), 444642103U) },
+		{ FHallway::StaticStruct, Z_Construct_UScriptStruct_FHallway_Statics::NewStructOps, TEXT("Hallway"), &Z_Registration_Info_UScriptStruct_Hallway, CONSTRUCT_RELOAD_VERSION_INFO(FStructReloadVersionInfo, sizeof(FHallway), 3248599507U) },
+		{ FOrganicDungeonLayout::StaticStruct, Z_Construct_UScriptStruct_FOrganicDungeonLayout_Statics::NewStructOps, TEXT("OrganicDungeonLayout"), &Z_Registration_Info_UScriptStruct_OrganicDungeonLayout, CONSTRUCT_RELOAD_VERSION_INFO(FStructReloadVersionInfo, sizeof(FOrganicDungeonLayout), 3367489019U) },
 	};
 	static constexpr FClassRegisterCompiledInInfo ClassInfo[] = {
-		{ Z_Construct_UClass_AGridDungeonVisualizer, AGridDungeonVisualizer::StaticClass, TEXT("AGridDungeonVisualizer"), &Z_Registration_Info_UClass_AGridDungeonVisualizer, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AGridDungeonVisualizer), 3492978316U) },
+		{ Z_Construct_UClass_AGridDungeonVisualizer, AGridDungeonVisualizer::StaticClass, TEXT("AGridDungeonVisualizer"), &Z_Registration_Info_UClass_AGridDungeonVisualizer, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AGridDungeonVisualizer), 2214703673U) },
 	};
 };
-static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Github_Self_Projects_EternalDescent_EternalDescent_Source_EternalDescent_Public_GridDungeonVisualizer_h_993070519(TEXT("/Script/EternalDescent"),
+static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Github_Self_Projects_EternalDescent_EternalDescent_Source_EternalDescent_Public_GridDungeonVisualizer_h_2966519688(TEXT("/Script/EternalDescent"),
 	Z_CompiledInDeferFile_FID_Github_Self_Projects_EternalDescent_EternalDescent_Source_EternalDescent_Public_GridDungeonVisualizer_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Github_Self_Projects_EternalDescent_EternalDescent_Source_EternalDescent_Public_GridDungeonVisualizer_h_Statics::ClassInfo),
 	Z_CompiledInDeferFile_FID_Github_Self_Projects_EternalDescent_EternalDescent_Source_EternalDescent_Public_GridDungeonVisualizer_h_Statics::ScriptStructInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Github_Self_Projects_EternalDescent_EternalDescent_Source_EternalDescent_Public_GridDungeonVisualizer_h_Statics::ScriptStructInfo),
 	Z_CompiledInDeferFile_FID_Github_Self_Projects_EternalDescent_EternalDescent_Source_EternalDescent_Public_GridDungeonVisualizer_h_Statics::EnumInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Github_Self_Projects_EternalDescent_EternalDescent_Source_EternalDescent_Public_GridDungeonVisualizer_h_Statics::EnumInfo));

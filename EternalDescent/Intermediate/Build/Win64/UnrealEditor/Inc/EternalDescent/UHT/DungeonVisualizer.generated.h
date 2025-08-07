@@ -10,7 +10,6 @@
 
 PRAGMA_DISABLE_DEPRECATION_WARNINGS
 struct FDungeonLayout;
-struct FHallwayConnection;
 struct FRoomData;
 struct FRoomVisualData;
 #ifdef ETERNALDESCENT_DungeonVisualizer_generated_h
@@ -44,7 +43,6 @@ template<> ETERNALDESCENT_API UScriptStruct* StaticStruct<struct FRoomVisualData
 	DECLARE_FUNCTION(execSpawnPlayerAtStart); \
 	DECLARE_FUNCTION(execSpawnDoor); \
 	DECLARE_FUNCTION(execCreateHallwayPath); \
-	DECLARE_FUNCTION(execSpawnHallway); \
 	DECLARE_FUNCTION(execSpawnRoomMeshes); \
 	DECLARE_FUNCTION(execSpawnRoom); \
 	DECLARE_FUNCTION(execClearDungeon); \

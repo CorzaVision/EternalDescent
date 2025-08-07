@@ -16,7 +16,6 @@ ETERNALDESCENT_API UClass* Z_Construct_UClass_AADASystem_NoRegister();
 ETERNALDESCENT_API UClass* Z_Construct_UClass_AEndlessDungeonTester();
 ETERNALDESCENT_API UClass* Z_Construct_UClass_AEndlessDungeonTester_NoRegister();
 ETERNALDESCENT_API UClass* Z_Construct_UClass_AGridDungeonVisualizer_NoRegister();
-ETERNALDESCENT_API UClass* Z_Construct_UClass_ASnakeDungeonGenerator_NoRegister();
 ETERNALDESCENT_API UScriptStruct* Z_Construct_UScriptStruct_FDungeonLayout();
 ETERNALDESCENT_API UScriptStruct* Z_Construct_UScriptStruct_FEndlessTestStats();
 ETERNALDESCENT_API UScriptStruct* Z_Construct_UScriptStruct_FStageGenerationResult();
@@ -1161,7 +1160,7 @@ struct Z_Construct_UClass_AEndlessDungeonTester_Statics
 		{ "ToolTip", "4GB limit" },
 #endif
 	};
-	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_DungeonGenerator_MetaData[] = {
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_DungeonVisualizer_MetaData[] = {
 		{ "Category", "References" },
 #if !UE_BUILD_SHIPPING
 		{ "Comment", "// References\n" },
@@ -1170,10 +1169,6 @@ struct Z_Construct_UClass_AEndlessDungeonTester_Statics
 #if !UE_BUILD_SHIPPING
 		{ "ToolTip", "References" },
 #endif
-	};
-	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_DungeonVisualizer_MetaData[] = {
-		{ "Category", "References" },
-		{ "ModuleRelativePath", "Public/EndlessDungeonTester.h" },
 	};
 	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_ADASystem_MetaData[] = {
 		{ "Category", "References" },
@@ -1223,7 +1218,6 @@ struct Z_Construct_UClass_AEndlessDungeonTester_Statics
 	static const UECodeGen_Private::FIntPropertyParams NewProp_MaxMemoryUsageMB;
 	static void NewProp_bStopOnPerformanceIssue_SetBit(void* Obj);
 	static const UECodeGen_Private::FBoolPropertyParams NewProp_bStopOnPerformanceIssue;
-	static const UECodeGen_Private::FObjectPropertyParams NewProp_DungeonGenerator;
 	static const UECodeGen_Private::FObjectPropertyParams NewProp_DungeonVisualizer;
 	static const UECodeGen_Private::FObjectPropertyParams NewProp_ADASystem;
 	static const UECodeGen_Private::FIntPropertyParams NewProp_CurrentStage;
@@ -1296,7 +1290,6 @@ void Z_Construct_UClass_AEndlessDungeonTester_Statics::NewProp_bStopOnPerformanc
 	((AEndlessDungeonTester*)Obj)->bStopOnPerformanceIssue = 1;
 }
 const UECodeGen_Private::FBoolPropertyParams Z_Construct_UClass_AEndlessDungeonTester_Statics::NewProp_bStopOnPerformanceIssue = { "bStopOnPerformanceIssue", nullptr, (EPropertyFlags)0x0010000000000005, UECodeGen_Private::EPropertyGenFlags::Bool | UECodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, sizeof(bool), sizeof(AEndlessDungeonTester), &Z_Construct_UClass_AEndlessDungeonTester_Statics::NewProp_bStopOnPerformanceIssue_SetBit, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_bStopOnPerformanceIssue_MetaData), NewProp_bStopOnPerformanceIssue_MetaData) };
-const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AEndlessDungeonTester_Statics::NewProp_DungeonGenerator = { "DungeonGenerator", nullptr, (EPropertyFlags)0x0010000000000014, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AEndlessDungeonTester, DungeonGenerator), Z_Construct_UClass_ASnakeDungeonGenerator_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_DungeonGenerator_MetaData), NewProp_DungeonGenerator_MetaData) };
 const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AEndlessDungeonTester_Statics::NewProp_DungeonVisualizer = { "DungeonVisualizer", nullptr, (EPropertyFlags)0x0010000000000014, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AEndlessDungeonTester, DungeonVisualizer), Z_Construct_UClass_AGridDungeonVisualizer_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_DungeonVisualizer_MetaData), NewProp_DungeonVisualizer_MetaData) };
 const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AEndlessDungeonTester_Statics::NewProp_ADASystem = { "ADASystem", nullptr, (EPropertyFlags)0x0010000000000014, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AEndlessDungeonTester, ADASystem), Z_Construct_UClass_AADASystem_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_ADASystem_MetaData), NewProp_ADASystem_MetaData) };
 const UECodeGen_Private::FIntPropertyParams Z_Construct_UClass_AEndlessDungeonTester_Statics::NewProp_CurrentStage = { "CurrentStage", nullptr, (EPropertyFlags)0x0010000000000014, UECodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AEndlessDungeonTester, CurrentStage), METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_CurrentStage_MetaData), NewProp_CurrentStage_MetaData) };
@@ -1323,7 +1316,6 @@ const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_AEndlessD
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AEndlessDungeonTester_Statics::NewProp_MinAcceptableFPS,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AEndlessDungeonTester_Statics::NewProp_MaxMemoryUsageMB,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AEndlessDungeonTester_Statics::NewProp_bStopOnPerformanceIssue,
-	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AEndlessDungeonTester_Statics::NewProp_DungeonGenerator,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AEndlessDungeonTester_Statics::NewProp_DungeonVisualizer,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AEndlessDungeonTester_Statics::NewProp_ADASystem,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AEndlessDungeonTester_Statics::NewProp_CurrentStage,
@@ -1379,10 +1371,10 @@ struct Z_CompiledInDeferFile_FID_Github_Self_Projects_EternalDescent_EternalDesc
 		{ FEndlessTestStats::StaticStruct, Z_Construct_UScriptStruct_FEndlessTestStats_Statics::NewStructOps, TEXT("EndlessTestStats"), &Z_Registration_Info_UScriptStruct_EndlessTestStats, CONSTRUCT_RELOAD_VERSION_INFO(FStructReloadVersionInfo, sizeof(FEndlessTestStats), 1990716653U) },
 	};
 	static constexpr FClassRegisterCompiledInInfo ClassInfo[] = {
-		{ Z_Construct_UClass_AEndlessDungeonTester, AEndlessDungeonTester::StaticClass, TEXT("AEndlessDungeonTester"), &Z_Registration_Info_UClass_AEndlessDungeonTester, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AEndlessDungeonTester), 4099535932U) },
+		{ Z_Construct_UClass_AEndlessDungeonTester, AEndlessDungeonTester::StaticClass, TEXT("AEndlessDungeonTester"), &Z_Registration_Info_UClass_AEndlessDungeonTester, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AEndlessDungeonTester), 4035892641U) },
 	};
 };
-static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Github_Self_Projects_EternalDescent_EternalDescent_Source_EternalDescent_Public_EndlessDungeonTester_h_2629609277(TEXT("/Script/EternalDescent"),
+static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Github_Self_Projects_EternalDescent_EternalDescent_Source_EternalDescent_Public_EndlessDungeonTester_h_2321010837(TEXT("/Script/EternalDescent"),
 	Z_CompiledInDeferFile_FID_Github_Self_Projects_EternalDescent_EternalDescent_Source_EternalDescent_Public_EndlessDungeonTester_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Github_Self_Projects_EternalDescent_EternalDescent_Source_EternalDescent_Public_EndlessDungeonTester_h_Statics::ClassInfo),
 	Z_CompiledInDeferFile_FID_Github_Self_Projects_EternalDescent_EternalDescent_Source_EternalDescent_Public_EndlessDungeonTester_h_Statics::ScriptStructInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Github_Self_Projects_EternalDescent_EternalDescent_Source_EternalDescent_Public_EndlessDungeonTester_h_Statics::ScriptStructInfo),
 	nullptr, 0);

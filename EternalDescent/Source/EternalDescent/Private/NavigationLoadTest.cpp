@@ -138,7 +138,7 @@ bool ANavigationLoadTest::SimulatePlayerMovement(const TArray<FVector>& Path, fl
 
 bool ANavigationLoadTest::LoadDungeon(int32 Seed)
 {
-    if (DungeonGenerator && DungeonVisualizer)
+    if (DungeonVisualizer)
     {
         DungeonVisualizer->GenerateAndVisualizeDungeon(Seed);
         return true;
