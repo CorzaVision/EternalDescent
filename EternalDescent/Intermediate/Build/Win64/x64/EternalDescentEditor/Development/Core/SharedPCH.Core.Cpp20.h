@@ -1,0 +1,3 @@
+// PCH for Runtime/Core/Public/CoreSharedPCH.h
+#include "D:/Github/Self Projects/EternalDescent/EternalDescent/Intermediate/Build/Win64/x64/EternalDescentEditor/Development/Core/SharedDefinitions.Core.Cpp20.h"
+#include "Runtime/Core/Public/CoreSharedPCH.h"

@@ -1,0 +1,250 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ModList>
+	<Name>tmp2fccd51d</Name>
+	<modIds>
+		<li>brrainz.harmony</li>
+		<li>ludeon.rimworld</li>
+		<li>ludeon.rimworld.biotech</li>
+		<li>ludeon.rimworld.anomaly</li>
+		<li>ludeon.rimworld.odyssey</li>
+		<li>arylice.rimworld.automaticstumpchopping</li>
+		<li>frozensnowfox.betterexplorationloot</li>
+		<li>adaptive.storage.framework</li>
+		<li>sbz.neatstoragefridge</li>
+		<li>sbz.neatstorage</li>
+		<li>unlimitedhugs.hugslib</li>
+		<li>unlimitedhugs.allowtool</li>
+		<li>ben.automaticnightowl</li>
+		<li>ben.automaticslaveoutfit</li>
+		<li>brrainz.cameraplus</li>
+		<li>automatic.bionicicons</li>
+		<li>avilmask.commonsense</li>
+		<li>telardo.dragselect</li>
+		<li>zeracronius.dynamictradeinterface</li>
+		<li>edb.preparecarefully</li>
+		<li>telefonmast.graphicssettings</li>
+		<li>orion.hospitality</li>
+		<li>m00nl1ght.mappreview</li>
+		<li>mehni.pickupandhaul</li>
+		<li>dawnsglow.qualcolor</li>
+		<li>arandomkiwi.rimsaves</li>
+		<li>gt.sam.tilledsoil</li>
+		<li>amagicallime.undraftaftertucking</li>
+		<li>asmallrabbit.uniformgrowzone</li>
+		<li>jaxe.rimhud</li>
+		<li>andromeda.usefulmarks</li>
+		<li>oskarpotocki.vanillafactionsexpanded.core</li>
+		<li>vanillaexpanded.skills</li>
+		<li>dhultgren.smarterconstruction</li>
+		<li>addvans.wasdedpawn</li>
+		<li>kongkim.advancedbridges</li>
+		<li>falconne.bwm</li>
+		<li>issaczhuang.muzzleflash</li>
+		<li>taranchuk.performanceoptimizer</li>
+		<li>xmb.ancientminingindustry.mo</li>
+		<li>aoba.tent</li>
+		<li>caesarv6.damageindicators</li>
+		<li>shashlichnik.deepanddeeper</li>
+		<li>keshash.layeredwalldestruction</li>
+		<li>unon.noburnmetal</li>
+		<li>scherub.planningextended</li>
+		<li>spdskatr.projectrimfactory</li>
+		<li>smashphil.vehicleframework</li>
+		<li>oskarpotocki.vanillavehiclesexpanded</li>
+		<li>unlimitedhugs.defensivepositions</li>
+		<li>mlie.gestaltengine</li>
+		<li>mlie.modmanager</li>
+		<li>timmyliang.tradehelper</li>
+		<li>oels.vehiclemapframework</li>
+		<li>vanillaexpanded.vfepower</li>
+		<li>vanillaexpanded.vchemfuele</li>
+		<li>poncho.automatichydroponics</li>
+		<li>vanillaexpanded.vwe</li>
+		<li>vanillaexpanded.vee</li>
+		<li>spdskatr.projectrimfactory.drones</li>
+		<li>vanillaexpanded.vwetb</li>
+		<li>vanillaexpanded.vweq</li>
+		<li>vanillaexpanded.vwenl</li>
+		<li>vanillaexpanded.vwems</li>
+		<li>vanillaexpanded.vwel</li>
+		<li>vanillaexpanded.vwehw</li>
+		<li>vanillaexpanded.vweg</li>
+		<li>vanillaexpanded.vwec</li>
+		<li>vanillaexpanded.vweft</li>
+		<li>vanillaexpanded.vwebf</li>
+		<li>vanillaexpanded.vanillatraitsexpanded</li>
+		<li>vanillaexpanded.vanillatradingexpanded</li>
+		<li>vanillaexpanded.vappe</li>
+		<li>vanillaexpanded.vaeaccessories</li>
+		<li>vanillaexpanded.varme</li>
+		<li>vanillaexpanded.vfefarming</li>
+		<li>vanillaexpanded.vfemedical</li>
+		<li>vanillaexpanded.vfeproduction</li>
+		<li>vanillaexpanded.vfespacer</li>
+		<li>vanillaquestsexpanded.cryptoforge</li>
+	</modIds>
+	<modNames>
+		<li>Harmony</li>
+		<li>Core</li>
+		<li>Biotech</li>
+		<li>Anomaly</li>
+		<li>Odyssey</li>
+		<li>[ARY] Automatic Stump Chopping [1.5 - 1.6]</li>
+		<li>[FSF] Better Exploration Loot</li>
+		<li>Adaptive Storage Framework</li>
+		<li>[sbz] Fridge</li>
+		<li>[sbz] Neat Storage</li>
+		<li>HugsLib</li>
+		<li>Allow Tool</li>
+		<li>Automatic Night Owl</li>
+		<li>Automatic Slave Outfit</li>
+		<li>Camera+</li>
+		<li>Bionic icons</li>
+		<li>Common Sense</li>
+		<li>DragSelect</li>
+		<li>Dynamic Trade Interface</li>
+		<li>EdB Prepare Carefully</li>
+		<li>Graphics Settings+</li>
+		<li>Hospitality</li>
+		<li>Map Preview</li>
+		<li>Pick Up And Haul</li>
+		<li>Quality Colors (1.6 Temp)</li>
+		<li>RimSaves</li>
+		<li>Tilled Soil</li>
+		<li>Undraft After Tucking Forked</li>
+		<li>Uniform Growing Zone Tool</li>
+		<li>RimHUD</li>
+		<li>Useful Marks</li>
+		<li>Vanilla Expanded Framework</li>
+		<li>Vanilla Skills Expanded</li>
+		<li>Smarter Construction</li>
+		<li>WASDed Pawn</li>
+		<li>Advanced Bridges &amp; Corners</li>
+		<li>Better Workbench Management</li>
+		<li>Muzzle Flash</li>
+		<li>Performance Optimizer</li>
+		<li>Ancient mining industry</li>
+		<li>Camping Tent</li>
+		<li>Damage Indicators [1.6]</li>
+		<li>Deep And Deeper</li>
+		<li>Layered Wall Destruction</li>
+		<li>No Burn Metal</li>
+		<li>Planning Extended</li>
+		<li>Project RimFactory Revived</li>
+		<li>Vehicle Framework</li>
+		<li>Vanilla Vehicles Expanded</li>
+		<li>Defensive Positions</li>
+		<li>Gestalt Engine (Continued)</li>
+		<li>Mod Manager (Continued)</li>
+		<li>TradeHelper</li>
+		<li>Vehicle Map Framework</li>
+		<li>Vanilla Furniture Expanded - Power</li>
+		<li>Vanilla Chemfuel Expanded</li>
+		<li>Automatic Hydroponics</li>
+		<li>Vanilla Weapons Expanded</li>
+		<li>Vanilla Events Expanded</li>
+		<li>Project RimFactory - Drones</li>
+		<li>Vanilla Weapons Expanded - Tribal</li>
+		<li>Vanilla Weapons Expanded - Quickdraw</li>
+		<li>Vanilla Weapons Expanded - Non-Lethal</li>
+		<li>Vanilla Weapons Expanded - Makeshift</li>
+		<li>Vanilla Weapons Expanded - Laser</li>
+		<li>Vanilla Weapons Expanded - Heavy Weapons</li>
+		<li>Vanilla Weapons Expanded - Grenades</li>
+		<li>Vanilla Weapons Expanded - Coilguns</li>
+		<li>Vanilla Weapons Expanded - Frontier</li>
+		<li>Vanilla Weapons Expanded - Bioferrite</li>
+		<li>Vanilla Traits Expanded</li>
+		<li>Vanilla Trading Expanded</li>
+		<li>Vanilla Apparel Expanded</li>
+		<li>Vanilla Apparel Expanded — Accessories</li>
+		<li>Vanilla Armour Expanded</li>
+		<li>Vanilla Furniture Expanded - Farming</li>
+		<li>Vanilla Furniture Expanded - Medical Module</li>
+		<li>Vanilla Furniture Expanded - Production</li>
+		<li>Vanilla Furniture Expanded - Spacer Module</li>
+		<li>Vanilla Quests Expanded - Cryptoforge</li>
+	</modNames>
+	<modSteamWorkshopIds>
+		<li>2009463077</li>
+		<li>0</li>
+		<li>0</li>
+		<li>0</li>
+		<li>0</li>
+		<li>3357749890</li>
+		<li>3526957922</li>
+		<li>3033901359</li>
+		<li>3486264784</li>
+		<li>3416243474</li>
+		<li>818773962</li>
+		<li>761421485</li>
+		<li>2056012179</li>
+		<li>2912063732</li>
+		<li>867467808</li>
+		<li>1677616980</li>
+		<li>1561769193</li>
+		<li>2599942235</li>
+		<li>3020706506</li>
+		<li>735106432</li>
+		<li>1678847247</li>
+		<li>753498552</li>
+		<li>2800857642</li>
+		<li>1279012058</li>
+		<li>3513846773</li>
+		<li>1713367505</li>
+		<li>725747149</li>
+		<li>3526748256</li>
+		<li>1898969926</li>
+		<li>1508850027</li>
+		<li>3506573327</li>
+		<li>2023507013</li>
+		<li>3400246558</li>
+		<li>2202185773</li>
+		<li>3471835151</li>
+		<li>3006527110</li>
+		<li>935982361</li>
+		<li>2917732219</li>
+		<li>2664723367</li>
+		<li>3141472661</li>
+		<li>2407128339</li>
+		<li>2016331497</li>
+		<li>3509420021</li>
+		<li>3024527775</li>
+		<li>1923990111</li>
+		<li>2877392159</li>
+		<li>2033979700</li>
+		<li>3014915404</li>
+		<li>3014906877</li>
+		<li>761219125</li>
+		<li>3392334612</li>
+		<li>3306654341</li>
+		<li>2113372560</li>
+		<li>3426502333</li>
+		<li>2062943477</li>
+		<li>2792917473</li>
+		<li>3528490718</li>
+		<li>1814383360</li>
+		<li>1938420742</li>
+		<li>2037491557</li>
+		<li>2454918552</li>
+		<li>1906780517</li>
+		<li>2454918354</li>
+		<li>2419690698</li>
+		<li>1989352844</li>
+		<li>2329126791</li>
+		<li>2194472657</li>
+		<li>2375692535</li>
+		<li>2454918139</li>
+		<li>3287469135</li>
+		<li>2296404655</li>
+		<li>2785616901</li>
+		<li>1814987817</li>
+		<li>2521176396</li>
+		<li>1814988282</li>
+		<li>1957158779</li>
+		<li>1718191613</li>
+		<li>1880253632</li>
+		<li>2028381079</li>
+		<li>3461526070</li>
+	</modSteamWorkshopIds>
+</ModList>

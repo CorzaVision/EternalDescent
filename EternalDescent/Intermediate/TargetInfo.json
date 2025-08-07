@@ -1,0 +1,14 @@
+{
+	"Targets": [
+		{
+			"Name": "EternalDescent",
+			"Path": "..\\Source\\EternalDescent.Target.cs",
+			"Type": "Game"
+		},
+		{
+			"Name": "EternalDescentEditor",
+			"Path": "..\\Source\\EternalDescentEditor.Target.cs",
+			"Type": "Editor"
+		}
+	]
+}

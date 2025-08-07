@@ -1,0 +1,30 @@
+{
+    "Version": "1.2",
+    "Data": {
+        "Source": "d:\\github\\self projects\\eternaldescent\\eternaldescent\\source\\eternaldescent\\eternaldescentgamemode.cpp",
+        "ProvidedModule": "",
+        "PCH": "d:\\github\\self projects\\eternaldescent\\eternaldescent\\intermediate\\build\\win64\\x64\\eternaldescenteditor\\development\\unrealed\\sharedpch.unrealed.project.valapi.cpp20.h.pch",
+        "Includes": [
+            "d:\\github\\self projects\\eternaldescent\\eternaldescent\\intermediate\\build\\win64\\x64\\unrealeditor\\development\\eternaldescent\\definitions.eternaldescent.h",
+            "d:\\github\\self projects\\eternaldescent\\eternaldescent\\source\\eternaldescent\\eternaldescentgamemode.h",
+            "d:\\epic games\\ue_5.5\\engine\\source\\runtime\\engine\\classes\\gameframework\\gamemodebase.h",
+            "d:\\epic games\\ue_5.5\\engine\\source\\runtime\\engine\\classes\\engine\\serverstatreplicator.h",
+            "d:\\epic games\\ue_5.5\\engine\\intermediate\\build\\win64\\unrealeditor\\inc\\engine\\uht\\serverstatreplicator.generated.h",
+            "d:\\epic games\\ue_5.5\\engine\\intermediate\\build\\win64\\unrealeditor\\inc\\engine\\uht\\gamemodebase.generated.h",
+            "d:\\github\\self projects\\eternaldescent\\eternaldescent\\intermediate\\build\\win64\\unrealeditor\\inc\\eternaldescent\\uht\\eternaldescentgamemode.generated.h",
+            "d:\\github\\self projects\\eternaldescent\\eternaldescent\\source\\eternaldescent\\eternaldescentcharacter.h",
+            "d:\\epic games\\ue_5.5\\engine\\source\\runtime\\engine\\classes\\gameframework\\character.h",
+            "d:\\epic games\\ue_5.5\\engine\\source\\runtime\\engine\\classes\\gameframework\\charactermovementreplication.h",
+            "d:\\epic games\\ue_5.5\\engine\\source\\runtime\\net\\core\\public\\net\\core\\nettoken\\nettokenexportcontext.h",
+            "d:\\epic games\\ue_5.5\\engine\\source\\runtime\\experimental\\iris\\core\\public\\iris\\serialization\\irisobjectreferencepackagemap.h",
+            "d:\\epic games\\ue_5.5\\engine\\intermediate\\build\\win64\\unrealeditor\\inc\\iriscore\\uht\\irisobjectreferencepackagemap.generated.h",
+            "d:\\epic games\\ue_5.5\\engine\\intermediate\\build\\win64\\unrealeditor\\inc\\engine\\uht\\charactermovementreplication.generated.h",
+            "d:\\epic games\\ue_5.5\\engine\\source\\runtime\\engine\\classes\\gameframework\\rootmotionsource.h",
+            "d:\\epic games\\ue_5.5\\engine\\intermediate\\build\\win64\\unrealeditor\\inc\\engine\\uht\\rootmotionsource.generated.h",
+            "d:\\epic games\\ue_5.5\\engine\\intermediate\\build\\win64\\unrealeditor\\inc\\engine\\uht\\character.generated.h",
+            "d:\\github\\self projects\\eternaldescent\\eternaldescent\\intermediate\\build\\win64\\unrealeditor\\inc\\eternaldescent\\uht\\eternaldescentcharacter.generated.h"
+        ],
+        "ImportedModules": [],
+        "ImportedHeaderUnits": []
+    }
+}

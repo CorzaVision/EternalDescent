@@ -1,0 +1,8 @@
+{
+	"SourceFiles": [
+		"D:\\Github\\Self Projects\\EternalDescent\\EternalDescent\\Source\\EternalDescent\\EternalDescent.Build.cs",
+		"D:\\Github\\Self Projects\\EternalDescent\\EternalDescent\\Source\\EternalDescent.Target.cs",
+		"D:\\Github\\Self Projects\\EternalDescent\\EternalDescent\\Source\\EternalDescentEditor.Target.cs"
+	],
+	"EngineVersion": "5.5.4"
+}
