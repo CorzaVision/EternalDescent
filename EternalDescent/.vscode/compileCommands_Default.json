@@ -56,7 +56,7 @@
 		"directory": "D:\\Epic Games\\UE_5.5\\Engine\\Source"
 	},
 	{
-		"file": "D:\\Github\\Self Projects\\EternalDescent\\EternalDescent\\Source\\EternalDescent\\Private\\FloorGeneratorComponent.cpp",
+		"file": "D:\\Github\\Self Projects\\EternalDescent\\EternalDescent\\Source\\EternalDescent\\Private\\ADASystem.cpp",
 		"arguments": [
 			"D:\\VisualStudio\\IDE\\VC\\Tools\\MSVC\\14.44.35207\\bin\\Hostx64\\x64\\cl.exe",
 			"@D:\\Github\\Self Projects\\EternalDescent\\EternalDescent\\.vscode\\compileCommands_Default\\EternalDescent.1.rsp"
@@ -64,7 +64,199 @@
 		"directory": "D:\\Epic Games\\UE_5.5\\Engine\\Source"
 	},
 	{
-		"file": "D:\\Github\\Self Projects\\EternalDescent\\EternalDescent\\Source\\EternalDescent\\Public\\FloorGeneratorComponent.h",
+		"file": "D:\\Github\\Self Projects\\EternalDescent\\EternalDescent\\Source\\EternalDescent\\Private\\CubeDungeonGenerator.cpp",
+		"arguments": [
+			"D:\\VisualStudio\\IDE\\VC\\Tools\\MSVC\\14.44.35207\\bin\\Hostx64\\x64\\cl.exe",
+			"@D:\\Github\\Self Projects\\EternalDescent\\EternalDescent\\.vscode\\compileCommands_Default\\EternalDescent.1.rsp"
+		],
+		"directory": "D:\\Epic Games\\UE_5.5\\Engine\\Source"
+	},
+	{
+		"file": "D:\\Github\\Self Projects\\EternalDescent\\EternalDescent\\Source\\EternalDescent\\Private\\DungeonGenerator.cpp",
+		"arguments": [
+			"D:\\VisualStudio\\IDE\\VC\\Tools\\MSVC\\14.44.35207\\bin\\Hostx64\\x64\\cl.exe",
+			"@D:\\Github\\Self Projects\\EternalDescent\\EternalDescent\\.vscode\\compileCommands_Default\\EternalDescent.1.rsp"
+		],
+		"directory": "D:\\Epic Games\\UE_5.5\\Engine\\Source"
+	},
+	{
+		"file": "D:\\Github\\Self Projects\\EternalDescent\\EternalDescent\\Source\\EternalDescent\\Private\\DungeonVisualizer.cpp",
+		"arguments": [
+			"D:\\VisualStudio\\IDE\\VC\\Tools\\MSVC\\14.44.35207\\bin\\Hostx64\\x64\\cl.exe",
+			"@D:\\Github\\Self Projects\\EternalDescent\\EternalDescent\\.vscode\\compileCommands_Default\\EternalDescent.1.rsp"
+		],
+		"directory": "D:\\Epic Games\\UE_5.5\\Engine\\Source"
+	},
+	{
+		"file": "D:\\Github\\Self Projects\\EternalDescent\\EternalDescent\\Source\\EternalDescent\\Private\\EndlessDungeonTester.cpp",
+		"arguments": [
+			"D:\\VisualStudio\\IDE\\VC\\Tools\\MSVC\\14.44.35207\\bin\\Hostx64\\x64\\cl.exe",
+			"@D:\\Github\\Self Projects\\EternalDescent\\EternalDescent\\.vscode\\compileCommands_Default\\EternalDescent.1.rsp"
+		],
+		"directory": "D:\\Epic Games\\UE_5.5\\Engine\\Source"
+	},
+	{
+		"file": "D:\\Github\\Self Projects\\EternalDescent\\EternalDescent\\Source\\EternalDescent\\Private\\Generation\\ProceduralFloorComponent.cpp",
+		"arguments": [
+			"D:\\VisualStudio\\IDE\\VC\\Tools\\MSVC\\14.44.35207\\bin\\Hostx64\\x64\\cl.exe",
+			"@D:\\Github\\Self Projects\\EternalDescent\\EternalDescent\\.vscode\\compileCommands_Default\\EternalDescent.1.rsp"
+		],
+		"directory": "D:\\Epic Games\\UE_5.5\\Engine\\Source"
+	},
+	{
+		"file": "D:\\Github\\Self Projects\\EternalDescent\\EternalDescent\\Source\\EternalDescent\\Private\\Generation\\RoomGraphBuilder.cpp",
+		"arguments": [
+			"D:\\VisualStudio\\IDE\\VC\\Tools\\MSVC\\14.44.35207\\bin\\Hostx64\\x64\\cl.exe",
+			"@D:\\Github\\Self Projects\\EternalDescent\\EternalDescent\\.vscode\\compileCommands_Default\\EternalDescent.1.rsp"
+		],
+		"directory": "D:\\Epic Games\\UE_5.5\\Engine\\Source"
+	},
+	{
+		"file": "D:\\Github\\Self Projects\\EternalDescent\\EternalDescent\\Source\\EternalDescent\\Private\\Generation\\WallEnvironmentBuilder.cpp",
+		"arguments": [
+			"D:\\VisualStudio\\IDE\\VC\\Tools\\MSVC\\14.44.35207\\bin\\Hostx64\\x64\\cl.exe",
+			"@D:\\Github\\Self Projects\\EternalDescent\\EternalDescent\\.vscode\\compileCommands_Default\\EternalDescent.1.rsp"
+		],
+		"directory": "D:\\Epic Games\\UE_5.5\\Engine\\Source"
+	},
+	{
+		"file": "D:\\Github\\Self Projects\\EternalDescent\\EternalDescent\\Source\\EternalDescent\\Private\\GridDungeonVisualizer.cpp",
+		"arguments": [
+			"D:\\VisualStudio\\IDE\\VC\\Tools\\MSVC\\14.44.35207\\bin\\Hostx64\\x64\\cl.exe",
+			"@D:\\Github\\Self Projects\\EternalDescent\\EternalDescent\\.vscode\\compileCommands_Default\\EternalDescent.1.rsp"
+		],
+		"directory": "D:\\Epic Games\\UE_5.5\\Engine\\Source"
+	},
+	{
+		"file": "D:\\Github\\Self Projects\\EternalDescent\\EternalDescent\\Source\\EternalDescent\\Private\\MyObjectTest.cpp",
+		"arguments": [
+			"D:\\VisualStudio\\IDE\\VC\\Tools\\MSVC\\14.44.35207\\bin\\Hostx64\\x64\\cl.exe",
+			"@D:\\Github\\Self Projects\\EternalDescent\\EternalDescent\\.vscode\\compileCommands_Default\\EternalDescent.1.rsp"
+		],
+		"directory": "D:\\Epic Games\\UE_5.5\\Engine\\Source"
+	},
+	{
+		"file": "D:\\Github\\Self Projects\\EternalDescent\\EternalDescent\\Source\\EternalDescent\\Private\\NavigationLoadTest.cpp",
+		"arguments": [
+			"D:\\VisualStudio\\IDE\\VC\\Tools\\MSVC\\14.44.35207\\bin\\Hostx64\\x64\\cl.exe",
+			"@D:\\Github\\Self Projects\\EternalDescent\\EternalDescent\\.vscode\\compileCommands_Default\\EternalDescent.1.rsp"
+		],
+		"directory": "D:\\Epic Games\\UE_5.5\\Engine\\Source"
+	},
+	{
+		"file": "D:\\Github\\Self Projects\\EternalDescent\\EternalDescent\\Source\\EternalDescent\\Private\\SnakeDungeonGenerator.cpp",
+		"arguments": [
+			"D:\\VisualStudio\\IDE\\VC\\Tools\\MSVC\\14.44.35207\\bin\\Hostx64\\x64\\cl.exe",
+			"@D:\\Github\\Self Projects\\EternalDescent\\EternalDescent\\.vscode\\compileCommands_Default\\EternalDescent.1.rsp"
+		],
+		"directory": "D:\\Epic Games\\UE_5.5\\Engine\\Source"
+	},
+	{
+		"file": "D:\\Github\\Self Projects\\EternalDescent\\EternalDescent\\Source\\EternalDescent\\Public\\ADASystem.h",
+		"arguments": [
+			"D:\\VisualStudio\\IDE\\VC\\Tools\\MSVC\\14.44.35207\\bin\\Hostx64\\x64\\cl.exe",
+			"@D:\\Github\\Self Projects\\EternalDescent\\EternalDescent\\.vscode\\compileCommands_Default\\EternalDescent.1.rsp"
+		],
+		"directory": "D:\\Epic Games\\UE_5.5\\Engine\\Source"
+	},
+	{
+		"file": "D:\\Github\\Self Projects\\EternalDescent\\EternalDescent\\Source\\EternalDescent\\Public\\CubeDungeonGenerator.h",
+		"arguments": [
+			"D:\\VisualStudio\\IDE\\VC\\Tools\\MSVC\\14.44.35207\\bin\\Hostx64\\x64\\cl.exe",
+			"@D:\\Github\\Self Projects\\EternalDescent\\EternalDescent\\.vscode\\compileCommands_Default\\EternalDescent.1.rsp"
+		],
+		"directory": "D:\\Epic Games\\UE_5.5\\Engine\\Source"
+	},
+	{
+		"file": "D:\\Github\\Self Projects\\EternalDescent\\EternalDescent\\Source\\EternalDescent\\Public\\CubeDungeonTypes.h",
+		"arguments": [
+			"D:\\VisualStudio\\IDE\\VC\\Tools\\MSVC\\14.44.35207\\bin\\Hostx64\\x64\\cl.exe",
+			"@D:\\Github\\Self Projects\\EternalDescent\\EternalDescent\\.vscode\\compileCommands_Default\\EternalDescent.1.rsp"
+		],
+		"directory": "D:\\Epic Games\\UE_5.5\\Engine\\Source"
+	},
+	{
+		"file": "D:\\Github\\Self Projects\\EternalDescent\\EternalDescent\\Source\\EternalDescent\\Public\\DungeonGenerator.h",
+		"arguments": [
+			"D:\\VisualStudio\\IDE\\VC\\Tools\\MSVC\\14.44.35207\\bin\\Hostx64\\x64\\cl.exe",
+			"@D:\\Github\\Self Projects\\EternalDescent\\EternalDescent\\.vscode\\compileCommands_Default\\EternalDescent.1.rsp"
+		],
+		"directory": "D:\\Epic Games\\UE_5.5\\Engine\\Source"
+	},
+	{
+		"file": "D:\\Github\\Self Projects\\EternalDescent\\EternalDescent\\Source\\EternalDescent\\Public\\DungeonVisualizer.h",
+		"arguments": [
+			"D:\\VisualStudio\\IDE\\VC\\Tools\\MSVC\\14.44.35207\\bin\\Hostx64\\x64\\cl.exe",
+			"@D:\\Github\\Self Projects\\EternalDescent\\EternalDescent\\.vscode\\compileCommands_Default\\EternalDescent.1.rsp"
+		],
+		"directory": "D:\\Epic Games\\UE_5.5\\Engine\\Source"
+	},
+	{
+		"file": "D:\\Github\\Self Projects\\EternalDescent\\EternalDescent\\Source\\EternalDescent\\Public\\EndlessDungeonTester.h",
+		"arguments": [
+			"D:\\VisualStudio\\IDE\\VC\\Tools\\MSVC\\14.44.35207\\bin\\Hostx64\\x64\\cl.exe",
+			"@D:\\Github\\Self Projects\\EternalDescent\\EternalDescent\\.vscode\\compileCommands_Default\\EternalDescent.1.rsp"
+		],
+		"directory": "D:\\Epic Games\\UE_5.5\\Engine\\Source"
+	},
+	{
+		"file": "D:\\Github\\Self Projects\\EternalDescent\\EternalDescent\\Source\\EternalDescent\\Public\\Generation\\ProceduralFloorComponent.h",
+		"arguments": [
+			"D:\\VisualStudio\\IDE\\VC\\Tools\\MSVC\\14.44.35207\\bin\\Hostx64\\x64\\cl.exe",
+			"@D:\\Github\\Self Projects\\EternalDescent\\EternalDescent\\.vscode\\compileCommands_Default\\EternalDescent.1.rsp"
+		],
+		"directory": "D:\\Epic Games\\UE_5.5\\Engine\\Source"
+	},
+	{
+		"file": "D:\\Github\\Self Projects\\EternalDescent\\EternalDescent\\Source\\EternalDescent\\Public\\Generation\\RoomGraphBuilder.h",
+		"arguments": [
+			"D:\\VisualStudio\\IDE\\VC\\Tools\\MSVC\\14.44.35207\\bin\\Hostx64\\x64\\cl.exe",
+			"@D:\\Github\\Self Projects\\EternalDescent\\EternalDescent\\.vscode\\compileCommands_Default\\EternalDescent.1.rsp"
+		],
+		"directory": "D:\\Epic Games\\UE_5.5\\Engine\\Source"
+	},
+	{
+		"file": "D:\\Github\\Self Projects\\EternalDescent\\EternalDescent\\Source\\EternalDescent\\Public\\Generation\\WallEnvironmentBuilder.h",
+		"arguments": [
+			"D:\\VisualStudio\\IDE\\VC\\Tools\\MSVC\\14.44.35207\\bin\\Hostx64\\x64\\cl.exe",
+			"@D:\\Github\\Self Projects\\EternalDescent\\EternalDescent\\.vscode\\compileCommands_Default\\EternalDescent.1.rsp"
+		],
+		"directory": "D:\\Epic Games\\UE_5.5\\Engine\\Source"
+	},
+	{
+		"file": "D:\\Github\\Self Projects\\EternalDescent\\EternalDescent\\Source\\EternalDescent\\Public\\GridDungeonVisualizer.h",
+		"arguments": [
+			"D:\\VisualStudio\\IDE\\VC\\Tools\\MSVC\\14.44.35207\\bin\\Hostx64\\x64\\cl.exe",
+			"@D:\\Github\\Self Projects\\EternalDescent\\EternalDescent\\.vscode\\compileCommands_Default\\EternalDescent.1.rsp"
+		],
+		"directory": "D:\\Epic Games\\UE_5.5\\Engine\\Source"
+	},
+	{
+		"file": "D:\\Github\\Self Projects\\EternalDescent\\EternalDescent\\Source\\EternalDescent\\Public\\MyObjectTest.h",
+		"arguments": [
+			"D:\\VisualStudio\\IDE\\VC\\Tools\\MSVC\\14.44.35207\\bin\\Hostx64\\x64\\cl.exe",
+			"@D:\\Github\\Self Projects\\EternalDescent\\EternalDescent\\.vscode\\compileCommands_Default\\EternalDescent.1.rsp"
+		],
+		"directory": "D:\\Epic Games\\UE_5.5\\Engine\\Source"
+	},
+	{
+		"file": "D:\\Github\\Self Projects\\EternalDescent\\EternalDescent\\Source\\EternalDescent\\Public\\NavigationLoadTest.h",
+		"arguments": [
+			"D:\\VisualStudio\\IDE\\VC\\Tools\\MSVC\\14.44.35207\\bin\\Hostx64\\x64\\cl.exe",
+			"@D:\\Github\\Self Projects\\EternalDescent\\EternalDescent\\.vscode\\compileCommands_Default\\EternalDescent.1.rsp"
+		],
+		"directory": "D:\\Epic Games\\UE_5.5\\Engine\\Source"
+	},
+	{
+		"file": "D:\\Github\\Self Projects\\EternalDescent\\EternalDescent\\Source\\EternalDescent\\Public\\SnakeDungeonGenerator.h",
+		"arguments": [
+			"D:\\VisualStudio\\IDE\\VC\\Tools\\MSVC\\14.44.35207\\bin\\Hostx64\\x64\\cl.exe",
+			"@D:\\Github\\Self Projects\\EternalDescent\\EternalDescent\\.vscode\\compileCommands_Default\\EternalDescent.1.rsp"
+		],
+		"directory": "D:\\Epic Games\\UE_5.5\\Engine\\Source"
+	},
+	{
+		"file": "D:\\Github\\Self Projects\\EternalDescent\\EternalDescent\\Source\\EternalDescent\\Public\\Tests\\DungeonTestTypes.h",
 		"arguments": [
 			"D:\\VisualStudio\\IDE\\VC\\Tools\\MSVC\\14.44.35207\\bin\\Hostx64\\x64\\cl.exe",
 			"@D:\\Github\\Self Projects\\EternalDescent\\EternalDescent\\.vscode\\compileCommands_Default\\EternalDescent.1.rsp"

@@ -1,25 +1,20 @@
 {
-    "configurations": [
-        {
-            "name": "EternalDescentEditor Editor Win64 Development (EternalDescent)",
-            "compilerPath": "D:\\VisualStudio\\IDE\\VC\\Tools\\MSVC\\14.44.35207\\bin\\Hostx64\\x64\\cl.exe",
-            "cStandard": "c17",
-            "cppStandard": "c++20",
-            "intelliSenseMode": "msvc-x64",
-            "compileCommands": [
-                "D:\\Github\\Self Projects\\EternalDescent\\EternalDescent\\.vscode\\compileCommands_EternalDescent.json"
-            ]
-        },
-        {
-            "name": "Win32",
-            "compilerPath": "D:\\VisualStudio\\IDE\\VC\\Tools\\MSVC\\14.44.35207\\bin\\Hostx64\\x64\\cl.exe",
-            "cStandard": "c17",
-            "cppStandard": "c++20",
-            "intelliSenseMode": "msvc-x64",
-            "compileCommands": [
-                "D:\\Github\\Self Projects\\EternalDescent\\EternalDescent\\.vscode\\compileCommands_Default.json"
-            ]
-        }
-    ],
-    "version": 4
+	"configurations": [
+		{
+			"name": "EternalDescentEditor Editor Win64 Development (EternalDescent)",
+			"compilerPath": "D:\\VisualStudio\\IDE\\VC\\Tools\\MSVC\\14.44.35207\\bin\\Hostx64\\x64\\cl.exe",
+			"cStandard": "c17",
+			"cppStandard": "c++20",
+			"intelliSenseMode": "msvc-x64",
+			"compileCommands": "D:\\Github\\Self Projects\\EternalDescent\\EternalDescent\\.vscode\\compileCommands_EternalDescent.json"
+		},
+		{
+			"name": "Win32",
+			"compilerPath": "D:\\VisualStudio\\IDE\\VC\\Tools\\MSVC\\14.44.35207\\bin\\Hostx64\\x64\\cl.exe",
+			"cStandard": "c17",
+			"cppStandard": "c++20",
+			"intelliSenseMode": "msvc-x64",
+			"compileCommands": "D:\\Github\\Self Projects\\EternalDescent\\EternalDescent\\.vscode\\compileCommands_Default.json"
+		}
+	]
 }

@@ -1,0 +1,23 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(RunTest.bat EternalDescent.Dungeon --no-pause)",
+      "Bash(cmd:*)",
+      "Bash(powershell:*)",
+      "Bash(TestRunTest.bat EternalDescent.Dungeon --no-pause)",
+      "Bash(\"D:\\Epic Games\\UE_5.5\\Engine\\Build\\BatchFiles\\Build.bat\" EternalDescentEditor Win64 Development \"D:\\Github\\Self Projects\\EternalDescent\\EternalDescent\\EternalDescent.uproject\" -waitmutex)",
+      "Bash(RunTest.bat EternalDescent.System.ComprehensiveValidation --no-pause)",
+      "Bash(g++:*)",
+      "Bash(TestProof.exe)",
+      "Bash(where cl)",
+      "Bash(python3:*)",
+      "Bash(\"D:\\Epic Games\\UE_5.5\\Engine\\Build\\BatchFiles\\Build.bat\" EternalDescentEditor Win64 Development EternalDescent.uproject -waitmutex)",
+      "Bash(CompileProject.bat)",
+      "Bash(call CompileProject.bat)",
+      "Bash(ren:*)",
+      "Bash(Build.bat EternalDescentEditor Win64 Development \"D:/Github/Self Projects/EternalDescent/EternalDescent/EternalDescent.uproject\" -waitmutex)",
+      "Bash(rmdir:*)"
+    ],
+    "deny": []
+  }
+}

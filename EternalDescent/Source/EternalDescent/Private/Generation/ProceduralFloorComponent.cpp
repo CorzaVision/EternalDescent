@@ -32,3 +32,15 @@ void UProceduralFloorComponent::TickComponent(float DeltaTime, ELevelTick TickTy
 	// ...
 }
 
+void UProceduralFloorComponent::GenerateFloor()
+{
+	// TODO: Implement floor generation
+	UE_LOG(LogTemp, Warning, TEXT("ProceduralFloorComponent::GenerateFloor() - Not yet implemented"));
+}
+
+void UProceduralFloorComponent::ClearGenerate()
+{
+	// TODO: Implement clear generation
+	UE_LOG(LogTemp, Warning, TEXT("ProceduralFloorComponent::ClearGenerate() - Not yet implemented"));
+}
+

@@ -1,0 +1,17 @@
+{
+    "Version": "1.2",
+    "Data": {
+        "Source": "d:\\github\\self projects\\eternaldescent\\eternaldescent\\intermediate\\build\\win64\\unrealeditor\\inc\\eternaldescent\\uht\\cubedungeontypes.gen.cpp",
+        "ProvidedModule": "",
+        "PCH": "d:\\github\\self projects\\eternaldescent\\eternaldescent\\intermediate\\build\\win64\\x64\\eternaldescenteditor\\development\\unrealed\\sharedpch.unrealed.project.valapi.cpp20.h.pch",
+        "Includes": [
+            "d:\\github\\self projects\\eternaldescent\\eternaldescent\\intermediate\\build\\win64\\x64\\unrealeditor\\development\\eternaldescent\\definitions.eternaldescent.h",
+            "d:\\github\\self projects\\eternaldescent\\eternaldescent\\source\\eternaldescent\\public\\cubedungeontypes.h",
+            "d:\\github\\self projects\\eternaldescent\\eternaldescent\\source\\eternaldescent\\public\\tests\\dungeontesttypes.h",
+            "d:\\github\\self projects\\eternaldescent\\eternaldescent\\intermediate\\build\\win64\\unrealeditor\\inc\\eternaldescent\\uht\\dungeontesttypes.generated.h",
+            "d:\\github\\self projects\\eternaldescent\\eternaldescent\\intermediate\\build\\win64\\unrealeditor\\inc\\eternaldescent\\uht\\cubedungeontypes.generated.h"
+        ],
+        "ImportedModules": [],
+        "ImportedHeaderUnits": []
+    }
+}

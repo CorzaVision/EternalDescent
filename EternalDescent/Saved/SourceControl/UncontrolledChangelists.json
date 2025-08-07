@@ -5,11 +5,21 @@
 			"guid": "00000000000000000000000000000000",
 			"description": "Default Uncontrolled Changelist",
 			"files": [
-				"D:/Github/Self Projects/EternalDescent/EternalDescent/Content/__ExternalActors__/ThirdPerson/Maps/ThirdPersonMap/7/K3/V66MYZEIX636H7YRL3HLO9.uasset",
 				"D:/Github/Self Projects/EternalDescent/EternalDescent/Content/__ExternalActors__/ThirdPerson/Maps/ThirdPersonMap/4/UK/8EO1HU08196Y7E7BE85ZGH.uasset",
 				"D:/Github/Self Projects/EternalDescent/EternalDescent/Content/__ExternalActors__/ThirdPerson/Maps/ThirdPersonMap/C/SL/69RIBPMR606J9S7UTNSHDY.uasset",
 				"D:/Github/Self Projects/EternalDescent/EternalDescent/Content/__ExternalActors__/ThirdPerson/Maps/ThirdPersonMap/0/4M/R66BAH7CWN5AL2RSMSMF0O.uasset",
 				"D:/Github/Self Projects/EternalDescent/EternalDescent/Content/__ExternalActors__/ThirdPerson/Maps/ThirdPersonMap/4/XS/QZLF5MVSNJCJDZ8R39K7JZ.uasset",
+				"D:/Github/Self Projects/EternalDescent/EternalDescent/Content/__ExternalObjects__/ThirdPerson/Maps/ThirdPersonMap/2/YE/0NBXF868FBI097S7OSQZ95.uasset",
+				"D:/Github/Self Projects/EternalDescent/EternalDescent/Content/__ExternalObjects__/ThirdPerson/Maps/ThirdPersonMap/0/SY/G8DP74APAL6HFHRABCJ2NS.uasset",
+				"D:/Github/Self Projects/EternalDescent/EternalDescent/Content/__ExternalObjects__/ThirdPerson/Maps/ThirdPersonMap/7/2Z/XC74CNRAAKAWZUV8GHUN69.uasset",
+				"D:/Github/Self Projects/EternalDescent/EternalDescent/Content/__ExternalObjects__/ThirdPerson/Maps/ThirdPersonMap/A/TJ/94VTASJEJN45YFAD476VD1.uasset",
+				"D:/Github/Self Projects/EternalDescent/EternalDescent/Content/__ExternalActors__/ThirdPerson/Maps/ThirdPersonMap/D/ME/MY01KPKNSS3804R48K67S2.uasset",
+				"D:/Github/Self Projects/EternalDescent/EternalDescent/Content/__ExternalActors__/ThirdPerson/Maps/ThirdPersonMap/6/HF/9H7TKAXH9DD8KI3TIXGI2I.uasset",
+				"D:/Github/Self Projects/EternalDescent/EternalDescent/Content/Blueprints/CoreSystems/ProceduralSystem/BP_Dungeon.uasset",
+				"D:/Github/Self Projects/EternalDescent/EternalDescent/Content/Blueprints/CoreSystems/ProceduralSystem/BP_DungeonGenerator.uasset",
+				"D:/Github/Self Projects/EternalDescent/EternalDescent/Content/__ExternalActors__/ThirdPerson/Maps/ThirdPersonMap/D/DE/SWSI13675DVYIZ0N4NF7Y3.uasset",
+				"D:/Github/Self Projects/EternalDescent/EternalDescent/Content/__ExternalActors__/ThirdPerson/Maps/ThirdPersonMap/E/WL/NKLQUGTGL05MM6DM214HAU.uasset",
+				"D:/Github/Self Projects/EternalDescent/EternalDescent/Content/__ExternalActors__/ThirdPerson/Maps/ThirdPersonMap/7/K3/V66MYZEIX636H7YRL3HLO9.uasset",
 				"D:/Github/Self Projects/EternalDescent/EternalDescent/Content/Blueprints/CoreSystems/ProceduralSystem/PCG_RoomGenerator.uasset",
 				"D:/Github/Self Projects/EternalDescent/EternalDescent/Content/__ExternalActors__/ThirdPerson/Maps/ThirdPersonMap/2/Q9/AZPHNIHHMRHQ9NZWHXZK2A.uasset",
 				"D:/Github/Self Projects/EternalDescent/EternalDescent/Content/__ExternalActors__/ThirdPerson/Maps/ThirdPersonMap/5/KP/AMIUCBSKQH1A05G0A2RITI.uasset",
@@ -411,13 +421,7 @@
 				"D:/Github/Self Projects/EternalDescent/EternalDescent/Content/__ExternalActors__/ThirdPerson/Maps/ThirdPersonMap/9/W4/CO8NGQHE2DTG9AQWLJ9F09.uasset",
 				"D:/Github/Self Projects/EternalDescent/EternalDescent/Content/__ExternalActors__/ThirdPerson/Maps/ThirdPersonMap/7/EI/9OON63YMMBPOUAF31GASGV.uasset",
 				"D:/Github/Self Projects/EternalDescent/EternalDescent/Content/__ExternalActors__/ThirdPerson/Maps/ThirdPersonMap/8/93/OQOPYFCSQ027GV9ZX563WV.uasset",
-				"D:/Github/Self Projects/EternalDescent/EternalDescent/Content/__ExternalObjects__/ThirdPerson/Maps/ThirdPersonMap/2/YE/0NBXF868FBI097S7OSQZ95.uasset",
-				"D:/Github/Self Projects/EternalDescent/EternalDescent/Content/__ExternalObjects__/ThirdPerson/Maps/ThirdPersonMap/0/SY/G8DP74APAL6HFHRABCJ2NS.uasset",
-				"D:/Github/Self Projects/EternalDescent/EternalDescent/Content/__ExternalObjects__/ThirdPerson/Maps/ThirdPersonMap/7/2Z/XC74CNRAAKAWZUV8GHUN69.uasset",
-				"D:/Github/Self Projects/EternalDescent/EternalDescent/Content/__ExternalObjects__/ThirdPerson/Maps/ThirdPersonMap/A/TJ/94VTASJEJN45YFAD476VD1.uasset",
 				"D:/Github/Self Projects/EternalDescent/EternalDescent/Content/__ExternalActors__/ThirdPerson/Maps/ThirdPersonMap/D/14/A0Z5G2IA61PONA9E0217KY.uasset",
-				"D:/Github/Self Projects/EternalDescent/EternalDescent/Content/__ExternalActors__/ThirdPerson/Maps/ThirdPersonMap/D/ME/MY01KPKNSS3804R48K67S2.uasset",
-				"D:/Github/Self Projects/EternalDescent/EternalDescent/Content/__ExternalActors__/ThirdPerson/Maps/ThirdPersonMap/6/HF/9H7TKAXH9DD8KI3TIXGI2I.uasset",
 				"D:/Github/Self Projects/EternalDescent/EternalDescent/Content/__ExternalActors__/ThirdPerson/Maps/ThirdPersonMap/3/HE/U35NZS5A9W1UXP1E3FF2GW.uasset",
 				"D:/Github/Self Projects/EternalDescent/EternalDescent/Content/__ExternalActors__/ThirdPerson/Maps/ThirdPersonMap/C/0I/VIQQWOEJKSKV1EK1XGX3EY.uasset",
 				"D:/Github/Self Projects/EternalDescent/EternalDescent/Content/__ExternalActors__/ThirdPerson/Maps/ThirdPersonMap/E/T8/46ZIBNTTDDR3AOR2XC9VO6.uasset",
@@ -450,8 +454,7 @@
 				"D:/Github/Self Projects/EternalDescent/EternalDescent/Content/__ExternalObjects__/ThirdPerson/Maps/ThirdPersonMap/8/05/U8OLLG133BEQMR58UPHM3P.uasset",
 				"D:/Github/Self Projects/EternalDescent/EternalDescent/Content/__ExternalObjects__/ThirdPerson/Maps/ThirdPersonMap/4/4A/NCNZF2U4ZTZ8XZJNF86FNT.uasset",
 				"D:/Github/Self Projects/EternalDescent/EternalDescent/Content/__ExternalActors__/ThirdPerson/Maps/ThirdPersonMap/1/WU/NB37RT5Q32Z8MJWD8BD2SO.uasset",
-				"D:/Github/Self Projects/EternalDescent/EternalDescent/Content/__ExternalActors__/ThirdPerson/Maps/ThirdPersonMap/5/1A/NZ35VLUGD9DFNV6B5S94JF.uasset",
-				"D:/Github/Self Projects/EternalDescent/EternalDescent/Content/Blueprints/CoreSystems/ProceduralSystem/BP_DungeonGenerator.uasset"
+				"D:/Github/Self Projects/EternalDescent/EternalDescent/Content/__ExternalActors__/ThirdPerson/Maps/ThirdPersonMap/5/1A/NZ35VLUGD9DFNV6B5S94JF.uasset"
 			]
 		}
 	]

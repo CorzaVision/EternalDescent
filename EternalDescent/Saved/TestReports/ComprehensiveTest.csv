@@ -1,0 +1,38 @@
+Stage,Type,GenerationTime(ms),RoomCount,ConnectedRooms,AllConnected,HallwayCount,ContentMarkers,MemoryKB
+1,Normal,7.94,21,21,TRUE,24,38,848
+2,Normal,13.81,25,25,TRUE,29,53,288
+3,Normal,9.44,25,25,TRUE,28,63,172
+4,Normal,10.16,19,19,TRUE,21,35,356
+5,ELITE,8.04,22,22,TRUE,23,48,56
+6,Normal,13.23,25,25,TRUE,27,50,76
+7,Normal,11.24,26,26,TRUE,29,54,72
+8,Normal,13.76,26,26,TRUE,29,60,352
+9,Normal,8.16,18,18,TRUE,19,31,60
+10,BOSS,12.90,26,26,TRUE,28,54,32
+11,Normal,12.85,25,25,TRUE,28,67,64
+12,Normal,12.46,25,25,TRUE,28,57,64
+13,Normal,14.49,26,26,TRUE,29,46,160
+14,Normal,7.67,19,19,TRUE,21,48,28
+15,ELITE,11.06,21,21,TRUE,23,43,112
+16,Normal,14.69,24,24,TRUE,27,61,80
+17,Normal,10.51,24,24,TRUE,26,49,84
+18,Normal,13.86,27,27,TRUE,30,61,132
+19,Normal,6.85,17,17,TRUE,16,39,236
+20,BOSS,6.92,16,16,TRUE,16,25,16
+21,Normal,7.77,22,22,TRUE,23,38,60
+22,Normal,9.19,22,22,TRUE,25,55,20
+23,Normal,15.31,25,25,TRUE,28,66,104
+24,Normal,10.85,24,24,TRUE,27,62,60
+25,ELITE,8.84,22,22,TRUE,24,46,24
+
+Summary
+Total Stages,25
+Failed Stages,5
+Disconnected Stages,0
+Total Generation Time,330.64ms
+Average Time Per Stage,10.88ms
+Min Time,6.85ms
+Max Time,15.31ms
+Total Rooms,572
+Total Hallways,628
+Total Memory,40MB
