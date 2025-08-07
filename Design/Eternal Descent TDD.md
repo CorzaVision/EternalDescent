@@ -28,6 +28,63 @@
 
 **Platform Target:** PC Only (Singleplayer)
 
+#### **Unreal Engine Plugins & Addons:**
+
+**Core Plugins (Built-in):**
+- **Gameplay Ability System (GAS):** Character abilities, skills, and class systems
+  - **GameplayAbility:** Base class for all character abilities
+  - **GameplayEffect:** Status effects, buffs, debuffs, and entity-influenced properties
+  - **GameplayTag:** Entity personality system, zone effects, equipment categorization
+  - **AbilitySystemComponent:** Manages abilities on characters and NPCs
+  - **GameplayCues:** Visual/audio feedback for abilities and entity manifestations
+
+- **Enhanced Input System:** Responsive input handling
+  - **Input Mapping Context:** Multiple input devices support
+  - **Input Actions:** Precise control for combat and movement
+  - **Input Modifiers:** Advanced input processing for complex interactions
+
+- **Procedural Content Generation (PCG):** Room and dungeon generation
+  - **PCG Graph:** Visual node-based generation system
+  - **PCG Volume:** Defines generation areas and parameters
+  - **PCG Components:** Attach to actors for generation
+  - **Real-time Generation:** Modify generation during gameplay
+
+- **Gameplay Tags:** Entity personality and categorization system
+  - **Tag Hierarchy:** Organized tag system for entity traits
+  - **Tag Queries:** Efficient filtering and selection
+  - **Runtime Tag Management:** Dynamic tag modification by entity
+
+**Optional Plugins (Recommended):**
+- **Gameplay Abilities Game Feature Actions:** Modular ability loading
+  - **Dynamic Ability Loading:** Load abilities based on game state
+  - **Runtime Ability Management:** Add/remove abilities during gameplay
+  - **Memory Efficiency:** Only load abilities currently in use
+  - **Entity Integration:** Entity can dynamically modify ability sets
+
+- **Modular Gameplay Framework:** Component-based architecture
+  - **Modular Components:** Reusable gameplay components
+  - **Parent-Child Architecture:** Extensible class system
+  - **Component Communication:** Efficient inter-component messaging
+
+**Development Tools:**
+- **Blueprint System:** Rapid prototyping and iteration
+  - **Visual Scripting:** No coding required for basic systems
+  - **C++ Integration:** Mix Blueprint and C++ for optimal performance
+  - **Debugging Tools:** Visual debugging and profiling
+
+- **Unreal Insights:** Performance monitoring and optimization
+  - **Real-time Profiling:** Monitor 16ms generation target
+  - **Memory Tracking:** Optimize entity system memory usage
+  - **Performance Analysis:** Identify bottlenecks in generation
+
+**Why These Plugins:**
+- **GAS:** Perfect for character classes, entity effects, and psychological warfare
+- **Enhanced Input:** Responsive combat system with multiple input support
+- **PCG:** Efficient room generation with entity integration capabilities
+- **Gameplay Tags:** Essential for entity personality and zone-based effects
+- **Modular Framework:** Scalable architecture for complex systems
+- **Development Tools:** Rapid iteration and performance optimization
+
 #### **Programming Language:**
 - **C# (Unity):** Strong typing, excellent for complex systems
 - **C++ (Unreal):** High performance, direct memory control
@@ -87,15 +144,27 @@
 - **Performance:** Script-based approach is lightweight and won't affect FPS
 - **Script Complexity:** Can become incredibly complex and intelligent without being "AI"
 - **Blueprint Integration:** Can use Blueprints for rapid script development and iteration
+- **GAS Integration:** Entity uses GameplayAbility and GameplayEffect systems
+- **PCG Integration:** Entity can modify procedural generation in real-time
+- **Gameplay Tags:** Entity personality system using tag-based architecture
 
 ### **Procedural Generation System:**
 
 #### **Generation Architecture:**
+- **PCG-Based Generation:** Using Unreal Engine 5's Procedural Content Generation framework
 - **Tile-Based + Structured:** 1x1 cubic tiles using cube and plane prefabs
-- **Room System:** 25 rooms per floor (vast small/medium rooms + large boss/elite areas)
+- **Room System:** 25 rooms per floor (5x5 grid layout)
 - **Grid System:** 1 grid spacing with cube connections between rooms
 - **Wall System:** Solid walls for room separation
 - **Empty Space:** Cubes fill spaces with no rooms (Rimworld/Minecraft style)
+- **Real-time Modification:** Entity can modify generation during gameplay
+
+#### **PCG Implementation:**
+- **PCG Graph:** Visual node-based generation system for room placement
+- **PCG Volume:** Defines generation area and parameters
+- **Room Templates:** Pre-designed room layouts (2x2 to 3x3 units)
+- **Entity Integration:** ADA can modify PCG parameters in real-time
+- **Performance Optimization:** PCG handles complex generation efficiently
 
 #### **Room Types & Distribution:**
 - **Combat Rooms:** 70% (main gameplay)
@@ -124,13 +193,16 @@
 - **Top-Down Movement:** Classic roguelite perspective
 - **Follow Player Camera:** Camera follows player movement
 - **2D Gameplay in 3D Environment:** Maintains precise controls with immersive visuals
+- **Enhanced Input System:** Responsive input handling with multiple device support
 
-#### **Combat Mechanics:**
-- **Attack Types:** Melee, ranged, magic, abilities (all 4 implemented)
-- **Dodge/Defense System:** Roll, shield, parry, block (all 4 implemented)
-- **Health/Damage System:** Simple HP system with potential for armor and status effects
-- **Combo System:** Maybe/Considered - chain attacks, special moves, ultimate abilities
+#### **Combat Mechanics (GAS-Based):**
+- **GameplayAbility System:** All combat abilities use GAS framework
+- **Attack Types:** Melee, ranged, magic, abilities (implemented via GameplayAbility)
+- **Dodge/Defense System:** Roll, shield, parry, block (implemented via GameplayAbility)
+- **Health/Damage System:** GameplayEffect-based HP system with armor and status effects
+- **Combo System:** Chain attacks, special moves, ultimate abilities (GameplayAbility chains)
 - **Risk/Reward:** Powerful attacks have cooldowns or leave player vulnerable
+- **Entity Integration:** Entity can modify abilities and effects in real-time
 
 #### **Enemy System:**
 - **Enemy Behavior:** Simple AI patterns (moderate complexity)
