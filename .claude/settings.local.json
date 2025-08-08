@@ -34,7 +34,10 @@
       "Bash(del:*)",
       "Bash(RunOrganicTest.bat)",
       "Bash(\"D:\\Epic Games\\UE_5.5\\Engine\\Binaries\\Win64\\UnrealEditor-Cmd.exe\" \"D:\\Github\\Self Projects\\EternalDescent\\EternalDescent\\EternalDescent.uproject\" -ExecCmds=\"Automation RunTests EternalDescent.Dungeon.OrganicGeneration\" -unattended -NullRHI -log -stdout)",
-      "Bash(\"D:\\Epic Games\\UE_5.5\\Engine\\Binaries\\Win64\\UnrealEditor-Cmd.exe\" \"D:\\Github\\Self Projects\\EternalDescent\\EternalDescent\\EternalDescent.uproject\" -ExecCmds=\"Automation RunTests EternalDescent.Dungeon.OrganicGeneration\" -unattended -NullRHI -log=EternalDescentTest.log -stdout)"
+      "Bash(\"D:\\Epic Games\\UE_5.5\\Engine\\Binaries\\Win64\\UnrealEditor-Cmd.exe\" \"D:\\Github\\Self Projects\\EternalDescent\\EternalDescent\\EternalDescent.uproject\" -ExecCmds=\"Automation RunTests EternalDescent.Dungeon.OrganicGeneration\" -unattended -NullRHI -log=EternalDescentTest.log -stdout)",
+      "Bash(\"D:\\Epic Games\\UE_5.5\\Engine\\Binaries\\Win64\\UnrealEditor-Cmd.exe\" \"D:\\Github\\Self Projects\\EternalDescent\\EternalDescent\\EternalDescent.uproject\" -ExecCmds=\"Automation RunTests EternalDescent.Dungeon.OrganicGeneration; Quit\" -unattended -NullRHI -log=EternalDescentTest.log -stdout)",
+      "Bash(CompileAndTest.bat)",
+      "Bash(D:GithubSelf ProjectsEternalDescentCompileAndTest.bat)"
     ],
     "deny": []
   }

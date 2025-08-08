@@ -11,5 +11,18 @@ public class EternalDescentEditorTarget : TargetRules
 		DefaultBuildSettings = BuildSettingsVersion.V5;
 		IncludeOrderVersion = EngineIncludeOrderVersion.Unreal5_5;
 		ExtraModuleNames.Add("EternalDescent");
+		
+		// Enable faster compile times for development
+		bUseFastPDBLinking = true;
+		bUseFastMonolithicBuild = true;
+		
+		// Enable hot reload for development
+		bAllowHotReload = true;
+		
+		// Enable automation tests
+		bWithLiveCoding = true;
+		
+		// Enable additional debugging features
+		bBuildWithEditorOnlyData = true;
 	}
 }

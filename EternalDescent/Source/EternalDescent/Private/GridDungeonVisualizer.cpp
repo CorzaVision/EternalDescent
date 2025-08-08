@@ -1,9 +1,13 @@
-// Temporary minimal implementation of GridDungeonVisualizer to get Blueprint compilation working
+// GridDungeonVisualizer implementation - UE 5.5 compatible
 #include "GridDungeonVisualizer.h"
 #include "Components/InstancedStaticMeshComponent.h"
 #include "DrawDebugHelpers.h"
 #include "Engine/World.h"
+#include "Engine/Engine.h"
 #include "Math/UnrealMathUtility.h"
+#include "Kismet/GameplayStatics.h"
+#include "GameFramework/PlayerController.h"
+#include "GameFramework/Character.h"
 
 AGridDungeonVisualizer::AGridDungeonVisualizer()
 {
@@ -24,9 +28,54 @@ AGridDungeonVisualizer::AGridDungeonVisualizer()
     UpdateGridDimensions();
 }
 
+void AGridDungeonVisualizer::ConfigureRoomCountForStage()
+{
+    switch (StageType)
+    {
+        case EDungeonStageType::Standard:
+            MinRoomCount = 23;
+            MaxRoomCount = 25;
+            break;
+        case EDungeonStageType::Elite:
+            MinRoomCount = 23;
+            MaxRoomCount = 26;
+            break;
+        case EDungeonStageType::Boss:
+            MinRoomCount = 24;
+            MaxRoomCount = 27;
+            break;
+    }
+}
+
+void AGridDungeonVisualizer::GetRoomCountForStageType(EDungeonStageType Stage, int32& OutMin, int32& OutMax) const
+{
+    switch (Stage)
+    {
+        case EDungeonStageType::Standard:
+            OutMin = 23;
+            OutMax = 25;
+            break;
+        case EDungeonStageType::Elite:
+            OutMin = 23;
+            OutMax = 26;
+            break;
+        case EDungeonStageType::Boss:
+            OutMin = 24;
+            OutMax = 27;
+            break;
+        default:
+            OutMin = 23;
+            OutMax = 25;
+            break;
+    }
+}
+
 void AGridDungeonVisualizer::GenerateOrganicDungeon(int32 Seed)
 {
     ClearDungeon();
+    
+    // Configure room count based on stage type
+    ConfigureRoomCountForStage();
     
     // Initialize random stream
     if (Seed == -1)
@@ -37,14 +86,16 @@ void AGridDungeonVisualizer::GenerateOrganicDungeon(int32 Seed)
     
     UE_LOG(LogTemp, Warning, TEXT("========================================"));
     UE_LOG(LogTemp, Warning, TEXT("Generating Organic Dungeon - Floor %d"), CurrentFloor);
+    UE_LOG(LogTemp, Warning, TEXT("Stage Type: %s"), *UEnum::GetValueAsString(StageType));
     UE_LOG(LogTemp, Warning, TEXT("Seed: %d"), Seed);
     
     // Reset layout
     OrganicLayout = FOrganicDungeonLayout();
     OrganicLayout.FloorNumber = CurrentFloor;
     
-    // Determine room count
+    // Determine room count based on configured min/max
     int32 RoomCount = RandomStream.RandRange(MinRoomCount, MaxRoomCount);
+    UE_LOG(LogTemp, Warning, TEXT("Target Room Count: %d (Min: %d, Max: %d)"), RoomCount, MinRoomCount, MaxRoomCount);
     
     // Generate starting room (always at origin)
     FOrganicRoom StartRoom;
@@ -321,12 +372,15 @@ void AGridDungeonVisualizer::GenerateAndVisualizeDungeon(int32 Seed)
 {
     ClearDungeon();
     
-    // Use appropriate generation based on mode
-    if (GenerationType == EDungeonGenerationType::Organic)
-    {
-        GenerateOrganicDungeon(Seed);
-        return;
-    }
+    // IMPORTANT: TDD/GDD requires GRID-BASED generation, not organic
+    // Force grid generation to comply with TDD/GDD specifications
+    GenerationType = EDungeonGenerationType::Grid;
+    
+    // TDD/GDD Specification: 5x5 room grid with 1 cell spacing
+    // Each room is 2x2 to 3x3 cells, with 1 cell gap between rooms
+    // Total grid size accounts for rooms + spacing
+    
+    UpdateGridDimensions();
     
     // Create layout with stage-appropriate room types
     FDungeonLayout TestLayout;
@@ -337,14 +391,32 @@ void AGridDungeonVisualizer::GenerateAndVisualizeDungeon(int32 Seed)
     bool bCanHaveElite = CurrentFloor >= 5;
     bool bCanHaveBoss = (CurrentFloor % 5 == 0);
     
-    // Generate a 5x5 grid of 25 rooms total
+    // VOXEL GRID ROOM PLACEMENT with exact 1-cell spacing
+    // Each room: 3x3 cells
+    // Between rooms: 1 cell gap (filled with cubes)
+    // Pattern: [ROOM-3x3][GAP-1][ROOM-3x3][GAP-1]...
+    
+    // Calculate how many rooms can fit with proper spacing
+    // Formula: Room(3) + Gap(1) = 4 cells per room, plus 1 extra at start
+    int32 CellsPerRoom = 4; // 3 for room + 1 for gap
+    int32 MaxRoomsX = (GridSizeX - 1) / CellsPerRoom;
+    int32 MaxRoomsY = (GridSizeY - 1) / CellsPerRoom;
+    int32 ActualRoomsX = FMath::Min(RoomsPerRow, MaxRoomsX);
+    int32 ActualRoomsY = FMath::Min(RoomsPerColumn, MaxRoomsY);
+    
+    // Generate rooms with exact voxel spacing
     int32 RoomIndex = 0;
-    for (int32 Y = 0; Y < 5; ++Y)
+    
+    for (int32 Y = 0; Y < ActualRoomsY; ++Y)
     {
-        for (int32 X = 0; X < 5; ++X)
+        for (int32 X = 0; X < ActualRoomsX; ++X)
         {
             FRoomData Room;
-            Room.GridPosition = FIntVector(X, Y, 0);
+            // VOXEL PLACEMENT: Each room at exact grid position with 1-cell gaps
+            // Position formula: Start(1) + Index * (RoomSize(3) + Gap(1))
+            int32 RoomX = 1 + (X * 4); // Start at cell 1, then every 4 cells
+            int32 RoomY = 1 + (Y * 4); // Same for Y axis
+            Room.GridPosition = FIntVector(RoomX, RoomY, 0);
             
             // Assign room types strategically
             if (X == 0 && Y == 0)
@@ -353,7 +425,7 @@ void AGridDungeonVisualizer::GenerateAndVisualizeDungeon(int32 Seed)
                 Room.RoomType = ERoomType::Start;
                 TestLayout.SpawnRoom = Room.GridPosition;
             }
-            else if (X == 4 && Y == 4)
+            else if (X == ActualRoomsX - 1 && Y == ActualRoomsY - 1)
             {
                 // Exit room at (4,4)
                 Room.RoomType = ERoomType::Exit;
@@ -394,7 +466,8 @@ void AGridDungeonVisualizer::GenerateAndVisualizeDungeon(int32 Seed)
     UE_LOG(LogTemp, Warning, TEXT("GridDungeonVisualizer: Generating Floor %d"), CurrentFloor);
     UE_LOG(LogTemp, Warning, TEXT("Elite rooms enabled: %s"), bCanHaveElite ? TEXT("Yes") : TEXT("No"));
     UE_LOG(LogTemp, Warning, TEXT("Boss room enabled: %s"), bCanHaveBoss ? TEXT("Yes") : TEXT("No"));
-    UE_LOG(LogTemp, Warning, TEXT("Total rooms: %d"), TestLayout.Rooms.Num());
+    UE_LOG(LogTemp, Warning, TEXT("Room Grid: %dx%d (Total: %d rooms)"), ActualRoomsX, ActualRoomsY, TestLayout.Rooms.Num());
+    UE_LOG(LogTemp, Warning, TEXT("Voxel Grid: Every cell is %0.fx%0.fx%0.f units"), CellSize, CellSize, CellSize);
     UE_LOG(LogTemp, Warning, TEXT("=========================================="));
     
     BuildGridFromLayout(TestLayout);
@@ -410,11 +483,19 @@ void AGridDungeonVisualizer::BuildGridFromLayout(const FDungeonLayout& Layout)
     // Place boundary walls around the entire grid perimeter
     PlaceBoundaryWalls();
     
-    // Place each room in the grid
+    // First pass: Place all rooms in grid
+    TArray<FRoomData> RoomArray;
+    TMap<FIntPoint, int32> RoomPositionMap; // Map grid positions to room indices
+    
     for (const auto& RoomPair : Layout.Rooms)
     {
         const FRoomData& Room = RoomPair.Value;
         PlaceRoomInGrid(Room);
+        int32 RoomIndex = RoomArray.Add(Room);
+        
+        // Store room position for neighbor finding (using room grid coordinates)
+        FIntPoint RoomCoord((Room.GridPosition.X - 1) / 4, (Room.GridPosition.Y - 1) / 4);
+        RoomPositionMap.Add(RoomCoord, RoomIndex);
         
         // Track start and exit positions  
         if (Room.RoomType == ERoomType::Start)
@@ -426,6 +507,147 @@ void AGridDungeonVisualizer::BuildGridFromLayout(const FDungeonLayout& Layout)
             ExitRoomGridPos = FIntPoint(Room.GridPosition.X, Room.GridPosition.Y);
         }
     }
+    
+    // Second pass: Create LINEAR PATH with BRANCHES (no loops)
+    // This creates a tree structure - no circular paths allowed
+    TSet<int32> VisitedRooms;
+    TArray<TPair<int32, int32>> MainPathConnections;
+    TArray<TPair<int32, int32>> BranchConnections;
+    
+    // Step 1: Create main linear path from start to exit
+    // Find start and exit room indices
+    int32 StartRoomIdx = -1;
+    int32 ExitRoomIdx = -1;
+    for (int32 i = 0; i < RoomArray.Num(); ++i)
+    {
+        if (RoomArray[i].RoomType == ERoomType::Start) StartRoomIdx = i;
+        if (RoomArray[i].RoomType == ERoomType::Exit) ExitRoomIdx = i;
+    }
+    
+    // If no explicit start/exit, use corners
+    if (StartRoomIdx == -1) StartRoomIdx = 0;
+    if (ExitRoomIdx == -1) ExitRoomIdx = RoomArray.Num() - 1;
+    
+    // Build main path using BFS to find route from start to exit
+    TArray<int32> MainPath;
+    TMap<int32, int32> ParentMap;
+    TQueue<int32> PathQueue;
+    
+    PathQueue.Enqueue(StartRoomIdx);
+    VisitedRooms.Add(StartRoomIdx);
+    ParentMap.Add(StartRoomIdx, -1);
+    
+    while (!PathQueue.IsEmpty())
+    {
+        int32 CurrentIdx;
+        PathQueue.Dequeue(CurrentIdx);
+        
+        if (CurrentIdx == ExitRoomIdx)
+            break;
+            
+        // Check neighbors
+        FIntPoint CurrentCoord((RoomArray[CurrentIdx].GridPosition.X - 1) / 4, 
+                               (RoomArray[CurrentIdx].GridPosition.Y - 1) / 4);
+        
+        TArray<FIntPoint> Directions = {
+            FIntPoint(1, 0), FIntPoint(0, 1), 
+            FIntPoint(-1, 0), FIntPoint(0, -1)
+        };
+        
+        for (const FIntPoint& Dir : Directions)
+        {
+            FIntPoint NeighborCoord = CurrentCoord + Dir;
+            if (int32* NeighborIdx = RoomPositionMap.Find(NeighborCoord))
+            {
+                if (!VisitedRooms.Contains(*NeighborIdx))
+                {
+                    VisitedRooms.Add(*NeighborIdx);
+                    ParentMap.Add(*NeighborIdx, CurrentIdx);
+                    PathQueue.Enqueue(*NeighborIdx);
+                }
+            }
+        }
+    }
+    
+    // Reconstruct main path
+    int32 Current = ExitRoomIdx;
+    while (Current != -1 && ParentMap.Contains(Current))
+    {
+        int32 Parent = ParentMap[Current];
+        if (Parent != -1)
+        {
+            MainPathConnections.Add(TPair<int32, int32>(Parent, Current));
+        }
+        Current = Parent;
+    }
+    
+    // Step 2: Add branches for unvisited rooms (creates tree structure, no loops)
+    for (int32 i = 0; i < RoomArray.Num(); ++i)
+    {
+        if (!VisitedRooms.Contains(i))
+        {
+            // Find nearest visited room to connect to
+            FIntPoint UnvisitedCoord((RoomArray[i].GridPosition.X - 1) / 4,
+                                     (RoomArray[i].GridPosition.Y - 1) / 4);
+            
+            // Check immediate neighbors only
+            TArray<FIntPoint> Directions = {
+                FIntPoint(1, 0), FIntPoint(0, 1),
+                FIntPoint(-1, 0), FIntPoint(0, -1)
+            };
+            
+            for (const FIntPoint& Dir : Directions)
+            {
+                FIntPoint NeighborCoord = UnvisitedCoord + Dir;
+                if (int32* NeighborIdx = RoomPositionMap.Find(NeighborCoord))
+                {
+                    if (VisitedRooms.Contains(*NeighborIdx))
+                    {
+                        // Connect to visited neighbor (creates branch)
+                        BranchConnections.Add(TPair<int32, int32>(*NeighborIdx, i));
+                        VisitedRooms.Add(i);
+                        break;
+                    }
+                }
+            }
+        }
+    }
+    
+    // Create hallway connections for main path
+    for (const auto& Connection : MainPathConnections)
+    {
+        ConnectRoomsWithHallway(RoomArray[Connection.Key], RoomArray[Connection.Value]);
+    }
+    
+    // Create hallway connections for branches
+    for (const auto& Connection : BranchConnections)
+    {
+        ConnectRoomsWithHallway(RoomArray[Connection.Key], RoomArray[Connection.Value]);
+    }
+    
+    // Step 3: Final verification - ensure no isolated rooms remain
+    int32 IsolatedCount = 0;
+    for (int32 i = 0; i < RoomArray.Num(); ++i)
+    {
+        if (!VisitedRooms.Contains(i))
+        {
+            IsolatedCount++;
+            UE_LOG(LogTemp, Warning, TEXT("WARNING: Room %d at (%d,%d) is isolated!"), 
+                   i, RoomArray[i].GridPosition.X, RoomArray[i].GridPosition.Y);
+        }
+    }
+    
+    // Log the final structure
+    UE_LOG(LogTemp, Warning, TEXT("=========================================="));
+    UE_LOG(LogTemp, Warning, TEXT("LINEAR PATH GENERATION COMPLETE"));
+    UE_LOG(LogTemp, Warning, TEXT("=========================================="));
+    UE_LOG(LogTemp, Warning, TEXT("Total Rooms: %d"), RoomArray.Num());
+    UE_LOG(LogTemp, Warning, TEXT("Main Path: %d connections"), MainPathConnections.Num());
+    UE_LOG(LogTemp, Warning, TEXT("Branches: %d connections"), BranchConnections.Num());
+    UE_LOG(LogTemp, Warning, TEXT("Total Connections: %d"), MainPathConnections.Num() + BranchConnections.Num());
+    UE_LOG(LogTemp, Warning, TEXT("Isolated Rooms: %d"), IsolatedCount);
+    UE_LOG(LogTemp, Warning, TEXT("Structure Type: TREE (no loops)"));
+    UE_LOG(LogTemp, Warning, TEXT("=========================================="));
 }
 
 void AGridDungeonVisualizer::ClearDungeon()
@@ -444,9 +666,13 @@ void AGridDungeonVisualizer::ClearDungeon()
 
 void AGridDungeonVisualizer::SpawnGridVisualization()
 {
-    // Debug logging to track mesh spawning
+    // MINECRAFT/RIMWORLD VOXEL GRID: Every cell is a uniform block
+    // Like Minecraft, the entire world is made of same-sized cubes
+    // Like Rimworld, rooms are carved out of the cube grid with floor planes
+    
     int32 FloorCount = 0;
-    int32 WallCount = 0;
+    int32 CubeCount = 0;
+    int32 TotalCells = GridSizeX * GridSizeY;
     
     if (!PlaneInstances || !CubeInstances) 
     {
@@ -464,38 +690,88 @@ void AGridDungeonVisualizer::SpawnGridVisualization()
     PlaneInstances->ClearInstances();
     CubeInstances->ClearInstances();
     
-    UE_LOG(LogTemp, Warning, TEXT("GridDungeonVisualizer: Spawning grid %dx%d"), GridSizeX, GridSizeY);
+    UE_LOG(LogTemp, Warning, TEXT("VOXEL GRID: Generating %dx%d grid (%d total cells)"), GridSizeX, GridSizeY, TotalCells);
     
-    for (int32 X = 0; X < GridSizeX; ++X)
+    // VOXEL GRID ALIGNMENT: Scale meshes to exactly match grid cell size
+    // CRITICAL: Assuming standard UE4 cube is 100x100x100 units
+    // If CellSize is 350, scale = 3.5 to make cube exactly 350x350x350
+    float MeshBaseSize = 100.0f; // Standard cube mesh size
+    float UniformCubeScale = CellSize / MeshBaseSize;
+    
+    UE_LOG(LogTemp, Warning, TEXT("Voxel Alignment: CellSize=%.0f, Scale=%.2f, Final Cube Size=%.0fx%.0fx%.0f"), 
+           CellSize, UniformCubeScale, CellSize, CellSize, CellSize);
+    
+    // Process every single cell in the grid
+    for (int32 Y = 0; Y < GridSizeY; ++Y)
     {
-        for (int32 Y = 0; Y < GridSizeY; ++Y)
+        for (int32 X = 0; X < GridSizeX; ++X)
         {
             FGridCell Cell = GetGridCell(X, Y);
             
-            if (Cell.CellType == EGridCellType::Floor)
+            // VOXEL GRID POSITION: Calculate exact grid-aligned position
+            // Meshes in UE4 spawn from their pivot point (usually center)
+            // We need to position at cell CENTER for proper alignment
+            FVector CellCenter;
+            CellCenter.X = X * CellSize + (CellSize * 0.5f); // Center of cell
+            CellCenter.Y = Y * CellSize + (CellSize * 0.5f); // Center of cell
+            CellCenter.Z = 0.0f;
+            
+            switch (Cell.CellType)
             {
-                // Floor plane at ground level (Z = 0)
-                float TileScale = CellSize / 100.0f;
-                FVector FloorPos = GridToWorldPosition(X, Y, true);
-                FloorPos.Z = 0.0f; // Floor at ground level
-                FTransform FloorTransform(FRotator::ZeroRotator, FloorPos, FVector(TileScale, TileScale, 1.0f));
-                PlaneInstances->AddInstance(FloorTransform);
-                FloorCount++;
-            }
-            else if (Cell.CellType == EGridCellType::Wall)
-            {
-                // Wall cube sits on top of floor
-                float TileScale = CellSize / 100.0f;
-                FVector WallPos = GridToWorldPosition(X, Y, false);
-                WallPos.Z = WallHeight * 0.5f; // Center of wall
-                FTransform WallTransform(FRotator::ZeroRotator, WallPos, FVector(TileScale, TileScale, WallHeight / 100.0f));
-                CubeInstances->AddInstance(WallTransform);
-                WallCount++;
+                case EGridCellType::Floor:
+                case EGridCellType::Hallway:
+                case EGridCellType::Door:
+                    // Floor cells: Place a plane exactly aligned to grid
+                    {
+                        // Position plane at cell center for proper alignment
+                        FVector PlanePos = CellCenter;
+                        PlanePos.Z = 0.0f; // Planes at ground level
+                        
+                        // Scale plane to exactly fill one grid cell
+                        // Note: Plane mesh is typically 100x100 in X,Y
+                        FTransform PlaneTransform(
+                            FRotator::ZeroRotator, 
+                            PlanePos, 
+                            FVector(UniformCubeScale, UniformCubeScale, 1.0f) // Keep Z thin for floor
+                        );
+                        PlaneInstances->AddInstance(PlaneTransform);
+                        FloorCount++;
+                    }
+                    break;
+                    
+                case EGridCellType::Wall:
+                case EGridCellType::Empty:
+                default:
+                    // All non-floor cells: Place a cube exactly aligned to grid
+                    {
+                        // Position cube at cell center
+                        FVector CubePos = CellCenter;
+                        CubePos.Z = CellSize * 0.5f; // Raise cube so bottom is at ground level
+                        
+                        // Scale cube to exactly fill one grid cell (350x350x350)
+                        FTransform CubeTransform(
+                            FRotator::ZeroRotator, 
+                            CubePos, 
+                            FVector(UniformCubeScale, UniformCubeScale, UniformCubeScale)
+                        );
+                        CubeInstances->AddInstance(CubeTransform);
+                        CubeCount++;
+                    }
+                    break;
             }
         }
     }
     
-    UE_LOG(LogTemp, Warning, TEXT("GridDungeonVisualizer: Spawned %d floors and %d walls"), FloorCount, WallCount);
+    // Log statistics
+    UE_LOG(LogTemp, Warning, TEXT("=========================================="));
+    UE_LOG(LogTemp, Warning, TEXT("VOXEL GRID GENERATION COMPLETE"));
+    UE_LOG(LogTemp, Warning, TEXT("Grid Size: %dx%d cells"), GridSizeX, GridSizeY);
+    UE_LOG(LogTemp, Warning, TEXT("Cell Size: %.0f units"), CellSize);
+    UE_LOG(LogTemp, Warning, TEXT("Cube Scale: %.2fx"), UniformCubeScale);
+    UE_LOG(LogTemp, Warning, TEXT("Floor Planes: %d"), FloorCount);
+    UE_LOG(LogTemp, Warning, TEXT("Cubes Placed: %d"), CubeCount);
+    UE_LOG(LogTemp, Warning, TEXT("Total Cells: %d"), TotalCells);
+    UE_LOG(LogTemp, Warning, TEXT("=========================================="));
     
     // Draw debug grid if enabled
     if (bShowDebugGrid)
@@ -778,12 +1054,12 @@ bool AGridDungeonVisualizer::IsValidGridPosition(int32 X, int32 Y) const
 
 FVector AGridDungeonVisualizer::GridToWorldPosition(int32 X, int32 Y, bool bIsFloor) const
 {
-    // Both floor and walls use same X,Y grid position
-    // This ensures perfect grid alignment
+    // VOXEL ALIGNMENT: Calculate exact world position for grid cell
+    // Always return CENTER of grid cell for proper mesh alignment
     FVector WorldPos;
     WorldPos.X = X * CellSize + (CellSize * 0.5f); // Center of grid cell
     WorldPos.Y = Y * CellSize + (CellSize * 0.5f); // Center of grid cell
-    WorldPos.Z = 0.0f; // Base Z position (we'll adjust for walls in spawn code)
+    WorldPos.Z = bIsFloor ? 0.0f : (CellSize * 0.5f); // Floor at ground, walls raised
     return WorldPos;
 }
 
@@ -796,46 +1072,146 @@ FIntPoint AGridDungeonVisualizer::WorldToGridPosition(FVector WorldPos) const
 
 void AGridDungeonVisualizer::PlaceRoomInGrid(const FRoomData& Room)
 {
-    // Each room is 3x3 tiles with walls forming an enclosed space
-    // With CellSize=1000, each room is 3,000x3,000 units (about 16x16 mannequins)
-    int32 RoomTiles = 3; // Interior floor space (3x3 is plenty with 1000-unit tiles)
-    int32 RoomSpacing = 5; // Total space per room including walls (3 floor + 2 walls)
+    // VOXEL GRID: Each room is a 3x3 area of floor cells
+    // With 1 cell gap between rooms for the voxel aesthetic
+    int32 RoomSize = 3; // Each room is 3x3 cells
     
-    int32 StartX = Room.GridPosition.X * RoomSpacing + 1; // +1 to leave space for boundary walls
-    int32 StartY = Room.GridPosition.Y * RoomSpacing + 1;
+    // Room position is already calculated with spacing in GenerateAndVisualizeDungeon
+    int32 StartX = Room.GridPosition.X;
+    int32 StartY = Room.GridPosition.Y;
     
-    int32 FloorTilesPlaced = 0;
-    int32 WallTilesPlaced = 0;
-    
-    // Place floor tiles (interior space)
-    for (int32 X = StartX + 1; X < StartX + 1 + RoomTiles; ++X)
+    // Validate room fits in grid
+    if (StartX + RoomSize > GridSizeX || StartY + RoomSize > GridSizeY)
     {
-        for (int32 Y = StartY + 1; Y < StartY + 1 + RoomTiles; ++Y)
+        UE_LOG(LogTemp, Error, TEXT("Room at (%d,%d) exceeds grid bounds!"), StartX, StartY);
+        return;
+    }
+    
+    // Place floor cells for the room interior (3x3)
+    for (int32 X = StartX; X < StartX + RoomSize; ++X)
+    {
+        for (int32 Y = StartY; Y < StartY + RoomSize; ++Y)
         {
-            SetGridCell(X, Y, EGridCellType::Floor, 1);
-            FloorTilesPlaced++;
+            // Mark these cells as floor (will get planes instead of cubes)
+            SetGridCell(X, Y, EGridCellType::Floor, Room.GridPosition.X * 5 + Room.GridPosition.Y);
         }
     }
     
-    // Place walls to form complete room enclosure
+    // Place wall cells around the room (creating a border)
+    // This creates the room boundaries in the voxel grid
+    
     // Top and bottom walls
-    for (int32 X = StartX; X <= StartX + RoomTiles + 1; ++X)
+    for (int32 X = StartX - 1; X <= StartX + RoomSize; ++X)
     {
-        SetGridCell(X, StartY, EGridCellType::Wall);                    // Top wall
-        SetGridCell(X, StartY + RoomTiles + 1, EGridCellType::Wall);    // Bottom wall
-        WallTilesPlaced += 2;
+        if (X >= 0 && X < GridSizeX)
+        {
+            // Top wall
+            if (StartY - 1 >= 0)
+            {
+                FGridCell& TopCell = Grid[GridIndexFromXY(X, StartY - 1)];
+                if (TopCell.CellType == EGridCellType::Empty)
+                    SetGridCell(X, StartY - 1, EGridCellType::Wall);
+            }
+            // Bottom wall
+            if (StartY + RoomSize < GridSizeY)
+            {
+                FGridCell& BottomCell = Grid[GridIndexFromXY(X, StartY + RoomSize)];
+                if (BottomCell.CellType == EGridCellType::Empty)
+                    SetGridCell(X, StartY + RoomSize, EGridCellType::Wall);
+            }
+        }
     }
     
     // Left and right walls
-    for (int32 Y = StartY; Y <= StartY + RoomTiles + 1; ++Y)
+    for (int32 Y = StartY; Y < StartY + RoomSize; ++Y)
     {
-        SetGridCell(StartX, Y, EGridCellType::Wall);                    // Left wall
-        SetGridCell(StartX + RoomTiles + 1, Y, EGridCellType::Wall);    // Right wall
-        WallTilesPlaced += 2;
+        if (Y >= 0 && Y < GridSizeY)
+        {
+            // Left wall
+            if (StartX - 1 >= 0)
+            {
+                FGridCell& LeftCell = Grid[GridIndexFromXY(StartX - 1, Y)];
+                if (LeftCell.CellType == EGridCellType::Empty)
+                    SetGridCell(StartX - 1, Y, EGridCellType::Wall);
+            }
+            // Right wall
+            if (StartX + RoomSize < GridSizeX)
+            {
+                FGridCell& RightCell = Grid[GridIndexFromXY(StartX + RoomSize, Y)];
+                if (RightCell.CellType == EGridCellType::Empty)
+                    SetGridCell(StartX + RoomSize, Y, EGridCellType::Wall);
+            }
+        }
     }
     
-    UE_LOG(LogTemp, Log, TEXT("Room at (%d,%d): Placed %d floor tiles and %d wall tiles"), 
-           Room.GridPosition.X, Room.GridPosition.Y, FloorTilesPlaced, WallTilesPlaced);
+    UE_LOG(LogTemp, Log, TEXT("Room at Grid(%d,%d): %dx%d tiles, %d floor, %d walls"), 
+           Room.GridPosition.X, Room.GridPosition.Y, RoomSize, RoomSize, FloorTilesPlaced, WallTilesPlaced);
+}
+
+void AGridDungeonVisualizer::ConnectRoomsWithHallway(const FRoomData& RoomA, const FRoomData& RoomB)
+{
+    // NEIGHBOR-ONLY CONNECTIONS: Rooms must be exactly 1 cell apart
+    // Only connect adjacent rooms to maintain clean voxel grid
+    
+    int32 RoomSize = 3;
+    
+    // Calculate room positions in the simplified grid (where each room occupies one slot)
+    FIntPoint RoomAPos((RoomA.GridPosition.X - 1) / 4, (RoomA.GridPosition.Y - 1) / 4);
+    FIntPoint RoomBPos((RoomB.GridPosition.X - 1) / 4, (RoomB.GridPosition.Y - 1) / 4);
+    
+    // Check if rooms are adjacent (exactly 1 unit apart in grid coordinates)
+    int32 XDiff = FMath::Abs(RoomAPos.X - RoomBPos.X);
+    int32 YDiff = FMath::Abs(RoomAPos.Y - RoomBPos.Y);
+    
+    // Only connect if rooms are direct neighbors
+    bool bHorizontalNeighbors = (XDiff == 1 && YDiff == 0);
+    bool bVerticalNeighbors = (XDiff == 0 && YDiff == 1);
+    
+    if (!bHorizontalNeighbors && !bVerticalNeighbors)
+    {
+        // Rooms are not adjacent, skip connection
+        return;
+    }
+    
+    // Determine connection point in the 1-cell gap between rooms
+    if (bHorizontalNeighbors)
+    {
+        // Horizontal connection through the gap
+        int32 GapX = FMath::Min(RoomA.GridPosition.X, RoomB.GridPosition.X) + RoomSize;
+        int32 ConnectY = RoomA.GridPosition.Y + 1; // Middle of room edge
+        
+        // Place single hallway cell in the gap
+        FGridCell& GapCell = Grid[GridIndexFromXY(GapX, ConnectY)];
+        if (GapCell.CellType == EGridCellType::Empty || GapCell.CellType == EGridCellType::Wall)
+        {
+            SetGridCell(GapX, ConnectY, EGridCellType::Hallway);
+            
+            // Open doorways on room edges
+            SetGridCell(GapX - 1, ConnectY, EGridCellType::Door); // Door on one side
+            SetGridCell(GapX + 1, ConnectY, EGridCellType::Door); // Door on other side
+        }
+    }
+    else if (bVerticalNeighbors)
+    {
+        // Vertical connection through the gap
+        int32 ConnectX = RoomA.GridPosition.X + 1; // Middle of room edge
+        int32 GapY = FMath::Min(RoomA.GridPosition.Y, RoomB.GridPosition.Y) + RoomSize;
+        
+        // Place single hallway cell in the gap
+        FGridCell& GapCell = Grid[GridIndexFromXY(ConnectX, GapY)];
+        if (GapCell.CellType == EGridCellType::Empty || GapCell.CellType == EGridCellType::Wall)
+        {
+            SetGridCell(ConnectX, GapY, EGridCellType::Hallway);
+            
+            // Open doorways on room edges
+            SetGridCell(ConnectX, GapY - 1, EGridCellType::Door); // Door on one side
+            SetGridCell(ConnectX, GapY + 1, EGridCellType::Door); // Door on other side
+        }
+    }
+    
+    UE_LOG(LogTemp, Log, TEXT("Connected Room(%d,%d) to Room(%d,%d) with 1x1 hallway"),
+           RoomA.GridPosition.X, RoomA.GridPosition.Y,
+           RoomB.GridPosition.X, RoomB.GridPosition.Y);
 }
 
 
@@ -1043,7 +1419,17 @@ FVector AGridDungeonVisualizer::FindValidRoomPosition(const FOrganicRoom& FromRo
             }
         }
         
-        if (bValid)
+        // Check boundary constraints
+        float HalfWidth = NewRoomSize.X * 0.5f;
+        float HalfHeight = NewRoomSize.Y * 0.5f;
+        
+        bool bWithinBounds = 
+            (NewPosition.X - HalfWidth) >= (DungeonBoundaryMin.X + BoundaryPadding) &&
+            (NewPosition.X + HalfWidth) <= (DungeonBoundaryMax.X - BoundaryPadding) &&
+            (NewPosition.Y - HalfHeight) >= (DungeonBoundaryMin.Y + BoundaryPadding) &&
+            (NewPosition.Y + HalfHeight) <= (DungeonBoundaryMax.Y - BoundaryPadding);
+        
+        if (bValid && bWithinBounds)
         {
             return NewPosition;
         }

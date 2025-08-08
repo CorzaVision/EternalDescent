@@ -16,6 +16,14 @@ enum class EDungeonGenerationType : uint8
 };
 
 UENUM(BlueprintType)
+enum class EDungeonStageType : uint8
+{
+    Standard    UMETA(DisplayName = "Standard Stage"),    // 23-25 rooms
+    Elite       UMETA(DisplayName = "Elite Stage"),       // 23-26 rooms  
+    Boss        UMETA(DisplayName = "Boss Stage")         // 24-27 rooms
+};
+
+UENUM(BlueprintType)
 enum class EGridCellType : uint8
 {
     Empty       UMETA(DisplayName = "Empty"),      // Nothing (air)
@@ -122,6 +130,13 @@ public:
     UFUNCTION(BlueprintCallable, Category = "Grid Dungeon")
     void GenerateAndVisualizeDungeon(int32 Seed = -1);
     
+    // Stage-based room count configuration
+    UFUNCTION(BlueprintCallable, Category = "Stage Configuration")
+    void ConfigureRoomCountForStage();
+    
+    UFUNCTION(BlueprintPure, Category = "Stage Configuration")
+    void GetRoomCountForStageType(EDungeonStageType Stage, int32& OutMin, int32& OutMax) const;
+    
     UFUNCTION(BlueprintCallable, Category = "Grid Dungeon")
     void BuildGridFromLayout(const FDungeonLayout& Layout);
     
@@ -151,6 +166,10 @@ public:
     // Room Building
     UFUNCTION(BlueprintCallable, Category = "Grid Dungeon")
     void PlaceRoomInGrid(const FRoomData& Room);
+    
+    // Room Connection
+    UFUNCTION(BlueprintCallable, Category = "Grid Dungeon")
+    void ConnectRoomsWithHallway(const FRoomData& RoomA, const FRoomData& RoomB);
     
     // Debug Visualization
     UFUNCTION(BlueprintCallable, Category = "Debug")
@@ -190,27 +209,31 @@ public:
     
     // Properties - Generation Mode
     UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Generation Mode")
-    EDungeonGenerationType GenerationType = EDungeonGenerationType::Organic;
+    EDungeonGenerationType GenerationType = EDungeonGenerationType::Grid; // TDD/GDD requires Grid-based
     
     // Grid-based properties
-    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Grid Layout", meta=(EditCondition="GenerationType==EDungeonGenerationType::Grid", EditConditionHides, ClampMin="1", ClampMax="10"))
-    int32 RoomsPerRow = 5; // Number of rooms horizontally
+    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Grid Layout", meta=(EditCondition="GenerationType==EDungeonGenerationType::Grid", EditConditionHides, ClampMin="3", ClampMax="20"))
+    int32 RoomsPerRow = 5; // Target rooms horizontally (actual may vary based on grid size)
     
-    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Grid Layout", meta=(EditCondition="GenerationType==EDungeonGenerationType::Grid", EditConditionHides, ClampMin="1", ClampMax="10"))
-    int32 RoomsPerColumn = 5; // Number of rooms vertically (5x5 = 25 rooms total)
+    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Grid Layout", meta=(EditCondition="GenerationType==EDungeonGenerationType::Grid", EditConditionHides, ClampMin="3", ClampMax="20"))
+    int32 RoomsPerColumn = 5; // Target rooms vertically (scales with grid size)
     
-    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Grid Layout", meta=(EditCondition="GenerationType==EDungeonGenerationType::Grid", EditConditionHides, ClampMin="10", ClampMax="50"))
-    int32 TilesPerRoom = 20; // Number of tiles per room (20x20 tiles per room)
+    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Grid Layout", meta=(EditCondition="GenerationType==EDungeonGenerationType::Grid", EditConditionHides, ClampMin="10", ClampMax="100"))
+    int32 TilesPerRoom = 20; // Grid cells per room dimension (affects total grid size)
     
     UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Grid Layout", meta=(EditCondition="GenerationType==EDungeonGenerationType::Grid", EditConditionHides, ClampMin="1", ClampMax="10"))
     float TileSizeMultiplier = 3.5f; // Multiplier for tile size (3.5 = 350 units per tile)
     
-    // Organic generation properties
-    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Organic Layout", meta=(EditCondition="GenerationType==EDungeonGenerationType::Organic", EditConditionHides, ClampMin="10", ClampMax="50"))
-    int32 MinRoomCount = 15;
+    // Stage type configuration
+    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Stage Configuration")
+    EDungeonStageType StageType = EDungeonStageType::Standard;
     
-    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Organic Layout", meta=(EditCondition="GenerationType==EDungeonGenerationType::Organic", EditConditionHides, ClampMin="10", ClampMax="50"))
-    int32 MaxRoomCount = 25;
+    // Organic generation properties (will be overridden by stage type)
+    UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Organic Layout", meta=(EditCondition="GenerationType==EDungeonGenerationType::Organic", EditConditionHides))
+    int32 MinRoomCount = 23;  // Will be set based on StageType
+    
+    UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Organic Layout", meta=(EditCondition="GenerationType==EDungeonGenerationType::Organic", EditConditionHides))
+    int32 MaxRoomCount = 25;  // Will be set based on StageType
     
     UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Organic Layout", meta=(EditCondition="GenerationType==EDungeonGenerationType::Organic", EditConditionHides))
     float MinRoomSize = 1000.0f;
@@ -232,6 +255,16 @@ public:
     
     UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Organic Layout", meta=(EditCondition="GenerationType==EDungeonGenerationType::Organic", EditConditionHides))
     float DeadEndChance = 0.3f;
+    
+    // Boundary constraints
+    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Boundaries")
+    FVector DungeonBoundaryMin = FVector(-15000.0f, -15000.0f, 0.0f);
+    
+    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Boundaries")
+    FVector DungeonBoundaryMax = FVector(15000.0f, 15000.0f, 0.0f);
+    
+    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Boundaries")
+    float BoundaryPadding = 1500.0f;  // Minimum distance from boundary edges
     
     // Shared properties
     UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "General Settings")

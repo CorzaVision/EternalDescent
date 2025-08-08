@@ -19,25 +19,47 @@ bool FOrganicDungeonGenerationTest::RunTest(const FString& Parameters)
     AGridDungeonVisualizer* Generator = TestWorld->SpawnActor<AGridDungeonVisualizer>();
     TestNotNull(TEXT("Generator should spawn"), Generator);
     
-    // Configure for organic generation
-    Generator->GenerationType = EDungeonGenerationType::Organic;
-    Generator->MinRoomCount = 10;
-    Generator->MaxRoomCount = 15;
-    Generator->MinRoomSize = 800.0f;
-    Generator->MaxRoomSize = 2000.0f;
-    Generator->HallwayWidth = 300.0f;
-    Generator->MinRoomDistance = 400.0f;
-    Generator->MaxRoomDistance = 1500.0f;
-    Generator->BranchingFactor = 2;
-    Generator->DeadEndChance = 0.3f;
-    Generator->CurrentFloor = 1;
+    // Test all three stage types
+    TArray<EDungeonStageType> StageTypes = { 
+        EDungeonStageType::Standard, 
+        EDungeonStageType::Elite, 
+        EDungeonStageType::Boss 
+    };
+    
+    for (EDungeonStageType StageType : StageTypes)
+    {
+        // Configure for organic generation based on stage type
+        Generator->GenerationType = EDungeonGenerationType::Organic;
+        Generator->StageType = StageType;
+        Generator->ConfigureRoomCountForStage();
+        Generator->MinRoomSize = 800.0f;
+        Generator->MaxRoomSize = 2000.0f;
+        Generator->HallwayWidth = 300.0f;
+        Generator->MinRoomDistance = 400.0f;
+        Generator->MaxRoomDistance = 1500.0f;
+        Generator->BranchingFactor = 3;
+        Generator->DeadEndChance = 0.3f;
+        Generator->CurrentFloor = 1;
+        
+        // Set boundary constraints
+        Generator->DungeonBoundaryMin = FVector(-10000.0f, -10000.0f, 0.0f);
+        Generator->DungeonBoundaryMax = FVector(10000.0f, 10000.0f, 0.0f);
+        Generator->BoundaryPadding = 1000.0f;
     
     // Test 2: Generate organic dungeon
     Generator->GenerateOrganicDungeon(12345); // Fixed seed for reproducibility
     
     // Test 3: Verify room generation
     TestTrue(TEXT("Should have generated rooms"), Generator->OrganicLayout.Rooms.Num() > 0);
-    TestTrue(TEXT("Should have at least min rooms"), Generator->OrganicLayout.Rooms.Num() >= Generator->MinRoomCount);
+        // Get expected room count for this stage
+        int32 ExpectedMin, ExpectedMax;
+        Generator->GetRoomCountForStageType(StageType, ExpectedMin, ExpectedMax);
+        
+        FString StageTypeName = UEnum::GetValueAsString(StageType);
+        TestTrue(FString::Printf(TEXT("%s: Should have at least %d rooms"), *StageTypeName, ExpectedMin), 
+            Generator->OrganicLayout.Rooms.Num() >= ExpectedMin);
+        TestTrue(FString::Printf(TEXT("%s: Should not exceed %d rooms"), *StageTypeName, ExpectedMax), 
+            Generator->OrganicLayout.Rooms.Num() <= ExpectedMax);
     TestTrue(TEXT("Should not exceed max rooms"), Generator->OrganicLayout.Rooms.Num() <= Generator->MaxRoomCount);
     
     // Test 4: Verify start and exit rooms exist
