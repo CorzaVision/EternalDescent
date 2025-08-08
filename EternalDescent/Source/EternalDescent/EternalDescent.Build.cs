@@ -12,9 +12,15 @@ public class EternalDescent : ModuleRules
 		bUseUnity = false;
 		CppStandard = CppStandardVersion.Cpp20;
 		
-		// Optimize for faster iteration
+		// Performance optimizations (UE 5.5 compatible)
 		MinFilesUsingPrecompiledHeaderOverride = 1;
-		bUsePrecompiledHeadersFromMemory = true;
+		
+		// Runtime performance optimizations
+		if (Target.Configuration == UnrealTargetConfiguration.Shipping ||
+		    Target.Configuration == UnrealTargetConfiguration.Development)
+		{
+			PublicDefinitions.Add("WITH_PERFCOUNTERS=1");
+		}
 
 		PublicDependencyModuleNames.AddRange(new string[] { 
 			"Core", 
@@ -48,11 +54,7 @@ public class EternalDescent : ModuleRules
 			"ApplicationCore"
 		});
 		
-		// UE 5.5 requires explicit inclusion of these for instanced mesh components
-		PublicIncludePaths.AddRange(new string[] {
-			"Runtime/Engine/Classes",
-			"Runtime/Engine/Public"
-		});
+		// Note: Include paths are handled automatically by UE 5.5 module dependencies
 		
 		// Add test dependencies for automation
 		if (Target.Configuration != UnrealTargetConfiguration.Shipping)

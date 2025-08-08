@@ -81,7 +81,8 @@
 /DUE_BUILD_DEVELOPMENT=1
 /DORIGINAL_FILE_NAME="UnrealEditor-EternalDescent.dll"
 /DBUILD_ICON_FILE_NAME="\"..\\Build\\Windows\\Resources\\Default.ico\""
-/DPROJECT_COPYRIGHT_STRING="Fill out your copyright notice in the Description page of Project Settings."
+/DPROJECT_COMPANY_NAME="Eternal Descent Studios"
+/DPROJECT_COPYRIGHT_STRING="Copyright 2025 Eternal Descent Studios"
 /DPROJECT_PRODUCT_NAME="Eternal Descent"
 /DPROJECT_PRODUCT_IDENTIFIER=EternalDescent
 /fo "D:\Github\Self Projects\EternalDescent\EternalDescent\Intermediate\Build\Win64\x64\UnrealEditor\Development\EternalDescent\Default.rc2.res"

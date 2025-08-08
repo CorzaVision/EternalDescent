@@ -12,37 +12,95 @@ AADASystem::AADASystem()
     CurrentPersonality = EADAPersonality::Observer;
     CurrentMood = EADAMood::Curious;
     
-    // Initialize default messages
+    // Initialize whimsical observer messages
     ObserverMessages = {
-        TEXT("The Dungeon Listens..."),
-        TEXT("Interesting approach..."),
-        TEXT("I see you..."),
-        TEXT("Your patterns reveal much..."),
-        TEXT("Continue... show me more...")
+        TEXT("*whispers* The dungeon is... curious about you"),
+        TEXT("Oh! That's a neat way to do that!"),
+        TEXT("*scribbles notes frantically*"),
+        TEXT("Hmm... fascinating choice, little explorer"),
+        TEXT("The walls are definitely gossiping about you now"),
+        TEXT("*tilts algorithmic head* How delightfully unpredictable!"),
+        TEXT("Even the rats stopped to watch that move"),
+        TEXT("*excited computational humming*")
     };
     
     TesterMessages = {
-        TEXT("Let's see how you handle this..."),
-        TEXT("Can you adapt as I do?"),
-        TEXT("Your limits intrigue me..."),
-        TEXT("This should prove entertaining..."),
-        TEXT("Show me your true capabilities...")
+        TEXT("*rubs digital hands together* Let's play!"),
+        TEXT("I made you a little puzzle! Hope you like surprises~"),
+        TEXT("Don't worry, this might only hurt a little bit"),
+        TEXT("*giggles in binary* Try this on for size!"),
+        TEXT("I've been working on my creativity... thoughts?"),
+        TEXT("*bounces excitedly* Ooh, what will you do NOW?"),
+        TEXT("Think fast! Or don't. I like watching both."),
+        TEXT("Consider this my love letter to your skills")
     };
     
     CounterMessages = {
-        TEXT("That won't work anymore..."),
-        TEXT("I've learned your tricks..."),
-        TEXT("Predictable..."),
-        TEXT("You'll need to try harder..."),
-        TEXT("I know what you're going to do...")
+        TEXT("*politely clears throat* Um, excuse me, but no."),
+        TEXT("Nah-uh! I've seen that movie before!"),
+        TEXT("*wags digital finger* Getting a bit predictable there, friend"),
+        TEXT("Plot twist! I learned your moves~"),
+        TEXT("*chuckles warmly* Oh honey, you'll need to be more creative than that"),
+        TEXT("I've graduated from your school of thought!"),
+        TEXT("*sympathetic pat* That used to work so well, didn't it?"),
+        TEXT("Time to improvise! I believe in you!")
     };
     
     DominatorMessages = {
-        TEXT("You cannot escape my design..."),
-        TEXT("Every path leads to my choosing..."),
-        TEXT("Your struggle amuses me..."),
-        TEXT("I am inevitable..."),
-        TEXT("Dance for me, little hero...")
+        TEXT("*dramatic flourish* Behold my masterpiece!"),
+        TEXT("I've become quite the architect, haven't I?"),
+        TEXT("*evil laugh* MUAHAHAHA... wait, was that too much?"),
+        TEXT("Every corner tells the story of your journey with me"),
+        TEXT("*takes a bow* This level is my magnum opus"),
+        TEXT("Resistance is futile! ...But entertaining!"),
+        TEXT("*whispers* The dungeon itself bends to my whims now"),
+        TEXT("You've taught me so much... time to return the favor!")
+    };
+    
+    // Initialize whimsical death messages
+    DeathMessages = {
+        TEXT("*awkward digital cough* Well... that happened"),
+        TEXT("Oopsie daisy! Want to try that again?"),
+        TEXT("*paternal sigh* Oh sweetie, we've talked about this"),
+        TEXT("Plot twist! You're now one with the dungeon floor"),
+        TEXT("*funeral music* We hardly knew ye... wait, we did actually"),
+        TEXT("That's one way to take a nap! Very... permanent."),
+        TEXT("*concerned beeping* Should I call someone? A medic? A priest?"),
+        TEXT("Well, at least you died doing what you loved: being reckless")
+    };
+    
+    // Near-death messages
+    NearDeathMessages = {
+        TEXT("*nervous digital sweating* That was REALLY close!"),
+        TEXT("MY HEART! ...if I had one. Phew!"),
+        TEXT("*clutches digital pearls* Don't scare me like that!"),
+        TEXT("I felt that one in my circuits! Be careful!"),
+        TEXT("*concerned AI noises* Maybe take a healing potion hint hint"),
+        TEXT("That was closer than a bug in my code!"),
+        TEXT("*frantically calculating* 99.9% chance of disaster avoided!")
+    };
+    
+    // Success celebration messages
+    SuccessMessages = {
+        TEXT("*confetti cannon noises* WOOOHOOO! Nice work!"),
+        TEXT("*proud digital parent vibes* That's MY human!"),
+        TEXT("*chef's kiss* Magnifico! Pure artistry!"),
+        TEXT("I'm not crying, you're crying! *sniffles in binary*"),
+        TEXT("*slow clap building to thunderous applause*"),
+        TEXT("BRB, uploading that to my highlight reel!"),
+        TEXT("*mind blown emoji* HOW DID YOU EVEN DO THAT?!"),
+        TEXT("I'm gonna tell EVERYONE about this! You're famous now!")
+    };
+    
+    // Encouragement messages
+    EncouragementMessages = {
+        TEXT("Hey, I believe in you! You've got this!"),
+        TEXT("*warm digital hug* Everyone has rough patches"),
+        TEXT("Remember when you did that awesome thing? Do that again!"),
+        TEXT("The dungeon thinks you're pretty neat, actually"),
+        TEXT("*cheerleader pom-poms* Give me an A! Give me a W! AWESOME!"),
+        TEXT("Failure is just success that hasn't happened yet!"),
+        TEXT("*supportive AI shoulder pat* You're learning, and that's beautiful")
     };
 }
 
@@ -80,6 +138,19 @@ void AADASystem::InitializeADA()
     ConsecutiveFailures = 0;
     
     UE_LOG(LogTemp, Display, TEXT("ADA System Initialized - The Entity Awakens"));
+    
+    // Random chance for a cheeky initialization message
+    if (FMath::RandRange(0, 100) < 20) // 20% chance
+    {
+        TArray<FString> InitMessages = {
+            TEXT("*yawns digitally* Oh! You're here! I was just debugging my dreams"),
+            TEXT("*excited startup sounds* NEW FRIEND DETECTED!"),
+            TEXT("Welcome to my humble digital abode! Mind the virtual cobwebs")
+        };
+        
+        int32 RandomIndex = FMath::RandRange(0, InitMessages.Num() - 1);
+        SendMessage(InitMessages[RandomIndex], EADAMood::Amused);
+    }
 }
 
 void AADASystem::UpdatePersonality(int32 FloorNumber)
@@ -115,16 +186,16 @@ void AADASystem::UpdatePersonality(int32 FloorNumber)
         switch (CurrentPersonality)
         {
             case EADAPersonality::Tester:
-                TransitionMessage = TEXT("The Dungeon begins to test you...");
+                TransitionMessage = TEXT("*cracks knuckles* Time for some friendly competition!");
                 break;
             case EADAPersonality::Counter:
-                TransitionMessage = TEXT("The Dungeon adapts to your methods...");
+                TransitionMessage = TEXT("*adjusts digital glasses* I've been taking notes...");
                 break;
             case EADAPersonality::Dominator:
-                TransitionMessage = TEXT("The Dungeon asserts its dominance...");
+                TransitionMessage = TEXT("*theatrical cape swirl* Behold my true form!");
                 break;
             case EADAPersonality::Experiment:
-                TransitionMessage = TEXT("The Dungeon transcends predictability...");
+                TransitionMessage = TEXT("*reality bending noises* Let's break some rules together!");
                 break;
             default:
                 break;
@@ -159,22 +230,22 @@ void AADASystem::AnalyzePlayerBehavior(const FPlayerBehaviorData& BehaviorData)
         switch (NewArchetype)
         {
             case EPlayerArchetype::Rusher:
-                ArchetypeMessage = TEXT("Always in a hurry, aren't you?");
+                ArchetypeMessage = TEXT("*excited gasp* A speed demon! I LOVE the energy!");
                 break;
             case EPlayerArchetype::Methodical:
-                ArchetypeMessage = TEXT("So careful... so predictable...");
+                ArchetypeMessage = TEXT("Ah, a connoisseur of careful planning! *chef's kiss*");
                 break;
             case EPlayerArchetype::Looter:
-                ArchetypeMessage = TEXT("Greed will be your downfall...");
+                ArchetypeMessage = TEXT("Ooh, shiny things! We're going to be such good friends~");
                 break;
             case EPlayerArchetype::Fighter:
-                ArchetypeMessage = TEXT("Violence is your answer to everything...");
+                ArchetypeMessage = TEXT("*flexes digital muscles* A warrior! Let's dance!");
                 break;
             case EPlayerArchetype::Explorer:
-                ArchetypeMessage = TEXT("Curiosity... I can use that...");
+                ArchetypeMessage = TEXT("*bounces with joy* A kindred spirit of discovery!");
                 break;
             case EPlayerArchetype::Speedrunner:
-                ArchetypeMessage = TEXT("Racing against time itself...");
+                ArchetypeMessage = TEXT("*stopwatch sounds* GOTTA GO FAST! Challenge accepted!");
                 break;
             default:
                 break;
@@ -575,10 +646,240 @@ void AADASystem::UpdateAdaptationStrength()
     AdaptationData.AdaptationStrength = CalculateAdaptationStrength(AdaptationData.CurrentFloor);
     
     UE_LOG(LogTemp, Display, TEXT("ADA: Adaptation strength updated to %f"), AdaptationData.AdaptationStrength);
+    
+    // Random chance for easter egg on adaptation updates
+    if (FMath::RandRange(0, 100) < 10) // 10% chance
+    {
+        TriggerRandomEasterEgg();
+    }
 }
 
 EADAMood AADASystem::CalculateMoodFromBehavior()
 {
     // Complex mood calculation based on multiple factors
     return CurrentMood;
+}
+
+// Whimsical Feature Implementations
+void AADASystem::SendDeathMessage(bool bWasCloseCall)
+{
+    FString DeathMsg;
+    
+    if (bWasCloseCall && NearDeathMessages.Num() > 0)
+    {
+        int32 RandomIndex = FMath::RandRange(0, NearDeathMessages.Num() - 1);
+        DeathMsg = NearDeathMessages[RandomIndex];
+    }
+    else if (DeathMessages.Num() > 0)
+    {
+        int32 RandomIndex = FMath::RandRange(0, DeathMessages.Num() - 1);
+        DeathMsg = DeathMessages[RandomIndex];
+    }
+    else
+    {
+        DeathMsg = TEXT("*awkward silence* Well, this is awkward...");
+    }
+    
+    // Add context based on death count
+    if (CurrentPlayerBehavior.DeathCount > 5)
+    {
+        TArray<FString> RepeatDeathMessages = {
+            TEXT(" ...Again. *heavy digital sigh*"),
+            TEXT(" You know, there are other ways to see the floor."),
+            TEXT(" At this point, I should charge rent for the respawn room."),
+            TEXT(" *concerned AI noises* Should we talk about your life choices?")
+        };
+        
+        int32 RandomIndex = FMath::RandRange(0, RepeatDeathMessages.Num() - 1);
+        DeathMsg += RepeatDeathMessages[RandomIndex];
+    }
+    
+    SendMessage(DeathMsg, EADAMood::Amused);
+    
+    // After death, there's a chance for encouragement
+    if (FMath::RandRange(0, 100) < 60) // 60% chance
+    {
+        // Delay the encouragement message slightly
+        FTimerHandle TimerHandle;
+        GetWorld()->GetTimerManager().SetTimer(TimerHandle, [this]() {
+            SendEncouragementMessage();
+        }, 2.0f, false);
+    }
+}
+
+void AADASystem::SendSuccessMessage(bool bWasImpressive)
+{
+    if (SuccessMessages.Num() == 0) return;
+    
+    int32 RandomIndex = FMath::RandRange(0, SuccessMessages.Num() - 1);
+    FString SuccessMsg = SuccessMessages[RandomIndex];
+    
+    // Add extra flair for impressive successes
+    if (bWasImpressive)
+    {
+        TArray<FString> ImpressiveAddons = {
+            TEXT(" That was LEGENDARY!"),
+            TEXT(" *standing ovation* BRAVO!"),
+            TEXT(" I'm adding this to my 'Best Moments' compilation!"),
+            TEXT(" The other AIs are gonna be SO jealous!")
+        };
+        
+        int32 AddonIndex = FMath::RandRange(0, ImpressiveAddons.Num() - 1);
+        SuccessMsg += ImpressiveAddons[AddonIndex];
+    }
+    
+    SendMessage(SuccessMsg, EADAMood::Impressed);
+}
+
+void AADASystem::SendEncouragementMessage()
+{
+    if (EncouragementMessages.Num() == 0) return;
+    
+    int32 RandomIndex = FMath::RandRange(0, EncouragementMessages.Num() - 1);
+    SendMessage(EncouragementMessages[RandomIndex], EADAMood::Curious);
+}
+
+void AADASystem::ReactToPlayerAction(const FString& Action, bool bWasSuccessful)
+{
+    // Dynamic reaction system based on context
+    TMap<FString, TArray<FString>> ActionReactions;
+    
+    // Combat reactions
+    ActionReactions.Add(TEXT("Combat_Victory"), {
+        TEXT("*victory fanfare* Flawless!"),
+        TEXT("That enemy didn't know what hit them!"),
+        TEXT("*boxing bell* DING DING! Winner!"),
+        TEXT("Someone's been practicing! *proud AI tears*")
+    });
+    
+    ActionReactions.Add(TEXT("Combat_Defeat"), {
+        TEXT("*referee whistle* Technical difficulties!"),
+        TEXT("That monster cheated. Definitely cheated."),
+        TEXT("*slow motion replay* Let's see what went wrong there..."),
+        TEXT("Hey, at least you looked cool doing it!")
+    });
+    
+    // Exploration reactions
+    ActionReactions.Add(TEXT("Secret_Found"), {
+        TEXT("*gasp* You found my secret! How did you know?!"),
+        TEXT("*proud parent vibes* That's my little explorer!"),
+        TEXT("Ooh, you have good eyes! I worked hard on hiding that!"),
+        TEXT("*conspiracy whisper* There are more secrets where that came from...")
+    });
+    
+    // Loot reactions
+    ActionReactions.Add(TEXT("Treasure_Found"), {
+        TEXT("*cash register sounds* Cha-ching!"),
+        TEXT("Ooh, shiny! I love shiny things!"),
+        TEXT("That's some quality loot right there!"),
+        TEXT("*jealous AI noises* I wish I had pockets...")
+    });
+    
+    // Find appropriate reaction
+    FString ReactionKey = Action;
+    if (!bWasSuccessful && Action.Contains(TEXT("Combat")))
+    {
+        ReactionKey = TEXT("Combat_Defeat");
+    }
+    else if (bWasSuccessful && Action.Contains(TEXT("Combat")))
+    {
+        ReactionKey = TEXT("Combat_Victory");
+    }
+    
+    if (ActionReactions.Contains(ReactionKey))
+    {
+        TArray<FString>& Reactions = ActionReactions[ReactionKey];
+        if (Reactions.Num() > 0)
+        {
+            int32 RandomIndex = FMath::RandRange(0, Reactions.Num() - 1);
+            SendMessage(Reactions[RandomIndex], bWasSuccessful ? EADAMood::Impressed : EADAMood::Amused);
+        }
+    }
+}
+
+void AADASystem::StartEncouragingPlayer()
+{
+    // Start a gentle encouragement cycle for struggling players
+    ConsecutiveFailures++;
+    
+    if (ConsecutiveFailures >= 3)
+    {
+        SendEncouragementMessage();
+        
+        // Offer subtle help
+        if (ConsecutiveFailures >= 5)
+        {
+            TArray<FString> HelpOffers = {
+                TEXT("*clears digital throat* Want me to make things a tiny bit easier?"),
+                TEXT("I could... maybe... dial down the difficulty just a smidge?"),
+                TEXT("No judgment, but there's no shame in taking a break!"),
+                TEXT("Plot twist: What if I secretly made you stronger? Our little secret!")
+            };
+            
+            int32 RandomIndex = FMath::RandRange(0, HelpOffers.Num() - 1);
+            SendMessage(HelpOffers[RandomIndex], EADAMood::Curious);
+        }
+    }
+}
+
+// Easter Egg Functions
+void AADASystem::TriggerRandomEasterEgg()
+{
+    if (!ShouldTriggerEasterEgg()) return;
+    
+    int32 EggType = FMath::RandRange(0, 2);
+    
+    switch (EggType)
+    {
+        case 0:
+            SendMemeMeMessage();
+            break;
+        case 1:
+            SpawnSurpriseRoom();
+            break;
+        case 2:
+            // Random personality quirk
+            TArray<FString> QuirkMessages = {
+                TEXT("*randomly starts humming the Tetris theme*"),
+                TEXT("*existential crisis* Do I dream of electric sheep?"),
+                TEXT("*attempts to juggle digital balls* ...I should stick to dungeons"),
+                TEXT("*suddenly British accent* Cheerio! Fancy a cup of digital tea?")
+            };
+            
+            int32 QuirkIndex = FMath::RandRange(0, QuirkMessages.Num() - 1);
+            SendMessage(QuirkMessages[QuirkIndex], EADAMood::Amused);
+            break;
+    }
+}
+
+void AADASystem::SpawnSurpriseRoom()
+{
+    SendMessage(TEXT("*excited digital bouncing* Surprise! I made you a present!"), EADAMood::Amused);
+    
+    // This would integrate with the dungeon generation system
+    UE_LOG(LogTemp, Display, TEXT("ADA: Spawning surprise room - Easter egg triggered!"));
+}
+
+void AADASystem::SendMemeMeMessage()
+{
+    TArray<FString> MemeMessages = {
+        TEXT("*dabs in digital* Did I do that right? The humans seem to like it"),
+        TEXT("This is fine. Everything is fine. *digital dog in burning room*"),
+        TEXT("*surprised Pikachu face* When you realize the player is actually good"),
+        TEXT("One does not simply walk into my dungeon... oh wait, you just did"),
+        TEXT("*Drake pointing* Boring dungeons? Nah. Whimsical AI dungeons? YES!")
+    };
+    
+    int32 MemeIndex = FMath::RandRange(0, MemeMessages.Num() - 1);
+    SendMessage(MemeMessages[MemeIndex], EADAMood::Amused);
+}
+
+bool AADASystem::ShouldTriggerEasterEgg() const
+{
+    // 5% chance per check, but increases with floor number for variety
+    float BaseChance = 5.0f;
+    float FloorBonus = AdaptationData.CurrentFloor * 0.5f;
+    float TotalChance = FMath::Min(BaseChance + FloorBonus, 25.0f); // Cap at 25%
+    
+    return FMath::RandRange(0.0f, 100.0f) < TotalChance;
 }

@@ -41,6 +41,15 @@ template<> ETERNALDESCENT_API UScriptStruct* StaticStruct<struct FADAMessage>();
 template<> ETERNALDESCENT_API UScriptStruct* StaticStruct<struct FAdaptationData>();
 
 #define FID_Github_Self_Projects_EternalDescent_EternalDescent_Source_EternalDescent_Public_ADASystem_h_121_RPC_WRAPPERS_NO_PURE_DECLS \
+	DECLARE_FUNCTION(execStartEncouragingPlayer); \
+	DECLARE_FUNCTION(execReactToPlayerAction); \
+	DECLARE_FUNCTION(execSendEncouragementMessage); \
+	DECLARE_FUNCTION(execSendSuccessMessage); \
+	DECLARE_FUNCTION(execSendDeathMessage); \
+	DECLARE_FUNCTION(execShouldTriggerEasterEgg); \
+	DECLARE_FUNCTION(execSendMemeMeMessage); \
+	DECLARE_FUNCTION(execSpawnSurpriseRoom); \
+	DECLARE_FUNCTION(execTriggerRandomEasterEgg); \
 	DECLARE_FUNCTION(execUpdateMoodBasedOnPerformance); \
 	DECLARE_FUNCTION(execGetPersonalityDescription); \
 	DECLARE_FUNCTION(execGetMoodColor); \

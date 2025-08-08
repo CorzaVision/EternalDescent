@@ -12,9 +12,8 @@ public class EternalDescentEditorTarget : TargetRules
 		IncludeOrderVersion = EngineIncludeOrderVersion.Unreal5_5;
 		ExtraModuleNames.Add("EternalDescent");
 		
-		// Enable faster compile times for development
+		// Enable faster compile times for development (UE 5.5 compatible)
 		bUseFastPDBLinking = true;
-		bUseFastMonolithicBuild = true;
 		
 		// Enable hot reload for development
 		bAllowHotReload = true;

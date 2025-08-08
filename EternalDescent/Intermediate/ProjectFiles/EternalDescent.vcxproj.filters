@@ -11,7 +11,10 @@
     <None Include="..\..\Source\EternalDescentEditor.Target.cs">
       <Filter>Source</Filter>
     </None>
+    <None Include="..\..\.ignore" />
     <None Include="..\..\.vsconfig" />
+    <None Include="..\..\EternalDescent.code-workspace" />
+    <None Include="..\..\test_list.txt" />
     <Filter Include="Config">
       <UniqueIdentifier>{FA535FFB-25E1-3D20-B416-52F9BE21E06E}</UniqueIdentifier>
     </Filter>
@@ -57,20 +60,101 @@
     <Filter Include="Source\EternalDescent\Private">
       <UniqueIdentifier>{D8410A39-2E5A-31E3-882F-8C6247B0388F}</UniqueIdentifier>
     </Filter>
+    <ClCompile Include="..\..\Source\EternalDescent\Private\ADASystem.cpp">
+      <Filter>Source\EternalDescent\Private</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\EternalDescent\Private\DungeonVisualizer.cpp">
+      <Filter>Source\EternalDescent\Private</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\EternalDescent\Private\EndlessDungeonTester.cpp">
+      <Filter>Source\EternalDescent\Private</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\EternalDescent\Private\GridDungeonTester.cpp">
+      <Filter>Source\EternalDescent\Private</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\EternalDescent\Private\GridDungeonVisualizer.cpp">
+      <Filter>Source\EternalDescent\Private</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\EternalDescent\Private\MyObjectTest.cpp">
+      <Filter>Source\EternalDescent\Private</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\EternalDescent\Private\NavigationLoadTest.cpp">
+      <Filter>Source\EternalDescent\Private</Filter>
+    </ClCompile>
     <Filter Include="Source\EternalDescent\Private\Generation">
       <UniqueIdentifier>{E8ECFE9E-F9F4-336B-B316-44A446D79747}</UniqueIdentifier>
     </Filter>
-    <ClCompile Include="..\..\Source\EternalDescent\Private\Generation\FloorGeneratorComponent.cpp">
+    <ClCompile Include="..\..\Source\EternalDescent\Private\Generation\ProceduralFloorComponent.cpp">
       <Filter>Source\EternalDescent\Private\Generation</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\EternalDescent\Private\Generation\RoomGraphBuilder.cpp">
+      <Filter>Source\EternalDescent\Private\Generation</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\EternalDescent\Private\Generation\WallEnvironmentBuilder.cpp">
+      <Filter>Source\EternalDescent\Private\Generation</Filter>
+    </ClCompile>
+    <Filter Include="Source\EternalDescent\Private\Tests">
+      <UniqueIdentifier>{761234F7-F823-3248-BD70-E4590905A9E9}</UniqueIdentifier>
+    </Filter>
+    <ClCompile Include="..\..\Source\EternalDescent\Private\Tests\GridDungeonPerformanceTest.cpp">
+      <Filter>Source\EternalDescent\Private\Tests</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\EternalDescent\Private\Tests\GridVisualizerTest.cpp">
+      <Filter>Source\EternalDescent\Private\Tests</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\EternalDescent\Private\Tests\OrganicDungeonTest.cpp">
+      <Filter>Source\EternalDescent\Private\Tests</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\EternalDescent\Private\Tests\RunGridPerformanceTest.cpp">
+      <Filter>Source\EternalDescent\Private\Tests</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\EternalDescent\Private\Tests\TDDComplianceTest.cpp">
+      <Filter>Source\EternalDescent\Private\Tests</Filter>
     </ClCompile>
     <Filter Include="Source\EternalDescent\Public">
       <UniqueIdentifier>{533115A0-66FE-30F3-B748-83B5E0B7701A}</UniqueIdentifier>
     </Filter>
+    <ClCompile Include="..\..\Source\EternalDescent\Public\ADASystem.h">
+      <Filter>Source\EternalDescent\Public</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\EternalDescent\Public\CubeDungeonTypes.h">
+      <Filter>Source\EternalDescent\Public</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\EternalDescent\Public\DungeonVisualizer.h">
+      <Filter>Source\EternalDescent\Public</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\EternalDescent\Public\EndlessDungeonTester.h">
+      <Filter>Source\EternalDescent\Public</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\EternalDescent\Public\GridDungeonTester.h">
+      <Filter>Source\EternalDescent\Public</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\EternalDescent\Public\GridDungeonVisualizer.h">
+      <Filter>Source\EternalDescent\Public</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\EternalDescent\Public\MyObjectTest.h">
+      <Filter>Source\EternalDescent\Public</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\EternalDescent\Public\NavigationLoadTest.h">
+      <Filter>Source\EternalDescent\Public</Filter>
+    </ClCompile>
     <Filter Include="Source\EternalDescent\Public\Generation">
       <UniqueIdentifier>{7DE4B484-D192-37CD-8624-610B85D5C932}</UniqueIdentifier>
     </Filter>
-    <ClCompile Include="..\..\Source\EternalDescent\Public\Generation\FloorGeneratorComponent.h">
+    <ClCompile Include="..\..\Source\EternalDescent\Public\Generation\ProceduralFloorComponent.h">
       <Filter>Source\EternalDescent\Public\Generation</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\EternalDescent\Public\Generation\RoomGraphBuilder.h">
+      <Filter>Source\EternalDescent\Public\Generation</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\EternalDescent\Public\Generation\WallEnvironmentBuilder.h">
+      <Filter>Source\EternalDescent\Public\Generation</Filter>
+    </ClCompile>
+    <Filter Include="Source\EternalDescent\Public\Tests">
+      <UniqueIdentifier>{490C68C9-3C3F-333C-A25D-C6BBAF4145C6}</UniqueIdentifier>
+    </Filter>
+    <ClCompile Include="..\..\Source\EternalDescent\Public\Tests\DungeonTestTypes.h">
+      <Filter>Source\EternalDescent\Public\Tests</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

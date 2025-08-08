@@ -1163,6 +1163,62 @@ UFunction* Z_Construct_UFunction_AADASystem_OnMessageSent()
 }
 // End Class AADASystem Function OnMessageSent
 
+// Begin Class AADASystem Function ReactToPlayerAction
+struct Z_Construct_UFunction_AADASystem_ReactToPlayerAction_Statics
+{
+	struct ADASystem_eventReactToPlayerAction_Parms
+	{
+		FString Action;
+		bool bWasSuccessful;
+	};
+#if WITH_METADATA
+	static constexpr UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[] = {
+		{ "Category", "ADA|Whimsy" },
+		{ "ModuleRelativePath", "Public/ADASystem.h" },
+	};
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_Action_MetaData[] = {
+		{ "NativeConst", "" },
+	};
+#endif // WITH_METADATA
+	static const UECodeGen_Private::FStrPropertyParams NewProp_Action;
+	static void NewProp_bWasSuccessful_SetBit(void* Obj);
+	static const UECodeGen_Private::FBoolPropertyParams NewProp_bWasSuccessful;
+	static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
+	static const UECodeGen_Private::FFunctionParams FuncParams;
+};
+const UECodeGen_Private::FStrPropertyParams Z_Construct_UFunction_AADASystem_ReactToPlayerAction_Statics::NewProp_Action = { "Action", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Str, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ADASystem_eventReactToPlayerAction_Parms, Action), METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_Action_MetaData), NewProp_Action_MetaData) };
+void Z_Construct_UFunction_AADASystem_ReactToPlayerAction_Statics::NewProp_bWasSuccessful_SetBit(void* Obj)
+{
+	((ADASystem_eventReactToPlayerAction_Parms*)Obj)->bWasSuccessful = 1;
+}
+const UECodeGen_Private::FBoolPropertyParams Z_Construct_UFunction_AADASystem_ReactToPlayerAction_Statics::NewProp_bWasSuccessful = { "bWasSuccessful", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Bool | UECodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, sizeof(bool), sizeof(ADASystem_eventReactToPlayerAction_Parms), &Z_Construct_UFunction_AADASystem_ReactToPlayerAction_Statics::NewProp_bWasSuccessful_SetBit, METADATA_PARAMS(0, nullptr) };
+const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_AADASystem_ReactToPlayerAction_Statics::PropPointers[] = {
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_AADASystem_ReactToPlayerAction_Statics::NewProp_Action,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_AADASystem_ReactToPlayerAction_Statics::NewProp_bWasSuccessful,
+};
+static_assert(UE_ARRAY_COUNT(Z_Construct_UFunction_AADASystem_ReactToPlayerAction_Statics::PropPointers) < 2048);
+const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_AADASystem_ReactToPlayerAction_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_AADASystem, nullptr, "ReactToPlayerAction", nullptr, nullptr, Z_Construct_UFunction_AADASystem_ReactToPlayerAction_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_AADASystem_ReactToPlayerAction_Statics::PropPointers), sizeof(Z_Construct_UFunction_AADASystem_ReactToPlayerAction_Statics::ADASystem_eventReactToPlayerAction_Parms), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x04020401, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_AADASystem_ReactToPlayerAction_Statics::Function_MetaDataParams), Z_Construct_UFunction_AADASystem_ReactToPlayerAction_Statics::Function_MetaDataParams) };
+static_assert(sizeof(Z_Construct_UFunction_AADASystem_ReactToPlayerAction_Statics::ADASystem_eventReactToPlayerAction_Parms) < MAX_uint16);
+UFunction* Z_Construct_UFunction_AADASystem_ReactToPlayerAction()
+{
+	static UFunction* ReturnFunction = nullptr;
+	if (!ReturnFunction)
+	{
+		UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_AADASystem_ReactToPlayerAction_Statics::FuncParams);
+	}
+	return ReturnFunction;
+}
+DEFINE_FUNCTION(AADASystem::execReactToPlayerAction)
+{
+	P_GET_PROPERTY(FStrProperty,Z_Param_Action);
+	P_GET_UBOOL(Z_Param_bWasSuccessful);
+	P_FINISH;
+	P_NATIVE_BEGIN;
+	P_THIS->ReactToPlayerAction(Z_Param_Action,Z_Param_bWasSuccessful);
+	P_NATIVE_END;
+}
+// End Class AADASystem Function ReactToPlayerAction
+
 // Begin Class AADASystem Function RecordPlayerAction
 struct Z_Construct_UFunction_AADASystem_RecordPlayerAction_Statics
 {
@@ -1300,6 +1356,121 @@ DEFINE_FUNCTION(AADASystem::execSelectEnemyTypes)
 }
 // End Class AADASystem Function SelectEnemyTypes
 
+// Begin Class AADASystem Function SendDeathMessage
+struct Z_Construct_UFunction_AADASystem_SendDeathMessage_Statics
+{
+	struct ADASystem_eventSendDeathMessage_Parms
+	{
+		bool bWasCloseCall;
+	};
+#if WITH_METADATA
+	static constexpr UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[] = {
+		{ "Category", "ADA|Whimsy" },
+#if !UE_BUILD_SHIPPING
+		{ "Comment", "// Whimsical Features\n" },
+#endif
+		{ "CPP_Default_bWasCloseCall", "false" },
+		{ "ModuleRelativePath", "Public/ADASystem.h" },
+#if !UE_BUILD_SHIPPING
+		{ "ToolTip", "Whimsical Features" },
+#endif
+	};
+#endif // WITH_METADATA
+	static void NewProp_bWasCloseCall_SetBit(void* Obj);
+	static const UECodeGen_Private::FBoolPropertyParams NewProp_bWasCloseCall;
+	static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
+	static const UECodeGen_Private::FFunctionParams FuncParams;
+};
+void Z_Construct_UFunction_AADASystem_SendDeathMessage_Statics::NewProp_bWasCloseCall_SetBit(void* Obj)
+{
+	((ADASystem_eventSendDeathMessage_Parms*)Obj)->bWasCloseCall = 1;
+}
+const UECodeGen_Private::FBoolPropertyParams Z_Construct_UFunction_AADASystem_SendDeathMessage_Statics::NewProp_bWasCloseCall = { "bWasCloseCall", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Bool | UECodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, sizeof(bool), sizeof(ADASystem_eventSendDeathMessage_Parms), &Z_Construct_UFunction_AADASystem_SendDeathMessage_Statics::NewProp_bWasCloseCall_SetBit, METADATA_PARAMS(0, nullptr) };
+const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_AADASystem_SendDeathMessage_Statics::PropPointers[] = {
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_AADASystem_SendDeathMessage_Statics::NewProp_bWasCloseCall,
+};
+static_assert(UE_ARRAY_COUNT(Z_Construct_UFunction_AADASystem_SendDeathMessage_Statics::PropPointers) < 2048);
+const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_AADASystem_SendDeathMessage_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_AADASystem, nullptr, "SendDeathMessage", nullptr, nullptr, Z_Construct_UFunction_AADASystem_SendDeathMessage_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_AADASystem_SendDeathMessage_Statics::PropPointers), sizeof(Z_Construct_UFunction_AADASystem_SendDeathMessage_Statics::ADASystem_eventSendDeathMessage_Parms), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x04020401, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_AADASystem_SendDeathMessage_Statics::Function_MetaDataParams), Z_Construct_UFunction_AADASystem_SendDeathMessage_Statics::Function_MetaDataParams) };
+static_assert(sizeof(Z_Construct_UFunction_AADASystem_SendDeathMessage_Statics::ADASystem_eventSendDeathMessage_Parms) < MAX_uint16);
+UFunction* Z_Construct_UFunction_AADASystem_SendDeathMessage()
+{
+	static UFunction* ReturnFunction = nullptr;
+	if (!ReturnFunction)
+	{
+		UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_AADASystem_SendDeathMessage_Statics::FuncParams);
+	}
+	return ReturnFunction;
+}
+DEFINE_FUNCTION(AADASystem::execSendDeathMessage)
+{
+	P_GET_UBOOL(Z_Param_bWasCloseCall);
+	P_FINISH;
+	P_NATIVE_BEGIN;
+	P_THIS->SendDeathMessage(Z_Param_bWasCloseCall);
+	P_NATIVE_END;
+}
+// End Class AADASystem Function SendDeathMessage
+
+// Begin Class AADASystem Function SendEncouragementMessage
+struct Z_Construct_UFunction_AADASystem_SendEncouragementMessage_Statics
+{
+#if WITH_METADATA
+	static constexpr UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[] = {
+		{ "Category", "ADA|Whimsy" },
+		{ "ModuleRelativePath", "Public/ADASystem.h" },
+	};
+#endif // WITH_METADATA
+	static const UECodeGen_Private::FFunctionParams FuncParams;
+};
+const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_AADASystem_SendEncouragementMessage_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_AADASystem, nullptr, "SendEncouragementMessage", nullptr, nullptr, nullptr, 0, 0, RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x04020401, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_AADASystem_SendEncouragementMessage_Statics::Function_MetaDataParams), Z_Construct_UFunction_AADASystem_SendEncouragementMessage_Statics::Function_MetaDataParams) };
+UFunction* Z_Construct_UFunction_AADASystem_SendEncouragementMessage()
+{
+	static UFunction* ReturnFunction = nullptr;
+	if (!ReturnFunction)
+	{
+		UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_AADASystem_SendEncouragementMessage_Statics::FuncParams);
+	}
+	return ReturnFunction;
+}
+DEFINE_FUNCTION(AADASystem::execSendEncouragementMessage)
+{
+	P_FINISH;
+	P_NATIVE_BEGIN;
+	P_THIS->SendEncouragementMessage();
+	P_NATIVE_END;
+}
+// End Class AADASystem Function SendEncouragementMessage
+
+// Begin Class AADASystem Function SendMemeMeMessage
+struct Z_Construct_UFunction_AADASystem_SendMemeMeMessage_Statics
+{
+#if WITH_METADATA
+	static constexpr UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[] = {
+		{ "Category", "ADA|EasterEggs" },
+		{ "ModuleRelativePath", "Public/ADASystem.h" },
+	};
+#endif // WITH_METADATA
+	static const UECodeGen_Private::FFunctionParams FuncParams;
+};
+const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_AADASystem_SendMemeMeMessage_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_AADASystem, nullptr, "SendMemeMeMessage", nullptr, nullptr, nullptr, 0, 0, RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x04020401, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_AADASystem_SendMemeMeMessage_Statics::Function_MetaDataParams), Z_Construct_UFunction_AADASystem_SendMemeMeMessage_Statics::Function_MetaDataParams) };
+UFunction* Z_Construct_UFunction_AADASystem_SendMemeMeMessage()
+{
+	static UFunction* ReturnFunction = nullptr;
+	if (!ReturnFunction)
+	{
+		UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_AADASystem_SendMemeMeMessage_Statics::FuncParams);
+	}
+	return ReturnFunction;
+}
+DEFINE_FUNCTION(AADASystem::execSendMemeMeMessage)
+{
+	P_FINISH;
+	P_NATIVE_BEGIN;
+	P_THIS->SendMemeMeMessage();
+	P_NATIVE_END;
+}
+// End Class AADASystem Function SendMemeMeMessage
+
 // Begin Class AADASystem Function SendMessage
 struct Z_Construct_UFunction_AADASystem_SendMessage_Statics
 {
@@ -1360,6 +1531,198 @@ DEFINE_FUNCTION(AADASystem::execSendMessage)
 	P_NATIVE_END;
 }
 // End Class AADASystem Function SendMessage
+
+// Begin Class AADASystem Function SendSuccessMessage
+struct Z_Construct_UFunction_AADASystem_SendSuccessMessage_Statics
+{
+	struct ADASystem_eventSendSuccessMessage_Parms
+	{
+		bool bWasImpressive;
+	};
+#if WITH_METADATA
+	static constexpr UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[] = {
+		{ "Category", "ADA|Whimsy" },
+		{ "CPP_Default_bWasImpressive", "false" },
+		{ "ModuleRelativePath", "Public/ADASystem.h" },
+	};
+#endif // WITH_METADATA
+	static void NewProp_bWasImpressive_SetBit(void* Obj);
+	static const UECodeGen_Private::FBoolPropertyParams NewProp_bWasImpressive;
+	static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
+	static const UECodeGen_Private::FFunctionParams FuncParams;
+};
+void Z_Construct_UFunction_AADASystem_SendSuccessMessage_Statics::NewProp_bWasImpressive_SetBit(void* Obj)
+{
+	((ADASystem_eventSendSuccessMessage_Parms*)Obj)->bWasImpressive = 1;
+}
+const UECodeGen_Private::FBoolPropertyParams Z_Construct_UFunction_AADASystem_SendSuccessMessage_Statics::NewProp_bWasImpressive = { "bWasImpressive", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Bool | UECodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, sizeof(bool), sizeof(ADASystem_eventSendSuccessMessage_Parms), &Z_Construct_UFunction_AADASystem_SendSuccessMessage_Statics::NewProp_bWasImpressive_SetBit, METADATA_PARAMS(0, nullptr) };
+const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_AADASystem_SendSuccessMessage_Statics::PropPointers[] = {
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_AADASystem_SendSuccessMessage_Statics::NewProp_bWasImpressive,
+};
+static_assert(UE_ARRAY_COUNT(Z_Construct_UFunction_AADASystem_SendSuccessMessage_Statics::PropPointers) < 2048);
+const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_AADASystem_SendSuccessMessage_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_AADASystem, nullptr, "SendSuccessMessage", nullptr, nullptr, Z_Construct_UFunction_AADASystem_SendSuccessMessage_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_AADASystem_SendSuccessMessage_Statics::PropPointers), sizeof(Z_Construct_UFunction_AADASystem_SendSuccessMessage_Statics::ADASystem_eventSendSuccessMessage_Parms), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x04020401, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_AADASystem_SendSuccessMessage_Statics::Function_MetaDataParams), Z_Construct_UFunction_AADASystem_SendSuccessMessage_Statics::Function_MetaDataParams) };
+static_assert(sizeof(Z_Construct_UFunction_AADASystem_SendSuccessMessage_Statics::ADASystem_eventSendSuccessMessage_Parms) < MAX_uint16);
+UFunction* Z_Construct_UFunction_AADASystem_SendSuccessMessage()
+{
+	static UFunction* ReturnFunction = nullptr;
+	if (!ReturnFunction)
+	{
+		UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_AADASystem_SendSuccessMessage_Statics::FuncParams);
+	}
+	return ReturnFunction;
+}
+DEFINE_FUNCTION(AADASystem::execSendSuccessMessage)
+{
+	P_GET_UBOOL(Z_Param_bWasImpressive);
+	P_FINISH;
+	P_NATIVE_BEGIN;
+	P_THIS->SendSuccessMessage(Z_Param_bWasImpressive);
+	P_NATIVE_END;
+}
+// End Class AADASystem Function SendSuccessMessage
+
+// Begin Class AADASystem Function ShouldTriggerEasterEgg
+struct Z_Construct_UFunction_AADASystem_ShouldTriggerEasterEgg_Statics
+{
+	struct ADASystem_eventShouldTriggerEasterEgg_Parms
+	{
+		bool ReturnValue;
+	};
+#if WITH_METADATA
+	static constexpr UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[] = {
+		{ "Category", "ADA|EasterEggs" },
+		{ "ModuleRelativePath", "Public/ADASystem.h" },
+	};
+#endif // WITH_METADATA
+	static void NewProp_ReturnValue_SetBit(void* Obj);
+	static const UECodeGen_Private::FBoolPropertyParams NewProp_ReturnValue;
+	static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
+	static const UECodeGen_Private::FFunctionParams FuncParams;
+};
+void Z_Construct_UFunction_AADASystem_ShouldTriggerEasterEgg_Statics::NewProp_ReturnValue_SetBit(void* Obj)
+{
+	((ADASystem_eventShouldTriggerEasterEgg_Parms*)Obj)->ReturnValue = 1;
+}
+const UECodeGen_Private::FBoolPropertyParams Z_Construct_UFunction_AADASystem_ShouldTriggerEasterEgg_Statics::NewProp_ReturnValue = { "ReturnValue", nullptr, (EPropertyFlags)0x0010000000000580, UECodeGen_Private::EPropertyGenFlags::Bool | UECodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, sizeof(bool), sizeof(ADASystem_eventShouldTriggerEasterEgg_Parms), &Z_Construct_UFunction_AADASystem_ShouldTriggerEasterEgg_Statics::NewProp_ReturnValue_SetBit, METADATA_PARAMS(0, nullptr) };
+const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_AADASystem_ShouldTriggerEasterEgg_Statics::PropPointers[] = {
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_AADASystem_ShouldTriggerEasterEgg_Statics::NewProp_ReturnValue,
+};
+static_assert(UE_ARRAY_COUNT(Z_Construct_UFunction_AADASystem_ShouldTriggerEasterEgg_Statics::PropPointers) < 2048);
+const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_AADASystem_ShouldTriggerEasterEgg_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_AADASystem, nullptr, "ShouldTriggerEasterEgg", nullptr, nullptr, Z_Construct_UFunction_AADASystem_ShouldTriggerEasterEgg_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_AADASystem_ShouldTriggerEasterEgg_Statics::PropPointers), sizeof(Z_Construct_UFunction_AADASystem_ShouldTriggerEasterEgg_Statics::ADASystem_eventShouldTriggerEasterEgg_Parms), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x54020401, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_AADASystem_ShouldTriggerEasterEgg_Statics::Function_MetaDataParams), Z_Construct_UFunction_AADASystem_ShouldTriggerEasterEgg_Statics::Function_MetaDataParams) };
+static_assert(sizeof(Z_Construct_UFunction_AADASystem_ShouldTriggerEasterEgg_Statics::ADASystem_eventShouldTriggerEasterEgg_Parms) < MAX_uint16);
+UFunction* Z_Construct_UFunction_AADASystem_ShouldTriggerEasterEgg()
+{
+	static UFunction* ReturnFunction = nullptr;
+	if (!ReturnFunction)
+	{
+		UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_AADASystem_ShouldTriggerEasterEgg_Statics::FuncParams);
+	}
+	return ReturnFunction;
+}
+DEFINE_FUNCTION(AADASystem::execShouldTriggerEasterEgg)
+{
+	P_FINISH;
+	P_NATIVE_BEGIN;
+	*(bool*)Z_Param__Result=P_THIS->ShouldTriggerEasterEgg();
+	P_NATIVE_END;
+}
+// End Class AADASystem Function ShouldTriggerEasterEgg
+
+// Begin Class AADASystem Function SpawnSurpriseRoom
+struct Z_Construct_UFunction_AADASystem_SpawnSurpriseRoom_Statics
+{
+#if WITH_METADATA
+	static constexpr UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[] = {
+		{ "Category", "ADA|EasterEggs" },
+		{ "ModuleRelativePath", "Public/ADASystem.h" },
+	};
+#endif // WITH_METADATA
+	static const UECodeGen_Private::FFunctionParams FuncParams;
+};
+const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_AADASystem_SpawnSurpriseRoom_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_AADASystem, nullptr, "SpawnSurpriseRoom", nullptr, nullptr, nullptr, 0, 0, RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x04020401, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_AADASystem_SpawnSurpriseRoom_Statics::Function_MetaDataParams), Z_Construct_UFunction_AADASystem_SpawnSurpriseRoom_Statics::Function_MetaDataParams) };
+UFunction* Z_Construct_UFunction_AADASystem_SpawnSurpriseRoom()
+{
+	static UFunction* ReturnFunction = nullptr;
+	if (!ReturnFunction)
+	{
+		UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_AADASystem_SpawnSurpriseRoom_Statics::FuncParams);
+	}
+	return ReturnFunction;
+}
+DEFINE_FUNCTION(AADASystem::execSpawnSurpriseRoom)
+{
+	P_FINISH;
+	P_NATIVE_BEGIN;
+	P_THIS->SpawnSurpriseRoom();
+	P_NATIVE_END;
+}
+// End Class AADASystem Function SpawnSurpriseRoom
+
+// Begin Class AADASystem Function StartEncouragingPlayer
+struct Z_Construct_UFunction_AADASystem_StartEncouragingPlayer_Statics
+{
+#if WITH_METADATA
+	static constexpr UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[] = {
+		{ "Category", "ADA|Whimsy" },
+		{ "ModuleRelativePath", "Public/ADASystem.h" },
+	};
+#endif // WITH_METADATA
+	static const UECodeGen_Private::FFunctionParams FuncParams;
+};
+const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_AADASystem_StartEncouragingPlayer_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_AADASystem, nullptr, "StartEncouragingPlayer", nullptr, nullptr, nullptr, 0, 0, RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x04020401, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_AADASystem_StartEncouragingPlayer_Statics::Function_MetaDataParams), Z_Construct_UFunction_AADASystem_StartEncouragingPlayer_Statics::Function_MetaDataParams) };
+UFunction* Z_Construct_UFunction_AADASystem_StartEncouragingPlayer()
+{
+	static UFunction* ReturnFunction = nullptr;
+	if (!ReturnFunction)
+	{
+		UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_AADASystem_StartEncouragingPlayer_Statics::FuncParams);
+	}
+	return ReturnFunction;
+}
+DEFINE_FUNCTION(AADASystem::execStartEncouragingPlayer)
+{
+	P_FINISH;
+	P_NATIVE_BEGIN;
+	P_THIS->StartEncouragingPlayer();
+	P_NATIVE_END;
+}
+// End Class AADASystem Function StartEncouragingPlayer
+
+// Begin Class AADASystem Function TriggerRandomEasterEgg
+struct Z_Construct_UFunction_AADASystem_TriggerRandomEasterEgg_Statics
+{
+#if WITH_METADATA
+	static constexpr UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[] = {
+		{ "Category", "ADA|EasterEggs" },
+#if !UE_BUILD_SHIPPING
+		{ "Comment", "// Whimsical Easter Egg Functions\n" },
+#endif
+		{ "ModuleRelativePath", "Public/ADASystem.h" },
+#if !UE_BUILD_SHIPPING
+		{ "ToolTip", "Whimsical Easter Egg Functions" },
+#endif
+	};
+#endif // WITH_METADATA
+	static const UECodeGen_Private::FFunctionParams FuncParams;
+};
+const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_AADASystem_TriggerRandomEasterEgg_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_AADASystem, nullptr, "TriggerRandomEasterEgg", nullptr, nullptr, nullptr, 0, 0, RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x04020401, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_AADASystem_TriggerRandomEasterEgg_Statics::Function_MetaDataParams), Z_Construct_UFunction_AADASystem_TriggerRandomEasterEgg_Statics::Function_MetaDataParams) };
+UFunction* Z_Construct_UFunction_AADASystem_TriggerRandomEasterEgg()
+{
+	static UFunction* ReturnFunction = nullptr;
+	if (!ReturnFunction)
+	{
+		UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_AADASystem_TriggerRandomEasterEgg_Statics::FuncParams);
+	}
+	return ReturnFunction;
+}
+DEFINE_FUNCTION(AADASystem::execTriggerRandomEasterEgg)
+{
+	P_FINISH;
+	P_NATIVE_BEGIN;
+	P_THIS->TriggerRandomEasterEgg();
+	P_NATIVE_END;
+}
+// End Class AADASystem Function TriggerRandomEasterEgg
 
 // Begin Class AADASystem Function UpdateMoodBasedOnPerformance
 struct Z_Construct_UFunction_AADASystem_UpdateMoodBasedOnPerformance_Statics
@@ -1451,10 +1814,19 @@ void AADASystem::StaticRegisterNativesAADASystem()
 		{ "InjectPsychologicalElements", &AADASystem::execInjectPsychologicalElements },
 		{ "LoadHistoricalData", &AADASystem::execLoadHistoricalData },
 		{ "ModifyDungeonDifficulty", &AADASystem::execModifyDungeonDifficulty },
+		{ "ReactToPlayerAction", &AADASystem::execReactToPlayerAction },
 		{ "RecordPlayerAction", &AADASystem::execRecordPlayerAction },
 		{ "SaveRunData", &AADASystem::execSaveRunData },
 		{ "SelectEnemyTypes", &AADASystem::execSelectEnemyTypes },
+		{ "SendDeathMessage", &AADASystem::execSendDeathMessage },
+		{ "SendEncouragementMessage", &AADASystem::execSendEncouragementMessage },
+		{ "SendMemeMeMessage", &AADASystem::execSendMemeMeMessage },
 		{ "SendMessage", &AADASystem::execSendMessage },
+		{ "SendSuccessMessage", &AADASystem::execSendSuccessMessage },
+		{ "ShouldTriggerEasterEgg", &AADASystem::execShouldTriggerEasterEgg },
+		{ "SpawnSurpriseRoom", &AADASystem::execSpawnSurpriseRoom },
+		{ "StartEncouragingPlayer", &AADASystem::execStartEncouragingPlayer },
+		{ "TriggerRandomEasterEgg", &AADASystem::execTriggerRandomEasterEgg },
 		{ "UpdateMoodBasedOnPerformance", &AADASystem::execUpdateMoodBasedOnPerformance },
 		{ "UpdatePersonality", &AADASystem::execUpdatePersonality },
 	};
@@ -1512,6 +1884,22 @@ struct Z_Construct_UClass_AADASystem_Statics
 		{ "Category", "ADA|Messages" },
 		{ "ModuleRelativePath", "Public/ADASystem.h" },
 	};
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_DeathMessages_MetaData[] = {
+		{ "Category", "ADA|Messages" },
+		{ "ModuleRelativePath", "Public/ADASystem.h" },
+	};
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_NearDeathMessages_MetaData[] = {
+		{ "Category", "ADA|Messages" },
+		{ "ModuleRelativePath", "Public/ADASystem.h" },
+	};
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_SuccessMessages_MetaData[] = {
+		{ "Category", "ADA|Messages" },
+		{ "ModuleRelativePath", "Public/ADASystem.h" },
+	};
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_EncouragementMessages_MetaData[] = {
+		{ "Category", "ADA|Messages" },
+		{ "ModuleRelativePath", "Public/ADASystem.h" },
+	};
 #endif // WITH_METADATA
 	static const UECodeGen_Private::FBytePropertyParams NewProp_CurrentPersonality_Underlying;
 	static const UECodeGen_Private::FEnumPropertyParams NewProp_CurrentPersonality;
@@ -1527,6 +1915,14 @@ struct Z_Construct_UClass_AADASystem_Statics
 	static const UECodeGen_Private::FArrayPropertyParams NewProp_CounterMessages;
 	static const UECodeGen_Private::FStrPropertyParams NewProp_DominatorMessages_Inner;
 	static const UECodeGen_Private::FArrayPropertyParams NewProp_DominatorMessages;
+	static const UECodeGen_Private::FStrPropertyParams NewProp_DeathMessages_Inner;
+	static const UECodeGen_Private::FArrayPropertyParams NewProp_DeathMessages;
+	static const UECodeGen_Private::FStrPropertyParams NewProp_NearDeathMessages_Inner;
+	static const UECodeGen_Private::FArrayPropertyParams NewProp_NearDeathMessages;
+	static const UECodeGen_Private::FStrPropertyParams NewProp_SuccessMessages_Inner;
+	static const UECodeGen_Private::FArrayPropertyParams NewProp_SuccessMessages;
+	static const UECodeGen_Private::FStrPropertyParams NewProp_EncouragementMessages_Inner;
+	static const UECodeGen_Private::FArrayPropertyParams NewProp_EncouragementMessages;
 	static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
 	static UObject* (*const DependentSingletons[])();
 	static constexpr FClassFunctionLinkInfo FuncInfo[] = {
@@ -1543,10 +1939,19 @@ struct Z_Construct_UClass_AADASystem_Statics
 		{ &Z_Construct_UFunction_AADASystem_LoadHistoricalData, "LoadHistoricalData" }, // 4081047698
 		{ &Z_Construct_UFunction_AADASystem_ModifyDungeonDifficulty, "ModifyDungeonDifficulty" }, // 3540333334
 		{ &Z_Construct_UFunction_AADASystem_OnMessageSent, "OnMessageSent" }, // 1654335888
+		{ &Z_Construct_UFunction_AADASystem_ReactToPlayerAction, "ReactToPlayerAction" }, // 2678191886
 		{ &Z_Construct_UFunction_AADASystem_RecordPlayerAction, "RecordPlayerAction" }, // 1381428216
 		{ &Z_Construct_UFunction_AADASystem_SaveRunData, "SaveRunData" }, // 962634794
 		{ &Z_Construct_UFunction_AADASystem_SelectEnemyTypes, "SelectEnemyTypes" }, // 650347073
+		{ &Z_Construct_UFunction_AADASystem_SendDeathMessage, "SendDeathMessage" }, // 3494378651
+		{ &Z_Construct_UFunction_AADASystem_SendEncouragementMessage, "SendEncouragementMessage" }, // 1935385047
+		{ &Z_Construct_UFunction_AADASystem_SendMemeMeMessage, "SendMemeMeMessage" }, // 1367635839
 		{ &Z_Construct_UFunction_AADASystem_SendMessage, "SendMessage" }, // 686393597
+		{ &Z_Construct_UFunction_AADASystem_SendSuccessMessage, "SendSuccessMessage" }, // 2351069195
+		{ &Z_Construct_UFunction_AADASystem_ShouldTriggerEasterEgg, "ShouldTriggerEasterEgg" }, // 4063608325
+		{ &Z_Construct_UFunction_AADASystem_SpawnSurpriseRoom, "SpawnSurpriseRoom" }, // 3799334361
+		{ &Z_Construct_UFunction_AADASystem_StartEncouragingPlayer, "StartEncouragingPlayer" }, // 1255260157
+		{ &Z_Construct_UFunction_AADASystem_TriggerRandomEasterEgg, "TriggerRandomEasterEgg" }, // 4068450556
 		{ &Z_Construct_UFunction_AADASystem_UpdateMoodBasedOnPerformance, "UpdateMoodBasedOnPerformance" }, // 1770280144
 		{ &Z_Construct_UFunction_AADASystem_UpdatePersonality, "UpdatePersonality" }, // 1851693599
 	};
@@ -1570,6 +1975,14 @@ const UECodeGen_Private::FStrPropertyParams Z_Construct_UClass_AADASystem_Static
 const UECodeGen_Private::FArrayPropertyParams Z_Construct_UClass_AADASystem_Statics::NewProp_CounterMessages = { "CounterMessages", nullptr, (EPropertyFlags)0x0010000000010001, UECodeGen_Private::EPropertyGenFlags::Array, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AADASystem, CounterMessages), EArrayPropertyFlags::None, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_CounterMessages_MetaData), NewProp_CounterMessages_MetaData) };
 const UECodeGen_Private::FStrPropertyParams Z_Construct_UClass_AADASystem_Statics::NewProp_DominatorMessages_Inner = { "DominatorMessages", nullptr, (EPropertyFlags)0x0000000000000000, UECodeGen_Private::EPropertyGenFlags::Str, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, 0, METADATA_PARAMS(0, nullptr) };
 const UECodeGen_Private::FArrayPropertyParams Z_Construct_UClass_AADASystem_Statics::NewProp_DominatorMessages = { "DominatorMessages", nullptr, (EPropertyFlags)0x0010000000010001, UECodeGen_Private::EPropertyGenFlags::Array, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AADASystem, DominatorMessages), EArrayPropertyFlags::None, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_DominatorMessages_MetaData), NewProp_DominatorMessages_MetaData) };
+const UECodeGen_Private::FStrPropertyParams Z_Construct_UClass_AADASystem_Statics::NewProp_DeathMessages_Inner = { "DeathMessages", nullptr, (EPropertyFlags)0x0000000000000000, UECodeGen_Private::EPropertyGenFlags::Str, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, 0, METADATA_PARAMS(0, nullptr) };
+const UECodeGen_Private::FArrayPropertyParams Z_Construct_UClass_AADASystem_Statics::NewProp_DeathMessages = { "DeathMessages", nullptr, (EPropertyFlags)0x0010000000010001, UECodeGen_Private::EPropertyGenFlags::Array, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AADASystem, DeathMessages), EArrayPropertyFlags::None, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_DeathMessages_MetaData), NewProp_DeathMessages_MetaData) };
+const UECodeGen_Private::FStrPropertyParams Z_Construct_UClass_AADASystem_Statics::NewProp_NearDeathMessages_Inner = { "NearDeathMessages", nullptr, (EPropertyFlags)0x0000000000000000, UECodeGen_Private::EPropertyGenFlags::Str, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, 0, METADATA_PARAMS(0, nullptr) };
+const UECodeGen_Private::FArrayPropertyParams Z_Construct_UClass_AADASystem_Statics::NewProp_NearDeathMessages = { "NearDeathMessages", nullptr, (EPropertyFlags)0x0010000000010001, UECodeGen_Private::EPropertyGenFlags::Array, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AADASystem, NearDeathMessages), EArrayPropertyFlags::None, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_NearDeathMessages_MetaData), NewProp_NearDeathMessages_MetaData) };
+const UECodeGen_Private::FStrPropertyParams Z_Construct_UClass_AADASystem_Statics::NewProp_SuccessMessages_Inner = { "SuccessMessages", nullptr, (EPropertyFlags)0x0000000000000000, UECodeGen_Private::EPropertyGenFlags::Str, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, 0, METADATA_PARAMS(0, nullptr) };
+const UECodeGen_Private::FArrayPropertyParams Z_Construct_UClass_AADASystem_Statics::NewProp_SuccessMessages = { "SuccessMessages", nullptr, (EPropertyFlags)0x0010000000010001, UECodeGen_Private::EPropertyGenFlags::Array, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AADASystem, SuccessMessages), EArrayPropertyFlags::None, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_SuccessMessages_MetaData), NewProp_SuccessMessages_MetaData) };
+const UECodeGen_Private::FStrPropertyParams Z_Construct_UClass_AADASystem_Statics::NewProp_EncouragementMessages_Inner = { "EncouragementMessages", nullptr, (EPropertyFlags)0x0000000000000000, UECodeGen_Private::EPropertyGenFlags::Str, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, 0, METADATA_PARAMS(0, nullptr) };
+const UECodeGen_Private::FArrayPropertyParams Z_Construct_UClass_AADASystem_Statics::NewProp_EncouragementMessages = { "EncouragementMessages", nullptr, (EPropertyFlags)0x0010000000010001, UECodeGen_Private::EPropertyGenFlags::Array, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AADASystem, EncouragementMessages), EArrayPropertyFlags::None, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_EncouragementMessages_MetaData), NewProp_EncouragementMessages_MetaData) };
 const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_AADASystem_Statics::PropPointers[] = {
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AADASystem_Statics::NewProp_CurrentPersonality_Underlying,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AADASystem_Statics::NewProp_CurrentPersonality,
@@ -1585,6 +1998,14 @@ const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_AADASyste
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AADASystem_Statics::NewProp_CounterMessages,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AADASystem_Statics::NewProp_DominatorMessages_Inner,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AADASystem_Statics::NewProp_DominatorMessages,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AADASystem_Statics::NewProp_DeathMessages_Inner,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AADASystem_Statics::NewProp_DeathMessages,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AADASystem_Statics::NewProp_NearDeathMessages_Inner,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AADASystem_Statics::NewProp_NearDeathMessages,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AADASystem_Statics::NewProp_SuccessMessages_Inner,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AADASystem_Statics::NewProp_SuccessMessages,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AADASystem_Statics::NewProp_EncouragementMessages_Inner,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AADASystem_Statics::NewProp_EncouragementMessages,
 };
 static_assert(UE_ARRAY_COUNT(Z_Construct_UClass_AADASystem_Statics::PropPointers) < 2048);
 UObject* (*const Z_Construct_UClass_AADASystem_Statics::DependentSingletons[])() = {
@@ -1637,10 +2058,10 @@ struct Z_CompiledInDeferFile_FID_Github_Self_Projects_EternalDescent_EternalDesc
 		{ FAdaptationData::StaticStruct, Z_Construct_UScriptStruct_FAdaptationData_Statics::NewStructOps, TEXT("AdaptationData"), &Z_Registration_Info_UScriptStruct_AdaptationData, CONSTRUCT_RELOAD_VERSION_INFO(FStructReloadVersionInfo, sizeof(FAdaptationData), 134822572U) },
 	};
 	static constexpr FClassRegisterCompiledInInfo ClassInfo[] = {
-		{ Z_Construct_UClass_AADASystem, AADASystem::StaticClass, TEXT("AADASystem"), &Z_Registration_Info_UClass_AADASystem, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AADASystem), 1315511686U) },
+		{ Z_Construct_UClass_AADASystem, AADASystem::StaticClass, TEXT("AADASystem"), &Z_Registration_Info_UClass_AADASystem, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AADASystem), 2143415200U) },
 	};
 };
-static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Github_Self_Projects_EternalDescent_EternalDescent_Source_EternalDescent_Public_ADASystem_h_1105133741(TEXT("/Script/EternalDescent"),
+static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Github_Self_Projects_EternalDescent_EternalDescent_Source_EternalDescent_Public_ADASystem_h_1955550723(TEXT("/Script/EternalDescent"),
 	Z_CompiledInDeferFile_FID_Github_Self_Projects_EternalDescent_EternalDescent_Source_EternalDescent_Public_ADASystem_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Github_Self_Projects_EternalDescent_EternalDescent_Source_EternalDescent_Public_ADASystem_h_Statics::ClassInfo),
 	Z_CompiledInDeferFile_FID_Github_Self_Projects_EternalDescent_EternalDescent_Source_EternalDescent_Public_ADASystem_h_Statics::ScriptStructInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Github_Self_Projects_EternalDescent_EternalDescent_Source_EternalDescent_Public_ADASystem_h_Statics::ScriptStructInfo),
 	Z_CompiledInDeferFile_FID_Github_Self_Projects_EternalDescent_EternalDescent_Source_EternalDescent_Public_ADASystem_h_Statics::EnumInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Github_Self_Projects_EternalDescent_EternalDescent_Source_EternalDescent_Public_ADASystem_h_Statics::EnumInfo));

@@ -191,6 +191,19 @@ public:
     
     UFUNCTION(BlueprintCallable, Category = "ADA|Personality")
     void UpdateMoodBasedOnPerformance();
+    
+    // Whimsical Easter Egg Functions
+    UFUNCTION(BlueprintCallable, Category = "ADA|EasterEggs")
+    void TriggerRandomEasterEgg();
+    
+    UFUNCTION(BlueprintCallable, Category = "ADA|EasterEggs")
+    void SpawnSurpriseRoom();
+    
+    UFUNCTION(BlueprintCallable, Category = "ADA|EasterEggs")
+    void SendMemeMeMessage();
+    
+    UFUNCTION(BlueprintCallable, Category = "ADA|EasterEggs")
+    bool ShouldTriggerEasterEgg() const;
 
     // Properties
     UPROPERTY(BlueprintReadOnly, Category = "ADA")
@@ -216,6 +229,34 @@ public:
     
     UPROPERTY(EditDefaultsOnly, Category = "ADA|Messages")
     TArray<FString> DominatorMessages;
+    
+    UPROPERTY(EditDefaultsOnly, Category = "ADA|Messages")
+    TArray<FString> DeathMessages;
+    
+    UPROPERTY(EditDefaultsOnly, Category = "ADA|Messages")
+    TArray<FString> NearDeathMessages;
+    
+    UPROPERTY(EditDefaultsOnly, Category = "ADA|Messages")
+    TArray<FString> SuccessMessages;
+    
+    UPROPERTY(EditDefaultsOnly, Category = "ADA|Messages")
+    TArray<FString> EncouragementMessages;
+
+    // Whimsical Features
+    UFUNCTION(BlueprintCallable, Category = "ADA|Whimsy")
+    void SendDeathMessage(bool bWasCloseCall = false);
+    
+    UFUNCTION(BlueprintCallable, Category = "ADA|Whimsy")
+    void SendSuccessMessage(bool bWasImpressive = false);
+    
+    UFUNCTION(BlueprintCallable, Category = "ADA|Whimsy")
+    void SendEncouragementMessage();
+    
+    UFUNCTION(BlueprintCallable, Category = "ADA|Whimsy")
+    void ReactToPlayerAction(const FString& Action, bool bWasSuccessful);
+    
+    UFUNCTION(BlueprintCallable, Category = "ADA|Whimsy")
+    void StartEncouragingPlayer();
 
 private:
     // Internal tracking

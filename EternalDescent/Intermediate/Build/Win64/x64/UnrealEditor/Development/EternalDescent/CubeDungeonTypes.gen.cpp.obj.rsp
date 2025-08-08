@@ -1,8 +1,8 @@
 "D:\Github\Self Projects\EternalDescent\EternalDescent\Intermediate\Build\Win64\UnrealEditor\Inc\EternalDescent\UHT\CubeDungeonTypes.gen.cpp"
-/FI"D:\Github\Self Projects\EternalDescent\EternalDescent\Intermediate\Build\Win64\x64\EternalDescentEditor\Development\UnrealEd\SharedPCH.UnrealEd.Project.ValApi.Cpp20.h"
+/FI"D:\Github\Self Projects\EternalDescent\EternalDescent\Intermediate\Build\Win64\x64\EternalDescentEditor\Development\UnrealEd\SharedPCH.UnrealEd.Project.RTTI.ValApi.Cpp20.h"
 /FI"D:\Github\Self Projects\EternalDescent\EternalDescent\Intermediate\Build\Win64\x64\UnrealEditor\Development\EternalDescent\Definitions.EternalDescent.h"
-/Yu"D:\Github\Self Projects\EternalDescent\EternalDescent\Intermediate\Build\Win64\x64\EternalDescentEditor\Development\UnrealEd\SharedPCH.UnrealEd.Project.ValApi.Cpp20.h"
-/Fp"D:\Github\Self Projects\EternalDescent\EternalDescent\Intermediate\Build\Win64\x64\EternalDescentEditor\Development\UnrealEd\SharedPCH.UnrealEd.Project.ValApi.Cpp20.h.pch"
+/Yu"D:\Github\Self Projects\EternalDescent\EternalDescent\Intermediate\Build\Win64\x64\EternalDescentEditor\Development\UnrealEd\SharedPCH.UnrealEd.Project.RTTI.ValApi.Cpp20.h"
+/Fp"D:\Github\Self Projects\EternalDescent\EternalDescent\Intermediate\Build\Win64\x64\EternalDescentEditor\Development\UnrealEd\SharedPCH.UnrealEd.Project.RTTI.ValApi.Cpp20.h.pch"
 /Fo"D:\Github\Self Projects\EternalDescent\EternalDescent\Intermediate\Build\Win64\x64\UnrealEditor\Development\EternalDescent\CubeDungeonTypes.gen.cpp.obj"
 /experimental:log "D:\Github\Self Projects\EternalDescent\EternalDescent\Intermediate\Build\Win64\x64\UnrealEditor\Development\EternalDescent\CubeDungeonTypes.gen.cpp.sarif"
 /sourceDependencies "D:\Github\Self Projects\EternalDescent\EternalDescent\Intermediate\Build\Win64\x64\UnrealEditor\Development\EternalDescent\CubeDungeonTypes.gen.cpp.dep.json"
@@ -46,7 +46,7 @@
 /wd4244
 /wd4838
 /TP
-/GR-
+/GR
 /W4
 /std:c++20
 /Zc:preprocessor

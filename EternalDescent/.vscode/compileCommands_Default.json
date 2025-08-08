@@ -104,6 +104,14 @@
 		"directory": "D:\\Epic Games\\UE_5.5\\Engine\\Source"
 	},
 	{
+		"file": "D:\\Github\\Self Projects\\EternalDescent\\EternalDescent\\Source\\EternalDescent\\Private\\GridDungeonTester.cpp",
+		"arguments": [
+			"D:\\VisualStudio\\IDE\\VC\\Tools\\MSVC\\14.44.35207\\bin\\Hostx64\\x64\\cl.exe",
+			"@D:\\Github\\Self Projects\\EternalDescent\\EternalDescent\\.vscode\\compileCommands_Default\\EternalDescent.1.rsp"
+		],
+		"directory": "D:\\Epic Games\\UE_5.5\\Engine\\Source"
+	},
+	{
 		"file": "D:\\Github\\Self Projects\\EternalDescent\\EternalDescent\\Source\\EternalDescent\\Private\\GridDungeonVisualizer.cpp",
 		"arguments": [
 			"D:\\VisualStudio\\IDE\\VC\\Tools\\MSVC\\14.44.35207\\bin\\Hostx64\\x64\\cl.exe",
@@ -128,7 +136,39 @@
 		"directory": "D:\\Epic Games\\UE_5.5\\Engine\\Source"
 	},
 	{
+		"file": "D:\\Github\\Self Projects\\EternalDescent\\EternalDescent\\Source\\EternalDescent\\Private\\Tests\\GridDungeonPerformanceTest.cpp",
+		"arguments": [
+			"D:\\VisualStudio\\IDE\\VC\\Tools\\MSVC\\14.44.35207\\bin\\Hostx64\\x64\\cl.exe",
+			"@D:\\Github\\Self Projects\\EternalDescent\\EternalDescent\\.vscode\\compileCommands_Default\\EternalDescent.1.rsp"
+		],
+		"directory": "D:\\Epic Games\\UE_5.5\\Engine\\Source"
+	},
+	{
 		"file": "D:\\Github\\Self Projects\\EternalDescent\\EternalDescent\\Source\\EternalDescent\\Private\\Tests\\GridVisualizerTest.cpp",
+		"arguments": [
+			"D:\\VisualStudio\\IDE\\VC\\Tools\\MSVC\\14.44.35207\\bin\\Hostx64\\x64\\cl.exe",
+			"@D:\\Github\\Self Projects\\EternalDescent\\EternalDescent\\.vscode\\compileCommands_Default\\EternalDescent.1.rsp"
+		],
+		"directory": "D:\\Epic Games\\UE_5.5\\Engine\\Source"
+	},
+	{
+		"file": "D:\\Github\\Self Projects\\EternalDescent\\EternalDescent\\Source\\EternalDescent\\Private\\Tests\\OrganicDungeonTest.cpp",
+		"arguments": [
+			"D:\\VisualStudio\\IDE\\VC\\Tools\\MSVC\\14.44.35207\\bin\\Hostx64\\x64\\cl.exe",
+			"@D:\\Github\\Self Projects\\EternalDescent\\EternalDescent\\.vscode\\compileCommands_Default\\EternalDescent.1.rsp"
+		],
+		"directory": "D:\\Epic Games\\UE_5.5\\Engine\\Source"
+	},
+	{
+		"file": "D:\\Github\\Self Projects\\EternalDescent\\EternalDescent\\Source\\EternalDescent\\Private\\Tests\\RunGridPerformanceTest.cpp",
+		"arguments": [
+			"D:\\VisualStudio\\IDE\\VC\\Tools\\MSVC\\14.44.35207\\bin\\Hostx64\\x64\\cl.exe",
+			"@D:\\Github\\Self Projects\\EternalDescent\\EternalDescent\\.vscode\\compileCommands_Default\\EternalDescent.1.rsp"
+		],
+		"directory": "D:\\Epic Games\\UE_5.5\\Engine\\Source"
+	},
+	{
+		"file": "D:\\Github\\Self Projects\\EternalDescent\\EternalDescent\\Source\\EternalDescent\\Private\\Tests\\TDDComplianceTest.cpp",
 		"arguments": [
 			"D:\\VisualStudio\\IDE\\VC\\Tools\\MSVC\\14.44.35207\\bin\\Hostx64\\x64\\cl.exe",
 			"@D:\\Github\\Self Projects\\EternalDescent\\EternalDescent\\.vscode\\compileCommands_Default\\EternalDescent.1.rsp"
@@ -185,6 +225,14 @@
 	},
 	{
 		"file": "D:\\Github\\Self Projects\\EternalDescent\\EternalDescent\\Source\\EternalDescent\\Public\\Generation\\WallEnvironmentBuilder.h",
+		"arguments": [
+			"D:\\VisualStudio\\IDE\\VC\\Tools\\MSVC\\14.44.35207\\bin\\Hostx64\\x64\\cl.exe",
+			"@D:\\Github\\Self Projects\\EternalDescent\\EternalDescent\\.vscode\\compileCommands_Default\\EternalDescent.1.rsp"
+		],
+		"directory": "D:\\Epic Games\\UE_5.5\\Engine\\Source"
+	},
+	{
+		"file": "D:\\Github\\Self Projects\\EternalDescent\\EternalDescent\\Source\\EternalDescent\\Public\\GridDungeonTester.h",
 		"arguments": [
 			"D:\\VisualStudio\\IDE\\VC\\Tools\\MSVC\\14.44.35207\\bin\\Hostx64\\x64\\cl.exe",
 			"@D:\\Github\\Self Projects\\EternalDescent\\EternalDescent\\.vscode\\compileCommands_Default\\EternalDescent.1.rsp"
