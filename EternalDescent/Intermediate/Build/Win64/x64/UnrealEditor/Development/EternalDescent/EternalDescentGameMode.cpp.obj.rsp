@@ -1,8 +1,8 @@
 "D:\Github\Self Projects\EternalDescent\EternalDescent\Source\EternalDescent\EternalDescentGameMode.cpp"
-/FI"D:\Github\Self Projects\EternalDescent\EternalDescent\Intermediate\Build\Win64\x64\EternalDescentEditor\Development\UnrealEd\SharedPCH.UnrealEd.Project.RTTI.ValApi.Cpp20.h"
+/FI"D:\Github\Self Projects\EternalDescent\EternalDescent\Intermediate\Build\Win64\x64\EternalDescentEditor\Development\UnrealEd\SharedPCH.UnrealEd.Project.NonOptimized.RTTI.ValApi.Cpp20.h"
 /FI"D:\Github\Self Projects\EternalDescent\EternalDescent\Intermediate\Build\Win64\x64\UnrealEditor\Development\EternalDescent\Definitions.EternalDescent.h"
-/Yu"D:\Github\Self Projects\EternalDescent\EternalDescent\Intermediate\Build\Win64\x64\EternalDescentEditor\Development\UnrealEd\SharedPCH.UnrealEd.Project.RTTI.ValApi.Cpp20.h"
-/Fp"D:\Github\Self Projects\EternalDescent\EternalDescent\Intermediate\Build\Win64\x64\EternalDescentEditor\Development\UnrealEd\SharedPCH.UnrealEd.Project.RTTI.ValApi.Cpp20.h.pch"
+/Yu"D:\Github\Self Projects\EternalDescent\EternalDescent\Intermediate\Build\Win64\x64\EternalDescentEditor\Development\UnrealEd\SharedPCH.UnrealEd.Project.NonOptimized.RTTI.ValApi.Cpp20.h"
+/Fp"D:\Github\Self Projects\EternalDescent\EternalDescent\Intermediate\Build\Win64\x64\EternalDescentEditor\Development\UnrealEd\SharedPCH.UnrealEd.Project.NonOptimized.RTTI.ValApi.Cpp20.h.pch"
 /Fo"D:\Github\Self Projects\EternalDescent\EternalDescent\Intermediate\Build\Win64\x64\UnrealEditor\Development\EternalDescent\EternalDescentGameMode.cpp.obj"
 /experimental:log "D:\Github\Self Projects\EternalDescent\EternalDescent\Intermediate\Build\Win64\x64\UnrealEditor\Development\EternalDescent\EternalDescentGameMode.cpp.sarif"
 /sourceDependencies "D:\Github\Self Projects\EternalDescent\EternalDescent\Intermediate\Build\Win64\x64\UnrealEditor\Development\EternalDescent\EternalDescentGameMode.cpp.dep.json"
@@ -27,9 +27,7 @@
 /D_DISABLE_EXTENDED_ALIGNED_STORAGE
 /Ob2
 /d2ExtendedWarningInfo
-/Ox
-/Ot
-/GF
+/Od
 /errorReport:prompt
 /EHsc
 /DPLATFORM_EXCEPTIONS_DISABLED=0
@@ -37,12 +35,10 @@
 /MD
 /bigobj
 /fp:fast
-/Zo
 /Zp8
 /we4456
 /we4458
 /we4459
-/we4668
 /wd4244
 /wd4838
 /TP

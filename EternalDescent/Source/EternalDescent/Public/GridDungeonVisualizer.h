@@ -1,9 +1,10 @@
-// GridDungeonVisualizer.h - Simple grid-based cube visualization
+// GridDungeonVisualizer.h - Grid-based dungeon visualization with HISM (UE 5.5 Optimized)
 #pragma once
 
 #include "CoreMinimal.h"
 #include "GameFramework/Actor.h"
-#include "Components/InstancedStaticMeshComponent.h"
+#include "Components/HierarchicalInstancedStaticMeshComponent.h"
+#include "Engine/World.h" // UE 5.5 World access
 #include "GridDungeonVisualizer.generated.h"
 
 UENUM(BlueprintType)
@@ -72,11 +73,11 @@ public:
     void MatchCubesToDebugBoxes();
     
     // Grid Configuration
-    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Grid Layout", meta=(ClampMin="2", ClampMax="50"))
-    int32 GridSizeX = 2;
+    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Grid Layout", meta=(ClampMin="1", ClampMax="50"))
+    int32 GridSizeX = 10;
     
-    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Grid Layout", meta=(ClampMin="2", ClampMax="50"))
-    int32 GridSizeY = 2;
+    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Grid Layout", meta=(ClampMin="1", ClampMax="50"))
+    int32 GridSizeY = 10;
     
     UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Grid Layout", meta=(ClampMin="100", ClampMax="1000"))
     float CellSize = 350.0f; // 3.5 * 100 units per cell
@@ -98,6 +99,36 @@ public:
     UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Visuals")
     UMaterialInterface* WallMaterial;
     
+    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Visuals")
+    UMaterialInterface* StartRoomMaterial;
+    
+    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Visuals")
+    UMaterialInterface* EndRoomMaterial;
+    
+    // UE 5.5 Optimization Settings
+    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "UE5.5 Features")
+    bool bUseNanite = true;
+    
+    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "UE5.5 Features")
+    bool bCastShadows = true;
+    
+    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "UE5.5 Features", meta=(ClampMin="0", ClampMax="7"))
+    int32 LODBias = 0;
+    
+    // UE 5.5 HISM Pooling Settings
+    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "UE5.5 HISM")
+    bool bUseInstancePooling = true;
+    
+    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "UE5.5 HISM", meta=(ClampMin="64", ClampMax="1024"))
+    int32 InstanceBatchSize = 256;
+    
+    // UE 5.5 Lumen Support
+    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "UE5.5 Rendering")
+    bool bLumenEnabled = true;
+    
+    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "UE5.5 Rendering")
+    bool bVirtualShadowMaps = true;
+    
     // Debug Settings
     UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Debug")
     bool bShowDebugGrid = false;
@@ -108,12 +139,12 @@ public:
     UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Debug")
     FLinearColor DebugGridColor = FLinearColor::Green;
     
-    // Components
+    // HISM Components for better performance with large instance counts
     UPROPERTY(BlueprintReadOnly, Category = "Components")
-    UInstancedStaticMeshComponent* PlaneInstances;
+    UHierarchicalInstancedStaticMeshComponent* PlaneInstances;
     
     UPROPERTY(BlueprintReadOnly, Category = "Components")
-    UInstancedStaticMeshComponent* CubeInstances;
+    UHierarchicalInstancedStaticMeshComponent* CubeInstances;
     
     // Runtime Data
     UPROPERTY(BlueprintReadOnly, Category = "Runtime")

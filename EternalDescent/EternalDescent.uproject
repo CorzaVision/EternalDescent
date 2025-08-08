@@ -51,10 +51,6 @@
 		{
 			"Name": "AISupport",
 			"Enabled": true
-		},
-		{
-			"Name": "WorldPartition",
-			"Enabled": false
 		}
 	],
 	"TargetPlatforms": [

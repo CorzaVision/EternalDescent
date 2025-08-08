@@ -1,0 +1,394 @@
+LogInit: Display: Running engine for game: EternalDescent
+LogCore: Display: Requested channels: 'cpu,gpu,frame,log,bookmark,screenshot,region'
+LogTrace: Display: Display Control listening on port 38419
+LogCsvProfiler: Display: Metadata set : platform="Windows"
+LogCsvProfiler: Display: Metadata set : config="Development"
+LogCsvProfiler: Display: Metadata set : buildversion="++UE5+Release-5.5-CL-40574608"
+LogCsvProfiler: Display: Metadata set : engineversion="5.5.4-40574608+++UE5+Release-5.5"
+LogCsvProfiler: Display: Metadata set : os="Windows 11 (24H2) [10.0.26100.4770] "
+LogCsvProfiler: Display: Metadata set : cpu="GenuineIntel|12th Gen Intel(R) Core(TM) i7-12700KF"
+LogCsvProfiler: Display: Metadata set : pgoenabled="0"
+LogCsvProfiler: Display: Metadata set : pgoprofilingenabled="0"
+LogCsvProfiler: Display: Metadata set : ltoenabled="0"
+LogCsvProfiler: Display: Metadata set : asan="0"
+LogCsvProfiler: Display: Metadata set : commandline="" "D:\Github\Self Projects\EternalDescent\EternalDescent\EternalDescent.uproject" -ExecCmds="Automation RunTests EternalDescent.Dungeon.FullRoomGeneration; Quit" -unattended -NullRHI -log=QuickProof.log -stdout""
+LogCsvProfiler: Display: Metadata set : loginid="3a4b5dce4dbc6f2eb972aaa016cccf36"
+LogCsvProfiler: Display: Metadata set : llm="0"
+LogAudio: Display: Pre-Initializing Audio Device Manager...
+LogAudio: Display: AudioInfo: 'OPUS' Registered
+LogAudioDebug: Display: Lib vorbis DLL was dynamically loaded.
+LogAudio: Display: AudioInfo: 'OGG' Registered
+LogAudio: Display: AudioInfo: 'ADPCM' Registered
+LogAudio: Display: AudioInfo: 'PCM' Registered
+LogAudio: Display: AudioInfo: 'BINKA' Registered
+LogConfig: Display: Loading Android ini files took 0.07 seconds
+LogAudio: Display: AudioInfo: 'RADA' Registered
+LogAudio: Display: Audio Device Manager Pre-Initialized
+LogConfig: Display: Loading IOS ini files took 0.07 seconds
+LogConfig: Display: Loading VulkanPC ini files took 0.07 seconds
+LogConfig: Display: Loading Mac ini files took 0.07 seconds
+LogConfig: Display: Loading TVOS ini files took 0.08 seconds
+LogConfig: Display: Loading VisionOS ini files took 0.08 seconds
+LogConfig: Display: Loading Windows ini files took 0.08 seconds
+LogConfig: Display: Loading Unix ini files took 0.09 seconds
+LogConfig: Display: Loading LinuxArm64 ini files took 0.09 seconds
+LogConfig: Display: Loading Linux ini files took 0.09 seconds
+LogAssetRegistry: Display: Asset registry cache read as 44.9 MiB from ../../../../../Github/Self Projects/EternalDescent/EternalDescent/Intermediate/CachedAssetRegistry_0.bin
+RenderDocPlugin: Display: RenderDoc plugin will not be loaded. Use '-AttachRenderDoc' on the cmd line or enable 'renderdoc.AutoAttach' in the plugin settings.
+LogStudioTelemetry: Display: Starting StudioTelemetry Module
+LogStreaming: Display: AsyncLoading2 - Created: Event Driven Loader: false, Async Loading Thread: false, Async Post Load: false
+LogStreaming: Display: AsyncLoading2 - Initialized
+[2025.08.08-12.20.54:113][  0]LogHAL: Display: Platform has ~ 32 GB [34212798464 / 34359738368 / 32], which maps to Largest [LargestMinGB=32, LargerMinGB=12, DefaultMinGB=8, SmallerMinGB=6, SmallestMinGB=0)
+[2025.08.08-12.20.54:418][  0]LogCsvProfiler: Display: Metadata set : extradevelopmentmemorymb="0"
+[2025.08.08-12.20.55:266][  0]LogTextureFormatManager: Display: Loaded Base TextureFormat: TextureFormatASTC
+[2025.08.08-12.20.55:266][  0]LogTextureFormatManager: Display: Loaded Base TextureFormat: TextureFormatDXT
+[2025.08.08-12.20.55:266][  0]LogTextureFormatManager: Display: Loaded Base TextureFormat: TextureFormatETC2
+[2025.08.08-12.20.55:266][  0]LogTextureFormatManager: Display: Loaded Base TextureFormat: TextureFormatIntelISPCTexComp
+[2025.08.08-12.20.55:266][  0]LogTextureFormatManager: Display: Loaded Base TextureFormat: TextureFormatUncompressed
+[2025.08.08-12.20.55:266][  0]LogTextureFormatOodle: Display: Oodle Texture TFO init; latest sdk version = 2.9.12
+[2025.08.08-12.20.55:266][  0]LogTextureFormatOodle: Display: Oodle Texture loading DLL: oo2tex_win64_2.9.12.dll
+[2025.08.08-12.20.55:267][  0]LogTextureFormatOodle: Display: Oodle Texture loading DLL: oo2tex_win64_2.9.5.dll
+[2025.08.08-12.20.55:267][  0]LogTextureFormatManager: Display: Loaded Base TextureFormat: TextureFormatOodle
+[2025.08.08-12.20.55:318][  0]LogTargetPlatformManager: Display: Loaded TargetPlatform 'Android'
+[2025.08.08-12.20.55:319][  0]LogTargetPlatformManager: Display: Loaded TargetPlatform 'Android_ASTC'
+[2025.08.08-12.20.55:319][  0]LogTargetPlatformManager: Display: Loaded TargetPlatform 'Android_DXT'
+[2025.08.08-12.20.55:319][  0]LogTargetPlatformManager: Display: Loaded TargetPlatform 'Android_ETC2'
+[2025.08.08-12.20.55:319][  0]LogTargetPlatformManager: Display: Loaded TargetPlatform 'AndroidClient'
+[2025.08.08-12.20.55:319][  0]LogTargetPlatformManager: Display: Loaded TargetPlatform 'Android_ASTCClient'
+[2025.08.08-12.20.55:319][  0]LogTargetPlatformManager: Display: Loaded TargetPlatform 'Android_DXTClient'
+[2025.08.08-12.20.55:319][  0]LogTargetPlatformManager: Display: Loaded TargetPlatform 'Android_ETC2Client'
+[2025.08.08-12.20.55:319][  0]LogTargetPlatformManager: Display: Loaded TargetPlatform 'Android_Multi'
+[2025.08.08-12.20.55:319][  0]LogTargetPlatformManager: Display: Loaded TargetPlatform 'Android_MultiClient'
+[2025.08.08-12.20.55:352][  0]LogTargetPlatformManager: Display: Loaded TargetPlatform 'IOS'
+[2025.08.08-12.20.55:352][  0]LogTargetPlatformManager: Display: Loaded TargetPlatform 'IOSClient'
+[2025.08.08-12.20.55:386][  0]LogTargetPlatformManager: Display: Loaded TargetPlatform 'Linux'
+[2025.08.08-12.20.55:386][  0]LogTargetPlatformManager: Display: Loaded TargetPlatform 'LinuxEditor'
+[2025.08.08-12.20.55:386][  0]LogTargetPlatformManager: Display: Loaded TargetPlatform 'LinuxServer'
+[2025.08.08-12.20.55:386][  0]LogTargetPlatformManager: Display: Loaded TargetPlatform 'LinuxClient'
+[2025.08.08-12.20.55:412][  0]LogTargetPlatformManager: Display: Loaded TargetPlatform 'LinuxArm64'
+[2025.08.08-12.20.55:412][  0]LogTargetPlatformManager: Display: Loaded TargetPlatform 'LinuxArm64Server'
+[2025.08.08-12.20.55:412][  0]LogTargetPlatformManager: Display: Loaded TargetPlatform 'LinuxArm64Client'
+[2025.08.08-12.20.55:440][  0]LogTargetPlatformManager: Display: Loaded TargetPlatform 'Mac'
+[2025.08.08-12.20.55:440][  0]LogTargetPlatformManager: Display: Loaded TargetPlatform 'MacEditor'
+[2025.08.08-12.20.55:440][  0]LogTargetPlatformManager: Display: Loaded TargetPlatform 'MacServer'
+[2025.08.08-12.20.55:440][  0]LogTargetPlatformManager: Display: Loaded TargetPlatform 'MacClient'
+[2025.08.08-12.20.55:475][  0]LogTargetPlatformManager: Display: Loaded TargetPlatform 'TVOS'
+[2025.08.08-12.20.55:475][  0]LogTargetPlatformManager: Display: Loaded TargetPlatform 'TVOSClient'
+[2025.08.08-12.20.55:507][  0]LogTargetPlatformManager: Display: Loaded TargetPlatform 'Windows'
+[2025.08.08-12.20.55:508][  0]LogTargetPlatformManager: Display: Loaded TargetPlatform 'WindowsEditor'
+[2025.08.08-12.20.55:508][  0]LogTargetPlatformManager: Display: Loaded TargetPlatform 'WindowsServer'
+[2025.08.08-12.20.55:508][  0]LogTargetPlatformManager: Display: Loaded TargetPlatform 'WindowsClient'
+[2025.08.08-12.20.55:508][  0]LogTargetPlatformManager: Display: Building Assets For WindowsEditor
+[2025.08.08-12.20.55:591][  0]LogDerivedDataCache: Display: Memory: Max Cache Size: -1 MB
+[2025.08.08-12.20.55:672][  0]LogDerivedDataCache: Display: ../../../Engine/DerivedDataCache/Compressed.ddp: Opened pak cache for reading. (1559 MiB)
+[2025.08.08-12.20.55:675][  0]LogZenServiceInstance: Display: Launching executable 'C:/Users/Corey/AppData/Local/UnrealEngine/Common/Zen/Install/zenserver.exe', working dir 'C:/Users/Corey/AppData/Local/UnrealEngine/Common/Zen/Install', data dir 'C:/Users/Corey/AppData/Local/UnrealEngine/Common/Zen/Data', args '--port 8558 --data-dir "C:\Users\Corey\AppData\Local\UnrealEngine\Common\Zen\Data" --http asio --gc-cache-duration-seconds 1209600 --gc-interval-seconds 21600 --gc-low-diskspace-threshold 2147483648 --quiet --http-forceloopback --owner-pid 54436 --child-id Zen_54436_Startup'
+[2025.08.08-12.20.55:920][  0]LogZenServiceInstance: Display: Unreal Zen Storage Server HTTP service at [::1]:8558 status: OK!.
+[2025.08.08-12.20.55:924][  0]LogDerivedDataCache: Display: ZenLocal: Using ZenServer HTTP service at http://[::1]:8558/ with namespace ue.ddc status: OK!.
+[2025.08.08-12.20.55:933][  0]LogDerivedDataCache: Display: C:/Users/Corey/AppData/Local/UnrealEngine/Common/DerivedDataCache: Performance: Latency=0.03ms. RandomReadSpeed=1219.26MBs, RandomWriteSpeed=118.48MBs. Assigned SpeedClass 'Local'
+[2025.08.08-12.20.55:937][  0]LogShaderCompilers: Display: Using Local Shader Compiler with 10 workers.
+[2025.08.08-12.20.55:942][  0]LogShaderCompilers: Display: Compiling shader autogen file: ../../../../../Github/Self Projects/EternalDescent/EternalDescent/Intermediate/ShaderAutogen/PCD3D_SM6/AutogenShaderHeaders.ush
+[2025.08.08-12.20.55:942][  0]LogShaderCompilers: Display: Autogen file is unchanged, skipping write.
+[2025.08.08-12.20.56:772][  0]LogEditorDomain: Display: EditorDomain is Disabled
+[2025.08.08-12.20.56:773][  0]LogAssetRegistry: Display: AssetDataGatherer spent 0.001s loading caches ../../../../../Github/Self Projects/EternalDescent/EternalDescent/Intermediate/CachedAssetRegistry_*.bin.
+[2025.08.08-12.20.57:020][  0]LogStreaming: Display: FlushAsyncLoading(1): 1 QueuedPackages, 0 AsyncPackages
+[2025.08.08-12.20.57:046][  0]LogDeviceProfileManager: Display: Deviceprofile LinuxArm64Editor not found.
+[2025.08.08-12.20.57:047][  0]LogDeviceProfileManager: Display: Deviceprofile LinuxArm64 not found.
+[2025.08.08-12.20.57:073][  0]LogCsvProfiler: Display: Metadata set : deviceprofile="WindowsEditor"
+[2025.08.08-12.20.57:096][  0]LogStreaming: Display: Flushing package /Engine/Functions/Engine_MaterialFunctions01/Shading/PowerToRoughness (state: WaitingForIo) recursively from another package /Engine/EngineMaterials/WorldGridMaterial (state: CreateLinkerLoadExports) will result in a partially loaded package to avoid a deadlock.
+[2025.08.08-12.20.57:096][  0]LogStreaming: Display: Package /Engine/Functions/Engine_MaterialFunctions01/Shading/PowerToRoughness has reached state ExportsDone > CreateLinkerLoadExports, releasing request 18 to allow recursive sync load to finish
+[2025.08.08-12.20.57:096][  0]LogStreaming: Display: Merging postload groups of package /Engine/Functions/Engine_MaterialFunctions01/Shading/PowerToRoughness with requester package /Engine/EngineMaterials/WorldGridMaterial
+[2025.08.08-12.20.57:096][  0]LogStreaming: Display: Flushing package /Engine/Functions/Engine_MaterialFunctions01/Shading/PowerToRoughness (state: ExportsDone) recursively from another package /Engine/EngineMaterials/WorldGridMaterial (state: CreateLinkerLoadExports) will result in a partially loaded package to avoid a deadlock.
+[2025.08.08-12.20.57:096][  0]LogStreaming: Display: Package /Engine/Functions/Engine_MaterialFunctions01/Shading/PowerToRoughness has reached state ExportsDone > CreateLinkerLoadExports, releasing request 19 to allow recursive sync load to finish
+[2025.08.08-12.20.57:096][  0]LogStreaming: Display: Merging postload groups of package /Engine/Functions/Engine_MaterialFunctions01/Shading/PowerToRoughness with requester package /Engine/EngineMaterials/WorldGridMaterial
+[2025.08.08-12.20.57:096][  0]LogStreaming: Display: Flushing package /Engine/Functions/Engine_MaterialFunctions01/Shading/ConvertFromDiffSpec (state: WaitingForIo) recursively from another package /Engine/EngineMaterials/WorldGridMaterial (state: CreateLinkerLoadExports) will result in a partially loaded package to avoid a deadlock.
+[2025.08.08-12.20.57:097][  0]LogStreaming: Display: Package /Engine/Functions/Engine_MaterialFunctions01/Shading/ConvertFromDiffSpec has reached state ExportsDone > CreateLinkerLoadExports, releasing request 20 to allow recursive sync load to finish
+[2025.08.08-12.20.57:097][  0]LogStreaming: Display: Merging postload groups of package /Engine/Functions/Engine_MaterialFunctions01/Shading/ConvertFromDiffSpec with requester package /Engine/EngineMaterials/WorldGridMaterial
+[2025.08.08-12.20.57:097][  0]LogStreaming: Display: Flushing package /Engine/Functions/Engine_MaterialFunctions01/Shading/ConvertFromDiffSpec (state: ExportsDone) recursively from another package /Engine/EngineMaterials/WorldGridMaterial (state: CreateLinkerLoadExports) will result in a partially loaded package to avoid a deadlock.
+[2025.08.08-12.20.57:097][  0]LogStreaming: Display: Package /Engine/Functions/Engine_MaterialFunctions01/Shading/ConvertFromDiffSpec has reached state ExportsDone > CreateLinkerLoadExports, releasing request 21 to allow recursive sync load to finish
+[2025.08.08-12.20.57:097][  0]LogStreaming: Display: Merging postload groups of package /Engine/Functions/Engine_MaterialFunctions01/Shading/ConvertFromDiffSpec with requester package /Engine/EngineMaterials/WorldGridMaterial
+[2025.08.08-12.20.57:097][  0]LogStreaming: Display: Flushing package /Engine/EngineMaterials/DefaultDeferredDecalMaterial (state: WaitingForIo) recursively from another package /Engine/EngineMaterials/WorldGridMaterial (state: CreateLinkerLoadExports) will result in a partially loaded package to avoid a deadlock.
+[2025.08.08-12.20.57:098][  0]LogStreaming: Display: Flushing package /Engine/Functions/Engine_MaterialFunctions01/Shading/PowerToRoughness (state: ExportsDone) recursively from another package /Engine/EngineMaterials/DefaultDeferredDecalMaterial (state: CreateLinkerLoadExports) will result in a partially loaded package to avoid a deadlock.
+[2025.08.08-12.20.57:098][  0]LogStreaming: Display: Package /Engine/Functions/Engine_MaterialFunctions01/Shading/PowerToRoughness has reached state ExportsDone > CreateLinkerLoadExports, releasing request 23 to allow recursive sync load to finish
+[2025.08.08-12.20.57:098][  0]LogStreaming: Display: Merging postload groups of package /Engine/Functions/Engine_MaterialFunctions01/Shading/PowerToRoughness with requester package /Engine/EngineMaterials/DefaultDeferredDecalMaterial
+[2025.08.08-12.20.57:098][  0]LogStreaming: Display: Flushing package /Engine/Functions/Engine_MaterialFunctions01/Shading/ConvertFromDiffSpec (state: ExportsDone) recursively from another package /Engine/EngineMaterials/DefaultDeferredDecalMaterial (state: CreateLinkerLoadExports) will result in a partially loaded package to avoid a deadlock.
+[2025.08.08-12.20.57:098][  0]LogStreaming: Display: Package /Engine/Functions/Engine_MaterialFunctions01/Shading/ConvertFromDiffSpec has reached state ExportsDone > CreateLinkerLoadExports, releasing request 24 to allow recursive sync load to finish
+[2025.08.08-12.20.57:098][  0]LogStreaming: Display: Merging postload groups of package /Engine/Functions/Engine_MaterialFunctions01/Shading/ConvertFromDiffSpec with requester package /Engine/EngineMaterials/DefaultDeferredDecalMaterial
+[2025.08.08-12.20.57:098][  0]LogStreaming: Display: Flushing package /Engine/EngineMaterials/DefaultLightFunctionMaterial (state: WaitingForIo) recursively from another package /Engine/EngineMaterials/DefaultDeferredDecalMaterial (state: CreateLinkerLoadExports) will result in a partially loaded package to avoid a deadlock.
+[2025.08.08-12.20.57:099][  0]LogStreaming: Display: Flushing package /Engine/Functions/Engine_MaterialFunctions01/Shading/PowerToRoughness (state: ExportsDone) recursively from another package /Engine/EngineMaterials/DefaultLightFunctionMaterial (state: CreateLinkerLoadExports) will result in a partially loaded package to avoid a deadlock.
+[2025.08.08-12.20.57:099][  0]LogStreaming: Display: Package /Engine/Functions/Engine_MaterialFunctions01/Shading/PowerToRoughness has reached state ExportsDone > CreateLinkerLoadExports, releasing request 26 to allow recursive sync load to finish
+[2025.08.08-12.20.57:099][  0]LogStreaming: Display: Merging postload groups of package /Engine/Functions/Engine_MaterialFunctions01/Shading/PowerToRoughness with requester package /Engine/EngineMaterials/DefaultLightFunctionMaterial
+[2025.08.08-12.20.57:099][  0]LogStreaming: Display: Flushing package /Engine/Functions/Engine_MaterialFunctions01/Shading/ConvertFromDiffSpec (state: ExportsDone) recursively from another package /Engine/EngineMaterials/DefaultLightFunctionMaterial (state: CreateLinkerLoadExports) will result in a partially loaded package to avoid a deadlock.
+[2025.08.08-12.20.57:099][  0]LogStreaming: Display: Package /Engine/Functions/Engine_MaterialFunctions01/Shading/ConvertFromDiffSpec has reached state ExportsDone > CreateLinkerLoadExports, releasing request 27 to allow recursive sync load to finish
+[2025.08.08-12.20.57:099][  0]LogStreaming: Display: Merging postload groups of package /Engine/Functions/Engine_MaterialFunctions01/Shading/ConvertFromDiffSpec with requester package /Engine/EngineMaterials/DefaultLightFunctionMaterial
+[2025.08.08-12.20.57:099][  0]LogStreaming: Display: Flushing package /Engine/EngineMaterials/DefaultPostProcessMaterial (state: WaitingForIo) recursively from another package /Engine/EngineMaterials/DefaultLightFunctionMaterial (state: CreateLinkerLoadExports) will result in a partially loaded package to avoid a deadlock.
+[2025.08.08-12.20.57:100][  0]LogStreaming: Display: Merging postload groups of package /Engine/EngineMaterials/DefaultDiffuse with requester package /Engine/EngineMaterials/DefaultLightFunctionMaterial
+[2025.08.08-12.20.57:100][  0]LogStreaming: Display: Flushing package /Engine/Functions/Engine_MaterialFunctions01/Shading/PowerToRoughness (state: ExportsDone) recursively from another package /Engine/EngineMaterials/DefaultPostProcessMaterial (state: CreateLinkerLoadExports) will result in a partially loaded package to avoid a deadlock.
+[2025.08.08-12.20.57:100][  0]LogStreaming: Display: Package /Engine/Functions/Engine_MaterialFunctions01/Shading/PowerToRoughness has reached state ExportsDone > CreateLinkerLoadExports, releasing request 29 to allow recursive sync load to finish
+[2025.08.08-12.20.57:100][  0]LogStreaming: Display: Merging postload groups of package /Engine/Functions/Engine_MaterialFunctions01/Shading/PowerToRoughness with requester package /Engine/EngineMaterials/DefaultPostProcessMaterial
+[2025.08.08-12.20.57:101][  0]LogStreaming: Display: Flushing package /Engine/Functions/Engine_MaterialFunctions01/Shading/ConvertFromDiffSpec (state: ExportsDone) recursively from another package /Engine/EngineMaterials/DefaultPostProcessMaterial (state: CreateLinkerLoadExports) will result in a partially loaded package to avoid a deadlock.
+[2025.08.08-12.20.57:101][  0]LogStreaming: Display: Package /Engine/Functions/Engine_MaterialFunctions01/Shading/ConvertFromDiffSpec has reached state ExportsDone > CreateLinkerLoadExports, releasing request 30 to allow recursive sync load to finish
+[2025.08.08-12.20.57:101][  0]LogStreaming: Display: Merging postload groups of package /Engine/Functions/Engine_MaterialFunctions01/Shading/ConvertFromDiffSpec with requester package /Engine/EngineMaterials/DefaultPostProcessMaterial
+[2025.08.08-12.20.57:101][  0]LogStreaming: Display: Merging postload groups of package /Engine/Functions/Engine_MaterialFunctions02/Utility/BreakOutFloat2Components with requester package /Engine/EngineMaterials/DefaultLightFunctionMaterial
+[2025.08.08-12.20.57:102][  0]LogStreaming: Display: Package /Engine/EngineMaterials/DefaultPostProcessMaterial has reached state ExportsDone > CreateLinkerLoadExports, releasing request 28 to allow recursive sync load to finish
+[2025.08.08-12.20.57:102][  0]LogStreaming: Display: Merging postload groups of package /Engine/EngineMaterials/DefaultPostProcessMaterial with requester package /Engine/EngineMaterials/DefaultLightFunctionMaterial
+[2025.08.08-12.20.57:102][  0]LogStreaming: Display: Flushing package /Engine/EngineMaterials/DefaultPostProcessMaterial (state: ExportsDone) recursively from another package /Engine/EngineMaterials/DefaultLightFunctionMaterial (state: CreateLinkerLoadExports) will result in a partially loaded package to avoid a deadlock.
+[2025.08.08-12.20.57:102][  0]LogStreaming: Display: Package /Engine/EngineMaterials/DefaultPostProcessMaterial has reached state ExportsDone > CreateLinkerLoadExports, releasing request 31 to allow recursive sync load to finish
+[2025.08.08-12.20.57:102][  0]LogStreaming: Display: Merging postload groups of package /Engine/EngineMaterials/DefaultPostProcessMaterial with requester package /Engine/EngineMaterials/DefaultLightFunctionMaterial
+[2025.08.08-12.20.57:102][  0]LogStreaming: Display: Package /Engine/EngineMaterials/DefaultLightFunctionMaterial has reached state ExportsDone > CreateLinkerLoadExports, releasing request 25 to allow recursive sync load to finish
+[2025.08.08-12.20.57:102][  0]LogStreaming: Display: Merging postload groups of package /Engine/EngineMaterials/DefaultLightFunctionMaterial with requester package /Engine/EngineMaterials/DefaultDeferredDecalMaterial
+[2025.08.08-12.20.57:103][  0]LogStreaming: Display: Flushing package /Engine/EngineMaterials/DefaultLightFunctionMaterial (state: ExportsDone) recursively from another package /Engine/EngineMaterials/DefaultDeferredDecalMaterial (state: CreateLinkerLoadExports) will result in a partially loaded package to avoid a deadlock.
+[2025.08.08-12.20.57:103][  0]LogStreaming: Display: Package /Engine/EngineMaterials/DefaultLightFunctionMaterial has reached state ExportsDone > CreateLinkerLoadExports, releasing request 32 to allow recursive sync load to finish
+[2025.08.08-12.20.57:103][  0]LogStreaming: Display: Merging postload groups of package /Engine/EngineMaterials/DefaultLightFunctionMaterial with requester package /Engine/EngineMaterials/DefaultDeferredDecalMaterial
+[2025.08.08-12.20.57:103][  0]LogStreaming: Display: Package /Engine/EngineMaterials/DefaultDeferredDecalMaterial has reached state ExportsDone > CreateLinkerLoadExports, releasing request 22 to allow recursive sync load to finish
+[2025.08.08-12.20.57:103][  0]LogStreaming: Display: Merging postload groups of package /Engine/EngineMaterials/DefaultDeferredDecalMaterial with requester package /Engine/EngineMaterials/WorldGridMaterial
+[2025.08.08-12.20.57:103][  0]LogStreaming: Display: Flushing package /Engine/EngineMaterials/DefaultDeferredDecalMaterial (state: ExportsDone) recursively from another package /Engine/EngineMaterials/WorldGridMaterial (state: CreateLinkerLoadExports) will result in a partially loaded package to avoid a deadlock.
+[2025.08.08-12.20.57:103][  0]LogStreaming: Display: Package /Engine/EngineMaterials/DefaultDeferredDecalMaterial has reached state ExportsDone > CreateLinkerLoadExports, releasing request 33 to allow recursive sync load to finish
+[2025.08.08-12.20.57:103][  0]LogStreaming: Display: Merging postload groups of package /Engine/EngineMaterials/DefaultDeferredDecalMaterial with requester package /Engine/EngineMaterials/WorldGridMaterial
+[2025.08.08-12.20.57:142][  0]LogMeshReduction: Display: Using QuadricMeshReduction for automatic static mesh reduction
+[2025.08.08-12.20.57:142][  0]LogMeshReduction: Display: Using SkeletalMeshReduction for automatic skeletal mesh reduction
+[2025.08.08-12.20.57:142][  0]LogMeshReduction: Display: Using ProxyLODMeshReduction for automatic mesh merging
+[2025.08.08-12.20.57:142][  0]LogMeshReduction: Display: No distributed automatic mesh merging module available
+[2025.08.08-12.20.57:175][  0]LogTextureEncodingSettings: Display: Texture Encode Speed: FinalIfAvailable (editor).
+[2025.08.08-12.20.57:175][  0]LogTextureEncodingSettings: Display: Oodle Texture Encode Speed settings: Fast: RDO Off Lambda=0, Effort=Normal Final: RDO Off Lambda=0, Effort=Normal
+[2025.08.08-12.20.57:175][  0]LogTextureEncodingSettings: Display: Shared linear texture encoding: Disabled
+[2025.08.08-12.20.57:419][  0]LogVirtualization: Display: VirtualizationSystem name found in ini file: None
+[2025.08.08-12.20.57:419][  0]LogVirtualization: Display: FNullVirtualizationSystem mounted, virtualization will be disabled
+[2025.08.08-12.20.57:526][  0]LogWorldPartition: Display: FWorldPartitionClassDescRegistry::Initialize started...
+[2025.08.08-12.20.57:528][  0]LogWorldPartition: Display: FWorldPartitionClassDescRegistry::Initialize took 2.044 ms
+[2025.08.08-12.20.57:708][  0]LogUdpMessaging: Display: Work queue size set to 1024.
+[2025.08.08-12.20.57:709][  0]LogUdpMessaging: Display: Unicast socket bound to '0.0.0.0:55862'.
+[2025.08.08-12.20.57:712][  0]LogUdpMessaging: Display: Added local interface '192.168.50.150' to multicast group '230.0.0.1:6666'
+[2025.08.08-12.20.58:243][  0]LogMetaSound: Display: MetaSound Page Target Initialized to 'Default'
+[2025.08.08-12.20.58:244][  0]LogAudio: Display: Registering Engine Module Parameter Interfaces...
+[2025.08.08-12.20.59:575][  0]LogTemp: Warning: Components initialized - Plane Instances: Valid, Cube Instances: Valid
+[2025.08.08-12.20.59:575][  0]LogTemp: Warning: Grid Size: 10x10, Cell Size: 350.0
+[2025.08.08-12.20.59:575][  0]LogTemp: Warning: Wall Cube Size: 100.0% of cell
+[2025.08.08-12.20.59:856][  0]LogAudioCaptureCore: Display: No Audio Capture implementations found. Audio input will be silent.
+[2025.08.08-12.20.59:856][  0]LogAudioCaptureCore: Display: No Audio Capture implementations found. Audio input will be silent.
+[2025.08.08-12.21.00:919][  0]LogFab: Display: Logging in using persist
+[2025.08.08-12.21.01:047][  0]LogStreaming: Display: AsyncLoading2 - NotifyRegistrationComplete: Registered 39465 public script object entries (1058.53 KB)
+[2025.08.08-12.21.01:047][  0]LogStreaming: Display: AsyncLoading2 - Thread Started: false, IsInitialLoad: false
+[2025.08.08-12.21.01:149][  0]LogClass: Error: EnumProperty FADAMessage::Mood is not initialized properly. Module:EternalDescent File:Public/ADASystem.h
+[2025.08.08-12.21.01:149][  0]LogClass: Error: StructProperty FADAMessage::MessageColor is not initialized properly. Module:EternalDescent File:Public/ADASystem.h
+[2025.08.08-12.21.01:149][  0]LogClass: Error: ObjectProperty FRoomMeshSet::FloorMesh is not initialized properly. Module:EternalDescent File:Public/DungeonVisualizer.h
+[2025.08.08-12.21.01:149][  0]LogClass: Error: ObjectProperty FRoomMeshSet::WallMesh is not initialized properly. Module:EternalDescent File:Public/DungeonVisualizer.h
+[2025.08.08-12.21.01:149][  0]LogClass: Error: ObjectProperty FRoomMeshSet::CeilingMesh is not initialized properly. Module:EternalDescent File:Public/DungeonVisualizer.h
+[2025.08.08-12.21.01:149][  0]LogClass: Error: ObjectProperty FRoomMeshSet::DoorFrameMesh is not initialized properly. Module:EternalDescent File:Public/DungeonVisualizer.h
+[2025.08.08-12.21.01:149][  0]LogClass: Error: ObjectProperty FRoomMeshSet::PillarMesh is not initialized properly. Module:EternalDescent File:Public/DungeonVisualizer.h
+[2025.08.08-12.21.01:149][  0]LogClass: Error: IntProperty FRoomVisualData::RoomID is not initialized properly. Module:EternalDescent File:Public/DungeonVisualizer.h
+[2025.08.08-12.21.01:149][  0]LogClass: Error: StructProperty FRoomVisualData::WorldPosition is not initialized properly. Module:EternalDescent File:Public/DungeonVisualizer.h
+[2025.08.08-12.21.01:149][  0]LogClass: Error: StructProperty FRoomVisualData::RoomSize is not initialized properly. Module:EternalDescent File:Public/DungeonVisualizer.h
+[2025.08.08-12.21.01:149][  0]LogClass: Error: EnumProperty FRoomVisualData::RoomType is not initialized properly. Module:EternalDescent File:Public/DungeonVisualizer.h
+[2025.08.08-12.21.01:152][  0]LogClass: Error: BoolProperty FFabAssetMetadata::IsQuixel is not initialized properly. Module:Fab File:Private/FabBrowserApi.h
+[2025.08.08-12.21.01:152][  0]LogClass: Display: 12 Uninitialized script struct members found including 5 object properties
+[2025.08.08-12.21.01:227][  0]LogAutomationTest: Error: LogClass: EnumProperty FADAMessage::Mood is not initialized properly. Module:EternalDescent File:Public/ADASystem.h
+[2025.08.08-12.21.01:227][  0]LogAutomationTest: Error: LogClass: StructProperty FADAMessage::MessageColor is not initialized properly. Module:EternalDescent File:Public/ADASystem.h
+[2025.08.08-12.21.01:227][  0]LogAutomationTest: Error: LogClass: ObjectProperty FRoomMeshSet::FloorMesh is not initialized properly. Module:EternalDescent File:Public/DungeonVisualizer.h
+[2025.08.08-12.21.01:227][  0]LogAutomationTest: Error: LogClass: ObjectProperty FRoomMeshSet::WallMesh is not initialized properly. Module:EternalDescent File:Public/DungeonVisualizer.h
+[2025.08.08-12.21.01:227][  0]LogAutomationTest: Error: LogClass: ObjectProperty FRoomMeshSet::CeilingMesh is not initialized properly. Module:EternalDescent File:Public/DungeonVisualizer.h
+[2025.08.08-12.21.01:227][  0]LogAutomationTest: Error: LogClass: ObjectProperty FRoomMeshSet::DoorFrameMesh is not initialized properly. Module:EternalDescent File:Public/DungeonVisualizer.h
+[2025.08.08-12.21.01:227][  0]LogAutomationTest: Error: LogClass: ObjectProperty FRoomMeshSet::PillarMesh is not initialized properly. Module:EternalDescent File:Public/DungeonVisualizer.h
+[2025.08.08-12.21.01:227][  0]LogAutomationTest: Error: LogClass: IntProperty FRoomVisualData::RoomID is not initialized properly. Module:EternalDescent File:Public/DungeonVisualizer.h
+[2025.08.08-12.21.01:227][  0]LogAutomationTest: Error: LogClass: StructProperty FRoomVisualData::WorldPosition is not initialized properly. Module:EternalDescent File:Public/DungeonVisualizer.h
+[2025.08.08-12.21.01:227][  0]LogAutomationTest: Error: LogClass: StructProperty FRoomVisualData::RoomSize is not initialized properly. Module:EternalDescent File:Public/DungeonVisualizer.h
+[2025.08.08-12.21.01:227][  0]LogAutomationTest: Error: LogClass: EnumProperty FRoomVisualData::RoomType is not initialized properly. Module:EternalDescent File:Public/DungeonVisualizer.h
+[2025.08.08-12.21.01:227][  0]LogAutomationTest: Error: LogClass: BoolProperty FFabAssetMetadata::IsQuixel is not initialized properly. Module:Fab File:Private/FabBrowserApi.h
+[2025.08.08-12.21.01:320][  0]LogAnalytics: Display: [UEEditor.Rocket.Release] APIServer = https://datarouter.ol.epicgames.com/datarouter/api/v1/public/data. AppVersion = 5.5.4-40574608+++UE5+Release-5.5
+[2025.08.08-12.21.01:335][  0]LogAudio: Display: Initializing Audio Device Manager...
+[2025.08.08-12.21.01:348][  0]LogAudio: Display: Loading Default Audio Settings Objects...
+[2025.08.08-12.21.01:349][  0]LogAudio: Display: No default SoundConcurrencyObject specified (or failed to load).
+[2025.08.08-12.21.01:350][  0]LogAudio: Display: Audio Device Manager Initialized
+[2025.08.08-12.21.01:350][  0]LogAudio: Display: Creating Audio Device:                 Id: 1, Scope: Shared, Realtime: True
+[2025.08.08-12.21.01:350][  0]LogAudioMixer: Display: Audio Mixer Platform Settings:
+[2025.08.08-12.21.01:350][  0]LogAudioMixer: Display: 	Sample Rate:						  48000
+[2025.08.08-12.21.01:350][  0]LogAudioMixer: Display: 	Callback Buffer Frame Size Requested: 1024
+[2025.08.08-12.21.01:350][  0]LogAudioMixer: Display: 	Callback Buffer Frame Size To Use:	  1024
+[2025.08.08-12.21.01:350][  0]LogAudioMixer: Display: 	Number of buffers to queue:			  1
+[2025.08.08-12.21.01:350][  0]LogAudioMixer: Display: 	Max Channels (voices):				  32
+[2025.08.08-12.21.01:350][  0]LogAudioMixer: Display: 	Number of Async Source Workers:		  4
+[2025.08.08-12.21.01:350][  0]LogAudio: Display: AudioDevice MaxSources: 32
+[2025.08.08-12.21.01:350][  0]LogAudio: Display: Audio Spatialization Plugin: None (built-in).
+[2025.08.08-12.21.01:350][  0]LogAudio: Display: Audio Reverb Plugin: None (built-in).
+[2025.08.08-12.21.01:350][  0]LogAudio: Display: Audio Occlusion Plugin: None (built-in).
+[2025.08.08-12.21.01:359][  0]LogAudioMixer: Display: Initializing audio mixer using platform API: 'XAudio2'
+[2025.08.08-12.21.01:449][  0]LogAudioMixer: Display: Using Audio Hardware Device SteelSeries Sonar - Gaming (SteelSeries Sonar Virtual Audio Device)
+[2025.08.08-12.21.01:450][  0]LogAudioMixer: Display: Initializing Sound Submixes...
+[2025.08.08-12.21.01:452][  0]LogAudioMixer: Display: Creating Master Submix 'MasterSubmixDefault'
+[2025.08.08-12.21.01:453][  0]LogAudioMixer: Display: Creating Master Submix 'MasterReverbSubmixDefault'
+[2025.08.08-12.21.01:454][  0]LogAudioMixer: Display: Output buffers initialized: Frames=1024, Channels=8, Samples=8192, InstanceID=1
+[2025.08.08-12.21.01:459][  0]LogAudioMixer: Display: Starting AudioMixerPlatformInterface::RunInternal(), InstanceID=1
+[2025.08.08-12.21.01:460][  0]LogAudioMixer: Display: FMixerPlatformXAudio2::SubmitBuffer() called for the first time. InstanceID=1
+[2025.08.08-12.21.01:460][  0]LogAudio: Display: Audio Device (ID: 1) registered with world 'Untitled'.
+[2025.08.08-12.21.01:468][  0]LogCsvProfiler: Display: Metadata set : largeworldcoordinates="1"
+[2025.08.08-12.21.01:495][  0]LogSourceControl: Display: Uncontrolled Changelist persistency file loaded ../../../../../Github/Self Projects/EternalDescent/EternalDescent/Saved/SourceControl/UncontrolledChangelists.json
+[2025.08.08-12.21.03:145][  0]LogPython: Display: No enabled plugins with python dependencies found, skipping
+[2025.08.08-12.21.03:427][  0]LogInit: Display: Engine is initialized. Leaving FEngineLoop::Init()
+[2025.08.08-12.21.03:450][  0]LogAudio: Display: Audio Device unregistered from world 'None'.
+[2025.08.08-12.21.03:464][  0]LogAudio: Display: Audio Device (ID: 1) registered with world 'ThirdPersonMap'.
+[2025.08.08-12.21.03:467][  0]LogAssetRegistry: Display: Triggering cache save on discovery complete
+[2025.08.08-12.21.03:467][  0]LogWorldPartition: Display: WorldPartition initialize started...
+[2025.08.08-12.21.03:490][  0]LogTemp: Warning: Components initialized - Plane Instances: Valid, Cube Instances: Valid
+[2025.08.08-12.21.03:490][  0]LogTemp: Warning: Grid Size: 10x10, Cell Size: 350.0
+[2025.08.08-12.21.03:490][  0]LogTemp: Warning: Wall Cube Size: 100.0% of cell
+[2025.08.08-12.21.03:491][  0]LogTemp: Warning: Components initialized - Plane Instances: Valid, Cube Instances: Valid
+[2025.08.08-12.21.03:491][  0]LogTemp: Warning: Grid Size: 10x10, Cell Size: 350.0
+[2025.08.08-12.21.03:491][  0]LogTemp: Warning: Wall Cube Size: 100.0% of cell
+[2025.08.08-12.21.03:492][  0]LogTemp: Warning: Components initialized - Plane Instances: Valid, Cube Instances: Valid
+[2025.08.08-12.21.03:492][  0]LogTemp: Warning: Grid Size: 10x10, Cell Size: 350.0
+[2025.08.08-12.21.03:492][  0]LogTemp: Warning: Wall Cube Size: 100.0% of cell
+[2025.08.08-12.21.03:495][  0]LogStaticMesh: Warning: HierarchicalInstancedStaticMeshComponent /Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.BP_Dungeon_C_UAID_4C034F14ED345E8302_1429547376.HISM_Planes has 8 instances, and 0 NumCustomDataFloats, but has 8 PerInstanceSMCustomData.  Allocating 0 custom floats to match.
+[2025.08.08-12.21.03:499][  0]LogWorldPartition: Display: WorldPartition initialize took 32.100 ms
+[2025.08.08-12.21.03:863][  0]LogPakFile: Display: Mounted Pak file 'D:/Epic Games/UE_5.5/FeaturePacks/StarterContent.upack', mount point: 'root:/'
+[2025.08.08-12.21.03:864][  0]LogPakFile: Display: Mounted Pak file 'D:/Epic Games/UE_5.5/FeaturePacks/TP_FirstPerson.upack', mount point: 'root:/'
+[2025.08.08-12.21.03:865][  0]LogPakFile: Display: Mounted Pak file 'D:/Epic Games/UE_5.5/FeaturePacks/TP_FirstPersonBP.upack', mount point: 'root:/'
+[2025.08.08-12.21.03:866][  0]LogPakFile: Display: Mounted Pak file 'D:/Epic Games/UE_5.5/FeaturePacks/TP_HandheldARBP.upack', mount point: 'root:/'
+[2025.08.08-12.21.03:867][  0]LogPakFile: Display: Mounted Pak file 'D:/Epic Games/UE_5.5/FeaturePacks/TP_ThirdPerson.upack', mount point: 'root:/'
+[2025.08.08-12.21.03:867][  0]LogPakFile: Display: Mounted Pak file 'D:/Epic Games/UE_5.5/FeaturePacks/TP_ThirdPersonBP.upack', mount point: 'root:/'
+[2025.08.08-12.21.03:868][  0]LogPakFile: Display: Mounted Pak file 'D:/Epic Games/UE_5.5/FeaturePacks/TP_TopDown.upack', mount point: 'root:/'
+[2025.08.08-12.21.03:869][  0]LogPakFile: Display: Mounted Pak file 'D:/Epic Games/UE_5.5/FeaturePacks/TP_TopDownBP.upack', mount point: 'root:/'
+[2025.08.08-12.21.03:870][  0]LogPakFile: Display: Mounted Pak file 'D:/Epic Games/UE_5.5/FeaturePacks/TP_VehicleAdvBP.upack', mount point: 'root:/'
+[2025.08.08-12.21.03:870][  0]LogPakFile: Display: Mounted Pak file 'D:/Epic Games/UE_5.5/FeaturePacks/TP_VirtualRealityBP.upack', mount point: 'root:/'
+[2025.08.08-12.21.04:333][  0]LogPython: Display: Running start-up script D:/Epic Games/UE_5.5/Engine/Plugins/Animation/ControlRig/Content/Python/init_unreal.py... started...
+[2025.08.08-12.21.04:372][  0]LogAssetRegistry: Display: Asset registry cache written as 44.9 MiB to ../../../../../Github/Self Projects/EternalDescent/EternalDescent/Intermediate/CachedAssetRegistry_*.bin
+[2025.08.08-12.21.04:465][  0]LogPython: Display: Running start-up script D:/Epic Games/UE_5.5/Engine/Plugins/Animation/ControlRig/Content/Python/init_unreal.py... took 131.997 ms
+[2025.08.08-12.21.04:690][  1]LogAutomationCommandLine: Display: Ready to start automation
+[2025.08.08-12.21.06:493][214]LogFab: Display: User logged in
+[2025.08.08-12.21.06:493][214]LogFab: Display: User client id: xyza7891REBVsEqSJRRNXmlS7EQHM459
+[2025.08.08-12.21.06:753][245]LogEOSSDK: Warning: LogEOS: Error response received from backend. ServiceName=[Friend], OperationName=[GetBlockList], Url=[<Redacted>], HttpStatus=[403], ErrorCode=[errors.com.epicgames.common.insufficient_scopes], NumericErrorCode=[1056], ErrorMessage=[Insufficient access scopes. Expected: [friends_list]], CorrId=[EOS-QjDumL4Ma0CRn25w2zMXUw-OjkdQsxH4EW_wmqpdfQlvQ]
+[2025.08.08-12.21.10:733][600]LogAutomationCommandLine: Display: Found 1 automation tests based on 'EternalDescent.Dungeon.FullRoomGeneration'
+[2025.08.08-12.21.10:733][600]LogAutomationCommandLine: Display: 	EternalDescent.Dungeon.FullRoomGeneration
+[2025.08.08-12.21.10:739][600]LogAutomationController: Display: Clearing ../../../../../Github/Self Projects/EternalDescent/EternalDescent/Saved/Automation/Logs/ and ../../../../../Github/Self Projects/EternalDescent/EternalDescent/Saved/Automation/Tmp/
+[2025.08.08-12.21.10:741][600]LogAutomationController: Display: Test Started. Name={FullRoomGeneration} Path={EternalDescent.Dungeon.FullRoomGeneration}
+[2025.08.08-12.21.10:744][601]LogTemp: Warning: ========================================
+[2025.08.08-12.21.10:744][601]LogTemp: Warning: FULL ROOM GENERATION TEST
+[2025.08.08-12.21.10:744][601]LogTemp: Warning: ========================================
+[2025.08.08-12.21.10:744][601]LogTemp: Warning: 
+[2025.08.08-12.21.10:744][601]LogTemp: Warning: === TEST 1: 30x30 GRID (Expecting 25 rooms) ===
+[2025.08.08-12.21.10:748][601]LogTemp: Warning: Components initialized - Plane Instances: Valid, Cube Instances: Valid
+[2025.08.08-12.21.10:748][601]LogTemp: Warning: Grid Size: 10x10, Cell Size: 350.0
+[2025.08.08-12.21.10:748][601]LogTemp: Warning: Wall Cube Size: 100.0% of cell
+[2025.08.08-12.21.10:748][601]LogTemp: Warning: Testing GridDungeonVisualizer with 30x30 grid
+[2025.08.08-12.21.10:748][601]LogTemp: Warning: ?? Generating dungeon with seed: 12345
+[2025.08.08-12.21.10:748][601]LogTemp: Warning: ?? Initializing grid: 30x30
+[2025.08.08-12.21.10:748][601]LogTemp: Warning: ? Grid initialized with 900 cells
+[2025.08.08-12.21.10:748][601]LogTemp: Warning: ?? 25-ROOM CHALLENGE: Grid size 30x30 (minimum 15 required)
+[2025.08.08-12.21.10:748][601]LogTemp: Warning: ?? MAIN DUNGEON SIZE DETECTED: Targeting exactly 25 rooms!
+[2025.08.08-12.21.10:748][601]LogTemp: Warning: [S] START ROOM #1 (2x2) at (1,1) to (2,2)
+[2025.08.08-12.21.10:748][601]LogTemp: Warning: ?? EXPANDING GRID: 30x30 -> 35x35 for 25 rooms
+[2025.08.08-12.21.10:748][601]LogTemp: Warning: ?? Initializing grid: 35x35
+[2025.08.08-12.21.10:748][601]LogTemp: Warning: ? Grid initialized with 1225 cells
+[2025.08.08-12.21.10:748][601]LogTemp: Warning: ?? GUARANTEED 25-ROOM SYSTEM: 35x35 grid
+[2025.08.08-12.21.10:748][601]LogTemp: Warning: ?? Generated 24 planned positions for 24 target rooms
+[2025.08.08-12.21.10:748][601]LogTemp: Warning: [R] MAIN Room #2: 2x2 SMALL at (22,7)
+[2025.08.08-12.21.10:748][601]LogTemp: Warning: [R] MAIN Room #3: 2x2 SMALL at (22,17)
+[2025.08.08-12.21.10:748][601]LogTemp: Warning: [R] MAIN Room #4: 2x2 SMALL at (12,22)
+[2025.08.08-12.21.10:748][601]LogTemp: Warning: [R] MAIN Room #5: 3x3 MEDIUM at (12,2)
+[2025.08.08-12.21.10:748][601]LogTemp: Warning: [R] MAIN Room #6: 2x2 SMALL at (7,2)
+[2025.08.08-12.21.10:748][601]LogTemp: Warning: [R] MAIN Room #7: 2x2 SMALL at (2,7)
+[2025.08.08-12.21.10:748][601]LogTemp: Warning: [R] MAIN Room #8: 4x4 ELITE at (2,12)
+[2025.08.08-12.21.10:748][601]LogTemp: Warning: [R] MAIN Room #9: 3x3 MEDIUM at (17,12)
+[2025.08.08-12.21.10:748][601]LogTemp: Warning: [R] MAIN Room #10: 2x2 SMALL at (2,22)
+[2025.08.08-12.21.10:748][601]LogTemp: Warning: [R] MAIN Room #11: 2x2 SMALL at (12,17)
+[2025.08.08-12.21.10:748][601]LogTemp: Warning: [R] MAIN Room #12: 4x4 ELITE at (12,12)
+[2025.08.08-12.21.10:748][601]LogTemp: Warning: [R] MAIN Room #13: 2x2 SMALL at (17,7)
+[2025.08.08-12.21.10:748][601]LogTemp: Warning: [R] MAIN Room #14: 3x3 MEDIUM at (22,22)
+[2025.08.08-12.21.10:748][601]LogTemp: Warning: [R] MAIN Room #15: 2x2 SMALL at (12,7)
+[2025.08.08-12.21.10:748][601]LogTemp: Warning: Cube (1,0): Pos(350.0,0.0,175.0) Scale:3.50 Size:350.0
+[2025.08.08-12.21.10:748][601]LogTemp: Warning: Cube (2,0): Pos(700.0,0.0,175.0) Scale:3.50 Size:350.0
+[2025.08.08-12.21.10:748][601]LogTemp: Warning: Cube (3,0): Pos(1050.0,0.0,175.0) Scale:3.50 Size:350.0
+[2025.08.08-12.21.10:748][601]LogTemp: Warning: Cube (4,0): Pos(1400.0,0.0,175.0) Scale:3.50 Size:350.0
+[2025.08.08-12.21.10:748][601]LogTemp: Warning: Cube (5,0): Pos(1750.0,0.0,175.0) Scale:3.50 Size:350.0
+[2025.08.08-12.21.10:748][601]LogTemp: Warning: Cube (6,0): Pos(2100.0,0.0,175.0) Scale:3.50 Size:350.0
+[2025.08.08-12.21.10:748][601]LogTemp: Warning: Cube (7,0): Pos(2450.0,0.0,175.0) Scale:3.50 Size:350.0
+[2025.08.08-12.21.10:748][601]LogTemp: Warning: Cube (8,0): Pos(2800.0,0.0,175.0) Scale:3.50 Size:350.0
+[2025.08.08-12.21.10:748][601]LogTemp: Warning: Cube (9,0): Pos(3150.0,0.0,175.0) Scale:3.50 Size:350.0
+[2025.08.08-12.21.10:748][601]LogTemp: Warning: Cube (10,0): Pos(3500.0,0.0,175.0) Scale:3.50 Size:350.0
+[2025.08.08-12.21.10:748][601]LogTemp: Warning: Cube (11,0): Pos(3850.0,0.0,175.0) Scale:3.50 Size:350.0
+[2025.08.08-12.21.10:748][601]LogTemp: Warning: Cube (12,0): Pos(4200.0,0.0,175.0) Scale:3.50 Size:350.0
+[2025.08.08-12.21.10:748][601]LogTemp: Warning: Cube (13,0): Pos(4550.0,0.0,175.0) Scale:3.50 Size:350.0
+[2025.08.08-12.21.10:748][601]LogTemp: Warning: Cube (14,0): Pos(4900.0,0.0,175.0) Scale:3.50 Size:350.0
+[2025.08.08-12.21.10:748][601]LogTemp: Warning: Cube (15,0): Pos(5250.0,0.0,175.0) Scale:3.50 Size:350.0
+[2025.08.08-12.21.10:748][601]LogTemp: Warning: Cube (16,0): Pos(5600.0,0.0,175.0) Scale:3.50 Size:350.0
+[2025.08.08-12.21.10:748][601]LogTemp: Warning: Cube (17,0): Pos(5950.0,0.0,175.0) Scale:3.50 Size:350.0
+[2025.08.08-12.21.10:748][601]LogTemp: Warning: Cube (18,0): Pos(6300.0,0.0,175.0) Scale:3.50 Size:350.0
+[2025.08.08-12.21.10:748][601]LogTemp: Warning: Cube (19,0): Pos(6650.0,0.0,175.0) Scale:3.50 Size:350.0
+[2025.08.08-12.21.10:748][601]LogTemp: Warning: Cube (20,0): Pos(7000.0,0.0,175.0) Scale:3.50 Size:350.0
+[2025.08.08-12.21.10:748][601]LogTemp: Warning: Cube (21,0): Pos(7350.0,0.0,175.0) Scale:3.50 Size:350.0
+[2025.08.08-12.21.10:748][601]LogTemp: Warning: Cube (22,0): Pos(7700.0,0.0,175.0) Scale:3.50 Size:350.0
+[2025.08.08-12.21.10:748][601]LogTemp: Warning: Cube (23,0): Pos(8050.0,0.0,175.0) Scale:3.50 Size:350.0
+[2025.08.08-12.21.10:748][601]LogTemp: Warning: Cube (24,0): Pos(8400.0,0.0,175.0) Scale:3.50 Size:350.0
+[2025.08.08-12.21.10:748][601]LogTemp: Warning: Cube (25,0): Pos(8750.0,0.0,175.0) Scale:3.50 Size:350.0
+[2025.08.08-12.21.10:749][601]LogTemp: Warning: Cube (26,0): Pos(9100.0,0.0,175.0) Scale:3.50 Size:350.0
+[2025.08.08-12.21.10:749][601]LogTemp: Warning: Cube (27,0): Pos(9450.0,0.0,175.0) Scale:3.50 Size:350.0
+[2025.08.08-12.21.10:749][601]LogTemp: Warning: Cube (28,0): Pos(9800.0,0.0,175.0) Scale:3.50 Size:350.0
+[2025.08.08-12.21.10:749][601]LogTemp: Warning: Cube (29,0): Pos(10150.0,0.0,175.0) Scale:3.50 Size:350.0
+[2025.08.08-12.21.10:749][601]LogTemp: Warning: Cube (30,0): Pos(10500.0,0.0,175.0) Scale:3.50 Size:350.0
+[2025.08.08-12.21.10:749][601]LogTemp: Warning: Cube (31,0): Pos(10850.0,0.0,175.0) Scale:3.50 Size:350.0
+[2025.08.08-12.21.10:749][601]LogTemp: Warning: Cube (32,0): Pos(11200.0,0.0,175.0) Scale:3.50 Size:350.0
+[2025.08.08-12.21.10:749][601]LogTemp: Warning: Cube (33,0): Pos(11550.0,0.0,175.0) Scale:3.50 Size:350.0
+[2025.08.08-12.21.10:749][601]LogTemp: Warning: Cube (34,0): Pos(11900.0,0.0,175.0) Scale:3.50 Size:350.0
+[2025.08.08-12.21.10:749][601]LogTemp: Warning: [R] MAIN Room #16: 3x3 MEDIUM at (7,12)
+[2025.08.08-12.21.10:749][601]LogTemp: Warning: [R] MAIN Room #17: 2x2 SMALL at (7,22)
+[2025.08.08-12.21.10:749][601]LogTemp: Warning: [R] MAIN Room #18: 4x4 ELITE at (17,2)
+[2025.08.08-12.21.10:749][601]LogTemp: Warning: [E] MAIN Room #19: 3x3 END at (7,17)
+[2025.08.08-12.21.10:749][601]LogTemp: Warning: ?? Adding 6 branch rooms to reach 25 total
+[2025.08.08-12.21.10:749][601]LogTemp: Warning: [B] BRANCH Room #20: 2x2 SMALL at (17,22) - connects to Room #4
+[2025.08.08-12.21.10:749][601]LogTemp: Warning: [B] BRANCH Room #21: 2x2 SMALL at (22,2) - connects to Room #2
+[2025.08.08-12.21.10:749][601]LogTemp: Warning: [B] BRANCH Room #22: 2x2 SMALL at (2,17) - connects to Room #8
+[2025.08.08-12.21.10:749][601]LogTemp: Warning: [B] BRANCH Room #23: 2x2 SMALL at (17,17) - connects to Room #3
+[2025.08.08-12.21.10:749][601]LogTemp: Warning: [B] BRANCH Room #24: 2x2 SMALL at (22,12) - connects to Room #2
+[2025.08.08-12.21.10:749][601]LogTemp: Warning: [B] BRANCH Room #25: 2x2 SMALL at (7,7) - connects to Room #6
+[2025.08.08-12.21.10:749][601]LogTemp: Warning: \n?? GUARANTEED 25-ROOM GENERATION COMPLETE!
+[2025.08.08-12.21.10:749][601]LogTemp: Warning: ?? FINAL RESULT: 25/25 rooms generated!
+[2025.08.08-12.21.10:749][601]LogTemp: Warning: ? SUCCESS: Exactly 25 rooms as requested!
+[2025.08.08-12.21.10:749][601]LogTemp: Warning: ??? Features:
+[2025.08.08-12.21.10:749][601]LogTemp: Warning:   - Organic layout with branch-offs
+[2025.08.08-12.21.10:749][601]LogTemp: Warning:   - Guaranteed 1-cell gaps between rooms
+[2025.08.08-12.21.10:749][601]LogTemp: Warning:   - Room-as-path design (no corridors)
+[2025.08.08-12.21.10:749][601]LogTemp: Warning:   - Variable room sizes (2x2 to 4x4)
+[2025.08.08-12.21.10:749][601]LogTemp: Warning:   - 35x35 grid expanded for optimal spacing
+[2025.08.08-12.21.10:749][601]LogTemp: Warning: ?? Room Distribution:
+[2025.08.08-12.21.10:749][601]LogTemp: Warning:   - 2x2 rooms: 17
+[2025.08.08-12.21.10:749][601]LogTemp: Warning:   - 3x3 rooms: 5
+[2025.08.08-12.21.10:749][601]LogTemp: Warning:   - 4x4 rooms: 3
+[2025.08.08-12.21.10:749][601]LogTemp: Warning: Cube (0,0): Pos(0.0,0.0,175.0) Scale:3.50 Size:350.0
+[2025.08.08-12.21.12:558][601]LogWindows: Error: === Critical error: ===
+[2025.08.08-12.21.12:558][601]LogWindows: Error: 
+[2025.08.08-12.21.12:558][601]LogWindows: Error: Fatal error!
+[2025.08.08-12.21.12:558][601]LogWindows: Error: 
+[2025.08.08-12.21.12:558][601]LogWindows: Error: Unhandled Exception: EXCEPTION_ACCESS_VIOLATION reading address 0x0000001800000018
+[2025.08.08-12.21.12:558][601]LogWindows: Error: 
+[2025.08.08-12.21.12:558][601]LogWindows: Error: [Callstack] 0x00007ff806d7586c UnrealEditor-Core.dll!UnknownFunction []
+[2025.08.08-12.21.12:558][601]LogWindows: Error: [Callstack] 0x00007ff806d7cc4b UnrealEditor-Core.dll!UnknownFunction []
+[2025.08.08-12.21.12:558][601]LogWindows: Error: [Callstack] 0x00007ff806d7d3a5 UnrealEditor-Core.dll!UnknownFunction []
+[2025.08.08-12.21.12:558][601]LogWindows: Error: [Callstack] 0x00007ff806d80593 UnrealEditor-Core.dll!UnknownFunction []
+[2025.08.08-12.21.12:558][601]LogWindows: Error: [Callstack] 0x00007ff8066dd5b7 UnrealEditor-Core.dll!UnknownFunction []
+[2025.08.08-12.21.12:558][601]LogWindows: Error: [Callstack] 0x00007ff8066dda73 UnrealEditor-Core.dll!UnknownFunction []
+[2025.08.08-12.21.12:558][601]LogWindows: Error: [Callstack] 0x00007ff8065a7768 UnrealEditor-Core.dll!UnknownFunction []
+[2025.08.08-12.21.12:558][601]LogWindows: Error: [Callstack] 0x00007ff8065ac1b7 UnrealEditor-Core.dll!UnknownFunction []
+[2025.08.08-12.21.12:558][601]LogWindows: Error: [Callstack] 0x00007ff80659c6dd UnrealEditor-Core.dll!UnknownFunction []
+[2025.08.08-12.21.12:558][601]LogWindows: Error: [Callstack] 0x00007ff806859437 UnrealEditor-Core.dll!UnknownFunction []
+[2025.08.08-12.21.12:558][601]LogWindows: Error: [Callstack] 0x00007ff80691835f UnrealEditor-Core.dll!UnknownFunction []
+[2025.08.08-12.21.12:558][601]LogWindows: Error: [Callstack] 0x00007ff8068b94c4 UnrealEditor-Core.dll!UnknownFunction []
+[2025.08.08-12.21.12:558][601]LogWindows: Error: [Callstack] 0x00007ff80685931b UnrealEditor-Core.dll!UnknownFunction []
+[2025.08.08-12.21.12:558][601]LogWindows: Error: [Callstack] 0x00007ff8068591d8 UnrealEditor-Core.dll!UnknownFunction []
+[2025.08.08-12.21.12:558][601]LogWindows: Error: [Callstack] 0x00007ff8067ca6fb UnrealEditor-Core.dll!UnknownFunction []
+[2025.08.08-12.21.12:558][601]LogWindows: Error: [Callstack] 0x00007ff8067a0b89 UnrealEditor-Core.dll!UnknownFunction []
+[2025.08.08-12.21.12:558][601]LogWindows: Error: [Callstack] 0x000001f6049eb2e0 UnrealEditor-EternalDescent.dll!AGridDungeonVisualizer::SpawnGridVisualization() [D:\Github\Self Projects\EternalDescent\EternalDescent\Source\EternalDescent\Private\GridDungeonVisualizer.cpp:478]
+[2025.08.08-12.21.12:558][601]LogWindows: Error: [Callstack] 0x000001f6049e35b8 UnrealEditor-EternalDescent.dll!AGridDungeonVisualizer::GenerateAndVisualizeDungeon() [D:\Github\Self Projects\EternalDescent\EternalDescent\Source\EternalDescent\Private\GridDungeonVisualizer.cpp:139]
+[2025.08.08-12.21.12:558][601]LogWindows: Error: [Callstack] 0x000001f6049f7259 UnrealEditor-EternalDescent.dll!TestActualGridDungeonVisualizer() [D:\Github\Self Projects\EternalDescent\EternalDescent\Source\EternalDescent\Private\Tests\FullRoomGenerationTest.cpp:91]
+[2025.08.08-12.21.12:558][601]LogWindows: Error: [Callstack] 0x000001f6049f6a0a UnrealEditor-EternalDescent.dll!FFullRoomGenerationTest::RunTest() [D:\Github\Self Projects\EternalDescent\EternalDescent\Source\EternalDescent\Private\Tests\FullRoomGenerationTest.cpp:42]
+[2025.08.08-12.21.12:558][601]LogWindows: Error: [Callstack] 0x00007ff8068442cb UnrealEditor-Core.dll!UnknownFunction []
+[2025.08.08-12.21.12:558][601]LogWindows: Error: [Callstack] 0x00007ff80685ecdb UnrealEditor-Core.dll!UnknownFunction []
+[2025.08.08-12.21.12:558][601]LogWindows: Error: [Callstack] 0x000001f62617db6c UnrealEditor-AutomationWorker.dll!UnknownFunction []
+[2025.08.08-12.21.12:558][601]LogWindows: Error: [Callstack] 0x000001f62617cb43 UnrealEditor-AutomationWorker.dll!UnknownFunction []
+[2025.08.08-12.21.12:558][601]LogWindows: Error: [Callstack] 0x000001f626181f1a UnrealEditor-AutomationWorker.dll!UnknownFunction []
+[2025.08.08-12.21.12:558][601]LogWindows: Error: [Callstack] 0x000001f62617146e UnrealEditor-AutomationWorker.dll!UnknownFunction []
+[2025.08.08-12.21.12:558][601]LogWindows: Error: [Callstack] 0x00007ff68e198118 UnrealEditor-Cmd.exe!UnknownFunction []
+[2025.08.08-12.21.12:558][601]LogWindows: Error: [Callstack] 0x00007ff68e1b57ac UnrealEditor-Cmd.exe!UnknownFunction []
+[2025.08.08-12.21.12:558][601]LogWindows: Error: [Callstack] 0x00007ff68e1b589a UnrealEditor-Cmd.exe!UnknownFunction []
+[2025.08.08-12.21.12:558][601]LogWindows: Error: [Callstack] 0x00007ff68e1b9114 UnrealEditor-Cmd.exe!UnknownFunction []
+[2025.08.08-12.21.12:558][601]LogWindows: Error: [Callstack] 0x00007ff68e1cbd04 UnrealEditor-Cmd.exe!UnknownFunction []
+[2025.08.08-12.21.12:558][601]LogWindows: Error: [Callstack] 0x00007ff68e1ce422 UnrealEditor-Cmd.exe!UnknownFunction []
+[2025.08.08-12.21.12:558][601]LogWindows: Error: [Callstack] 0x00007ff8beb8e8d7 KERNEL32.DLL!UnknownFunction []
+[2025.08.08-12.21.12:558][601]LogWindows: Error: 

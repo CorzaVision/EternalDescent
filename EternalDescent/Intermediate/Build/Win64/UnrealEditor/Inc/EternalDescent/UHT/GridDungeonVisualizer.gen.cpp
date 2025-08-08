@@ -13,7 +13,7 @@ void EmptyLinkFunctionForGeneratedCodeGridDungeonVisualizer() {}
 COREUOBJECT_API UScriptStruct* Z_Construct_UScriptStruct_FLinearColor();
 COREUOBJECT_API UScriptStruct* Z_Construct_UScriptStruct_FVector();
 ENGINE_API UClass* Z_Construct_UClass_AActor();
-ENGINE_API UClass* Z_Construct_UClass_UInstancedStaticMeshComponent_NoRegister();
+ENGINE_API UClass* Z_Construct_UClass_UHierarchicalInstancedStaticMeshComponent_NoRegister();
 ENGINE_API UClass* Z_Construct_UClass_UMaterialInterface_NoRegister();
 ENGINE_API UClass* Z_Construct_UClass_UStaticMesh_NoRegister();
 ETERNALDESCENT_API UClass* Z_Construct_UClass_AGridDungeonVisualizer();
@@ -659,7 +659,7 @@ struct Z_Construct_UClass_AGridDungeonVisualizer_Statics
 	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_GridSizeX_MetaData[] = {
 		{ "Category", "Grid Layout" },
 		{ "ClampMax", "50" },
-		{ "ClampMin", "2" },
+		{ "ClampMin", "1" },
 #if !UE_BUILD_SHIPPING
 		{ "Comment", "// Grid Configuration\n" },
 #endif
@@ -671,7 +671,7 @@ struct Z_Construct_UClass_AGridDungeonVisualizer_Statics
 	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_GridSizeY_MetaData[] = {
 		{ "Category", "Grid Layout" },
 		{ "ClampMax", "50" },
-		{ "ClampMin", "2" },
+		{ "ClampMin", "1" },
 		{ "ModuleRelativePath", "Public/GridDungeonVisualizer.h" },
 	};
 	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_CellSize_MetaData[] = {
@@ -726,6 +726,64 @@ struct Z_Construct_UClass_AGridDungeonVisualizer_Statics
 		{ "Category", "Visuals" },
 		{ "ModuleRelativePath", "Public/GridDungeonVisualizer.h" },
 	};
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_StartRoomMaterial_MetaData[] = {
+		{ "Category", "Visuals" },
+		{ "ModuleRelativePath", "Public/GridDungeonVisualizer.h" },
+	};
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_EndRoomMaterial_MetaData[] = {
+		{ "Category", "Visuals" },
+		{ "ModuleRelativePath", "Public/GridDungeonVisualizer.h" },
+	};
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_bUseNanite_MetaData[] = {
+		{ "Category", "UE5.5 Features" },
+#if !UE_BUILD_SHIPPING
+		{ "Comment", "// UE 5.5 Optimization Settings\n" },
+#endif
+		{ "ModuleRelativePath", "Public/GridDungeonVisualizer.h" },
+#if !UE_BUILD_SHIPPING
+		{ "ToolTip", "UE 5.5 Optimization Settings" },
+#endif
+	};
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_bCastShadows_MetaData[] = {
+		{ "Category", "UE5.5 Features" },
+		{ "ModuleRelativePath", "Public/GridDungeonVisualizer.h" },
+	};
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_LODBias_MetaData[] = {
+		{ "Category", "UE5.5 Features" },
+		{ "ClampMax", "7" },
+		{ "ClampMin", "0" },
+		{ "ModuleRelativePath", "Public/GridDungeonVisualizer.h" },
+	};
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_bUseInstancePooling_MetaData[] = {
+		{ "Category", "UE5.5 HISM" },
+#if !UE_BUILD_SHIPPING
+		{ "Comment", "// UE 5.5 HISM Pooling Settings\n" },
+#endif
+		{ "ModuleRelativePath", "Public/GridDungeonVisualizer.h" },
+#if !UE_BUILD_SHIPPING
+		{ "ToolTip", "UE 5.5 HISM Pooling Settings" },
+#endif
+	};
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_InstanceBatchSize_MetaData[] = {
+		{ "Category", "UE5.5 HISM" },
+		{ "ClampMax", "1024" },
+		{ "ClampMin", "64" },
+		{ "ModuleRelativePath", "Public/GridDungeonVisualizer.h" },
+	};
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_bLumenEnabled_MetaData[] = {
+		{ "Category", "UE5.5 Rendering" },
+#if !UE_BUILD_SHIPPING
+		{ "Comment", "// UE 5.5 Lumen Support\n" },
+#endif
+		{ "ModuleRelativePath", "Public/GridDungeonVisualizer.h" },
+#if !UE_BUILD_SHIPPING
+		{ "ToolTip", "UE 5.5 Lumen Support" },
+#endif
+	};
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_bVirtualShadowMaps_MetaData[] = {
+		{ "Category", "UE5.5 Rendering" },
+		{ "ModuleRelativePath", "Public/GridDungeonVisualizer.h" },
+	};
 	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_bShowDebugGrid_MetaData[] = {
 		{ "Category", "Debug" },
 #if !UE_BUILD_SHIPPING
@@ -747,12 +805,12 @@ struct Z_Construct_UClass_AGridDungeonVisualizer_Statics
 	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_PlaneInstances_MetaData[] = {
 		{ "Category", "Components" },
 #if !UE_BUILD_SHIPPING
-		{ "Comment", "// Components\n" },
+		{ "Comment", "// HISM Components for better performance with large instance counts\n" },
 #endif
 		{ "EditInline", "true" },
 		{ "ModuleRelativePath", "Public/GridDungeonVisualizer.h" },
 #if !UE_BUILD_SHIPPING
-		{ "ToolTip", "Components" },
+		{ "ToolTip", "HISM Components for better performance with large instance counts" },
 #endif
 	};
 	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_CubeInstances_MetaData[] = {
@@ -779,6 +837,20 @@ struct Z_Construct_UClass_AGridDungeonVisualizer_Statics
 	static const UECodeGen_Private::FObjectPropertyParams NewProp_CubeMesh;
 	static const UECodeGen_Private::FObjectPropertyParams NewProp_FloorMaterial;
 	static const UECodeGen_Private::FObjectPropertyParams NewProp_WallMaterial;
+	static const UECodeGen_Private::FObjectPropertyParams NewProp_StartRoomMaterial;
+	static const UECodeGen_Private::FObjectPropertyParams NewProp_EndRoomMaterial;
+	static void NewProp_bUseNanite_SetBit(void* Obj);
+	static const UECodeGen_Private::FBoolPropertyParams NewProp_bUseNanite;
+	static void NewProp_bCastShadows_SetBit(void* Obj);
+	static const UECodeGen_Private::FBoolPropertyParams NewProp_bCastShadows;
+	static const UECodeGen_Private::FIntPropertyParams NewProp_LODBias;
+	static void NewProp_bUseInstancePooling_SetBit(void* Obj);
+	static const UECodeGen_Private::FBoolPropertyParams NewProp_bUseInstancePooling;
+	static const UECodeGen_Private::FIntPropertyParams NewProp_InstanceBatchSize;
+	static void NewProp_bLumenEnabled_SetBit(void* Obj);
+	static const UECodeGen_Private::FBoolPropertyParams NewProp_bLumenEnabled;
+	static void NewProp_bVirtualShadowMaps_SetBit(void* Obj);
+	static const UECodeGen_Private::FBoolPropertyParams NewProp_bVirtualShadowMaps;
 	static void NewProp_bShowDebugGrid_SetBit(void* Obj);
 	static const UECodeGen_Private::FBoolPropertyParams NewProp_bShowDebugGrid;
 	static const UECodeGen_Private::FFloatPropertyParams NewProp_DebugLineThickness;
@@ -816,6 +888,35 @@ const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AGridDungeonVi
 const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AGridDungeonVisualizer_Statics::NewProp_CubeMesh = { "CubeMesh", nullptr, (EPropertyFlags)0x0010000000000005, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AGridDungeonVisualizer, CubeMesh), Z_Construct_UClass_UStaticMesh_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_CubeMesh_MetaData), NewProp_CubeMesh_MetaData) };
 const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AGridDungeonVisualizer_Statics::NewProp_FloorMaterial = { "FloorMaterial", nullptr, (EPropertyFlags)0x0010000000000005, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AGridDungeonVisualizer, FloorMaterial), Z_Construct_UClass_UMaterialInterface_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_FloorMaterial_MetaData), NewProp_FloorMaterial_MetaData) };
 const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AGridDungeonVisualizer_Statics::NewProp_WallMaterial = { "WallMaterial", nullptr, (EPropertyFlags)0x0010000000000005, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AGridDungeonVisualizer, WallMaterial), Z_Construct_UClass_UMaterialInterface_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_WallMaterial_MetaData), NewProp_WallMaterial_MetaData) };
+const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AGridDungeonVisualizer_Statics::NewProp_StartRoomMaterial = { "StartRoomMaterial", nullptr, (EPropertyFlags)0x0010000000000005, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AGridDungeonVisualizer, StartRoomMaterial), Z_Construct_UClass_UMaterialInterface_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_StartRoomMaterial_MetaData), NewProp_StartRoomMaterial_MetaData) };
+const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AGridDungeonVisualizer_Statics::NewProp_EndRoomMaterial = { "EndRoomMaterial", nullptr, (EPropertyFlags)0x0010000000000005, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AGridDungeonVisualizer, EndRoomMaterial), Z_Construct_UClass_UMaterialInterface_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_EndRoomMaterial_MetaData), NewProp_EndRoomMaterial_MetaData) };
+void Z_Construct_UClass_AGridDungeonVisualizer_Statics::NewProp_bUseNanite_SetBit(void* Obj)
+{
+	((AGridDungeonVisualizer*)Obj)->bUseNanite = 1;
+}
+const UECodeGen_Private::FBoolPropertyParams Z_Construct_UClass_AGridDungeonVisualizer_Statics::NewProp_bUseNanite = { "bUseNanite", nullptr, (EPropertyFlags)0x0010000000000005, UECodeGen_Private::EPropertyGenFlags::Bool | UECodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, sizeof(bool), sizeof(AGridDungeonVisualizer), &Z_Construct_UClass_AGridDungeonVisualizer_Statics::NewProp_bUseNanite_SetBit, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_bUseNanite_MetaData), NewProp_bUseNanite_MetaData) };
+void Z_Construct_UClass_AGridDungeonVisualizer_Statics::NewProp_bCastShadows_SetBit(void* Obj)
+{
+	((AGridDungeonVisualizer*)Obj)->bCastShadows = 1;
+}
+const UECodeGen_Private::FBoolPropertyParams Z_Construct_UClass_AGridDungeonVisualizer_Statics::NewProp_bCastShadows = { "bCastShadows", nullptr, (EPropertyFlags)0x0010000000000005, UECodeGen_Private::EPropertyGenFlags::Bool | UECodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, sizeof(bool), sizeof(AGridDungeonVisualizer), &Z_Construct_UClass_AGridDungeonVisualizer_Statics::NewProp_bCastShadows_SetBit, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_bCastShadows_MetaData), NewProp_bCastShadows_MetaData) };
+const UECodeGen_Private::FIntPropertyParams Z_Construct_UClass_AGridDungeonVisualizer_Statics::NewProp_LODBias = { "LODBias", nullptr, (EPropertyFlags)0x0010000000000005, UECodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AGridDungeonVisualizer, LODBias), METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_LODBias_MetaData), NewProp_LODBias_MetaData) };
+void Z_Construct_UClass_AGridDungeonVisualizer_Statics::NewProp_bUseInstancePooling_SetBit(void* Obj)
+{
+	((AGridDungeonVisualizer*)Obj)->bUseInstancePooling = 1;
+}
+const UECodeGen_Private::FBoolPropertyParams Z_Construct_UClass_AGridDungeonVisualizer_Statics::NewProp_bUseInstancePooling = { "bUseInstancePooling", nullptr, (EPropertyFlags)0x0010000000000005, UECodeGen_Private::EPropertyGenFlags::Bool | UECodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, sizeof(bool), sizeof(AGridDungeonVisualizer), &Z_Construct_UClass_AGridDungeonVisualizer_Statics::NewProp_bUseInstancePooling_SetBit, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_bUseInstancePooling_MetaData), NewProp_bUseInstancePooling_MetaData) };
+const UECodeGen_Private::FIntPropertyParams Z_Construct_UClass_AGridDungeonVisualizer_Statics::NewProp_InstanceBatchSize = { "InstanceBatchSize", nullptr, (EPropertyFlags)0x0010000000000005, UECodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AGridDungeonVisualizer, InstanceBatchSize), METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_InstanceBatchSize_MetaData), NewProp_InstanceBatchSize_MetaData) };
+void Z_Construct_UClass_AGridDungeonVisualizer_Statics::NewProp_bLumenEnabled_SetBit(void* Obj)
+{
+	((AGridDungeonVisualizer*)Obj)->bLumenEnabled = 1;
+}
+const UECodeGen_Private::FBoolPropertyParams Z_Construct_UClass_AGridDungeonVisualizer_Statics::NewProp_bLumenEnabled = { "bLumenEnabled", nullptr, (EPropertyFlags)0x0010000000000005, UECodeGen_Private::EPropertyGenFlags::Bool | UECodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, sizeof(bool), sizeof(AGridDungeonVisualizer), &Z_Construct_UClass_AGridDungeonVisualizer_Statics::NewProp_bLumenEnabled_SetBit, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_bLumenEnabled_MetaData), NewProp_bLumenEnabled_MetaData) };
+void Z_Construct_UClass_AGridDungeonVisualizer_Statics::NewProp_bVirtualShadowMaps_SetBit(void* Obj)
+{
+	((AGridDungeonVisualizer*)Obj)->bVirtualShadowMaps = 1;
+}
+const UECodeGen_Private::FBoolPropertyParams Z_Construct_UClass_AGridDungeonVisualizer_Statics::NewProp_bVirtualShadowMaps = { "bVirtualShadowMaps", nullptr, (EPropertyFlags)0x0010000000000005, UECodeGen_Private::EPropertyGenFlags::Bool | UECodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, sizeof(bool), sizeof(AGridDungeonVisualizer), &Z_Construct_UClass_AGridDungeonVisualizer_Statics::NewProp_bVirtualShadowMaps_SetBit, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_bVirtualShadowMaps_MetaData), NewProp_bVirtualShadowMaps_MetaData) };
 void Z_Construct_UClass_AGridDungeonVisualizer_Statics::NewProp_bShowDebugGrid_SetBit(void* Obj)
 {
 	((AGridDungeonVisualizer*)Obj)->bShowDebugGrid = 1;
@@ -823,8 +924,8 @@ void Z_Construct_UClass_AGridDungeonVisualizer_Statics::NewProp_bShowDebugGrid_S
 const UECodeGen_Private::FBoolPropertyParams Z_Construct_UClass_AGridDungeonVisualizer_Statics::NewProp_bShowDebugGrid = { "bShowDebugGrid", nullptr, (EPropertyFlags)0x0010000000000005, UECodeGen_Private::EPropertyGenFlags::Bool | UECodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, sizeof(bool), sizeof(AGridDungeonVisualizer), &Z_Construct_UClass_AGridDungeonVisualizer_Statics::NewProp_bShowDebugGrid_SetBit, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_bShowDebugGrid_MetaData), NewProp_bShowDebugGrid_MetaData) };
 const UECodeGen_Private::FFloatPropertyParams Z_Construct_UClass_AGridDungeonVisualizer_Statics::NewProp_DebugLineThickness = { "DebugLineThickness", nullptr, (EPropertyFlags)0x0010000000000005, UECodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AGridDungeonVisualizer, DebugLineThickness), METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_DebugLineThickness_MetaData), NewProp_DebugLineThickness_MetaData) };
 const UECodeGen_Private::FStructPropertyParams Z_Construct_UClass_AGridDungeonVisualizer_Statics::NewProp_DebugGridColor = { "DebugGridColor", nullptr, (EPropertyFlags)0x0010000000000005, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AGridDungeonVisualizer, DebugGridColor), Z_Construct_UScriptStruct_FLinearColor, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_DebugGridColor_MetaData), NewProp_DebugGridColor_MetaData) };
-const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AGridDungeonVisualizer_Statics::NewProp_PlaneInstances = { "PlaneInstances", nullptr, (EPropertyFlags)0x001000000008001c, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AGridDungeonVisualizer, PlaneInstances), Z_Construct_UClass_UInstancedStaticMeshComponent_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_PlaneInstances_MetaData), NewProp_PlaneInstances_MetaData) };
-const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AGridDungeonVisualizer_Statics::NewProp_CubeInstances = { "CubeInstances", nullptr, (EPropertyFlags)0x001000000008001c, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AGridDungeonVisualizer, CubeInstances), Z_Construct_UClass_UInstancedStaticMeshComponent_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_CubeInstances_MetaData), NewProp_CubeInstances_MetaData) };
+const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AGridDungeonVisualizer_Statics::NewProp_PlaneInstances = { "PlaneInstances", nullptr, (EPropertyFlags)0x001000000008001c, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AGridDungeonVisualizer, PlaneInstances), Z_Construct_UClass_UHierarchicalInstancedStaticMeshComponent_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_PlaneInstances_MetaData), NewProp_PlaneInstances_MetaData) };
+const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AGridDungeonVisualizer_Statics::NewProp_CubeInstances = { "CubeInstances", nullptr, (EPropertyFlags)0x001000000008001c, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AGridDungeonVisualizer, CubeInstances), Z_Construct_UClass_UHierarchicalInstancedStaticMeshComponent_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_CubeInstances_MetaData), NewProp_CubeInstances_MetaData) };
 const UECodeGen_Private::FStructPropertyParams Z_Construct_UClass_AGridDungeonVisualizer_Statics::NewProp_Grid_Inner = { "Grid", nullptr, (EPropertyFlags)0x0000000000000000, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, 0, Z_Construct_UScriptStruct_FGridCell, METADATA_PARAMS(0, nullptr) }; // 2314947957
 const UECodeGen_Private::FArrayPropertyParams Z_Construct_UClass_AGridDungeonVisualizer_Statics::NewProp_Grid = { "Grid", nullptr, (EPropertyFlags)0x0010000000000014, UECodeGen_Private::EPropertyGenFlags::Array, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AGridDungeonVisualizer, Grid), EArrayPropertyFlags::None, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_Grid_MetaData), NewProp_Grid_MetaData) }; // 2314947957
 const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_AGridDungeonVisualizer_Statics::PropPointers[] = {
@@ -836,6 +937,15 @@ const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_AGridDung
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AGridDungeonVisualizer_Statics::NewProp_CubeMesh,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AGridDungeonVisualizer_Statics::NewProp_FloorMaterial,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AGridDungeonVisualizer_Statics::NewProp_WallMaterial,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AGridDungeonVisualizer_Statics::NewProp_StartRoomMaterial,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AGridDungeonVisualizer_Statics::NewProp_EndRoomMaterial,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AGridDungeonVisualizer_Statics::NewProp_bUseNanite,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AGridDungeonVisualizer_Statics::NewProp_bCastShadows,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AGridDungeonVisualizer_Statics::NewProp_LODBias,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AGridDungeonVisualizer_Statics::NewProp_bUseInstancePooling,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AGridDungeonVisualizer_Statics::NewProp_InstanceBatchSize,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AGridDungeonVisualizer_Statics::NewProp_bLumenEnabled,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AGridDungeonVisualizer_Statics::NewProp_bVirtualShadowMaps,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AGridDungeonVisualizer_Statics::NewProp_bShowDebugGrid,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AGridDungeonVisualizer_Statics::NewProp_DebugLineThickness,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AGridDungeonVisualizer_Statics::NewProp_DebugGridColor,
@@ -891,10 +1001,10 @@ struct Z_CompiledInDeferFile_FID_Github_Self_Projects_EternalDescent_EternalDesc
 		{ FGridCell::StaticStruct, Z_Construct_UScriptStruct_FGridCell_Statics::NewStructOps, TEXT("GridCell"), &Z_Registration_Info_UScriptStruct_GridCell, CONSTRUCT_RELOAD_VERSION_INFO(FStructReloadVersionInfo, sizeof(FGridCell), 2314947957U) },
 	};
 	static constexpr FClassRegisterCompiledInInfo ClassInfo[] = {
-		{ Z_Construct_UClass_AGridDungeonVisualizer, AGridDungeonVisualizer::StaticClass, TEXT("AGridDungeonVisualizer"), &Z_Registration_Info_UClass_AGridDungeonVisualizer, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AGridDungeonVisualizer), 49467013U) },
+		{ Z_Construct_UClass_AGridDungeonVisualizer, AGridDungeonVisualizer::StaticClass, TEXT("AGridDungeonVisualizer"), &Z_Registration_Info_UClass_AGridDungeonVisualizer, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AGridDungeonVisualizer), 2480775987U) },
 	};
 };
-static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Github_Self_Projects_EternalDescent_EternalDescent_Source_EternalDescent_Public_GridDungeonVisualizer_h_3826432618(TEXT("/Script/EternalDescent"),
+static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Github_Self_Projects_EternalDescent_EternalDescent_Source_EternalDescent_Public_GridDungeonVisualizer_h_3097016444(TEXT("/Script/EternalDescent"),
 	Z_CompiledInDeferFile_FID_Github_Self_Projects_EternalDescent_EternalDescent_Source_EternalDescent_Public_GridDungeonVisualizer_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Github_Self_Projects_EternalDescent_EternalDescent_Source_EternalDescent_Public_GridDungeonVisualizer_h_Statics::ClassInfo),
 	Z_CompiledInDeferFile_FID_Github_Self_Projects_EternalDescent_EternalDescent_Source_EternalDescent_Public_GridDungeonVisualizer_h_Statics::ScriptStructInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Github_Self_Projects_EternalDescent_EternalDescent_Source_EternalDescent_Public_GridDungeonVisualizer_h_Statics::ScriptStructInfo),
 	Z_CompiledInDeferFile_FID_Github_Self_Projects_EternalDescent_EternalDescent_Source_EternalDescent_Public_GridDungeonVisualizer_h_Statics::EnumInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Github_Self_Projects_EternalDescent_EternalDescent_Source_EternalDescent_Public_GridDungeonVisualizer_h_Statics::EnumInfo));
