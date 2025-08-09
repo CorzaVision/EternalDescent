@@ -154,17 +154,23 @@ echo ===========================================================================
 echo.
 
 :: Show available tests
-echo Available Tests:
-echo   EternalDescent.Dungeon.CPU.Performance    - CPU performance benchmarks
-echo   EternalDescent.Dungeon.Memory.Performance - Memory usage and leak detection
-echo   EternalDescent.Dungeon.Threading.NoBlocking - Thread blocking tests
-echo   EternalDescent.CubeDungeon.Performance    - Cube-based dungeon tests
-echo   EternalDescent.Dungeon.Stress            - Stress testing
-echo   EternalDescent.SnakeDungeon.Validation   - Snake dungeon validation tests
-echo   EternalDescent.SnakeDungeon.Content      - Content marker tests
+echo Available Tests (GridDungeonVisualizer UNIFIED System):
+echo   EternalDescent.Dungeon.CPU.Performance    - CPU performance benchmarks (GridDungeonVisualizer)
+echo   EternalDescent.Dungeon.MixedRoomSizes     - Mixed room size system validation (2x2/3x3)
+echo   EternalDescent.Dungeon.GapSpacingVerification - Spacing validation for mixed rooms
+echo   EternalDescent.Dungeon.QuickRoomCountTest - Quick 25-room validation
+echo   EternalDescent.Dungeon.Exact25Rooms      - Comprehensive 25-room generation test
+echo   EternalDescent.Performance.GenerationSpeed - Detailed generation speed benchmarks
+echo   EternalDescent.Performance.MemoryUsage   - Memory usage analysis
+echo   EternalDescent.Performance.HISMInstances - HISM performance testing
+echo   EternalDescent.Performance.StressTest    - Stress testing with 100 iterations
 echo.
-echo Run all tests: RunTest.bat EternalDescent.Dungeon
-echo Run snake tests: RunTest.bat EternalDescent.SnakeDungeon
+echo Run all dungeon tests: RunTest.bat EternalDescent.Dungeon
+echo Run all performance tests: RunTest.bat EternalDescent.Performance
+echo.
+echo DEPRECATED SYSTEMS (DO NOT USE):
+echo   - SnakeDungeonGenerator tests have been DISABLED (use GridDungeonVisualizer)
+echo   - CubeDungeonGenerator tests have been DEPRECATED (use GridDungeonVisualizer)
 echo.
 
 :: Pause if not disabled

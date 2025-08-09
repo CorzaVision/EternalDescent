@@ -1,4 +1,15 @@
-// QuickSnakeTest.cpp - Quick validation test for SnakeDungeonGenerator
+// QuickSnakeTest.cpp - DEPRECATED - Quick validation test for SnakeDungeonGenerator
+// 
+// *** DEPRECATION NOTICE ***
+// This file has been DEPRECATED in favor of GridDungeonVisualizer as the unified dungeon generation system.
+// All functions in this file are DISABLED to prevent conflicts with the unified GridDungeonVisualizer system.
+// 
+// GridDungeonVisualizer is now the ONLY dungeon generation system used in EternalDescent.
+// See CPUPerformanceTest.cpp and other GridDungeonVisualizer tests for current test implementations.
+//
+// DO NOT RE-ENABLE THESE FUNCTIONS - They will cause conflicts with the unified system.
+//
+/*
 // Minimal test to verify basic functionality without full automation framework
 #include "SnakeDungeonGenerator.h"
 #include "Engine/Engine.h"
@@ -9,7 +20,7 @@
  * Quick validation function to test SnakeDungeonGenerator basic functionality
  * Can be called from Blueprint or during development
  */
-UFUNCTION(BlueprintCallable, Category = "Snake Test", CallInEditor = true)
+// UFUNCTION(BlueprintCallable, Category = "Snake Test", CallInEditor = true)
 void TestSnakeDungeonGeneratorBasic()
 {
     UE_LOG(LogTemp, Warning, TEXT("=== Quick Snake Dungeon Generator Test ==="));
@@ -295,3 +306,7 @@ void TestSnakePerformance()
     
     UE_LOG(LogTemp, Warning, TEXT("=== Performance Test Completed ==="));
 }
+*/
+
+// END OF DEPRECATED SnakeDungeonGenerator TESTS
+// Use GridDungeonVisualizer tests instead

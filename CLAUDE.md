@@ -163,3 +163,6 @@ See `docs/ROADMAP.md` for complete development timeline.
 - Use only 1 .bat file named @Test\RunTest.bat and remember @Test\TestingRules.md when testing
 - When making test proofs or what not clean up old copies of old tests then make new ones in designated folders
 - refer to @Design\Eternal Descent TDD.md and @Design\Eternal Descent GDD.md for project features and design choices, these are readonly no editing
+- Unreal Engines 5.5 is located in D:\Epic Games
+- when user tells you to test always use @agent-test-writer-fixer or when the users tell you to compile use @agent-ue5-build-engineer
+- when working on Dungeon Generator use @agent-dungeon-system-architect

@@ -237,24 +237,25 @@ bool VerifyGridAlignment(AGridDungeonVisualizer* Visualizer, FAutomationTestBase
     for (const FIntPoint& Coord : TestCoords)
     {
         const FVector WorldPos = Visualizer->GridToWorldPosition(Coord.X, Coord.Y, false);
+        const FVector ActorPos = Visualizer->GetActorLocation();
         
-        // Check for integer alignment (world positions should be multiples of CellSize)
-        const float ExpectedX = Coord.X * CellSize;
-        const float ExpectedY = Coord.Y * CellSize;
+        // With new coordinate system: world positions should be ActorPos + (Coord * CellSize + CellSize/2)
+        const float ExpectedX = ActorPos.X + (Coord.X * CellSize + CellSize * 0.5f);
+        const float ExpectedY = ActorPos.Y + (Coord.Y * CellSize + CellSize * 0.5f);
         
         const bool bXAligned = FMath::IsNearlyEqual(WorldPos.X, ExpectedX, 0.1f);
         const bool bYAligned = FMath::IsNearlyEqual(WorldPos.Y, ExpectedY, 0.1f);
 
         if (!bXAligned || !bYAligned)
         {
-            TestContext->AddError(FString::Printf(TEXT("ALIGNMENT FAILURE: Grid(%d,%d) -> World(%.2f,%.2f), Expected(%.2f,%.2f)"),
-                Coord.X, Coord.Y, WorldPos.X, WorldPos.Y, ExpectedX, ExpectedY));
+            TestContext->AddError(FString::Printf(TEXT("ALIGNMENT FAILURE: Grid(%d,%d) -> World(%.2f,%.2f), Expected(%.2f,%.2f) [Actor at (%.1f,%.1f)]"),
+                Coord.X, Coord.Y, WorldPos.X, WorldPos.Y, ExpectedX, ExpectedY, ActorPos.X, ActorPos.Y));
             bAllAligned = false;
         }
         else
         {
-            TestContext->AddInfo(FString::Printf(TEXT("Grid(%d,%d) correctly aligned to World(%.1f,%.1f)"),
-                Coord.X, Coord.Y, WorldPos.X, WorldPos.Y));
+            TestContext->AddInfo(FString::Printf(TEXT("Grid(%d,%d) correctly aligned to World(%.1f,%.1f) [Expected: (%.1f,%.1f)]"),
+                Coord.X, Coord.Y, WorldPos.X, WorldPos.Y, ExpectedX, ExpectedY));
         }
     }
 

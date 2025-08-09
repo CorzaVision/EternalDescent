@@ -1,0 +1,6 @@
+TestRun,RoomCount,2x2Count,3x3Count,4x4Count,GenerationTime(ms),Passed
+1,25,2,23,0,0.328,YES
+2,25,2,23,0,0.284,YES
+3,25,2,23,0,0.336,YES
+4,25,2,23,0,0.329,YES
+5,25,2,23,0,0.311,YES

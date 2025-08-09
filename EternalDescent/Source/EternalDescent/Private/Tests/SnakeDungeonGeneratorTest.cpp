@@ -1,5 +1,16 @@
-// SnakeDungeonGeneratorTest.cpp - Test suite for SnakeDungeonGenerator
+// SnakeDungeonGeneratorTest.cpp - DEPRECATED - Test suite for SnakeDungeonGenerator
+// 
+// *** DEPRECATION NOTICE ***
+// This file has been DEPRECATED in favor of GridDungeonVisualizer as the unified dungeon generation system.
+// All tests in this file are DISABLED to prevent conflicts with the unified GridDungeonVisualizer system.
+// 
+// GridDungeonVisualizer is now the ONLY dungeon generation system used in EternalDescent.
+// See CPUPerformanceTest.cpp and other GridDungeonVisualizer tests for current test implementations.
+//
+// DO NOT RE-ENABLE THESE TESTS - They will cause conflicts with the unified system.
+// 
 // Verifies two-loop generation system and path connectivity
+/*
 #include "SnakeDungeonGenerator.h"
 #include "Tests/DungeonTestTypes.h"
 #include "Engine/Engine.h"
@@ -8,8 +19,10 @@
 #include "Tests/AutomationCommon.h"
 #include "Misc/AutomationTest.h"
 
-IMPLEMENT_SIMPLE_AUTOMATION_TEST(FSnakeDungeonGeneratorBasicTest, "EternalDescent.SnakeDungeonGenerator.BasicGeneration", EAutomationTestFlags::EditorContext | EAutomationTestFlags::ProductFilter)
+// DEPRECATED - Use GridDungeonVisualizer tests instead
+// IMPLEMENT_SIMPLE_AUTOMATION_TEST(FSnakeDungeonGeneratorBasicTest, "EternalDescent.SnakeDungeonGenerator.BasicGeneration", EAutomationTestFlags::EditorContext | EAutomationTestFlags::ProductFilter)
 
+/*
 bool FSnakeDungeonGeneratorBasicTest::RunTest(const FString& Parameters)
 {
     // Create a test world
@@ -371,3 +384,7 @@ void RunManualSnakeTest()
     
     UE_LOG(LogTemp, Warning, TEXT("=== Manual Snake Test Completed ==="));
 }
+*/
+
+// END OF DEPRECATED SnakeDungeonGenerator TESTS
+// Use GridDungeonVisualizer tests instead

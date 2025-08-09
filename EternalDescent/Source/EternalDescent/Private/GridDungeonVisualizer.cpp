@@ -263,10 +263,6 @@ void AGridDungeonVisualizer::SpawnGridVisualization()
     const FVector PlaneScaleVector = FVector(PlaneScale, PlaneScale, 1.0f);
     const FVector BaseLocation = GetActorLocation();
     
-    // Grid centering offsets
-    const float GridOffsetX = (GridSizeX * CellSize) / 2.0f;
-    const float GridOffsetY = (GridSizeY * CellSize) / 2.0f;
-    
     // Find start and end room centers for 3x3 rooms
     TArray<FIntPoint> FloorCells;
     for (int32 Y = 0; Y < GridSizeY; ++Y)
@@ -298,12 +294,8 @@ void AGridDungeonVisualizer::SpawnGridVisualization()
                 // Add plane instance for each floor cell
                 if (PlaneInstances && PlaneMesh)
                 {
-                    // Use centered grid alignment
-                    const FVector FloorCenter = BaseLocation + FVector(
-                        X * CellSize - GridOffsetX + CellSize/2.0f,
-                        Y * CellSize - GridOffsetY + CellSize/2.0f,
-                        0.0f
-                    );
+                    // Use new grid alignment - grid starts at actor position
+                    const FVector FloorCenter = GridToWorldPosition(X, Y, true);
                     
                     FTransform FloorTransform;
                     FloorTransform.SetLocation(FloorCenter);
@@ -316,12 +308,8 @@ void AGridDungeonVisualizer::SpawnGridVisualization()
             else if (CellType == EGridCellType::Wall)
             {
                 // Add cube instance for each wall cell
-                // Use centered grid alignment
-                const FVector CubeCenter = BaseLocation + FVector(
-                    X * CellSize - GridOffsetX + CellSize/2.0f,
-                    Y * CellSize - GridOffsetY + CellSize/2.0f,
-                    CellSize * 0.5f
-                );
+                // Use new grid alignment - grid starts at actor position
+                const FVector CubeCenter = GridToWorldPosition(X, Y, false);
                 
                 FTransform WallTransform;
                 WallTransform.SetLocation(CubeCenter);
@@ -432,21 +420,18 @@ bool AGridDungeonVisualizer::IsValidGridPosition(int32 X, int32 Y) const
 
 FVector AGridDungeonVisualizer::GridToWorldPosition(int32 X, int32 Y, bool bIsFloor) const
 {
-    // Use integer math to avoid floating point errors
+    // Get actor's world position as base
     FVector BaseLocation = GetActorLocation();
     
-    // Snap to grid
-    int32 WorldX = X * (int32)CellSize;
-    int32 WorldY = Y * (int32)CellSize;
+    // Calculate position relative to grid origin
+    // Grid starts at the actor position (actor at grid origin corner)
+    float WorldX = X * CellSize + CellSize * 0.5f; // Add half cell size to center in cell
+    float WorldY = Y * CellSize + CellSize * 0.5f; // Add half cell size to center in cell
     
-    // Center the grid
-    int32 GridOffsetX = (GridSizeX * (int32)CellSize) / 2;
-    int32 GridOffsetY = (GridSizeY * (int32)CellSize) / 2;
-    
-    // Calculate final position with integer math
+    // Calculate final position
     FVector Position;
-    Position.X = BaseLocation.X + (float)(WorldX - GridOffsetX) + CellSize/2.0f;
-    Position.Y = BaseLocation.Y + (float)(WorldY - GridOffsetY) + CellSize/2.0f;
+    Position.X = BaseLocation.X + WorldX;
+    Position.Y = BaseLocation.Y + WorldY;
     Position.Z = BaseLocation.Z + (bIsFloor ? 0.0f : CellSize * 0.5f);
     
     return Position;
@@ -460,20 +445,18 @@ void AGridDungeonVisualizer::DrawDebugGrid()
     }
     
     FVector BaseLocation = GetActorLocation();
-    float GridOffsetX = (GridSizeX * CellSize) / 2.0f;
-    float GridOffsetY = (GridSizeY * CellSize) / 2.0f;
     
-    // Draw grid lines at cell boundaries
+    // Draw grid lines at cell boundaries using new coordinate system
     for (int32 x = 0; x <= GridSizeX; x++)
     {
         FVector LineStart = BaseLocation + FVector(
-            x * CellSize - GridOffsetX, 
-            -GridOffsetY, 
+            x * CellSize, 
+            0.0f, 
             1.0f
         );
         FVector LineEnd = BaseLocation + FVector(
-            x * CellSize - GridOffsetX, 
-            GridSizeY * CellSize - GridOffsetY, 
+            x * CellSize, 
+            GridSizeY * CellSize, 
             1.0f
         );
         
@@ -484,13 +467,13 @@ void AGridDungeonVisualizer::DrawDebugGrid()
     for (int32 y = 0; y <= GridSizeY; y++)
     {
         FVector LineStart = BaseLocation + FVector(
-            -GridOffsetX, 
-            y * CellSize - GridOffsetY, 
+            0.0f, 
+            y * CellSize, 
             1.0f
         );
         FVector LineEnd = BaseLocation + FVector(
-            GridSizeX * CellSize - GridOffsetX, 
-            y * CellSize - GridOffsetY, 
+            GridSizeX * CellSize, 
+            y * CellSize, 
             1.0f
         );
         
@@ -2100,11 +2083,6 @@ void AGridDungeonVisualizer::PrepareCubeTransforms()
     const float DesiredCubeSize = CellSize * CubeSizePercentage;
     const float CubeScale = DesiredCubeSize / 100.0f; // 100.0f = default UE cube size
     const FVector CubeScaleVector = FVector(CubeScale);
-    const FVector BaseLocation = GetActorLocation();
-    
-    // Grid centering offsets (match SpawnGridVisualization)
-    const float GridOffsetX = (GridSizeX * CellSize) / 2.0f;
-    const float GridOffsetY = (GridSizeY * CellSize) / 2.0f;
     
     // Generate cube positions for walls using same logic as SpawnGridVisualization
     for (int32 Y = 0; Y < GridSizeY; Y++)
@@ -2113,12 +2091,8 @@ void AGridDungeonVisualizer::PrepareCubeTransforms()
         {
             if (GetGridCell(X, Y).CellType == EGridCellType::Wall)
             {
-                // Match the exact position calculation from SpawnGridVisualization with centered alignment
-                const FVector CubeCenter = BaseLocation + FVector(
-                    X * CellSize - GridOffsetX + CellSize/2.0f,
-                    Y * CellSize - GridOffsetY + CellSize/2.0f,
-                    CellSize * 0.5f
-                );
+                // Match the exact position calculation from GridToWorldPosition
+                const FVector CubeCenter = GridToWorldPosition(X, Y, false);
                 
                 FTransform Transform;
                 Transform.SetLocation(CubeCenter);
@@ -2198,11 +2172,6 @@ void AGridDungeonVisualizer::PreparePlaneTransforms()
     // Pre-calculate common values to match SpawnGridVisualization exactly
     const float PlaneScale = CellSize / 100.0f; // Plane scale to match cell size
     const FVector PlaneScaleVector = FVector(PlaneScale, PlaneScale, 1.0f);
-    const FVector BaseLocation = GetActorLocation();
-    
-    // Grid centering offsets (match SpawnGridVisualization)
-    const float GridOffsetX = (GridSizeX * CellSize) / 2.0f;
-    const float GridOffsetY = (GridSizeY * CellSize) / 2.0f;
     
     // Generate plane positions for ALL floor cells using same logic as SpawnGridVisualization
     for (int32 Y = 0; Y < GridSizeY; Y++)
@@ -2211,12 +2180,8 @@ void AGridDungeonVisualizer::PreparePlaneTransforms()
         {
             if (GetGridCell(X, Y).CellType == EGridCellType::Floor)
             {
-                // Match the exact position calculation from SpawnGridVisualization with centered alignment
-                const FVector FloorCenter = BaseLocation + FVector(
-                    X * CellSize - GridOffsetX + CellSize/2.0f,
-                    Y * CellSize - GridOffsetY + CellSize/2.0f,
-                    0.0f
-                );
+                // Match the exact position calculation from GridToWorldPosition
+                const FVector FloorCenter = GridToWorldPosition(X, Y, true);
                 
                 FTransform Transform;
                 Transform.SetLocation(FloorCenter);

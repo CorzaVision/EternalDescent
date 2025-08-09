@@ -1,0 +1,27 @@
+============================================
+EternalDescent Test Runner
+============================================
+Running Test: EternalDescent.Dungeon.EmpiricalProof
+Mode: unattended mode
+Profile Level: Minimal Profiling (~0.01ms overhead)
+============================================
+
+Executing: "D:\Epic Games\UE_5.5\Engine\Binaries\Win64\UnrealEditor.exe" "D:\Github\Self Projects\EternalDescent\EternalDescent\EternalDescent.uproject" -ExecCmds="Automation RunTests EternalDescent.Dungeon.EmpiricalProof; Quit" -unattended -log  
+
+
+================================================================================
+TEST PASSED: EternalDescent.Dungeon.EmpiricalProof
+================================================================================
+
+Available Tests:
+  EternalDescent.Dungeon.CPU.Performance    - CPU performance benchmarks
+  EternalDescent.Dungeon.Memory.Performance - Memory usage and leak detection
+  EternalDescent.Dungeon.Threading.NoBlocking - Thread blocking tests
+  EternalDescent.CubeDungeon.Performance    - Cube-based dungeon tests
+  EternalDescent.Dungeon.Stress            - Stress testing
+  EternalDescent.SnakeDungeon.Validation   - Snake dungeon validation tests
+  EternalDescent.SnakeDungeon.Content      - Content marker tests
+
+Run all tests: RunTest.bat EternalDescent.Dungeon
+Run snake tests: RunTest.bat EternalDescent.SnakeDungeon
+
