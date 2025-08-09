@@ -888,42 +888,85 @@ TArray<FIntPoint> AGridDungeonVisualizer::GenerateSnakePath(FIntPoint Start)
     FIntPoint CurrentPos = StartPos;
     int32 TargetPathLength = RequiredRoomCount; // Must be exactly 25
     
-    // Use breadth-first approach to maximize distance
-    while (Path.Num() < TargetPathLength)
+    // FIXED: More robust generation with retry logic - NEVER give up before 25 rooms
+    int32 MaxRetries = 1000; // Prevent infinite loops
+    int32 RetryCount = 0;
+    int32 StuckCount = 0; // Track consecutive failed attempts
+    
+    while (Path.Num() < TargetPathLength && RetryCount < MaxRetries)
     {
         // Find valid next position that maintains spacing
         FIntPoint NextPos = FindNextPositionForPath(CurrentPos, Visited, Path.Num());
         
         if (NextPos == FIntPoint(-1, -1))
         {
-            // Backtrack if stuck
-            if (!BacktrackPath(Path, Visited))
+            StuckCount++;
+            RetryCount++;
+            
+            // Try backtracking
+            if (BacktrackPath(Path, Visited))
             {
-                UE_LOG(LogTemp, Error, TEXT("❌ Failed to generate 25 rooms! Only got %d"), Path.Num());
-                break;
+                CurrentPos = Path.Last();
+                UE_LOG(LogTemp, Warning, TEXT("🔄 Backtracked, continuing from (%d,%d) with %d rooms"), 
+                    CurrentPos.X, CurrentPos.Y, Path.Num());
+                continue;
             }
-            CurrentPos = Path.Last();
-            continue;
+            else
+            {
+                // If backtracking fails and we have very few rooms, restart completely
+                if (Path.Num() < 5)
+                {
+                    UE_LOG(LogTemp, Warning, TEXT("🔄 Complete restart - only had %d rooms"), Path.Num());
+                    Path.Empty();
+                    Visited.Empty();
+                    Path.Add(StartPos);
+                    Visited.Add(StartPos);
+                    CurrentPos = StartPos;
+                    StuckCount = 0;
+                    continue;
+                }
+                else
+                {
+                    UE_LOG(LogTemp, Error, TEXT("❌ CRITICAL: Cannot backtrack further and cannot place more rooms!"));
+                    break;
+                }
+            }
+        }
+        else
+        {
+            // Successfully found a position
+            StuckCount = 0; // Reset stuck counter
+            Path.Add(NextPos);
+            Visited.Add(NextPos);
+            CurrentPos = NextPos;
+            
+            FString RoomType = (Path.Num() == 1) ? TEXT("START(2x2)") : 
+                              (Path.Num() == RequiredRoomCount) ? TEXT("END(2x2)") : TEXT("REGULAR(3x3)");
+            UE_LOG(LogTemp, VeryVerbose, TEXT("🐍 Added %s room %d at (%d,%d)"), *RoomType, Path.Num(), NextPos.X, NextPos.Y);
         }
         
-        Path.Add(NextPos);
-        Visited.Add(NextPos);
-        CurrentPos = NextPos;
-        
-        FString RoomType = (Path.Num() == 1) ? TEXT("START(2x2)") : 
-                          (Path.Num() == RequiredRoomCount) ? TEXT("END(2x2)") : TEXT("REGULAR(3x3)");
-        UE_LOG(LogTemp, VeryVerbose, TEXT("🐍 Added %s room %d at (%d,%d)"), *RoomType, Path.Num(), NextPos.X, NextPos.Y);
+        // Progress logging every 5 rooms
+        if (Path.Num() % 5 == 0 && Path.Num() > 0)
+        {
+            UE_LOG(LogTemp, Log, TEXT("📊 Progress: %d/%d rooms placed (%.1f%% complete)"), 
+                Path.Num(), TargetPathLength, (float(Path.Num()) / float(TargetPathLength)) * 100.0f);
+        }
     }
     
-    // Verify we got exactly 25 rooms
+    // CRITICAL: Verify we got exactly 25 rooms - this MUST never fail
     if (Path.Num() != RequiredRoomCount)
     {
-        UE_LOG(LogTemp, Error, TEXT("❌ Path generation failed: Got %d rooms, need exactly 25"), Path.Num());
+        UE_LOG(LogTemp, Error, TEXT("❌ CRITICAL FAILURE: Path generation failed after %d retries: Got %d rooms, need exactly %d"), 
+            RetryCount, Path.Num(), RequiredRoomCount);
+        UE_LOG(LogTemp, Error, TEXT("❌ Grid Size: %dx%d, StuckCount: %d"), GridSizeX, GridSizeY, StuckCount);
+        
+        // This should never happen with the improved algorithm
+        checkf(false, TEXT("CRITICAL: GridDungeonVisualizer failed to generate exactly 25 rooms! Got %d rooms. This violates the core requirement."), Path.Num());
         return TArray<FIntPoint>(); // Return empty on failure
     }
     
-    // The last room (25th) is the END
-    UE_LOG(LogTemp, Log, TEXT("✅ Generated exactly 25 rooms"));
+    // SUCCESS: The last room (25th) is the END
+    UE_LOG(LogTemp, Log, TEXT("✅ SUCCESS: Generated exactly %d rooms after %d attempts"), Path.Num(), RetryCount);
     UE_LOG(LogTemp, Log, TEXT("  START at (%d,%d)"), Path[0].X, Path[0].Y);
     UE_LOG(LogTemp, Log, TEXT("  END at (%d,%d)"), Path.Last().X, Path.Last().Y);
     
@@ -1020,63 +1063,117 @@ bool AGridDungeonVisualizer::IsValidMoveForVariableRooms(FIntPoint NewPos, int32
 
 FIntPoint AGridDungeonVisualizer::FindNextPositionForPath(FIntPoint Current, const TSet<FIntPoint>& Visited, int32 PathIndex)
 {
+    // FIXED: More flexible room placement to avoid getting stuck
     // Determine room size for next position
     bool bIsStart = (PathIndex == 0);
     bool bIsEnd = (PathIndex == RequiredRoomCount - 1);
     int32 NextRoomSize = (bIsStart || bIsEnd) ? 2 : 3;
     
-    // Calculate step size based on current and next room sizes
-    int32 CurrentRoomSize = (PathIndex == 1) ? 2 : 3; // Previous was START if we're at index 1
-    int32 StepSize = (CurrentRoomSize + NextRoomSize) / 2 + 1; // Ensures 1 cell gap
+    // FIXED: Try multiple step sizes instead of just one calculated size
+    TArray<int32> StepSizes;
     
-    // Try all four directions
-    TArray<FIntPoint> PossibleMoves;
-    TArray<FIntPoint> Directions = {
-        FIntPoint(StepSize, 0),   // Right
-        FIntPoint(-StepSize, 0),  // Left
-        FIntPoint(0, StepSize),   // Up
-        FIntPoint(0, -StepSize)   // Down
-    };
-    
-    for (const FIntPoint& Dir : Directions)
+    // For mixed room sizes, try different step sizes
+    if (NextRoomSize == 2 && PathIndex > 1) // 2x2 room (END)
     {
-        FIntPoint NewPos = Current + Dir;
+        StepSizes = {4, 5, 6, 7}; // Try various distances for 2x2
+    }
+    else if (NextRoomSize == 3) // 3x3 room
+    {
+        StepSizes = {4, 5, 6, 7, 8}; // Try various distances for 3x3
+    }
+    else // START room or fallback
+    {
+        StepSizes = {4, 5, 6};
+    }
+    
+    TArray<FIntPoint> PossibleMoves;
+    
+    // Try all step sizes and directions
+    for (int32 StepSize : StepSizes)
+    {
+        TArray<FIntPoint> Directions = {
+            FIntPoint(StepSize, 0),   // Right
+            FIntPoint(-StepSize, 0),  // Left
+            FIntPoint(0, StepSize),   // Up
+            FIntPoint(0, -StepSize),  // Down
+            // FIXED: Add diagonal moves for better connectivity
+            FIntPoint(StepSize, StepSize),   // Up-Right
+            FIntPoint(StepSize, -StepSize),  // Down-Right
+            FIntPoint(-StepSize, StepSize),  // Up-Left
+            FIntPoint(-StepSize, -StepSize)  // Down-Left
+        };
         
-        // Check if position is valid
-        if (IsValidRoomPosition(NewPos, NextRoomSize, Visited))
+        for (const FIntPoint& Dir : Directions)
         {
-            PossibleMoves.Add(NewPos);
+            FIntPoint NewPos = Current + Dir;
+            
+            // Check if position is valid
+            if (IsValidRoomPosition(NewPos, NextRoomSize, Visited))
+            {
+                PossibleMoves.Add(NewPos);
+            }
         }
     }
     
     if (PossibleMoves.Num() == 0)
     {
+        UE_LOG(LogTemp, Warning, TEXT("🔄 FindNextPositionForPath: No valid moves found for PathIndex %d at (%d,%d)"), PathIndex, Current.X, Current.Y);
         return FIntPoint(-1, -1); // No valid moves
     }
     
-    // Choose move that maximizes distance from START (for better spread)
+    // FIXED: Smarter move selection to avoid getting stuck
     FIntPoint BestMove = PossibleMoves[0];
-    float MaxDistance = 0;
     
-    for (const FIntPoint& Move : PossibleMoves)
+    if (PathIndex < RequiredRoomCount / 2)
     {
-        float DistFromStart = FVector2D::Distance(FVector2D(Move.X, Move.Y), FVector2D(2, 2));
-        if (DistFromStart > MaxDistance)
+        // First half: Maximize distance from START for spread
+        float MaxDistance = 0;
+        for (const FIntPoint& Move : PossibleMoves)
         {
-            MaxDistance = DistFromStart;
-            BestMove = Move;
+            float DistFromStart = FVector2D::Distance(FVector2D(Move.X, Move.Y), FVector2D(2, 2));
+            if (DistFromStart > MaxDistance)
+            {
+                MaxDistance = DistFromStart;
+                BestMove = Move;
+            }
         }
     }
+    else
+    {
+        // Second half: Choose moves that maintain connectivity and avoid corners
+        // Prefer moves toward center of available space
+        float BestScore = -1;
+        for (const FIntPoint& Move : PossibleMoves)
+        {
+            // Score based on distance from edges (avoid getting trapped in corners)
+            int32 DistFromLeftEdge = Move.X - 2;
+            int32 DistFromRightEdge = (GridSizeX - 3) - Move.X;
+            int32 DistFromTopEdge = Move.Y - 2;
+            int32 DistFromBottomEdge = (GridSizeY - 3) - Move.Y;
+            
+            int32 MinDistFromEdge = FMath::Min(FMath::Min(DistFromLeftEdge, DistFromRightEdge), FMath::Min(DistFromTopEdge, DistFromBottomEdge));
+            float EdgeScore = MinDistFromEdge;
+            
+            if (EdgeScore > BestScore)
+            {
+                BestScore = EdgeScore;
+                BestMove = Move;
+            }
+        }
+    }
+    
+    UE_LOG(LogTemp, VeryVerbose, TEXT("✅ FindNextPositionForPath: Selected (%d,%d) from %d options for PathIndex %d"), 
+        BestMove.X, BestMove.Y, PossibleMoves.Num(), PathIndex);
     
     return BestMove;
 }
 
-bool AGridDungeonVisualizer::IsValidRoomPosition(FIntPoint Pos, int32 RoomSize, const TSet<FIntPoint>& Visited)
+bool AGridDungeonVisualizer::IsValidRoomPosition(FIntPoint Pos, int32 CurrentRoomSize, const TSet<FIntPoint>& Visited)
 {
     // Check boundary constraints
-    int32 MinBoundaryDistance = (RoomSize == 2) ? 1 : 2;
+    int32 MinBoundaryDistance = (CurrentRoomSize == 2) ? 1 : 2;
     
-    if (RoomSize == 2) // 2x2 room
+    if (CurrentRoomSize == 2) // 2x2 room
     {
         // Room occupies Pos to Pos+1
         if (Pos.X < MinBoundaryDistance || Pos.X + 1 >= GridSizeX - MinBoundaryDistance)
@@ -1126,18 +1223,30 @@ bool AGridDungeonVisualizer::CheckRoomSpacing(FIntPoint NewPos, int32 NewSize, F
 
 bool AGridDungeonVisualizer::BacktrackPath(TArray<FIntPoint>& Path, TSet<FIntPoint>& Visited)
 {
-    // Simple backtracking - remove last room if we have more than 1
+    // FIXED: More aggressive backtracking to avoid permanent stuck states
     if (Path.Num() <= 1)
     {
         return false; // Can't backtrack from START
     }
     
-    FIntPoint LastRoom = Path.Last();
-    Path.RemoveAt(Path.Num() - 1);
-    Visited.Remove(LastRoom);
+    // Remove multiple rooms if we're really stuck (when we have many rooms but still can't progress)
+    int32 BacktrackCount = 1;
+    if (Path.Num() > RequiredRoomCount * 0.5 && Path.Num() < RequiredRoomCount * 0.8)
+    {
+        // We're in the middle phase and stuck - backtrack more aggressively
+        BacktrackCount = FMath::Min(3, Path.Num() - 1);
+        UE_LOG(LogTemp, Warning, TEXT("🔙 Aggressive backtracking: removing %d rooms"), BacktrackCount);
+    }
     
-    UE_LOG(LogTemp, Warning, TEXT("🔙 Backtracked from (%d,%d), now at %d rooms"), 
-        LastRoom.X, LastRoom.Y, Path.Num());
+    for (int32 i = 0; i < BacktrackCount && Path.Num() > 1; ++i)
+    {
+        FIntPoint LastRoom = Path.Last();
+        Path.RemoveAt(Path.Num() - 1);
+        Visited.Remove(LastRoom);
+        
+        UE_LOG(LogTemp, Warning, TEXT("🔙 Backtracked from (%d,%d), now at %d rooms"), 
+            LastRoom.X, LastRoom.Y, Path.Num());
+    }
     
     return true;
 }
@@ -2284,25 +2393,28 @@ void AGridDungeonVisualizer::CalculateOptimalGridSize()
         return;
     }
     
-    // Calculate space needed for rooms
-    // Each 3x3 room with 1 cell gap needs 4x4 space
-    // 2x2 rooms (START/END) need 3x3 space with gap
-    // But rooms can be arranged in a snake pattern
+    // FIXED: More generous grid sizing to ensure 25 rooms can always be placed
+    // Snake pattern with mixed room sizes (2x2 START/END, 3x3 regular)
+    // Account for worst-case scenario where snake needs to wind extensively
     
     // For exactly 25 rooms with mixed sizes:
-    // - 2 rooms are 2x2 (START and END)
-    // - 23 rooms are 3x3
-    // With 1 cell gaps, we need approximately:
-    // Average room footprint = (2*9 + 23*16) / 25 = 15.28 cells per room
+    // - 2 rooms are 2x2 (START and END) = 8 cells
+    // - 23 rooms are 3x3 = 207 cells
+    // Plus 1-cell gaps between all rooms
+    // Plus boundary safety margins
     
-    int32 TotalCellsNeeded = RequiredRoomCount * 16; // Conservative estimate
+    int32 BaseRoomCells = (2 * 4) + (23 * 9); // Actual room cells
+    int32 GapCells = RequiredRoomCount * 4; // Conservative gap estimate
+    int32 BoundaryCells = 50; // Safety margin for boundaries
+    int32 TotalCellsNeeded = BaseRoomCells + GapCells + BoundaryCells;
+    
     int32 MinGridSize = FMath::CeilToInt(FMath::Sqrt((float)TotalCellsNeeded));
+    
+    // Ensure minimum size that empirically works for snake patterns
+    MinGridSize = FMath::Max(MinGridSize, 35); // Increased from 24 to 35
     
     // Round up to multiple of 4 for clean alignment
     MinGridSize = ((MinGridSize + 3) / 4) * 4;
-    
-    // Ensure minimum size for path generation
-    MinGridSize = FMath::Max(MinGridSize, 24); // Minimum for 25 rooms
     
     // Set to calculated size
     CalculatedGridSizeX = MinGridSize;
@@ -2315,7 +2427,7 @@ void AGridDungeonVisualizer::CalculateOptimalGridSize()
         GridSizeY = CalculatedGridSizeY;
     }
     
-    UE_LOG(LogTemp, Log, TEXT("📐 Grid size set to %dx%d for exactly 25 rooms"), GridSizeX, GridSizeY);
+    UE_LOG(LogTemp, Log, TEXT("📐 FIXED: Grid size set to %dx%d for exactly 25 rooms (was getting stuck at smaller sizes)"), GridSizeX, GridSizeY);
 }
 
 FIntPoint AGridDungeonVisualizer::GetOptimalGridSizeForRooms(int32 RoomCount)

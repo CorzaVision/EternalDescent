@@ -97,7 +97,15 @@
       "Bash(\"C:\\Program Files\\Epic Games\\UE_5.6\\Engine\\Binaries\\DotNET\\UnrealBuildTool\\UnrealBuildTool.exe\" EternalDescentEditor Win64 Development -project=\"EternalDescent.uproject\" -WaitMutex -FromMsBuild)",
       "Bash(RunTest.bat EternalDescent.Dungeon.GridAutoSizing --no-pause)",
       "Bash(\"C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Community\\MSBuild\\Current\\Bin\\MSBuild.exe\" EternalDescent.sln /p:Configuration=Development /p:Platform=Win64 /t:EternalDescentEditor /maxcpucount:8)",
-      "Bash(git add:*)"
+      "Bash(git add:*)",
+      "Bash(\"C:\\Program Files\\Epic Games\\UE_5.6\\Engine\\Binaries\\DotNET\\UnrealBuildTool\\UnrealBuildTool.exe\" -Mode=TestTargetInfo -Project=\"EternalDescent.uproject\" -TargetType=Editor)",
+      "Bash(\"./RunTest.bat\" \"EternalDescent.Dungeon.Exact25Rooms\" \"--no-pause\")",
+      "Bash(\"./RunTest.bat\" \"EternalDescent.Dungeon.EmpiricalProof\" \"--no-pause\")",
+      "Bash(\"./RunTest.bat\" \"EternalDescent.Dungeon.QuickRoomCountTest\" \"--no-pause\")",
+      "Bash(\"./RunTest.bat\" \"EternalDescent.Dungeon\" \"--no-pause\")",
+      "Bash(\"C:\\Program Files\\Epic Games\\UE_5.5\\Engine\\Binaries\\Win64\\UnrealEditor-Cmd.exe\" \"D:\\Github\\Self Projects\\EternalDescent\\EternalDescent.uproject\" -ExecCmds=\"Automation RunTests EternalDescent.Dungeon.QuickRoomCountTest\" -stdout -FullStdOutLogOutput -unattended -nopause -nullrhi -nosplash)",
+      "Bash(RunTest.bat EternalDescent.Dungeon.QuickRoomCountTest --no-pause)",
+      "Bash(wmic:*)"
     ],
     "deny": []
   }

@@ -145,6 +145,9 @@ public:
     UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Grid Layout", meta=(ClampMin="25", ClampMax="25"))
     int32 RequiredRoomCount = 25;  // EXACTLY 25 rooms, not negotiable
 
+    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Grid Layout", meta=(ClampMin="25", ClampMax="25"))
+    int32 DesiredRoomCount = 25;  // Alias for test compatibility
+
     UPROPERTY(BlueprintReadOnly, Category = "Grid Layout")
     int32 ActualRoomCount = 0;  // Track actual rooms generated
 

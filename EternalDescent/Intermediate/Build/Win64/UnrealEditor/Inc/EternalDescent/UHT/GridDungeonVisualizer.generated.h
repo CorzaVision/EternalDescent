@@ -41,6 +41,7 @@ template<> ETERNALDESCENT_API UScriptStruct* StaticStruct<struct FGridRoomInfo>(
 	DECLARE_FUNCTION(execClearSnakePath); \
 	DECLARE_FUNCTION(execValidateSpacing); \
 	DECLARE_FUNCTION(execMatchCubesToDebugBoxes); \
+	DECLARE_FUNCTION(execDrawDebugCubes); \
 	DECLARE_FUNCTION(execTestAlternativeAlignment); \
 	DECLARE_FUNCTION(execTestGridAlignment); \
 	DECLARE_FUNCTION(execSkipToEnd); \
