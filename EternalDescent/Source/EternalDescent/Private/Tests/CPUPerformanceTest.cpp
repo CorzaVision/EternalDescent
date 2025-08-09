@@ -31,10 +31,23 @@ bool FCPUPerformanceTest::RunTest(const FString& Parameters)
     
     AddInfo(TEXT("=== CPU PERFORMANCE TEST - GRIDDUNGEONVISUALIZER ONLY ==="));
     
-    UWorld* World = GEngine ? GEngine->GetCurrentPlayWorld() : nullptr;
-    if (!World && GEngine && GEngine->GetWorldContexts().Num() > 0)
+    // Get world for testing - use fallback approach for automation
+    UWorld* World = nullptr;
+    if (GEngine && GEngine->GetWorldContexts().Num() > 0)
     {
-        World = GEngine->GetWorldContexts()[0].World();
+        for (const FWorldContext& Context : GEngine->GetWorldContexts())
+        {
+            if (Context.World() && Context.WorldType == EWorldType::Editor)
+            {
+                World = Context.World();
+                break;
+            }
+        }
+        // Fallback to any available world
+        if (!World && GEngine->GetWorldContexts().Num() > 0)
+        {
+            World = GEngine->GetWorldContexts()[0].World();
+        }
     }
     if (!ensure(IsValid(World)))
     {
@@ -216,7 +229,7 @@ bool FCPUPerformanceTest::RunTest(const FString& Parameters)
     
     double MemoryPerInstance = TotalInstances > 0 ? (MemoryUsedMB * 1024.0 * 1024.0) / TotalInstances : 0;
     
-    AddInfo(FString::Printf(TEXT("Memory Usage:"));
+    AddInfo(FString::Printf(TEXT("Memory Usage:")));
     AddInfo(FString::Printf(TEXT("  Total Memory: %.2f MB"), MemoryUsedMB));
     AddInfo(FString::Printf(TEXT("  Wall Instances: %d"), WallInstances));
     AddInfo(FString::Printf(TEXT("  Floor Instances: %d"), FloorInstances));

@@ -25,13 +25,7 @@
             "d:\\epic games\\ue_5.5\\engine\\source\\runtime\\engine\\public\\tests\\automationcommon.h",
             "d:\\epic games\\ue_5.5\\engine\\source\\editor\\unrealed\\public\\tests\\automationeditorcommon.h",
             "d:\\epic games\\ue_5.5\\engine\\source\\runtime\\engine\\classes\\tests\\automationtestsettings.h",
-            "d:\\epic games\\ue_5.5\\engine\\intermediate\\build\\win64\\unrealeditor\\inc\\engine\\uht\\automationtestsettings.generated.h",
-            "d:\\epic games\\ue_5.5\\engine\\source\\developer\\functionaltesting\\public\\automationblueprintfunctionlibrary.h",
-            "d:\\epic games\\ue_5.5\\engine\\source\\developer\\functionaltesting\\public\\automationscreenshotoptions.h",
-            "d:\\epic games\\ue_5.5\\engine\\source\\developer\\functionaltesting\\public\\automationviewsettings.h",
-            "d:\\epic games\\ue_5.5\\engine\\intermediate\\build\\win64\\unrealeditor\\inc\\functionaltesting\\uht\\automationviewsettings.generated.h",
-            "d:\\epic games\\ue_5.5\\engine\\intermediate\\build\\win64\\unrealeditor\\inc\\functionaltesting\\uht\\automationscreenshotoptions.generated.h",
-            "d:\\epic games\\ue_5.5\\engine\\intermediate\\build\\win64\\unrealeditor\\inc\\functionaltesting\\uht\\automationblueprintfunctionlibrary.generated.h"
+            "d:\\epic games\\ue_5.5\\engine\\intermediate\\build\\win64\\unrealeditor\\inc\\engine\\uht\\automationtestsettings.generated.h"
         ],
         "ImportedModules": [],
         "ImportedHeaderUnits": []

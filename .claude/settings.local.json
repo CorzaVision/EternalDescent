@@ -127,7 +127,11 @@
       "Bash(\"D:/Epic Games/UE_5.5/Engine/Binaries/Win64/UnrealEditor.exe\" \"D:/Github/Self Projects/EternalDescent/EternalDescent/EternalDescent.uproject\" -ExecCmds=\"Automation RunTests EternalDescent.Dungeon.Exact25Rooms; Quit\" -unattended -log)",
       "Bash(\"D:/Epic Games/UE_5.5/Engine/Binaries/Win64/UnrealEditor.exe\" \"D:/Github/Self Projects/EternalDescent/EternalDescent/EternalDescent.uproject\" -ExecCmds=\"Automation RunTests EternalDescent.Dungeon.MixedRoomSizes; Quit\" -unattended -log)",
       "Bash(\"D:/Epic Games/UE_5.5/Engine/Binaries/Win64/UnrealEditor.exe\" \"D:/Github/Self Projects/EternalDescent/EternalDescent/EternalDescent.uproject\" -ExecCmds=\"Automation RunTests EternalDescent.Dungeon.GapSpacingVerification; Quit\" -unattended -log)",
-      "Bash(\"D:/Epic Games/UE_5.5/Engine/Binaries/Win64/UnrealEditor.exe\" \"D:/Github/Self Projects/EternalDescent/EternalDescent/EternalDescent.uproject\" -ExecCmds=\"Automation RunTests EternalDescent.Dungeon.GridVisualizer.Performance; Quit\" -unattended -log)"
+      "Bash(\"D:/Epic Games/UE_5.5/Engine/Binaries/Win64/UnrealEditor.exe\" \"D:/Github/Self Projects/EternalDescent/EternalDescent/EternalDescent.uproject\" -ExecCmds=\"Automation RunTests EternalDescent.Dungeon.GridVisualizer.Performance; Quit\" -unattended -log)",
+      "Bash(D:GithubSelf ProjectsEternalDescentTestRunTest.bat EternalDescent.Dungeon --no-pause)",
+      "Bash(RunTest.bat --no-pause)",
+      "Bash(\"D:\\Epic Games\\UE_5.5\\Engine\\Binaries\\DotNET\\UnrealBuildTool\\UnrealBuildTool.exe\" EternalDescentEditor Win64 Development -project=\"EternalDescent.uproject\" -WaitMutex -FromMsBuild)",
+      "Bash(\"D:\\Epic Games\\UE_5.5\\Engine\\Binaries\\DotNET\\UnrealBuildTool\\UnrealBuildTool.exe\" EternalDescentEditor Win64 Development -project=\"D:\\Github\\Self Projects\\EternalDescent\\EternalDescent\\EternalDescent.uproject\" -WaitMutex -FromMsBuild)"
     ],
     "deny": []
   }

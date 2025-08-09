@@ -17,7 +17,7 @@
 #if WITH_AUTOMATION_TESTS
 
 #include "Tests/AutomationEditorCommon.h"
-#include "AutomationBlueprintFunctionLibrary.h"
+// Removed AutomationBlueprintFunctionLibrary include - not needed
 
 IMPLEMENT_SIMPLE_AUTOMATION_TEST(FSimpleMixedRoomTest, "EternalDescent.Dungeon.SimpleMixedRoomTest",
     EAutomationTestFlags::EditorContext | EAutomationTestFlags::ProductFilter)
@@ -26,8 +26,24 @@ bool FSimpleMixedRoomTest::RunTest(const FString& Parameters)
 {
     AddInfo(TEXT("=== SIMPLE MIXED ROOM TEST ==="));
     
-    // Get world for testing
-    UWorld* World = (GEngine ? GEngine->GetCurrentPlayWorld() : (GEngine && GEngine->GetWorldContexts().Num() > 0 ? GEngine->GetWorldContexts()[0].World() : nullptr));
+    // Get world for testing - use fallback approach for automation
+    UWorld* World = nullptr;
+    if (GEngine && GEngine->GetWorldContexts().Num() > 0)
+    {
+        for (const FWorldContext& Context : GEngine->GetWorldContexts())
+        {
+            if (Context.World() && Context.WorldType == EWorldType::Editor)
+            {
+                World = Context.World();
+                break;
+            }
+        }
+        // Fallback to any available world
+        if (!World && GEngine->GetWorldContexts().Num() > 0)
+        {
+            World = GEngine->GetWorldContexts()[0].World();
+        }
+    }
     if (!ensure(IsValid(World)))
     {
         AddError(TEXT("SimpleMixedRoomTest: Failed to get valid world"));
