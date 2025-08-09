@@ -160,3 +160,6 @@ class UEntityAwareComponent : public UActorComponent
 - Zone-based generation (Sunken Crypt, Blighted Forest, Frozen Fortress)
 
 See `docs/ROADMAP.md` for complete development timeline.
+- Use only 1 .bat file named @Test\RunTest.bat and remember @Test\TestingRules.md when testing
+- When making test proofs or what not clean up old copies of old tests then make new ones in designated folders
+- refer to @Design\Eternal Descent TDD.md and @Design\Eternal Descent GDD.md for project features and design choices, these are readonly no editing

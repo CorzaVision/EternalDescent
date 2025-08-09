@@ -204,7 +204,7 @@ public:
     UPROPERTY(BlueprintReadOnly, Category = "Dungeon|Runtime")
     TArray<AActor*> SpawnedDungeonActors;
 
-private:
+protected:
     // Instanced Mesh Components for Performance
     UPROPERTY()
     UInstancedStaticMeshComponent* FloorInstancedMesh;
@@ -214,6 +214,8 @@ private:
     
     UPROPERTY()
     UInstancedStaticMeshComponent* CeilingInstancedMesh;
+
+private:
     
     // Internal Functions
     void SpawnWallsForRoom(const FRoomVisualData& Room);

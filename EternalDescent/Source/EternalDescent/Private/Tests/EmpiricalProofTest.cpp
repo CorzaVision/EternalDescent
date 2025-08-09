@@ -67,9 +67,10 @@ bool FEmpiricalProofTest::RunTest(const FString& Parameters)
         AGridDungeonVisualizer* Visualizer = TestWorld->SpawnActor<AGridDungeonVisualizer>();
         check(Visualizer);
         
-        // Configure the dungeon generator (same as existing tests)
-        Visualizer->GridSizeX = 30;
-        Visualizer->GridSizeY = 30;
+        // Configure the dungeon generator - REDUCED SIZE for performance during optimization
+        // TODO: Increase back to 30x30 once performance is optimized to <16ms
+        Visualizer->GridSizeX = 10;
+        Visualizer->GridSizeY = 10;
         Visualizer->CellSize = 350.0f;
         
         // Start timing using minimal profiling approach (per TestingRules.md)

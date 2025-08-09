@@ -1,0 +1,68 @@
+Gap Validation Logic Analysis - CRITICAL BUG FOUND
+=====================================================
+
+CURRENT IMPLEMENTATION BUG:
+---------------------------
+
+The ValidateMixedRoomSpacing function has incorrect gap calculation:
+
+```cpp
+int32 XGap = FMath::Max(Room1MinX - Room2MaxX - 1, Room2MinX - Room1MaxX - 1);
+int32 YGap = FMath::Max(Room1MinY - Room2MaxY - 1, Room2MinY - Room1MaxY - 1);
+
+if (XGap < 0 && YGap < 0)  // WRONG! This checks for overlap, not gap
+```
+
+PROBLEM: This checks for room OVERLAP, not GAP SIZE. The logic is backwards!
+
+CORRECT LOGIC SHOULD BE:
+------------------------
+
+Gap calculation for adjacent rooms:
+- XGap = min(Room1MinX, Room2MinX) - max(Room1MaxX, Room2MaxX) - 1
+- OR: Check actual separation distance
+
+Better approach:
+```cpp
+// Check if rooms are adjacent in X direction
+bool XAdjacent = (Room1MaxX + 1 >= Room2MinX && Room1MinX <= Room2MaxX + 1);
+bool YAdjacent = (Room1MaxY + 1 >= Room2MinY && Room1MinY <= Room2MaxY + 1);
+
+if (XAdjacent && YAdjacent) {
+    // Check minimum gap
+    int32 XGap = FMath::Min(FMath::Abs(Room2MinX - Room1MaxX - 1), 
+                            FMath::Abs(Room1MinX - Room2MaxX - 1));
+    int32 YGap = FMath::Min(FMath::Abs(Room2MinY - Room1MaxY - 1), 
+                            FMath::Abs(Room1MinY - Room2MaxY - 1));
+    
+    if (XGap < 1 || YGap < 1) {
+        // Insufficient gap
+    }
+}
+```
+
+EXAMPLE DEMONSTRATING THE BUG:
+------------------------------
+
+Room1: 3x3 at center (10,10) → bounds (9,9) to (11,11)
+Room2: 3x3 at center (13,10) → bounds (12,10) to (14,12) 
+
+Gap between rooms: 12 - 11 - 1 = 0 cells (touching, no gap)
+
+Current buggy calculation:
+- XGap = max(9 - 14 - 1, 12 - 11 - 1) = max(-6, 0) = 0
+- YGap = max(9 - 12 - 1, 10 - 11 - 1) = max(-4, -2) = -2
+- Condition: XGap < 0 && YGap < 0 → 0 < 0 && -2 < 0 → false && true = FALSE
+
+Result: Bug doesn't detect touching rooms! Should fail validation but passes.
+
+IMPACT:
+-------
+- Rooms can be placed touching each other (0 gap) 
+- Visual gaps will not be maintained
+- Snake generation may create invalid layouts
+- Tests may pass when they should fail
+
+FIX REQUIRED:
+-------------
+The validation logic needs to be completely rewritten to properly detect insufficient gaps.

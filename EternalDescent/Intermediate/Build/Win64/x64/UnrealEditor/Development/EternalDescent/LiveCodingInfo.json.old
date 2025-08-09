@@ -1,0 +1,20 @@
+{
+	"RemapUnityFiles": 
+	{
+		"Module.EternalDescent.gen.cpp.obj": [
+			"ADASystem.gen.cpp.obj",
+			"CubeDungeonTypes.gen.cpp.obj",
+			"DungeonTestTypes.gen.cpp.obj",
+			"DungeonVisualizer.gen.cpp.obj",
+			"EternalDescent.init.gen.cpp.obj",
+			"EternalDescentCharacter.gen.cpp.obj",
+			"EternalDescentGameMode.gen.cpp.obj",
+			"GridDungeonVisualizer.gen.cpp.obj",
+			"MyObjectTest.gen.cpp.obj",
+			"ProceduralFloorComponent.gen.cpp.obj",
+			"RoomGraphBuilder.gen.cpp.obj",
+			"SnakeDungeonGenerator.gen.cpp.obj",
+			"WallEnvironmentBuilder.gen.cpp.obj"
+		]
+	}
+}

@@ -102,6 +102,7 @@ public class EternalDescent : ModuleRules
 		    Target.Configuration == UnrealTargetConfiguration.Development)
 		{
 			bUseRTTI = true;
+			// UE 5.5 compatibility - use older API
 			UndefinedIdentifierWarningLevel = WarningLevel.Off;
 		}
 		
