@@ -70,7 +70,7 @@ bool FRoomCountTest::RunTest(const FString& Parameters)
                         Visited[Index] = true;
                         int32 RoomSize = 0;
                         
-                        FIntPoint Current;
+                        FIntPoint Current = FIntPoint::ZeroValue;
                         while (Queue.Dequeue(Current))
                         {
                             RoomSize++;
@@ -160,7 +160,7 @@ bool FRoomSpacingTest::RunTest(const FString& Parameters)
     // Find all room boundaries
     struct FRoomBounds
     {
-        int32 MinX, MaxX, MinY, MaxY;
+        int32 MinX = 0, MaxX = 0, MinY = 0, MaxY = 0;
     };
     
     TArray<FRoomBounds> RoomBoundsList;
@@ -257,7 +257,7 @@ bool FRoomSpacingTest::RunTest(const FString& Parameters)
                 YGap = Room1.MinY - Room2.MaxY - 1;
             
             // Check if rooms are adjacent (share an axis)
-            bool bAdjacent = false;
+            // bool bAdjacent = false; // Unused variable - removed
             if ((Room1.MinX <= Room2.MaxX && Room1.MaxX >= Room2.MinX) || 
                 (Room1.MinY <= Room2.MaxY && Room1.MaxY >= Room2.MinY))
             {

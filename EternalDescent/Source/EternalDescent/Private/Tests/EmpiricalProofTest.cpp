@@ -120,7 +120,7 @@ bool FEmpiricalProofTest::RunTest(const FString& Parameters)
                         Visited[Index] = true;
                         int32 RoomSize = 0;
                         
-                        FIntPoint CurrentPos;
+                        FIntPoint CurrentPos = FIntPoint::ZeroValue;
                         while (FloodQueue.Dequeue(CurrentPos))
                         {
                             RoomSize++;
@@ -179,7 +179,7 @@ bool FEmpiricalProofTest::RunTest(const FString& Parameters)
             FIntPoint Pos = RoomPositions[i];
             
             // Estimate room dimensions from cell count
-            FString RoomType;
+            FString RoomType = TEXT("Unknown");
             if (Size >= 4 && Size <= 6)
             {
                 Count2x2++;

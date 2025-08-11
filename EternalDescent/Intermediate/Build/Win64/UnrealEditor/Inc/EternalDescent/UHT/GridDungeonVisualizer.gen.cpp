@@ -1662,6 +1662,7 @@ struct Z_Construct_UClass_AGridDungeonVisualizer_Statics
 		{ "IncludePath", "GridDungeonVisualizer.h" },
 		{ "IsBlueprintBase", "true" },
 		{ "ModuleRelativePath", "Public/GridDungeonVisualizer.h" },
+		{ "ObjectInitializerConstructorDeclared", "" },
 	};
 	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_RequiredRoomCount_MetaData[] = {
 		{ "Category", "Grid Layout" },
@@ -1720,30 +1721,36 @@ struct Z_Construct_UClass_AGridDungeonVisualizer_Statics
 	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_CalculatedGridSizeY_MetaData[] = {
 		{ "Category", "Grid Layout" },
 #if !UE_BUILD_SHIPPING
-		{ "Comment", "// Calculated optimal size\n" },
+		{ "Comment", "// Calculated optimal size (increased from 30)\n" },
 #endif
 		{ "ModuleRelativePath", "Public/GridDungeonVisualizer.h" },
 #if !UE_BUILD_SHIPPING
-		{ "ToolTip", "Calculated optimal size" },
+		{ "ToolTip", "Calculated optimal size (increased from 30)" },
 #endif
 	};
 	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_GridSizeX_MetaData[] = {
 		{ "Category", "Grid Layout" },
-		{ "ClampMax", "50" },
-		{ "ClampMin", "20" },
+		{ "ClampMax", "60" },
+		{ "ClampMin", "30" },
 #if !UE_BUILD_SHIPPING
-		{ "Comment", "// Calculated optimal size\n" },
+		{ "Comment", "// Calculated optimal size (increased from 30)\n" },
 #endif
 		{ "ModuleRelativePath", "Public/GridDungeonVisualizer.h" },
 #if !UE_BUILD_SHIPPING
-		{ "ToolTip", "Calculated optimal size" },
+		{ "ToolTip", "Calculated optimal size (increased from 30)" },
 #endif
 	};
 	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_GridSizeY_MetaData[] = {
 		{ "Category", "Grid Layout" },
-		{ "ClampMax", "50" },
-		{ "ClampMin", "20" },
+		{ "ClampMax", "60" },
+		{ "ClampMin", "30" },
+#if !UE_BUILD_SHIPPING
+		{ "Comment", "// Increased default from 30 to 45\n" },
+#endif
 		{ "ModuleRelativePath", "Public/GridDungeonVisualizer.h" },
+#if !UE_BUILD_SHIPPING
+		{ "ToolTip", "Increased default from 30 to 45" },
+#endif
 	};
 	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_RoomSize_MetaData[] = {
 		{ "Category", "Grid Layout" },
@@ -2442,10 +2449,10 @@ struct Z_CompiledInDeferFile_FID_Github_Self_Projects_EternalDescent_EternalDesc
 		{ FGridRoomInfo::StaticStruct, Z_Construct_UScriptStruct_FGridRoomInfo_Statics::NewStructOps, TEXT("GridRoomInfo"), &Z_Registration_Info_UScriptStruct_GridRoomInfo, CONSTRUCT_RELOAD_VERSION_INFO(FStructReloadVersionInfo, sizeof(FGridRoomInfo), 3116174836U) },
 	};
 	static constexpr FClassRegisterCompiledInInfo ClassInfo[] = {
-		{ Z_Construct_UClass_AGridDungeonVisualizer, AGridDungeonVisualizer::StaticClass, TEXT("AGridDungeonVisualizer"), &Z_Registration_Info_UClass_AGridDungeonVisualizer, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AGridDungeonVisualizer), 3625494128U) },
+		{ Z_Construct_UClass_AGridDungeonVisualizer, AGridDungeonVisualizer::StaticClass, TEXT("AGridDungeonVisualizer"), &Z_Registration_Info_UClass_AGridDungeonVisualizer, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AGridDungeonVisualizer), 11905099U) },
 	};
 };
-static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Github_Self_Projects_EternalDescent_EternalDescent_Source_EternalDescent_Public_GridDungeonVisualizer_h_1187117825(TEXT("/Script/EternalDescent"),
+static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Github_Self_Projects_EternalDescent_EternalDescent_Source_EternalDescent_Public_GridDungeonVisualizer_h_2953321892(TEXT("/Script/EternalDescent"),
 	Z_CompiledInDeferFile_FID_Github_Self_Projects_EternalDescent_EternalDescent_Source_EternalDescent_Public_GridDungeonVisualizer_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Github_Self_Projects_EternalDescent_EternalDescent_Source_EternalDescent_Public_GridDungeonVisualizer_h_Statics::ClassInfo),
 	Z_CompiledInDeferFile_FID_Github_Self_Projects_EternalDescent_EternalDescent_Source_EternalDescent_Public_GridDungeonVisualizer_h_Statics::ScriptStructInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Github_Self_Projects_EternalDescent_EternalDescent_Source_EternalDescent_Public_GridDungeonVisualizer_h_Statics::ScriptStructInfo),
 	Z_CompiledInDeferFile_FID_Github_Self_Projects_EternalDescent_EternalDescent_Source_EternalDescent_Public_GridDungeonVisualizer_h_Statics::EnumInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Github_Self_Projects_EternalDescent_EternalDescent_Source_EternalDescent_Public_GridDungeonVisualizer_h_Statics::EnumInfo));

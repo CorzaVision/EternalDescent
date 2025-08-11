@@ -70,7 +70,7 @@ class ETERNALDESCENT_API AGridDungeonVisualizer : public AActor
     GENERATED_BODY()
 
 public:
-    AGridDungeonVisualizer();
+    AGridDungeonVisualizer(const FObjectInitializer& ObjectInitializer = FObjectInitializer::Get());
 
 protected:
     virtual void BeginPlay() override;
@@ -155,16 +155,16 @@ public:
     bool bAutoCalculateGridSize = true;  // Auto-size grid based on room count
 
     UPROPERTY(BlueprintReadOnly, Category = "Grid Layout")
-    int32 CalculatedGridSizeX = 30;  // Calculated optimal size
+    int32 CalculatedGridSizeX = 45;  // Calculated optimal size (increased from 30)
 
     UPROPERTY(BlueprintReadOnly, Category = "Grid Layout")
-    int32 CalculatedGridSizeY = 30;  // Calculated optimal size
+    int32 CalculatedGridSizeY = 45;  // Calculated optimal size (increased from 30)
     
-    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Grid Layout", meta=(ClampMin="20", ClampMax="50"))
-    int32 GridSizeX = 30;
+    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Grid Layout", meta=(ClampMin="30", ClampMax="60"))
+    int32 GridSizeX = 45; // Increased default from 30 to 45
     
-    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Grid Layout", meta=(ClampMin="20", ClampMax="50"))
-    int32 GridSizeY = 30;
+    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Grid Layout", meta=(ClampMin="30", ClampMax="60"))
+    int32 GridSizeY = 45; // Increased default from 30 to 45
     
     // Room Size Configuration
     UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Grid Layout", meta=(ClampMin="3", ClampMax="3"))
@@ -181,23 +181,23 @@ public:
     
     // Prefabs
     UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Prefabs")
-    UStaticMesh* PlaneMesh; // For floors
+    UStaticMesh* PlaneMesh = nullptr; // For floors
     
     UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Prefabs")
-    UStaticMesh* CubeMesh; // For walls
+    UStaticMesh* CubeMesh = nullptr; // For walls
     
     // Visual Settings
     UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Visuals")
-    UMaterialInterface* FloorMaterial;
+    UMaterialInterface* FloorMaterial = nullptr;
     
     UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Visuals")
-    UMaterialInterface* WallMaterial;
+    UMaterialInterface* WallMaterial = nullptr;
     
     UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Visuals")
-    UMaterialInterface* StartRoomMaterial;
+    UMaterialInterface* StartRoomMaterial = nullptr;
     
     UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Visuals")
-    UMaterialInterface* EndRoomMaterial;
+    UMaterialInterface* EndRoomMaterial = nullptr;
     
     // UE 5.5 Optimization Settings
     UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "UE5.5 Features")
@@ -375,10 +375,10 @@ public:
     
     // HISM Components for better performance with large instance counts
     UPROPERTY(BlueprintReadOnly, Category = "Components")
-    UHierarchicalInstancedStaticMeshComponent* PlaneInstances;
+    UHierarchicalInstancedStaticMeshComponent* PlaneInstances = nullptr;
     
     UPROPERTY(BlueprintReadOnly, Category = "Components")
-    UHierarchicalInstancedStaticMeshComponent* CubeInstances;
+    UHierarchicalInstancedStaticMeshComponent* CubeInstances = nullptr;
     
     // Runtime Data
     UPROPERTY(BlueprintReadOnly, Category = "Runtime")
@@ -412,7 +412,7 @@ private:
     FIntPoint FindNextPositionForPath(FIntPoint Current, const TSet<FIntPoint>& Visited, int32 PathIndex);
     bool IsValidRoomPosition(FIntPoint Pos, int32 RoomSize, const TSet<FIntPoint>& Visited);
     bool CheckRoomSpacing(FIntPoint NewPos, int32 NewSize, FIntPoint ExistingPos);
-    bool BacktrackPath(TArray<FIntPoint>& Path, TSet<FIntPoint>& Visited);
+    bool BacktrackPath(TArray<FIntPoint>& Path, TSet<FIntPoint>& Visited, int32 CurrentPathLength);
     bool IsValidMove(int32 X, int32 Y, const TSet<FIntPoint>& Visited);
     bool IsValidMoveForVariableRooms(FIntPoint NewPos, int32 PathIndex, const TSet<FIntPoint>& Visited);
     void MarkPathInGrid(const TArray<FIntPoint>& Path);

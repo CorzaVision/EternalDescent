@@ -89,7 +89,7 @@ private: \
 public: \
 	DECLARE_VTABLE_PTR_HELPER_CTOR(NO_API, AGridDungeonVisualizer); \
 	DEFINE_VTABLE_PTR_HELPER_CTOR_CALLER(AGridDungeonVisualizer); \
-	DEFINE_DEFAULT_CONSTRUCTOR_CALL(AGridDungeonVisualizer) \
+	DEFINE_DEFAULT_OBJECT_INITIALIZER_CONSTRUCTOR_CALL(AGridDungeonVisualizer) \
 	NO_API virtual ~AGridDungeonVisualizer();
 
 

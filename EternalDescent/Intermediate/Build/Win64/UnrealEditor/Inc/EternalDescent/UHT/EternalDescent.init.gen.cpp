@@ -17,13 +17,13 @@ void EmptyLinkFunctionForGeneratedCodeEternalDescent_init() {}
 				nullptr,
 				0,
 				PKG_CompiledIn | 0x00000000,
-				0xC19ADFD2,
-				0xDE05E262,
+				0x87B84724,
+				0x2A32A8BC,
 				METADATA_PARAMS(0, nullptr)
 			};
 			UECodeGen_Private::ConstructUPackage(Z_Registration_Info_UPackage__Script_EternalDescent.OuterSingleton, PackageParams);
 		}
 		return Z_Registration_Info_UPackage__Script_EternalDescent.OuterSingleton;
 	}
-	static FRegisterCompiledInInfo Z_CompiledInDeferPackage_UPackage__Script_EternalDescent(Z_Construct_UPackage__Script_EternalDescent, TEXT("/Script/EternalDescent"), Z_Registration_Info_UPackage__Script_EternalDescent, CONSTRUCT_RELOAD_VERSION_INFO(FPackageReloadVersionInfo, 0xC19ADFD2, 0xDE05E262));
+	static FRegisterCompiledInInfo Z_CompiledInDeferPackage_UPackage__Script_EternalDescent(Z_Construct_UPackage__Script_EternalDescent, TEXT("/Script/EternalDescent"), Z_Registration_Info_UPackage__Script_EternalDescent, CONSTRUCT_RELOAD_VERSION_INFO(FPackageReloadVersionInfo, 0x87B84724, 0x2A32A8BC));
 PRAGMA_ENABLE_DEPRECATION_WARNINGS

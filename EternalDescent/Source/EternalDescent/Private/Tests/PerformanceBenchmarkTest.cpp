@@ -17,11 +17,11 @@
 // Performance Metrics Structure
 struct FPerformanceMetrics
 {
-    double GenerationTimeMs;
-    double MemoryUsedMB;
-    int32 InstanceCount;
-    int32 RoomCount;
-    int32 GridSize;
+    double GenerationTimeMs = 0.0;
+    double MemoryUsedMB = 0.0;
+    int32 InstanceCount = 0;
+    int32 RoomCount = 0;
+    int32 GridSize = 0;
     FString TestName;
 };
 
